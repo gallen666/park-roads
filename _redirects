@@ -1,0 +1,3 @@
+# Netlify / Cloudflare Pages SPA fallback
+# 所有未知路径都返回 index.html，让前端 hash 路殧悖
+/index.html
