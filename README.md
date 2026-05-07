@@ -1,86 +1,79 @@
-# Park-ROADS · 数字化转型升级指数政策沙盘
+# Park-ROADS · 数字园区治理沙盘
 
-> 基于戴继涛博士论文《传统商业园区数字化转型升级中的挑战和对策——基于 OpenX@X 平台的实证研究》（香港岭南大学 DBA 2025）的政策沙盘软件。受 [En-ROADS](https://en-roads.climateinteractive.org/) 启发，把"系统动力学 + 滑杆 + 实时仪表 + 工作坊"四件套从气候领域移植到产业园场景。
+> 基于戴继涛博士《传统商业园区数字化转型升级中的挑战和对策——基于 OpenX@X 平台的实证研究》（岭南大学 DBA 2025）
 
-## ✨ 一句话定位
+## 🌐 在线访问
 
-**让政府、园区、资本、企业、科研、人才、社区——七类利益相关方第一次能在同一张沙盘上，看到自己的诉求与园区数字化转型升级指数（DTSI）的实时关系。**
+**👉 [立即体验 Park-ROADS v1.9 政策沙盘](https://gallen666.github.io/park-roads/)**
 
-## 🚀 快速部署（任选一种，5 分钟内上线）
+35 个滑杆 · 7 主体 AHP 权重 · DTSI 实时计算 · AI 自动诊断 · 论文拆解 · 7 情景一键加载
 
-### 方案 A · Netlify Drop（最快，无需账号）
-1. 打开 https://app.netlify.com/drop
-2. 把整个 `deploy/` 文件夹拖进页面
-3. 立刻得到一个 `xxx.netlify.app` 的临时网址
+---
 
-### 方案 B · GitHub Pages（永久免费）
-```bash
-# 把 deploy/ 文件夹推到任意 GitHub 仓库
-git init && git add . && git commit -m "init"
-git remote add origin https://github.com/<你>/<仓库名>.git
-git push -u origin main
-```
-然后到仓库 Settings → Pages → Source 选 `main` 分支根目录 → 保存。
-约 1 分钟后访问 `https://<你>.github.io/<仓库名>/`。
+## 📦 资源清单
 
-### 方案 C · Vercel（专业级，自动 CI/CD）
-1. 把 `deploy/` 推到 GitHub 仓库（同上）
-2. 登录 https://vercel.com/new ，选中该仓库
-3. 直接点 Deploy（已配 `vercel.json`，无需任何设置）
-4. 自动得到 `xxx.vercel.app` 域名 + 自动 HTTPS + 全球 CDN
+| 资源 | 类型 | 用途 | 链接 |
+|------|------|------|------|
+| **Park-ROADS 网站 v1.9** | 在线 HTML | 完整交互沙盘（272KB 单文件） | [打开](https://gallen666.github.io/park-roads/) · [源码](./index.html) |
+| **v1.9 部署包** | ZIP (86KB) | 离线/自托管部署 (含 _redirects + 404 + vercel.json) | [⬇️ 下载](./ParkROADS_v19_deploy.zip) |
+| **En-ROADS 深度研究报告** | Markdown (95KB) | 全 27 章 En-ROADS 文档逐项拆解 + 15 项 Park-ROADS 改进路线图 | [📖 在线阅读](./En-ROADS_Exhaustive_Research_Report.md) |
 
-### 方案 D · Cloudflare Pages（国内访问较友好）
-1. 推到 GitHub
-2. 登录 https://dash.cloudflare.com → Pages → Create a project
-3. 连接 GitHub 仓库 → 直接 Deploy
+---
 
-## 📁 文件结构
+## 🎯 核心模块（v1.9）
 
-```
-deploy/
-├── index.html       # 主网站（约 80 KB，所有功能内置）
-├── 404.html         # 深链回退页（处理直接访问 /sandbox 等路径）
-├── _redirects       # Netlify / Cloudflare Pages 路由配置
-├── vercel.json      # Vercel 路由配置
-└── README.md        # 本说明
-```
+1. **🏠 首页** — 一站式概览
+2. **🎮 政策沙盘** — 35 滑杆 + 7 主体雷达 + DTSI 实时仿真 + Kaya 风格分解条 + 7 情景库
+3. **📐 方法论** — DTSI 公式 / AHP 权重表 / 系统动力学
+4. **📖 论文拆解** — 决策者版 + 学术深度版（5 个 Q&A · 6 角色视角 · 12 层结构）
+5. **🏛 案例库** — 5 个论文实测园区 (Y1/Y2/Y3) + 园区 C 主案例 4 阶段
+6. **📋 调查问卷** — 论文附录 A-J 完整 233 题（含 21 对 AHP）
+7. **🤖 AI 诊断** — 5 张实时洞察卡片 + 4 阶段路径 + 一键改善
+8. **🎓 工作坊指南** — 4 小时 7 角色协商
+9. **ℹ️ 关于** — 学术基础 + 路线图
 
-## 🎯 网站包含的 6 个页面
+---
 
-| 页面 | 路径 | 主要功能 |
-|------|------|---------|
-| 首页 | `/#home` | 项目介绍 + 6 张特性卡 + 数据卡 |
-| **政策沙盘** | `/#sandbox` | **核心功能**：35 滑杆 + DTSI 实时仿真 + Undo/Redo/Share |
-| 方法论 | `/#method` | DTSI 公式 + 7 主体 + 35 指标完整 AHP 权重表 |
-| 案例库 | `/#cases` | 5 园区 3 年实测数据 + 园区 C 四阶段案例 |
-| 工作坊指南 | `/#workshop` | 4 小时议程 + 7 角色卡 + 主持人话术 |
-| 关于 | `/#about` | 学术引用 + 致谢 + 部署 + 路线图 |
+## 📊 关键数据
 
-## 🔧 自定义域名
+- **DTSI 公式**: `0.257·政府 + 0.187·资产 + 0.143·运营 + 0.120·企业 + 0.110·科研 + 0.093·员工 + 0.090·居民`
+- **AHP 一致性**: CR = **0.0283** ✅（远低于 0.10 阈值）
+- **专家样本**: 300 名
+- **5 园区 3 年实证**: 平均涨幅 **+13.4 分**
+- **园区 C 主案例**: M0=40.1 → M36=55.3（**+15.2 分**）
 
-部署后，三家平台都支持绑定自定义域名（GoDaddy / Namecheap / 阿里云 / 腾讯云购买）：
-- **Netlify / Vercel / Cloudflare Pages**：在控制台 → Domains → Add custom domain → 按提示加 CNAME / A 记录到你的域名 DNS
+---
 
-## 🧪 本地测试
+## 🛠 技术栈
 
-```bash
-cd deploy
-python3 -m http.server 8000
-# 然后浏览器打开 http://localhost:8000
-```
+- 单文件 HTML + Chart.js 4.4 (CDN)
+- 零后端 · 零数据库 · 100% 客户端运行
+- WCAG AA 无障碍 · OpenGraph + PWA Manifest
+- Netlify / Vercel / GitHub Pages 一键部署
 
-或者直接双击 `index.html` 即可（无需服务器）。
+---
 
-## 📚 学术引用
+## 🔬 学术基础
 
-**戴继涛 (2025).** 传统商业园区数字化转型升级中的挑战和对策——基于 OpenX@X 平台的实证研究. *香港岭南大学全球数字经济与治理工商管理博士（DBA）学位论文。* https://commons.ln.edu.hk/otd_tpg/55/
+- **利益相关者理论** (Freeman 1984)
+- **价值共创理论** (Vargo & Lusch 2008 — S-D Logic)
+- **数字化转型理论** (Westerman 2014, Vial 2019)
+- **AHP 层次分析法** (Saaty 1980)
+- **系统动力学** (Forrester 1961)
 
-导师：尚蔚鑫教授、李红军教授
+> 论文 PDF：[岭南大学学位论文库 commons.ln.edu.hk/otd_tpg/55](https://commons.ln.edu.hk/otd_tpg/55/)
 
-## 🌍 设计灵感
+---
 
-[En-ROADS Climate Solutions Simulator](https://en-roads.climateinteractive.org/) — Climate Interactive × MIT Sloan
+## 📜 引用
 
-## ⚖️ 许可证
+如果您在学术或商业场景使用 Park-ROADS / DTSI 方法论，请引用：
 
-本网站为基于公开学位论文的演示工具。所有论文权重、案例数据来自原文，版权属作者与岭南大学。代码部分采用 MIT 风格授权（仅限学术与非营利用途的二次开发）。
+> 戴继涛 (2025). *传统商业园区数字化转型升级中的挑战和对策——基于 OpenX@X 平台的实证研究*. 香港岭南大学全球数字经济与治理工商管理博士（DBA）学位论文。导师：尚蔚鑫教授、李红军教授。
+
+---
+
+## 🎨 设计灵感
+
+本网站受 [En-ROADS Climate Solutions Simulator](https://en-roads.climateinteractive.org) 启发（Climate Interactive + MIT Sloan）。完整的对位分析见 [En-ROADS 深度研究报告](./En-ROADS_Exhaustive_Research_Report.md)。
+
