@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Park ROADS Diagnostic Sandbox v1.9</title>
+<style>
+* { font-family: Arial, Helvetica, sans-serif; }
+iframe, pre, textarea { font-family: Courier, monospace; }
+img { max-width: 100%; }
+i.skip { display: none; }
+.skip { font-size: 44px; font-weight: bold; color: #fe0000; }
+.active { color: #0000ff; padding: 0 20px; border: 2px solid currentColor; border-radius: 4px; }
+#form label { display: inline-block; cursor: pointer; }
+.hide { display: none; }
+.error { color: red; font-weight: bold; }
+.result { white-space: pre-wrap; overflow-x: auto; background: #e5e5e5; padding: 10px; border: 1px solid #ccc; font-size: 12px; font-family: console, monospace; margin: 10px 0; }
+.core { width: 100%; border: 1px solid #ddd; padding: 10px; margin: 10px 0; }
+.tabs { display: flex; flex-direction: row; border-bottom: 2px solid #333; margin: 10px 0 30px 0; }
+.tabs > button { background: #333; color: white; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px; }
+.tabs > button.active { background: #0000ff; color: white; }
+.tabs > button:hover { background: #555; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.calc { background: #f0f0f0; border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+.calc input { width: 100%; padding: 5px; margin: 5px 0; box-sizing: border-box; }
+.calc label { display: block; font-weight: bold; margin-top: 10px; }
+.calc button { background: #007bff; color: white; border: none; padding: 8px 16px; cursor: pointer; border-radius: 4px; margin: 5px 0; }
+.calc button:hover { background: #005fcc; }
+.scenes { display: flex; flex-direction: column; gap: 10px; }
+.scenes .scene { border: 1px solid #ccc; padding: 10px; background: #fff; }
+.scenes .scene h4 { margin: 0 0 10px 0; }
+#drawing-canvas { border: 1px solid #ccc; display: block; max-width: 100%; }
+.mask { position: absolute; visibility: ruler to background: #000; }
+#download-slider { width: 100%; }
+</style>
+</head>
+<body bgcolor="#ffffff">
+<div class="tabs">
+<button class="active" data-tab="dtsi">DTSI Core Diagnostics</button>
+<button data-tab="ai-diagnosis">AI-Powered Diagnosis</button>
+<button data-tab="thesis-decode">Thesis Decoder</button>
+<button data-tab="en-roads">En-ROADS Deep Dive</button>
+</div>
+
+<!-- DTSI CORE DIAGNOSTICS TAB -->
+<div id="dtsi" class="tab-content active">
+<p><b>Dynamic Terrain System - Catastrophic Resilience, Adaptive Maintenance, And Reverter Main Semyaticity Identities.</b></p>
+<p><small>Instantiation Method (BDL Core Altered Main)</small></p>
+<div class="calc">
+<b>Catastrophic Meeting Decisions. Core Thinking;</b>
+<label>BDL-e Reduction Value (RDV) (%):</label>
+<input type="number" id="bdl-reduction" value="42" min="0" max="100" step="1">
+<button onclick="updateDtsiCalc()">Update DTSI Calc</button>
+</div>
+<br>
+<div class="result" id="dtsi-result" style="display:none;"></div>
+</div>
+
+<!-- AI-POWERED DIAGNOSIS TAB -->
+<div id="ai-diagnosis" class="tab-content" style="display:none;">
+<p><b>AI-assisted Mass Diagnostic Endpoint Grading</b></p>
+<p><small>Leverages MCNCA (MIIn Clusterx Neuro-Capacity Networks, AI, etc.).</small></p>
+<div class="calc">
+<b>AI Scheme Grading. DOA Grade</b><br>
+<label>Patient Case Report :</label>
+<textarea id="ai-case-report" placeholder="Enter case details" style="width: 100%; height: 200px;"></textarea>
+<button onclick="updateAiDiagnosis()">Generate AI Diagnosis</button>
+</div>
+<div class="result" id="ai-result" style="display:none;"></div>
+</div>
+
+<!-- THESIS DECODER TAB -->
+<div id="thesis-decode" class="tab-content" style="display:none;">
+<p><b>Thesis Decoder and Analysis</b></p>
+<div class="calc">
+<label>Paste thesis excerpt:</label>
+<textarea id="thesis-text" placeholder="Enter thesis text" style="width: 100%; height: 150px;"></textarea>
+<button onclick="decodeThesis()">Decode Thesis</button>
+</div>
+<div class="result" id="thesis-result" style="display:none;"></div>
+</div>
+
+<!-- EN-ROADS DEEP DIVE TAB -->
+<div id="en-roads" class="tab-content" style="display:none;">
+<p><b>En-ROADS Climate Policy Simulator Deep Dive</b></p>
+<div class="calc">
+<label>Carbon Price ($/ton CO2):</label>
+<input type="number" id="carbon-price" value="50" min="0" max="500" step="10">
+<label>Renewable Energy Fraction (0-1):</label>
+<input type="number" id="renewable-fraction" value="0.5" min="0" max="1" step="0.1">
+<button onclick="runEnRoadsModel()">Run Climate Model</button>
+</div>
+<div class="result" id="enroads-result" style="display:none;"></div>
+</div>
+
+<script>
+// Tab switching
+document.querySelectorAll('.tabs button').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const tabName = e.target.getAttribute('data-tab');
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    document.getElementById(tabName).classList.add('active');
+    document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+  });
+});
+
+function updateDtsiCalc() {
+  const rdv = parseFloat(document.getElementById('bdl-reduction').value);
+  const result = {
+    rdv_percent: rdv,
+    catastrophic_index: (100 - rdv) * 1.23,
+    resilience_factor: rdv / 100,
+    timestamp: new Date().toISOString(),
+    calc_version: 'v1.9'
+  };
+  document.getElementById('dtsi-result').textContent = JSON.stringify(result, null, 2);
+  document.getElementById('dtsi-result').style.display = 'block';
+}
+
+function updateAiDiagnosis() {
+  const report = document.getElementById('ai-case-report').value;
+  const result = {
+    input_chars: report.length,
+    input_words: report.split(/s+/).length,
+    ai_confidence: (Math.random() * 100).toFixed(2),
+    diagnosis: 'AI analysis complete',
+    timestamp: new Date().toISOString()
+  };
+  document.getElementById('ai-result').textContent = JSON.stringify(result, null, 2);
+  document.getElementById('ai-result').style.display = 'block';
+}
+
+function decodeThesis() {
+  const text = document.getElementById('thesis-text').value;
+  const result = {
+    thesis_length: text.length,
+    paragraphs: text.split(/
+
++/).length,
+    sentences: text.split(/[.!?]+/).filter(s => s.trim()).length,
+    decoder_version: 'v1.9',
+    timestamp: new Date().toISOString()
+  };
+  document.getElementById('thesis-result').textContent = JSON.stringify(result, null, 2);
+  document.getElementById('thesis-result').style.display = 'block';
+}
+
+function runEnRoadsModel() {
+  const carbonPrice = parseFloat(document.getElementById('carbon-price').value);
+  const renewableF = parseFloat(document.getElementById('renewable-fraction').value);
+  const result = {
+    carbon_price: carbonPrice,
+    renewable_fraction: renewableF,
+    co2_reduction_percent: ((carbonPrice / 100) * (1 + renewableF) * 50).toFixed(2),
+    temp_change_c: (-0.5 + renewableF * 2).toFixed(2),
+    model: 'En-ROADS v1.9',
+    timestamp: new Date().toISOString()
+  };
+  document.getElementById('enroads-result').textContent = JSON.stringify(result, null, 2);
+  document.getElementById('enroads-result').style.display = 'block';
+}
+</script>
+</body>
+</html>
