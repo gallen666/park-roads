@@ -521,7 +521,7 @@
 
   /* ============ RESOURCES ============ */
   .res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-bottom:18px}
-  .res-card{display:flex;gap:14px;padding:18px;background:var(--card);border:2px solid var(--line);border-radius:12px;text-decoration:none;color:var(--txt);transition:all .2s;align-items:flex-start}
+  .res-card{display:flex;gap:14px;padding:18px;background:var(--card);border:2px solid var(--line);border-radius:12px;color:var(--txt);transition:all .2s;align-items:flex-start}
   .res-card:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 8px 24px rgba(56,189,248,.12)}
   .res-icon{font-size:36px;line-height:1;flex-shrink:0}
   .res-body{flex:1;min-width:0}
@@ -529,8 +529,13 @@
   .res-card h3{font-size:15px;font-weight:600;margin:0 0 6px;color:var(--txt)}
   .res-card p{font-size:12.5px;color:var(--muted);line-height:1.6;margin:0 0 8px}
   .res-card p b{color:var(--txt)}
-  .res-meta{font-size:11px;color:var(--muted);font-style:italic;margin-bottom:8px}
-  .res-action{font-size:13px;color:var(--accent);font-weight:600}
+  .res-meta{font-size:11px;color:var(--muted);font-style:italic;margin-bottom:10px}
+  .res-actions{display:flex;gap:8px;flex-wrap:wrap}
+  .res-btn{font-size:12.5px;padding:6px 12px;border-radius:6px;font-weight:600;text-decoration:none;border:1px solid;transition:all .15s;display:inline-flex;align-items:center;gap:4px}
+  .res-btn-primary{background:var(--accent);color:#0b0f1a;border-color:var(--accent)}
+  .res-btn-primary:hover{background:#0ea5e9;border-color:#0ea5e9;text-decoration:none}
+  .res-btn-secondary{background:transparent;color:var(--accent);border-color:rgba(56,189,248,.4)}
+  .res-btn-secondary:hover{background:rgba(56,189,248,.1);text-decoration:none}
   /* ============ TOAST ============ */
   .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(12px);background:var(--card);border:1px solid var(--accent);color:var(--accent);padding:8px 14px;border-radius:6px;font-size:12.5px;opacity:0;transition:all .25s;z-index:300;box-shadow:0 4px 20px rgba(0,0,0,.4)}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -1481,133 +1486,133 @@
     <p class="page-sub">Park-ROADS 整套资源：在线交互沙盘 + 离线部署包 + En-ROADS 深度研究。所有材料免费开放、可复用。</p>
 
     <div class="res-grid">
-      <a class="res-card" href="https://gallen666.github.io/park-roads/" style="border-color:rgba(56,189,248,.3)">
+      <!-- 1. Park-ROADS 主网站 -->
+      <div class="res-card" style="border-color:rgba(56,189,248,.3)">
         <div class="res-icon">🌐</div>
         <div class="res-body">
-          <div class="res-tag">在线交互</div>
+          <div class="res-tag">在线交互沙盘</div>
           <h3>Park-ROADS v1.9 政策沙盘</h3>
           <p>35 滑杆 + 7 主体 AHP 雷达 + DTSI 实时仿真 + 7 情景一键加载 + AI 诊断 + 论文拆解。<b>当前页面就是它本身</b>。</p>
           <div class="res-meta">单文件 HTML · 272 KB · WCAG AA · PWA Ready</div>
-          <span class="res-action">→ 立即体验</span>
+          <div class="res-actions">
+            <a class="res-btn res-btn-primary" href="./">→ 立即体验</a>
+            <a class="res-btn res-btn-secondary" href="https://github.com/gallen666/park-roads/raw/main/index.html" download>⬇️ 下载源码</a>
+          </div>
         </div>
-      </a>
+      </div>
 
-      <a class="res-card" href="./ParkROADS_v19_deploy.zip" download style="border-color:rgba(52,211,153,.3)">
+      <!-- 2. v1.9 部署包 ZIP -->
+      <div class="res-card" style="border-color:rgba(52,211,153,.3)">
         <div class="res-icon">📦</div>
         <div class="res-body">
-          <div class="res-tag">离线部署</div>
+          <div class="res-tag">离线部署包</div>
           <h3>v1.9 完整部署包 (ZIP)</h3>
-          <p>含 index.html + README + _redirects (Netlify 路由) + 404.html + vercel.json。拖到 Netlify/Vercel/GitHub Pages 直接上线。</p>
+          <p>含 index.html + README + _redirects + 404.html + vercel.json。拖到 Netlify/Vercel/GitHub Pages 直接上线。</p>
           <div class="res-meta">86 KB · 5 文件 · 一键自托管</div>
-          <span class="res-action">⬇️ 下载 ZIP</span>
+          <div class="res-actions">
+            <a class="res-btn res-btn-primary" href="./ParkROADS_v19_deploy.zip" download>⬇️ 下载 ZIP</a>
+            <a class="res-btn res-btn-secondary" href="https://github.com/gallen666/park-roads" target="_blank" rel="noopener">📂 浏览内容</a>
+          </div>
         </div>
-      </a>
+      </div>
 
-      <a class="res-card" href="./research.html" style="border-color:rgba(167,139,250,.3)">
+      <!-- 3. En-ROADS 研究报告 -->
+      <div class="res-card" style="border-color:rgba(167,139,250,.3)">
         <div class="res-icon">📖</div>
         <div class="res-body">
           <div class="res-tag">深度研究</div>
           <h3>En-ROADS 深度研究报告</h3>
-          <p>Climate Interactive + MIT Sloan 的 En-ROADS 模拟器全 27 章文档逐项拆解 + 19 滑杆 + 100+ 图表 + 18 子模型 + Kaya 公式 + 15 项 Park-ROADS 改进建议。</p>
-          <div class="res-meta">95 KB · 1843 行 · 10 章 Markdown 渲染版</div>
-          <span class="res-action">📖 在线阅读</span>
+          <p>Climate Interactive + MIT Sloan 全 27 章文档逐项拆解 + 19 滑杆 + 100+ 图表 + 18 子模型 + Kaya 公式 + 15 项 Park-ROADS 改进建议。</p>
+          <div class="res-meta">95 KB · 1843 行 · 10 章</div>
+          <div class="res-actions">
+            <a class="res-btn res-btn-primary" href="./research.html">📖 在线阅读</a>
+            <a class="res-btn res-btn-secondary" href="./En-ROADS_Exhaustive_Research_Report.md" download>⬇️ 下载 MD</a>
+          </div>
         </div>
-      </a>
+      </div>
 
-      <a class="res-card" href="https://github.com/gallen666/park-roads" target="_blank" rel="noopener" style="border-color:rgba(160,160,160,.3)">
+      <!-- 4. GitHub 仓库 -->
+      <div class="res-card" style="border-color:rgba(160,160,160,.3)">
         <div class="res-icon">🔧</div>
         <div class="res-body">
           <div class="res-tag">开源代码</div>
-          <h3>GitHub 仓库 + 提交历史</h3>
+          <h3>GitHub 仓库 · 提交历史</h3>
           <p>查看完整源码、版本演进、Issue 反馈、Fork 改造。MIT 许可证，欢迎贡献。</p>
           <div class="res-meta">gallen666/park-roads · 公开仓库</div>
-          <span class="res-action">→ GitHub 主页</span>
+          <div class="res-actions">
+            <a class="res-btn res-btn-primary" href="https://github.com/gallen666/park-roads" target="_blank" rel="noopener">→ GitHub 主页</a>
+            <a class="res-btn res-btn-secondary" href="https://github.com/gallen666/park-roads/archive/refs/heads/main.zip" download>⬇️ 下载全包</a>
+          </div>
         </div>
-      </a>
+      </div>
     </div>
 
-    <h2 style="font-size:18px;color:var(--accent);margin:28px 0 6px;letter-spacing:.5px">💼 商业模式 + 投资人材料</h2>
-    <p class="page-sub" style="margin-top:0;margin-bottom:14px;font-size:12.5px">基于戴博士论文 + Park-ROADS 平台的完整商业化设计 — 4 份决策者级文档（HTML 在线阅读 + Word/PPT 原版下载）。</p>
+    <h2 style="font-size:18px;color:var(--accent);margin:28px 0 6px;letter-spacing:.5px">💼 商业模式 + 投资人材料（每份均可在线阅读 + 原版下载）</h2>
+    <p class="page-sub" style="margin-top:0;margin-bottom:14px;font-size:12.5px">基于戴博士论文 + Park-ROADS 平台的完整商业化设计 — 4 份决策者级文档。</p>
     <div class="res-grid">
-      <a class="res-card" href="./Park-ROADS麦肯锡商业模式设计.html" style="border-color:rgba(56,189,248,.3)">
+
+      <!-- 5. 麦肯锡商业模式 -->
+      <div class="res-card" style="border-color:rgba(56,189,248,.3)">
         <div class="res-icon">🎯</div>
         <div class="res-body">
           <div class="res-tag">麦肯锡 × Infosys 风格</div>
           <h3>Park-ROADS 商业模式设计</h3>
           <p>麦肯锡 7S 框架 + Three Horizons + Infosys Hub-and-Spoke 全球交付模型 + Porter 五力 + PESTEL —— 12 章节顶级咨询级商业模式拆解。</p>
-          <div class="res-meta">36 KB · 12 章 · HTML 在线阅读</div>
-          <span class="res-action">📖 在线阅读</span>
+          <div class="res-meta">36 KB · 12 章 · HTML 渲染版 + DOCX 原版</div>
+          <div class="res-actions">
+            <a class="res-btn res-btn-primary" href="./Park-ROADS麦肯锡商业模式设计.html">📖 在线阅读</a>
+            <a class="res-btn res-btn-secondary" href="./Park-ROADS麦肯锡商业模式设计.docx" download>⬇️ 下载 DOCX</a>
+          </div>
         </div>
-      </a>
+      </div>
 
-      <a class="res-card" href="./Park-ROADS麦肯锡商业模式设计.docx" download style="border-color:rgba(56,189,248,.2)">
-        <div class="res-icon">📄</div>
-        <div class="res-body">
-          <div class="res-tag">Word 原版</div>
-          <h3>麦肯锡商业模式 (DOCX)</h3>
-          <p>原始 Word 文档版本。可直接打开编辑、改写、做内部分享。结构与 HTML 版一致。</p>
-          <div class="res-meta">33 KB · Microsoft Word · 可编辑</div>
-          <span class="res-action">⬇️ 下载 DOCX</span>
-        </div>
-      </a>
-
-      <a class="res-card" href="./Park-ROADS商业计划书.html" style="border-color:rgba(251,191,36,.3)">
+      <!-- 6. 商业计划书 BP -->
+      <div class="res-card" style="border-color:rgba(251,191,36,.3)">
         <div class="res-icon">📊</div>
         <div class="res-body">
-          <div class="res-tag">VC 路演级</div>
+          <div class="res-tag">VC 路演级 BP</div>
           <h3>Park-ROADS 商业计划书 BP</h3>
           <p>16 章 VC-grade 商业计划书：执行摘要 + 创始人 + 市场 TAM ≥1500 亿 + SaaS 3 档定价 + 5 年财务预测 + A 轮融资 5000 万 + 退出路径。</p>
-          <div class="res-meta">10 KB · 16 章 · 6 张表格 · HTML 在线阅读</div>
-          <span class="res-action">📖 在线阅读</span>
+          <div class="res-meta">10 KB · 16 章 · 6 张表格 · HTML + DOCX 双版本</div>
+          <div class="res-actions">
+            <a class="res-btn res-btn-primary" href="./Park-ROADS商业计划书.html">📖 在线阅读</a>
+            <a class="res-btn res-btn-secondary" href="./Park-ROADS商业计划书.docx" download>⬇️ 下载 DOCX</a>
+          </div>
         </div>
-      </a>
+      </div>
 
-      <a class="res-card" href="./Park-ROADS商业计划书.docx" download style="border-color:rgba(251,191,36,.2)">
-        <div class="res-icon">📄</div>
-        <div class="res-body">
-          <div class="res-tag">Word 原版</div>
-          <h3>商业计划书 (DOCX)</h3>
-          <p>BP 原始 Word 版本，含格式化表格 + 页眉页脚。投资人路演场景可直接打印/分享。</p>
-          <div class="res-meta">16 KB · Microsoft Word</div>
-          <span class="res-action">⬇️ 下载 DOCX</span>
-        </div>
-      </a>
-
-      <a class="res-card" href="./戴继涛太能控股商业模式深度设计.html" style="border-color:rgba(167,139,250,.3)">
+      <!-- 7. 太能控股商业模式 -->
+      <div class="res-card" style="border-color:rgba(167,139,250,.3)">
         <div class="res-icon">🏛</div>
         <div class="res-body">
-          <div class="res-tag">主体公司</div>
+          <div class="res-tag">主体公司战略</div>
           <h3>太能控股商业模式深度设计</h3>
           <p>太能控股 + 极智中国 + 太能电气 + 荥阳数字经济产业园 4 公司联动机制设计。从主体公司到落地基地完整商业生态。</p>
-          <div class="res-meta">22 KB · HTML 在线阅读</div>
-          <span class="res-action">📖 在线阅读</span>
+          <div class="res-meta">22 KB · HTML + DOCX 双版本</div>
+          <div class="res-actions">
+            <a class="res-btn res-btn-primary" href="./戴继涛太能控股商业模式深度设计.html">📖 在线阅读</a>
+            <a class="res-btn res-btn-secondary" href="./戴继涛太能控股商业模式深度设计.docx" download>⬇️ 下载 DOCX</a>
+          </div>
         </div>
-      </a>
+      </div>
 
-      <a class="res-card" href="./戴继涛太能控股商业模式深度设计.docx" download style="border-color:rgba(167,139,250,.2)">
-        <div class="res-icon">📄</div>
-        <div class="res-body">
-          <div class="res-tag">Word 原版</div>
-          <h3>太能控股商业模式 (DOCX)</h3>
-          <p>主体公司商业模式 Word 版本。可作为内部战略讨论文档使用。</p>
-          <div class="res-meta">23 KB · Microsoft Word</div>
-          <span class="res-action">⬇️ 下载 DOCX</span>
-        </div>
-      </a>
-
-      <a class="res-card" href="./Park-ROADS投资人路演PPT.pptx" download style="border-color:rgba(251,113,133,.3)">
+      <!-- 8. 投资人路演 PPT -->
+      <div class="res-card" style="border-color:rgba(251,113,133,.3)">
         <div class="res-icon">🎤</div>
         <div class="res-body">
           <div class="res-tag">12 页 Pitch Deck</div>
           <h3>投资人路演 PPT</h3>
-          <p>Midnight Executive 主题的 12 页投资人路演 Pitch Deck —— 直接面向 VC/PE 路演场景。</p>
-          <div class="res-meta">454 KB · 12 页 · Microsoft PowerPoint</div>
-          <span class="res-action">⬇️ 下载 PPTX</span>
+          <p>Midnight Executive 主题 12 页投资人路演 Pitch Deck —— 直接面向 VC/PE 路演场景。已转 PDF 在线浏览版。</p>
+          <div class="res-meta">PDF 440 KB · 浏览器直接预览 · PPTX 454 KB · 12 页可编辑</div>
+          <div class="res-actions">
+            <a class="res-btn res-btn-primary" href="./Park-ROADS投资人路演PPT.pdf" target="_blank">📖 在线浏览 PDF</a>
+            <a class="res-btn res-btn-secondary" href="./Park-ROADS投资人路演PPT.pptx" download>⬇️ 下载 PPTX</a>
+          </div>
         </div>
-      </a>
+      </div>
     </div>
 
-    <div class="panel" style="margin-top:18px">
+        <div class="panel" style="margin-top:18px">
       <h2>📜 学术引用</h2>
       <p style="font-size:12.5px;line-height:1.7;color:var(--muted);background:rgba(255,255,255,.03);padding:12px;border-left:3px solid var(--accent);border-radius:4px">
         <b style="color:var(--txt)">戴继涛 (2025).</b> 传统商业园区数字化转型升级中的挑战和对策——基于 OpenX@X 平台的实证研究. <i>香港岭南大学全球数字经济与治理工商管理博士（DBA）学位论文。</i> 导师：<b>尚蔚鑫教授、李红军教授</b>。<br>
