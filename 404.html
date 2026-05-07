@@ -3,10 +3,26 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<ttle>404 Not Found</title>
+<title>页面跳转中… · Park-ROADS</title>
+<style>
+  body{margin:0;background:#0a1019;color:#e2e8f0;font-family:-apple-system,"Microsoft YaHei",sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:20px}
+  h1{color:#38bdf8;font-size:48px;margin:0 0 8px 0}
+  p{color:#94a3b8;font-size:14px}
+  a{color:#38bdf8;text-decoration:none;border:1px solid #38bdf8;padding:8px 18px;border-radius:6px;margin-top:16px;display:inline-block}
+  a:hover{background:#38bdf8;color:#000}
 </style>
-<h1>404 Not Found</h1>
-<p>The page was not found in site. Try the homepage or use the search bar.</p>
-<hr />
-  <footer>Park-ROADS · Lingnan University DBA 2025</footer>
+<script>
+  // 把任何深链转回 index.html，并保留路径作为 hash
+  var path = location.pathname.replace(/^\/+/,'').replace(/\/$/,'');
+  if(path && path !== 'index.html'){
+    var hash = '#' + (path.split('/')[0] || 'home');
+    location.replace('/' + (location.search||'') + hash);
+  }
+</script>
+</head>
+<body>
+  <h1>↻</h1>
+  <p>正在跳转回首页…</p>
+  <a href="/">立即返回首页</a>
+</body>
 </html>
