@@ -4,7 +4,7 @@
 
 ## 🌐 在线访问
 
-**👉 [立即体验 Park-ROADS v1.9 政策沙盘](https://gallen666.github.io/park-roads/)**
+**👉 [立即体验 Park-ROADS v1.9 政策沙盘](https://openflowone.hk/)**
 
 35 个滑杆 · 7 主体 AHP 权重 · DTSI 实时计算 · AI 自动诊断 · 论文拆解 · 7 情景一键加载
 
@@ -14,7 +14,7 @@
 
 | 资源 | 类型 | 用途 | 链接 |
 |------|------|------|------|
-| **Park-ROADS 网站 v1.9** | 在线 HTML | 完整交互沙盘（272KB 单文件） | [打开](https://gallen666.github.io/park-roads/) · [源码](./index.html) |
+| **Park-ROADS 网站 v1.9** | 在线 HTML | 完整交互沙盘（272KB 单文件） | [打开](https://openflowone.hk/) · [源码](./index.html) |
 | **v1.9 部署包** | ZIP (86KB) | 离线/自托管部署 (含 _redirects + 404 + vercel.json) | [⬇️ 下载](./ParkROADS_v19_deploy.zip) |
 | **En-ROADS 深度研究报告** | Markdown (95KB) | 全 27 章 En-ROADS 文档逐项拆解 + 15 项 Park-ROADS 改进路线图 | [📖 在线阅读](./En-ROADS_Exhaustive_Research_Report.md) |
 
