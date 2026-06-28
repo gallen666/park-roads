@@ -536,6 +536,29 @@
   .res-btn-primary:hover{background:#0ea5e9;border-color:#0ea5e9;text-decoration:none}
   .res-btn-secondary{background:transparent;color:var(--accent);border-color:rgba(56,189,248,.4)}
   .res-btn-secondary:hover{background:rgba(56,189,248,.1);text-decoration:none}
+  /* ============ FIVE-SYSTEM FLOW (五位一体) ============ */
+  .five-sys-flow{display:flex;align-items:stretch;gap:6px;flex-wrap:wrap;justify-content:center;padding:8px}
+  .five-sys-node{flex:1 1 160px;min-width:130px;max-width:200px;border:2px solid var(--line);border-radius:10px;padding:12px 10px;text-align:center;background:var(--card-2,rgba(255,255,255,.03));position:relative;transition:transform .15s}
+  .five-sys-node:hover{transform:translateY(-2px)}
+  .fsn-num{position:absolute;top:-10px;left:8px;background:var(--accent);color:#0b0f1a;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+  .fsn-icon{font-size:28px;line-height:1;margin:6px 0}
+  .fsn-name{font-size:14px;font-weight:600;color:var(--txt);margin-bottom:6px}
+  .fsn-desc{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:8px;min-height:30px}
+  .fsn-price{font-size:11.5px;color:var(--accent);font-weight:600;font-feature-settings:"tnum"}
+  .five-sys-arrow{display:flex;align-items:center;font-size:18px;color:var(--accent);font-weight:700;padding:0 2px}
+  .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+  .pain-card{background:var(--card-2,rgba(255,255,255,.02));border:1px solid var(--line);border-radius:10px;padding:14px;position:relative;border-top:3px solid #fb7185}
+  .pain-num{position:absolute;top:-12px;left:14px;background:#fb7185;color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+  .pain-card h3{font-size:14px;font-weight:600;color:var(--txt);margin:8px 0 6px}
+  .pain-card p{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:10px}
+  .pain-solve{font-size:12px;color:var(--accent);font-weight:500;padding:8px 10px;background:rgba(56,189,248,.06);border-radius:6px;border-left:3px solid var(--accent)}
+  .pain-solve b{font-weight:700}
+  @media (max-width:900px){
+    .five-sys-flow{flex-direction:column}
+    .five-sys-node{max-width:none}
+    .five-sys-arrow{transform:rotate(90deg);padding:4px 0}
+  }
+
   /* ============ TOAST ============ */
   .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(12px);background:var(--card);border:1px solid var(--accent);color:var(--accent);padding:8px 14px;border-radius:6px;font-size:12.5px;opacity:0;transition:all .25s;z-index:300;box-shadow:0 4px 20px rgba(0,0,0,.4)}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -666,6 +689,7 @@
     <span class="navlink" data-go="survey" role="button" tabindex="0" aria-label="调查问卷 — 论文附录 A 至 J">📋 调查问卷</span>
     <span class="navlink" data-go="insight" role="button" tabindex="0" aria-label="实时治理洞察 — AI 自动诊断">🤖 AI 诊断</span>
     <span class="navlink" data-go="workshop" role="button" tabindex="0" aria-label="工作坊指南 — 4 小时 7 角色">工作坊指南</span>
+    <span class="navlink" data-go="service" role="button" tabindex="0" aria-label="五位一体产品架构 — 园区数字化诊疗体系">🏥 服务体系</span>
     <span class="navlink" data-go="about" role="button" tabindex="0" aria-label="关于 Park-ROADS">关于</span>
   </nav>
   <div class="toolbar-actions" id="sandbox_actions" style="display:none" role="toolbar" aria-label="沙盘操作工具栏">
@@ -1474,6 +1498,120 @@
         <b style="color:var(--accent)">关键时刻：</b>"暂停一下。看大屏幕——这就是我们刚才一起'拍'出来的政策组合 60 个月之后的样子。你们的预期是这样吗？谁最满意？谁最不满意？为什么？"<br><br>
         <b style="color:var(--accent)">引导妥协：</b>"DTSI 的 7 个权重不是民主投票——政府是 25.7%，居民是 9.0%。这不是不公平，这是论文实证测出来的。但<b>居民满意度低，会拖累整体</b>——这是 X-Flow Dynamics 的反馈环。所以我们不能只给政府最大化。"
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICE SYSTEM (五位一体产品架构) ========== -->
+<section id="service" class="section">
+  <div class="container">
+    <h1 class="page-title">🏥 五位一体产品架构 <span class="badge gold">园区数字化诊疗体系</span></h1>
+    <p class="page-sub">把医院"挂号 · 体检 · 诊断 · 治疗 · 复诊"五步法移植到园区数字化转型咨询——让客户「秒懂、敢付、愿意续费」。</p>
+
+    <!-- 五系统循环图 -->
+    <div class="panel" style="margin-bottom:14px">
+      <h2>🔄 五位一体客户旅程</h2>
+      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">客户从首次接触到长期合作的完整旅程，对应医院诊疗的 5 个标准阶段。复诊环节将一次性服务演化为持续关系。</p>
+      <div class="five-sys-flow">
+        <div class="five-sys-node" style="border-color:rgba(56,189,248,.4)">
+          <div class="fsn-num">1</div>
+          <div class="fsn-icon">📋</div>
+          <div class="fsn-name">挂号系统</div>
+          <div class="fsn-desc">入口分诊 · 客户画像 · 智能分配</div>
+          <div class="fsn-price">¥0 — ¥1,888</div>
+        </div>
+        <div class="five-sys-arrow">→</div>
+        <div class="five-sys-node" style="border-color:rgba(52,211,153,.4)">
+          <div class="fsn-num">2</div>
+          <div class="fsn-icon">🩺</div>
+          <div class="fsn-name">体检系统</div>
+          <div class="fsn-desc">DTSI 标准化体检 · 35 滑杆 + 7 主体雷达</div>
+          <div class="fsn-price">¥0 — ¥38,800</div>
+        </div>
+        <div class="five-sys-arrow">→</div>
+        <div class="five-sys-node" style="border-color:rgba(251,191,36,.4)">
+          <div class="fsn-num">3</div>
+          <div class="fsn-icon">🔬</div>
+          <div class="fsn-name">诊断系统</div>
+          <div class="fsn-desc">AI 自动诊断 + 专家会诊 + 多角色 360 度</div>
+          <div class="fsn-price">¥988 — ¥188,000</div>
+        </div>
+        <div class="five-sys-arrow">→</div>
+        <div class="five-sys-node" style="border-color:rgba(251,113,133,.4)">
+          <div class="fsn-num">4</div>
+          <div class="fsn-icon">🏗</div>
+          <div class="fsn-name">服务系统</div>
+          <div class="fsn-desc">5 档服务套餐 · 3-36 月全链路实施</div>
+          <div class="fsn-price">¥28.8万 — ¥980万+</div>
+        </div>
+        <div class="five-sys-arrow">→</div>
+        <div class="five-sys-node" style="border-color:rgba(167,139,250,.4)">
+          <div class="fsn-num">5</div>
+          <div class="fsn-icon">📈</div>
+          <div class="fsn-name">评估系统</div>
+          <div class="fsn-desc">季度复诊 · 年度认证 · PDTMM L1-L5</div>
+          <div class="fsn-price">¥8,800 — ¥28.8万/年</div>
+        </div>
+      </div>
+      <div style="text-align:center;font-size:12.5px;color:var(--accent);margin-top:14px;font-style:italic">↻ 评估完成后回到诊断系统，进入下一轮服务循环</div>
+    </div>
+
+    <!-- 三大客户痛点 -->
+    <div class="panel" style="margin-bottom:14px">
+      <h2>🎯 解决园区数字化转型咨询的 3 大客户痛点</h2>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-num">1</div>
+          <h3>不知道自己处在哪个阶段</h3>
+          <p>面对"数字化转型"宏大命题，客户无法判断自身成熟度水平、与同类园区差距、优先级排序。</p>
+          <div class="pain-solve">→ <b>挂号 + 体检系统</b>：5 分钟出基线 + DTSI 等级</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-num">2</div>
+          <h3>不知道下一步应做什么</h3>
+          <p>即便了解现状，也难以在十几个候选议题（智慧楼宇、能源、招商、双碳、人才公寓…）中确定下一笔预算最优投放方向。</p>
+          <div class="pain-solve">→ <b>诊断系统</b>：AI Top 5 杠杆点 + 专家会诊路径建议</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-num">3</div>
+          <h3>不知道为什么要付咨询费</h3>
+          <p>咨询服务"软性交付物"难以被园区运营方、国资委、财政评估，导致议价能力薄弱 + 续费转化率低。</p>
+          <div class="pain-solve">→ <b>服务 + 评估系统</b>：清晰交付物清单 + 第三方 PDTMM 认证背书</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 医院五步法 vs 五系统对照 -->
+    <div class="panel" style="margin-bottom:14px">
+      <h2>🏛 医院五步法 → 园区诊疗体系（哲学对位）</h2>
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="background:rgba(56,189,248,.08)">
+            <th style="padding:10px;border:1px solid var(--line);text-align:left">医院五步法</th>
+            <th style="padding:10px;border:1px solid var(--line);text-align:left">Park-ROADS 五系统</th>
+            <th style="padding:10px;border:1px solid var(--line);text-align:left">核心价值</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:10px;border:1px solid var(--line)">挂号导诊</td><td style="padding:10px;border:1px solid var(--line)"><b>挂号系统</b></td><td style="padding:10px;border:1px solid var(--line)">标准化入口 · 智能分诊 · 客户画像</td></tr>
+          <tr><td style="padding:10px;border:1px solid var(--line)">健康体检</td><td style="padding:10px;border:1px solid var(--line)"><b>体检系统</b></td><td style="padding:10px;border:1px solid var(--line)">DTSI 基线 · 7 主体雷达 · 自动报告</td></tr>
+          <tr><td style="padding:10px;border:1px solid var(--line)">疾病诊断</td><td style="padding:10px;border:1px solid var(--line)"><b>诊断系统</b></td><td style="padding:10px;border:1px solid var(--line)">AI 辅诊 + 专家会诊 + 第二意见</td></tr>
+          <tr><td style="padding:10px;border:1px solid var(--line)">治疗手术</td><td style="padding:10px;border:1px solid var(--line)"><b>服务系统</b></td><td style="padding:10px;border:1px solid var(--line)">5 档套餐 · 全链路实施 · 标准 SOW</td></tr>
+          <tr><td style="padding:10px;border:1px solid var(--line)">复诊回访</td><td style="padding:10px;border:1px solid var(--line)"><b>评估系统</b></td><td style="padding:10px;border:1px solid var(--line)">季度追踪 · PDTMM 认证 · 排行榜</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:14px;font-size:12.5px;color:var(--muted)">医院五步法的成功不在医术，而在<b>服务体系标准化</b>——可重复、可分级、可计费、可监管、可循环。这套逻辑被完整移植到 Park-ROADS。</p>
+    </div>
+
+    <!-- 详细文档入口 -->
+    <div class="panel">
+      <h2>📖 完整产品架构详细文档</h2>
+      <p style="margin-bottom:14px;font-size:13px;color:var(--muted)">15 章 + 5 附录，含每个系统的功能定位、SKU 定价表、客户旅程、SOP 流程、KPI 体系、团队配置、3 年路线图等。</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn primary" href="./Park-ROADS五系统产品架构.html">📖 在线阅读完整架构（推荐）</a>
+        <a class="btn" href="./Park-ROADS五系统产品架构_v1.0.docx" download>⬇️ 下载 DOCX 原版</a>
+      </div>
+      <div style="margin-top:14px;font-size:12px;color:var(--muted)">📄 55 KB · ~35-40 页 · 30 张表格 · 33+ SKU 定价 · 完整客户旅程示例（G/B/A 三类客户 36 月旅程）</div>
     </div>
   </div>
 </section>
