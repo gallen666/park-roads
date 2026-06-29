@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>全球同行监测雷达 · Park-ROADS</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E📡%3C/text%3E%3C/svg%3E">
+<style>
+  :root{--bg:#0a0e1a;--panel:#0f1424;--line:rgba(255,255,255,.08);--text:#e6eefc;--muted:#8b95a8;--accent:#38bdf8;--gold:#fbbf24;--green:#34d399;--red:#fb7185;--purple:#a78bfa}
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#070b16,#0a0e1a);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;line-height:1.6}
+  .header{position:sticky;top:0;background:rgba(10,14,26,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:14px 20px;z-index:100;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-weight:bold;font-size:16px;color:var(--accent)}
+  .pulse{display:inline-block;width:8px;height:8px;background:#34d399;border-radius:50%;margin-right:6px;animation:pulse 1.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.7)}70%{box-shadow:0 0 0 10px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+  .back{font-size:13px;color:var(--gold);text-decoration:none;padding:6px 12px;border:1px solid var(--gold);border-radius:6px}
+  .hero{padding:50px 20px 30px;text-align:center;background:radial-gradient(circle at 50% 0%,rgba(56,189,248,.08),transparent 60%)}
+  .hero h1{font-size:40px;margin:0 0 12px;background:linear-gradient(90deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero .sub{font-size:16px;color:var(--muted);max-width:780px;margin:0 auto}
+  .container{max-width:1280px;margin:0 auto;padding:30px 20px}
+
+  /* Filter bar */
+  .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
+  .filter-btn{padding:8px 14px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;font-size:12.5px;color:var(--muted);cursor:pointer;transition:all 0.2s}
+  .filter-btn:hover{color:var(--accent);border-color:var(--accent)}
+  .filter-btn.active{background:rgba(56,189,248,.15);color:var(--accent);border-color:var(--accent)}
+
+  /* Company cards grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:18px;margin-top:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;position:relative;transition:transform 0.2s,border-color 0.2s}
+  .card:hover{transform:translateY(-3px);border-color:var(--accent)}
+  .card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+  .card-name{font-size:20px;font-weight:bold;color:var(--text)}
+  .card-tag{font-size:11px;color:var(--gold);background:rgba(251,191,36,.1);padding:3px 8px;border-radius:4px;font-weight:600}
+  .card-tag.warn{color:var(--red);background:rgba(251,113,133,.1)}
+  .card-tag.green{color:var(--green);background:rgba(52,211,153,.1)}
+  .card-tag.purple{color:var(--purple);background:rgba(167,139,250,.1)}
+  .meta{font-size:12px;color:var(--muted);margin-bottom:6px}
+  .meta b{color:var(--text);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0;padding:12px;background:rgba(255,255,255,.02);border-radius:8px}
+  .stat{text-align:center}
+  .stat .v{font-size:18px;font-weight:bold;color:var(--accent)}
+  .stat .l{font-size:10.5px;color:var(--muted);margin-top:2px}
+  .insight{padding:10px 12px;background:linear-gradient(90deg,rgba(251,191,36,.08),transparent);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;font-size:12px;margin-top:10px;line-height:1.5}
+  .insight b{color:var(--gold)}
+  .ticker-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px solid var(--line);margin-top:12px}
+  .ticker{font-family:'Courier New',monospace;font-size:12px;color:var(--muted)}
+  .links{display:flex;gap:8px;flex-wrap:wrap}
+  .links a{font-size:11px;color:var(--accent);text-decoration:none;padding:3px 8px;border:1px solid rgba(56,189,248,.3);border-radius:4px}
+  .links a:hover{background:rgba(56,189,248,.1)}
+
+  /* Live ticker */
+  .ticker-bar{background:rgba(0,0,0,.4);padding:10px 0;overflow:hidden;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--muted);white-space:nowrap}
+  .ticker-bar .scroll{display:inline-block;animation:scroll 60s linear infinite;padding-left:100%}
+  @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+  .ticker-bar span{margin:0 30px}
+  .ticker-bar .up{color:var(--green)}
+  .ticker-bar .dn{color:var(--red)}
+
+  /* Insights summary */
+  .summary-panel{background:linear-gradient(135deg,rgba(251,191,36,.06),rgba(56,189,248,.04));border:2px solid rgba(251,191,36,.3);border-radius:12px;padding:20px;margin-bottom:20px}
+  .summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px}
+  .summary-card{padding:12px;background:rgba(255,255,255,.02);border-radius:8px;font-size:12.5px;border-left:3px solid var(--accent)}
+  .summary-card b{color:var(--gold);display:block;margin-bottom:4px;font-size:13px}
+
+  /* Threat matrix */
+  .threat-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13px}
+  .threat-table th{background:rgba(56,189,248,.1);padding:10px;border:1px solid var(--line);color:var(--accent);font-weight:600;text-align:left}
+  .threat-table td{padding:10px;border:1px solid var(--line)}
+  .threat-h{color:var(--red);font-weight:bold}
+  .threat-m{color:var(--gold);font-weight:bold}
+  .threat-l{color:var(--green);font-weight:bold}
+
+  .footer{padding:30px 20px;text-align:center;color:var(--muted);font-size:12px;border-top:1px solid var(--line);margin-top:40px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo"><span class="pulse"></span>📡 Park-ROADS · 全球同行监测雷达</div>
+  <a class="back" href="./index.html">← 返回主站</a>
+</div>
+
+<!-- Live ticker -->
+<div class="ticker-bar">
+  <div class="scroll">
+    <span>📊 PDTMM Index 基期：<b>50.00</b> (2026 Q3 待发布)</span>
+    <span><b>YARDI</b> 私有 · 估值 ~<span class="up">$5-10B</span> · 推 Industrial 模块</span>
+    <span><b>VTS</b> 私募 · <span class="up">$1.7B</span> Series F · Brookfield 投资</span>
+    <span><b>ESYS.L</b> £<span class="dn">0.27</span> · 较峰值跌 90%</span>
+    <span><b>NEM</b> €<span class="up">114.50</span> · Spacewell 母公司 Nemetschek</span>
+    <span><b>MRI</b> 私有 · KKR 持股 · 估值 ~<span class="up">$3B</span></span>
+    <span><b>HQO</b> 私募 · 估值 ~<span class="dn">$200M</span> · 美国办公空置率 22%</span>
+    <span>🔴 警报：<b>Yardi Industrial</b> 2025 启动产业园模块，正面进入 Park-ROADS 赛道</span>
+    <span>🟢 机会：<b>Spacewell 中国</b> < 5% 市占率，可结盟而非对抗</span>
+  </div>
+</div>
+
+<div class="hero">
+  <h1>全球 PropTech 6 巨头监测雷达</h1>
+  <div class="sub">实时追踪 Essensys / Yardi / MRI / HqO / Spacewell / VTS 的估值、产品、客户、中国动向，输出对 Park-ROADS 战略影响评估。</div>
+</div>
+
+<div class="container">
+
+  <!-- Summary panel -->
+  <div class="summary-panel">
+    <h2 style="margin:0 0 6px;color:var(--gold);font-size:20px">🎯 11 大启示 — 一屏速览</h2>
+    <p style="color:var(--muted);font-size:13px;margin:0">每家公司一条单独启示 + 5 大综合战略洞察 = 11 条可执行结论</p>
+    <div class="summary-grid">
+      <div class="summary-card"><b>① 警示型</b>Essensys：单一客户依赖必死</div>
+      <div class="summary-card"><b>② 路径型</b>Yardi：保留反 VC 备选</div>
+      <div class="summary-card"><b>③ 退出型</b>MRI：PE 卷积 3-5 年退出</div>
+      <div class="summary-card"><b>④ 对标型</b>HqO：中国 toG 化改造</div>
+      <div class="summary-card"><b>⑤ 生态型</b>Spacewell：5 系统全生命周期</div>
+      <div class="summary-card"><b>⑥ 飞轮型</b>VTS：体检入口 → 行业指数</div>
+      <div class="summary-card" style="border-color:var(--gold);background:rgba(251,191,36,.05)"><b>洞察 1</b>选混合模式：VTS 飞轮 + Spacewell 矩阵</div>
+      <div class="summary-card" style="border-color:var(--gold);background:rgba(251,191,36,.05)"><b>洞察 2</b>三轨并行：toG/toB/toA 40/40/20</div>
+      <div class="summary-card" style="border-color:var(--gold);background:rgba(251,191,36,.05)"><b>洞察 3</b>主攻 15-25x：行业指数赛道</div>
+      <div class="summary-card" style="border-color:var(--gold);background:rgba(251,191,36,.05)"><b>洞察 4</b>中国蓝海 4 年窗口期</div>
+      <div class="summary-card" style="border-color:var(--gold);background:rgba(251,191,36,.05)"><b>洞察 5</b>反 VC 备选（学 Yardi）</div>
+    </div>
+  </div>
+
+  <!-- Filter -->
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterCards('all',this)">全部 6 家</button>
+    <button class="filter-btn" onclick="filterCards('threat',this)">🔴 威胁度高</button>
+    <button class="filter-btn" onclick="filterCards('learn',this)">🟢 可学习</button>
+    <button class="filter-btn" onclick="filterCards('ally',this)">🤝 可结盟</button>
+    <button class="filter-btn" onclick="filterCards('china',this)">🇨🇳 中国动向</button>
+  </div>
+
+  <!-- Cards grid -->
+  <div class="grid" id="cardsGrid">
+
+    <!-- Essensys -->
+    <div class="card" data-category="learn warn">
+      <div class="card-head">
+        <div>
+          <div class="card-name">Essensys <span style="font-size:13px;color:var(--muted);font-weight:normal">· 共享办公 SaaS</span></div>
+          <div class="meta">LSE AIM · <b>ESYS.L</b> · 英国伦敦 · 2006 创立</div>
+        </div>
+        <span class="card-tag warn">⚠️ 警示型</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="v" style="color:var(--red)">-90%</div><div class="l">峰值跌幅</div></div>
+        <div class="stat"><div class="v">£20M</div><div class="l">当前市值</div></div>
+        <div class="stat"><div class="v">75%</div><div class="l">毛利率</div></div>
+      </div>
+      <div class="meta">主营：operate 网络 / connect 会员管理 / symphony 数据中台</div>
+      <div class="meta">客户：<b>WeWork / IWG / Industrious / Knotel / Mindspace / Convene</b></div>
+      <div class="insight"><b>对 Park-ROADS 启示 ①</b>：单一客户类型（共享办公）依赖度过高 → 行业崩盘集体死亡。Park-ROADS 必须 <b>toG/toB/toA 三轨并行</b>，任何一轨占比 ≤ 50%。</div>
+      <div class="ticker-row">
+        <div class="ticker">威胁度：<span class="threat-l">低</span> · 学习度：<span class="threat-h">高</span></div>
+        <div class="links">
+          <a href="https://www.essensys.tech" target="_blank">官网</a>
+          <a href="https://www.londonstockexchange.com/stock/ESYS" target="_blank">股价</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Yardi -->
+    <div class="card" data-category="threat learn china">
+      <div class="card-head">
+        <div>
+          <div class="card-name">Yardi Systems <span style="font-size:13px;color:var(--muted);font-weight:normal">· 物业管理</span></div>
+          <div class="meta">私有 · 美国加州 Santa Barbara · 1984 创立</div>
+        </div>
+        <span class="card-tag">🔴 重大威胁</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="v">$5-10B</div><div class="l">估值</div></div>
+        <div class="stat"><div class="v">9,000+</div><div class="l">员工</div></div>
+        <div class="stat"><div class="v">180万</div><div class="l">管理物业</div></div>
+      </div>
+      <div class="meta">主营：Voyager 大型物业 / Breeze 中小物业 / Genesis2 多元资产 / RentCafe 租赁市场</div>
+      <div class="meta">特点：<b>Anant Yardi 40 年反 VC + 拒绝 IPO + 100% 持股</b></div>
+      <div class="insight"><b>对 Park-ROADS 启示 ②</b>：保留 <b>Anant Yardi 反 VC 路径备选</b> — 不融 VC + 不上市 + 利润驱动，10 年做到 ¥10 亿营收 ¥30 亿估值。<br><br>🚨 <b>2025 推 Yardi Industrial 模块</b>，正面进入 Park-ROADS 赛道，必须 4 年内建立中国 PDTMM 标准制高点。</div>
+      <div class="ticker-row">
+        <div class="ticker">威胁度：<span class="threat-h">高</span> · 学习度：<span class="threat-h">高</span></div>
+        <div class="links">
+          <a href="https://www.yardi.com" target="_blank">官网</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MRI -->
+    <div class="card" data-category="learn">
+      <div class="card-head">
+        <div>
+          <div class="card-name">MRI Software <span style="font-size:13px;color:var(--muted);font-weight:normal">· IWMS</span></div>
+          <div class="meta">PE 持有 (KKR + Harvest) · 美国 Ohio · 1971 创立</div>
+        </div>
+        <span class="card-tag purple">🔄 退出型</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="v">$3B</div><div class="l">估值</div></div>
+        <div class="stat"><div class="v">4,000</div><div class="l">员工</div></div>
+        <div class="stat"><div class="v">250+</div><div class="l">API 集成</div></div>
+      </div>
+      <div class="meta">主营：Property/Investment/Workplace/Facilities/Lease/Tenant Connect/Affordable Housing</div>
+      <div class="meta">特点：<b>"Open & Connected" 开放生态战略</b>，5 年内 PE 估值从 $1.5B 升至 $3B+</div>
+      <div class="insight"><b>对 Park-ROADS 启示 ③</b>：拿 PE 钱时设计 <b>3-5 年退出窗口</b>，明确并购 → 整合 → 二次出售/IPO 节奏。MRI = KKR PE 卷积模式最佳案例。</div>
+      <div class="ticker-row">
+        <div class="ticker">威胁度：<span class="threat-l">低</span> · 学习度：<span class="threat-m">中</span></div>
+        <div class="links">
+          <a href="https://www.mrisoftware.com" target="_blank">官网</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- HqO -->
+    <div class="card" data-category="learn">
+      <div class="card-head">
+        <div>
+          <div class="card-name">HqO <span style="font-size:13px;color:var(--muted);font-weight:normal">· 楼宇移动 App</span></div>
+          <div class="meta">私募 · 美国波士顿 · 2018 创立</div>
+        </div>
+        <span class="card-tag green">🎯 直接对标</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="v">$200M</div><div class="l">估值</div></div>
+        <div class="stat"><div class="v">$170M</div><div class="l">累计融资</div></div>
+        <div class="stat"><div class="v">250</div><div class="l">员工</div></div>
+      </div>
+      <div class="meta">主营：HqO App / HqOS 楼宇 OS / REX 体验指数 / Marketplace 市集</div>
+      <div class="meta">客户：<b>BXP / Tishman Speyer / Hines / Brookfield / JLL / Vornado</b></div>
+      <div class="insight"><b>对 Park-ROADS 启示 ④</b>：HqO 100% 业主付费模式直接移植中国 <b>不可行</b>。Park-ROADS 必须改造为 <b>toG 政府付费 + toB 业主免费用 + C 端用户引流</b>。</div>
+      <div class="ticker-row">
+        <div class="ticker">威胁度：<span class="threat-l">低</span> · 学习度：<span class="threat-h">高</span></div>
+        <div class="links">
+          <a href="https://www.hqo.com" target="_blank">官网</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spacewell -->
+    <div class="card" data-category="ally china">
+      <div class="card-head">
+        <div>
+          <div class="card-name">Spacewell <span style="font-size:13px;color:var(--muted);font-weight:normal">· 智慧楼宇</span></div>
+          <div class="meta">Nemetschek 子公司 · 比利时安特卫普 · 2018 合并</div>
+        </div>
+        <span class="card-tag green">🤝 可结盟</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="v">€11-15B</div><div class="l">母公司估值</div></div>
+        <div class="stat"><div class="v">80%</div><div class="l">毛利率</div></div>
+        <div class="stat"><div class="v"><5%</div><div class="l">中国份额</div></div>
+      </div>
+      <div class="meta">主营：Workplace / Maintenance / Energy / Cobundu IoT</div>
+      <div class="meta">母公司：<b>Nemetschek 帝国（Allplan / Bluebeam / Maxon / Solibri）</b></div>
+      <div class="insight"><b>对 Park-ROADS 启示 ⑤</b>：学 Nemetschek 全生命周期生态，<b>不做单点产品，做园区数字化生命周期 SaaS 矩阵</b>（规划-招商-运营-评估-改造）。中国市场可与 Spacewell <b>结盟而非对抗</b>。</div>
+      <div class="ticker-row">
+        <div class="ticker">威胁度：<span class="threat-l">低</span> · 结盟价值：<span class="threat-h">高</span></div>
+        <div class="links">
+          <a href="https://spacewell.com" target="_blank">Spacewell</a>
+          <a href="https://www.nemetschek.com" target="_blank">Nemetschek</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- VTS -->
+    <div class="card" data-category="learn ally">
+      <div class="card-head">
+        <div>
+          <div class="card-name">VTS <span style="font-size:13px;color:var(--muted);font-weight:normal">· 商业地产 CRM</span></div>
+          <div class="meta">私募 · 美国纽约 · 2012 创立</div>
+        </div>
+        <span class="card-tag green">⭐ 最佳模板</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="v">$1.7B</div><div class="l">Series F 估值</div></div>
+        <div class="stat"><div class="v">$435M</div><div class="l">累计融资</div></div>
+        <div class="stat"><div class="v">120B</div><div class="l">平方英尺 CRE</div></div>
+      </div>
+      <div class="meta">主营：VTS Lease (CRM) / VTS Market (市场) / VTS Data (指数) / VTS Activate (体验)</div>
+      <div class="meta">投资人：<b>Insight Partners / BentallGreenOak / Brookfield AM</b></div>
+      <div class="insight"><b>对 Park-ROADS 启示 ⑥</b>：VTS 用租赁 CRM 起家 → 沉淀美国 Class A 60%+ 数据 → 反向输出 VTS Data 行业指数。<br><br>Park-ROADS 学其模式：<b>用「体检系统」¥250 引流款做高频入口 → 沉淀全国 1,000+ 园区基准数据 → 反向输出 PDTMM 行业指数</b>。</div>
+      <div class="ticker-row">
+        <div class="ticker">威胁度：<span class="threat-l">低</span> · 模板价值：<span class="threat-h">极高</span></div>
+        <div class="links">
+          <a href="https://www.vts.com" target="_blank">官网</a>
+          <a href="https://www.vts.com/data" target="_blank">VTS Data</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Threat matrix -->
+  <div style="margin-top:30px">
+    <h2 style="color:var(--accent);border-left:4px solid var(--accent);padding-left:12px">📊 综合威胁与机会矩阵</h2>
+    <table class="threat-table">
+      <thead>
+        <tr>
+          <th>公司</th>
+          <th>对 Park-ROADS 威胁度</th>
+          <th>可学习价值</th>
+          <th>可结盟价值</th>
+          <th>中国市场动向</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><b>Essensys</b></td><td class="threat-l">低</td><td class="threat-h">高（警示）</td><td class="threat-l">低</td><td>无</td></tr>
+        <tr><td><b>Yardi</b></td><td class="threat-h">高 ⚠️</td><td class="threat-h">高（路径）</td><td class="threat-l">低</td><td>🔴 Industrial 模块 2025 启动</td></tr>
+        <tr><td><b>MRI Software</b></td><td class="threat-l">低</td><td class="threat-m">中（PE 模式）</td><td class="threat-m">中</td><td>无</td></tr>
+        <tr><td><b>HqO</b></td><td class="threat-l">低</td><td class="threat-h">高（对标）</td><td class="threat-l">低</td><td>无</td></tr>
+        <tr><td><b>Spacewell</b></td><td class="threat-m">中</td><td class="threat-h">高（生态）</td><td class="threat-h">高 🤝</td><td>试点 < 5%</td></tr>
+        <tr><td><b>VTS</b></td><td class="threat-l">低</td><td class="threat-h">极高（飞轮）</td><td class="threat-h">高 🤝</td><td>无</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Action plan -->
+  <div style="margin-top:30px">
+    <h2 style="color:var(--accent);border-left:4px solid var(--accent);padding-left:12px">🚀 v3.0 行动计划（按 14 项任务）</h2>
+    <table class="threat-table">
+      <thead>
+        <tr><th>编号</th><th>时间</th><th>动作</th><th>启示</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>#1</td><td>Q3 2026</td><td>toG/toB/toA 三轨各签 1-2 家灯塔</td><td>①③</td></tr>
+        <tr><td>#2</td><td>Q3 2026</td><td>体检系统全国推广（¥250 引流款）</td><td>⑥</td></tr>
+        <tr><td>#3</td><td>Q4 2026</td><td>启动 PDTMM Index v0.1 雏形</td><td>⑥③</td></tr>
+        <tr><td>#4</td><td>Q4 2026</td><td>商标注册（中国+香港+新加坡）</td><td>②</td></tr>
+        <tr><td>#5</td><td>2027</td><td>五系统生命周期矩阵打通</td><td>⑤</td></tr>
+        <tr><td>#6</td><td>2027</td><td>toG 客户 ≥ 20 家（40% 营收）</td><td>①④</td></tr>
+        <tr><td>#7</td><td>2027</td><td>PDTMM Index 季度发布</td><td>⑥</td></tr>
+        <tr><td>#8</td><td>2027</td><td>申请国家级团体标准立项</td><td>②⑤</td></tr>
+        <tr><td>#9</td><td>2027</td><td>Spacewell / VTS 中国 MOU</td><td>⑤⑥</td></tr>
+        <tr><td>#10</td><td>2028</td><td>抵御 Yardi Industrial 攻势</td><td>②④</td></tr>
+        <tr><td>#11</td><td>2028</td><td>A 轮 ¥1 亿 PE 融资</td><td>③</td></tr>
+        <tr><td>#12</td><td>2029</td><td>PDTMM Index 行业基准化</td><td>⑥</td></tr>
+        <tr><td>#13</td><td>2029</td><td>跨境启动（新加坡/香港/迪拜）</td><td>⑤</td></tr>
+        <tr><td>#14</td><td>2031</td><td>IPO vs 反 VC 路径决策点</td><td>②③</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Resource links -->
+  <div style="margin-top:30px;padding:20px;background:linear-gradient(135deg,rgba(251,191,36,.06),rgba(56,189,248,.04));border-radius:12px;border:1px solid rgba(251,191,36,.3)">
+    <h2 style="margin-top:0;color:var(--gold)">📚 配套资料</h2>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+      <a href="./Park-ROADS战略备忘录_全球6巨头11启示.docx" download style="padding:10px 18px;background:linear-gradient(135deg,var(--gold),#f59e0b);color:#0a0e1a;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">📋 战略备忘录 (Word)</a>
+      <a href="./PDTMM_Index_1.0_产品白皮书.docx" download style="padding:10px 18px;border:1.5px solid var(--accent);color:var(--accent);border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">📊 PDTMM Index v0.1 白皮书</a>
+      <a href="./Park-ROADS商业模式_v3.0_全球启示升级版.docx" download style="padding:10px 18px;border:1.5px solid var(--accent);color:var(--accent);border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">💼 v3.0 商业模式</a>
+      <a href="./PDTMM-1.0.html" style="padding:10px 18px;border:1.5px solid var(--accent);color:var(--accent);border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">🏆 PDTMM 1.0 标准</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Park-ROADS 全球同行监测雷达 · © 2026<br>
+  数据来源：公开年报 / 媒体报道 / 行业研究 · 更新频率：季度<br>
+  <a href="./index.html" style="color:var(--accent);text-decoration:none">← 返回 Park-ROADS 主站</a>
+</div>
+
+<script>
+function filterCards(category, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(c=>{
+    if(category==='all'){c.style.display=''; return;}
+    const cats = c.getAttribute('data-category')||'';
+    c.style.display = cats.includes(category) ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>
