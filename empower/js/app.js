@@ -53,16 +53,24 @@ function showSessionExpired() {
  * 改回同源 fetch，由 Desktop 目录的 local-api-server.mts 提供 /api。
  * 服务端导入仓库官方 handleApiRequest / 继涛博士 工厂，不再走 js/backend.js 模拟。
  */
+const API_BASE = (typeof window !== 'undefined' && window.SME_API_BASE)
+  ? String(window.SME_API_BASE).replace(/\/$/, '')
+  : '';
+function apiUrl(url) {
+  if (!url) return url;
+  if (/^https?:\/\//i.test(url)) return url;
+  return API_BASE + url;
+}
 async function api(url, opts = {}) {
   const isForm = typeof FormData !== 'undefined' && opts.body instanceof FormData;
-  const r = await fetch(url, {
+  const r = await fetch(apiUrl(url), {
     method: opts.method || 'GET',
     headers: {
       ...(opts.body && !isForm ? { 'Content-Type': 'application/json' } : {}),
       ...(opts.headers || {}),
     },
     body: opts.body ? (isForm ? opts.body : JSON.stringify(opts.body)) : undefined,
-    credentials: 'same-origin',
+    credentials: API_BASE ? 'omit' : 'same-origin',
   });
   const t = await r.text();
   let j = {}; try { j = t ? JSON.parse(t) : {}; } catch { j = { error: t.slice(0, 200) }; }
@@ -77,10 +85,10 @@ async function api(url, opts = {}) {
 
 /* 本地 继涛博士 接入：打印报告改回官方 fetchDocument，读取同源 /api/.../report/print HTML。 */
 async function fetchDocument(url) {
-  const response = await fetch(url, {
+  const response = await fetch(apiUrl(url), {
     method: 'GET',
     headers: { Accept: 'text/html' },
-    credentials: 'same-origin',
+    credentials: API_BASE ? 'omit' : 'same-origin',
   });
   const text = await response.text();
   if (!response.ok) {
