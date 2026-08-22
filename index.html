@@ -2162,6 +2162,14 @@ function go(id){
   if(id === 'insight' && typeof renderInsights === 'function') setTimeout(renderInsights, 60);
   // 论文拆解页：进入时渲染角色视角卡片
   if(id === 'thesis' && typeof renderThesisRoles === 'function') setTimeout(renderThesisRoles, 60);
+  // 企业赋能页：进入时初始化
+  if(id === 'empower' && typeof empRenderCompanyList === 'function') {
+    setTimeout(() => {
+      empRenderCompanyList();
+      empRenderFields();
+      empRenderWorkbench();
+    }, 60);
+  }
 }
 document.querySelectorAll('[data-go]').forEach(el => {
   el.addEventListener('click', e => go(e.currentTarget.dataset.go));
@@ -4658,13 +4666,6 @@ document.getElementById('emp_workbench_tabs')?.addEventListener('click', e => {
   document.getElementById('emp_workbench_container').dataset.wb = e.target.dataset.wb;
   empRenderWorkbench();
 });
-
-// 初始化
-if (document.getElementById('empower')) {
-  empRenderCompanyList();
-  empRenderFields();
-  empRenderWorkbench();
-}
 
 </script>
 </body>
