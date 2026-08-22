@@ -654,10 +654,10 @@ async function downloadSequoiaPptx(button, status, fetchImpl = fetch, onSessionE
   button.disabled = true;
   setMessage(status, '正在按红杉十页整理融资 PPT…', 'info');
   try {
-    const response = await fetchImpl(`/api/companies/${encodeURIComponent(cid)}/report/sequoia-pptx`, {
+    const response = await fetchImpl(apiUrl(`/api/companies/${encodeURIComponent(cid)}/report/sequoia-pptx`), {
       method: 'GET',
       headers: { Accept: 'application/vnd.openxmlformats-officedocument.presentationml.presentation' },
-      credentials: 'same-origin',
+      credentials: API_BASE ? 'omit' : 'same-origin',
     });
     if (!response.ok) {
       const text = await response.text();
