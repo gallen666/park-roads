@@ -689,6 +689,7 @@
     <span class="navlink" data-go="cases" role="button" tabindex="0" aria-label="案例库 — 5 园区实测数据">案例库</span>
     <span class="navlink" data-go="survey" role="button" tabindex="0" aria-label="调查问卷 — 论文附录 A 至 J">📋 调查问卷</span>
     <span class="navlink" data-go="insight" role="button" tabindex="0" aria-label="实时治理洞察 — AI 自动诊断">🤖 AI 诊断</span>
+    <span class="navlink" data-go="empower" role="button" tabindex="0" aria-label="企业赋能 — 中小企业 AI 管理系统">企业赋能</span>
     <span class="navlink" data-go="workshop" role="button" tabindex="0" aria-label="工作坊指南 — 4 小时 7 角色">工作坊指南</span>
     <span class="navlink" data-go="service" role="button" tabindex="0" aria-label="五位一体产品架构 — 园区数字化诊疗体系">🏥 服务体系</span>
     <span class="navlink" data-go="about" role="button" tabindex="0" aria-label="关于 Park-ROADS">关于</span>
@@ -1468,6 +1469,58 @@
         <button class="btn" id="ih_apply_min" aria-label="一键将所有 < 50 的指标自动提升到 60">✨ 一键改善（&lt;50 → 60）</button>
         <button class="btn" id="ih_export" aria-label="导出诊断报告为 Markdown">📋 导出诊断报告</button>
         <span style="color:var(--muted);font-size:12px">数据基于您当前的 35 滑杆与论文 7 主体 AHP 权重</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 企业赋能 (中小企业 AI 管理系统) ========== -->
+<section id="empower" class="section">
+  <div class="container">
+    <h1 class="page-title">💼 企业赋能 <span class="badge gold">中小企业 AI 管理系统</span></h1>
+    <p class="page-sub">继涛博士为中小企业提供的 AI 管理系统：输入公司名称与计划书，生成 10 大工作台 × 4 维分析，导出 Sequoia 10 页融资 BP。公网版基于已知事实填栏，缺数不编。</p>
+
+    <!-- 输入区 -->
+    <div class="panel" style="margin-bottom:14px">
+      <h2>📝 企业信息录入</h2>
+      <div class="hint">输入公司名称（必填），可选粘贴商业计划书或上传文本文件。数据保存在浏览器本地。</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px">
+        <div>
+          <label style="display:block;color:var(--muted);font-size:11px;margin-bottom:4px">公司名称 *</label>
+          <input type="text" id="emp_company" placeholder="例如：OpenFlow 科技" style="width:100%;background:var(--card2);border:1px solid var(--line);color:var(--txt);padding:8px 10px;border-radius:5px;font-size:13px" />
+        </div>
+        <div>
+          <label style="display:block;color:var(--muted);font-size:11px;margin-bottom:4px">商业计划书文件（可选）</label>
+          <input type="file" id="emp_file" accept=".txt,.md,.csv" style="width:100%;background:var(--card2);border:1px solid var(--line);color:var(--txt);padding:6px 10px;border-radius:5px;font-size:13px" />
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <label style="display:block;color:var(--muted);font-size:11px;margin-bottom:4px">或粘贴计划书文本（可选）</label>
+        <textarea id="emp_bp_text" placeholder="粘贴商业计划书内容..." style="width:100%;height:100px;background:var(--card2);border:1px solid var(--line);color:var(--txt);padding:8px 10px;border-radius:5px;font-size:12px;resize:vertical"></textarea>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:8px">
+        <button class="btn primary" id="emp_analyze" aria-label="分析企业现状">🔍 分析企业现状</button>
+        <button class="btn" id="emp_clear" aria-label="清空所有数据">🗑 清空数据</button>
+        <span id="emp_status" style="color:var(--muted);font-size:12px;margin-left:auto;align-self:center"></span>
+      </div>
+    </div>
+
+    <!-- 10 工作台 -->
+    <div class="panel" style="margin-bottom:14px">
+      <h2>📊 企业现状：10 大工作台分析</h2>
+      <div class="hint">每个工作台 4 列：工具、方法、行动实践、我的应用。「我的应用」栏可编辑并自动保存。</div>
+      <div id="emp_workbenches" style="margin-top:10px">
+        <!-- 工作台将在这里动态生成 -->
+      </div>
+    </div>
+
+    <!-- 导出区 -->
+    <div class="panel">
+      <h2>📄 导出 Sequoia 10 页融资 BP</h2>
+      <div class="hint">基于工作台数据导出标准 10 页融资路演文档：宗旨、痛点、方案、时机、市场、竞争、产品与商业模式、团队、财务、愿景。</div>
+      <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+        <button class="btn primary" id="emp_export" aria-label="导出融资 BP">📥 导出融资 BP</button>
+        <span style="color:var(--muted);font-size:11px">将生成可下载的文档，缺失数据显示为「待取数」</span>
       </div>
     </div>
   </div>
@@ -3806,6 +3859,280 @@ document.getElementById('applyToSandbox').addEventListener('click', () => {
 });
 
 renderSurveyList();
+
+/* =========================================================================
+   企业赋能 (中小企业 AI 管理系统)
+   ========================================================================= */
+const WORKBENCHES = [
+  { id: 'wb01', name: '01 战略设计', fields: ['定标', '对标', '标准', '超标'] },
+  { id: 'wb02', name: '02 价值创造', fields: ['工具', '方法', '行动实践', '我的应用'] },
+  { id: 'wb03', name: '03 产品战略', fields: ['工具', '方法', '行动实践', '我的应用'] },
+  { id: 'wb04', name: '04 组织发展', fields: ['工具', '方法', '行动实践', '我的应用'] },
+  { id: 'wb05', name: '05 预算管理', fields: ['工具', '方法', '行动实践', '我的应用'] },
+  { id: 'wb06', name: '06 营销管理', fields: ['工具', '方法', '行动实践', '我的应用'] },
+  { id: 'wb07', name: '07 用户经营', fields: ['工具', '方法', '行动实践', '我的应用'] },
+  { id: 'wb08', name: '08 绩效管理', fields: ['工具', '方法', '行动实践', '我的应用'] },
+  { id: 'wb09', name: '09 财务管理', fields: ['工具', '方法', '行动实践', '我的应用'] },
+  { id: 'wb10', name: '10 资本管理', fields: ['工具', '方法', '行动实践', '我的应用'] }
+];
+
+// 教学常量占位（不编造具体案例）
+const WORKBENCH_TEMPLATES = {
+  wb01: { tool: '战略定位画布', method: '竞品对标分析', action: '季度战略评审会', app: '' },
+  wb02: { tool: '价值主张画布', method: '客户访谈法', action: '价值假设验证', app: '' },
+  wb03: { tool: '产品路线图', method: '用户故事地图', action: '产品迭代计划', app: '' },
+  wb04: { tool: '组织能力雷达', method: '岗位胜任力模型', action: '人才盘点会议', app: '' },
+  wb05: { tool: '三年滚动预算', method: '零基预算法', action: '月度经营分析会', app: '' },
+  wb06: { tool: '营销漏斗模型', method: 'AARRR 增长模型', action: '营销活动复盘', app: '' },
+  wb07: { tool: '用户旅程地图', method: 'NPS 净推荐值', action: '用户运营看板', app: '' },
+  wb08: { tool: 'OKR 目标管理', method: '平衡计分卡', action: '季度绩效面谈', app: '' },
+  wb09: { tool: '三大财务报表', method: '现金流预测', action: '财务健康检查', app: '' },
+  wb10: { tool: '融资时间表', method: '估值模型', action: '投资人路演', app: '' }
+};
+
+const SEQUOIA_PAGES = [
+  { id: 'purpose', title: '1. 宗旨', prompt: '用一句话说明公司的使命' },
+  { id: 'problem', title: '2. 痛点', prompt: '你要解决的痛点是什么？为什么现状会失败？' },
+  { id: 'solution', title: '3. 方案', prompt: '你的解决方案是什么？' },
+  { id: 'timing', title: '4. 时机', prompt: '为什么是现在？' },
+  { id: 'market', title: '5. 市场', prompt: '市场规模（TAM/SAM/SOM）' },
+  { id: 'competition', title: '6. 竞争', prompt: '主要竞品有哪些？' },
+  { id: 'business', title: '7. 产品与商业模式', prompt: '产品形态和收费模式' },
+  { id: 'team', title: '8. 团队', prompt: '核心团队成员背景' },
+  { id: 'finance', title: '9. 财务', prompt: '收入、成本、融资情况' },
+  { id: 'vision', title: '10. 愿景', prompt: '3-5年后的目标状态' }
+];
+
+let currentCompany = '';
+let empData = {};
+
+function getEmpStorageKey() {
+  return 'emp_data_' + currentCompany.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '_');
+}
+
+function saveEmpData() {
+  if (!currentCompany) return;
+  localStorage.setItem(getEmpStorageKey(), JSON.stringify(empData));
+}
+
+function loadEmpData() {
+  if (!currentCompany) return;
+  const stored = localStorage.getItem(getEmpStorageKey());
+  if (stored) {
+    try {
+      empData = JSON.parse(stored);
+    } catch (e) {
+      empData = {};
+    }
+  } else {
+    empData = {};
+  }
+}
+
+function renderWorkbenches() {
+  const container = document.getElementById('emp_workbenches');
+  if (!currentCompany) {
+    container.innerHTML = '<p style="color:var(--muted);text-align:center;padding:40px 0">请先输入公司名称并点击「分析企业现状」</p>';
+    return;
+  }
+
+  let html = '';
+  WORKBENCHES.forEach(wb => {
+    const tmpl = WORKBENCH_TEMPLATES[wb.id];
+    const data = empData[wb.id] || { tool: tmpl.tool, method: tmpl.method, action: tmpl.action, app: '' };
+    
+    html += `
+      <div class="emp-workbench" style="background:var(--card2);border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:12px">
+        <h3 style="margin:0 0 10px 0;color:var(--accent);font-size:14px">${wb.name}</h3>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+          <div>
+            <div style="color:var(--muted);font-size:10px;margin-bottom:4px">工具</div>
+            <div style="background:var(--card);border:1px solid var(--line);padding:6px 8px;border-radius:4px;font-size:12px;min-height:60px">${data.tool || '待取数'}</div>
+          </div>
+          <div>
+            <div style="color:var(--muted);font-size:10px;margin-bottom:4px">方法</div>
+            <div style="background:var(--card);border:1px solid var(--line);padding:6px 8px;border-radius:4px;font-size:12px;min-height:60px">${data.method || '待取数'}</div>
+          </div>
+          <div>
+            <div style="color:var(--muted);font-size:10px;margin-bottom:4px">行动实践</div>
+            <div style="background:var(--card);border:1px solid var(--line);padding:6px 8px;border-radius:4px;font-size:12px;min-height:60px">${data.action || '待取数'}</div>
+          </div>
+          <div>
+            <div style="color:var(--muted);font-size:10px;margin-bottom:4px">我的应用 <span style="color:var(--accent2)">(可编辑)</span></div>
+            <textarea class="emp-app-field" data-wb="${wb.id}" style="width:100%;height:60px;background:var(--bg);border:1px solid var(--accent);color:var(--txt);padding:6px 8px;border-radius:4px;font-size:12px;resize:vertical">${data.app || ''}</textarea>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+  
+  container.innerHTML = html;
+  
+  // 绑定「我的应用」自动保存
+  document.querySelectorAll('.emp-app-field').forEach(field => {
+    field.addEventListener('input', e => {
+      const wbId = e.target.dataset.wb;
+      if (!empData[wbId]) empData[wbId] = { ...WORKBENCH_TEMPLATES[wbId] };
+      empData[wbId].app = e.target.value;
+      saveEmpData();
+    });
+  });
+}
+
+function analyzeCompany() {
+  const company = document.getElementById('emp_company').value.trim();
+  if (!company) {
+    alert('请输入公司名称');
+    return;
+  }
+  
+  currentCompany = company;
+  loadEmpData();
+  
+  // 读取文件或文本
+  const bpText = document.getElementById('emp_bp_text').value.trim();
+  const fileInput = document.getElementById('emp_file');
+  
+  if (fileInput.files.length > 0) {
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+    reader.onload = e => {
+      const text = e.target.result;
+      extractFromBP(text);
+    };
+    reader.readAsText(file);
+  } else if (bpText) {
+    extractFromBP(bpText);
+  } else {
+    // 无输入，使用模板
+    WORKBENCHES.forEach(wb => {
+      if (!empData[wb.id]) {
+        empData[wb.id] = { ...WORKBENCH_TEMPLATES[wb.id] };
+      }
+    });
+    renderWorkbenches();
+  }
+  
+  document.getElementById('emp_status').textContent = `已加载：${currentCompany}`;
+}
+
+function extractFromBP(text) {
+  // 简单的关键词提取（不调用 LLM）
+  // 只提取明显的句子，不编造数据
+  
+  WORKBENCHES.forEach(wb => {
+    if (!empData[wb.id]) {
+      empData[wb.id] = { ...WORKBENCH_TEMPLATES[wb.id] };
+    }
+  });
+  
+  // 尝试提取一些基础信息到「我的应用」
+  const lines = text.split(/[\n\r]+/).filter(l => l.trim().length > 10);
+  
+  // 如果有明确的战略/愿景相关句子，放到战略设计
+  const strategyKeywords = ['战略', '定位', '愿景', '使命'];
+  const strategyLine = lines.find(l => strategyKeywords.some(k => l.includes(k)));
+  if (strategyLine && !empData.wb01.app) {
+    empData.wb01.app = strategyLine.substring(0, 100);
+  }
+  
+  // 如果有产品相关句子，放到产品战略
+  const productKeywords = ['产品', '服务', '功能', '技术'];
+  const productLine = lines.find(l => productKeywords.some(k => l.includes(k)));
+  if (productLine && !empData.wb03.app) {
+    empData.wb03.app = productLine.substring(0, 100);
+  }
+  
+  saveEmpData();
+  renderWorkbenches();
+  showToast('✅ 已从计划书提取信息，其余字段请手动补充');
+}
+
+function clearEmpData() {
+  if (!confirm('确定清空所有企业数据？')) return;
+  
+  currentCompany = '';
+  empData = {};
+  document.getElementById('emp_company').value = '';
+  document.getElementById('emp_bp_text').value = '';
+  document.getElementById('emp_file').value = '';
+  document.getElementById('emp_status').textContent = '';
+  
+  if (currentCompany) {
+    localStorage.removeItem(getEmpStorageKey());
+  }
+  
+  renderWorkbenches();
+  showToast('✅ 已清空数据');
+}
+
+function exportSequoiaBP() {
+  if (!currentCompany) {
+    alert('请先分析企业现状');
+    return;
+  }
+  
+  let content = `# ${currentCompany} 融资路演 BP\n\n`;
+  content += `继涛博士中小企业 AI 管理系统生成\n`;
+  content += `生成时间：${new Date().toLocaleString('zh-CN')}\n\n`;
+  content += `---\n\n`;
+  
+  SEQUOIA_PAGES.forEach((page, idx) => {
+    content += `## ${page.title}\n\n`;
+    content += `**提示：** ${page.prompt}\n\n`;
+    
+    // 尝试从工作台数据填充
+    let extracted = '待取数';
+    
+    if (page.id === 'purpose' && empData.wb01 && empData.wb01.app) {
+      extracted = empData.wb01.app;
+    } else if (page.id === 'solution' && empData.wb03 && empData.wb03.app) {
+      extracted = empData.wb03.app;
+    } else if (page.id === 'business' && empData.wb03 && empData.wb03.app) {
+      extracted = empData.wb03.app;
+    } else if (page.id === 'finance' && empData.wb09 && empData.wb09.app) {
+      extracted = empData.wb09.app;
+    } else if (page.id === 'vision' && empData.wb01 && empData.wb01.app) {
+      extracted = empData.wb01.app;
+    }
+    
+    content += `${extracted}\n\n`;
+    content += `---\n\n`;
+  });
+  
+  content += `\n\n## 附：10 大工作台分析\n\n`;
+  WORKBENCHES.forEach(wb => {
+    const data = empData[wb.id] || {};
+    content += `### ${wb.name}\n\n`;
+    content += `- **工具：** ${data.tool || '待取数'}\n`;
+    content += `- **方法：** ${data.method || '待取数'}\n`;
+    content += `- **行动实践：** ${data.action || '待取数'}\n`;
+    content += `- **我的应用：** ${data.app || '待取数'}\n\n`;
+  });
+  
+  content += `\n---\n\n`;
+  content += `*本文档由继涛博士中小企业 AI 管理系统生成*\n`;
+  content += `*公网版基于计划书/已知事实填栏，缺数不编*\n`;
+  
+  // 下载为文本文件
+  const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${currentCompany}_Sequoia_BP_${new Date().toISOString().split('T')[0]}.txt`;
+  a.click();
+  URL.revokeObjectURL(url);
+  
+  showToast('✅ BP 已导出');
+}
+
+// 绑定事件
+document.getElementById('emp_analyze').addEventListener('click', analyzeCompany);
+document.getElementById('emp_clear').addEventListener('click', clearEmpData);
+document.getElementById('emp_export').addEventListener('click', exportSequoiaBP);
+
+// 初始化
+renderWorkbenches();
 
 /* =========================================================================
    INIT
