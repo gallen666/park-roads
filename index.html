@@ -689,7 +689,7 @@
     <span class="navlink" data-go="cases" role="button" tabindex="0" aria-label="案例库 — 5 园区实测数据">案例库</span>
     <span class="navlink" data-go="survey" role="button" tabindex="0" aria-label="调查问卷 — 论文附录 A 至 J">📋 调查问卷</span>
     <span class="navlink" data-go="insight" role="button" tabindex="0" aria-label="实时治理洞察 — AI 自动诊断">🤖 AI 诊断</span>
-    <span class="navlink" data-go="empower" role="button" tabindex="0" aria-label="企业赋能 — 中小企业 AI 管理系统">企业赋能</span>
+    <a class="navlink" href="/empower/" role="link" aria-label="企业赋能 — 中小企业 AI 管理系统">企业赋能</a>
     <span class="navlink" data-go="workshop" role="button" tabindex="0" aria-label="工作坊指南 — 4 小时 7 角色">工作坊指南</span>
     <span class="navlink" data-go="service" role="button" tabindex="0" aria-label="五位一体产品架构 — 园区数字化诊疗体系">🏥 服务体系</span>
     <span class="navlink" data-go="about" role="button" tabindex="0" aria-label="关于 Park-ROADS">关于</span>
@@ -2127,6 +2127,7 @@ function go(id){
   const hud = document.getElementById('hud_badge');
   if(hud) hud.classList.toggle('show', id==='sandbox');
   window.scrollTo({top:0,behavior:'smooth'});
+    if(id === 'empower'){ location.assign('/empower/'); return; }
   if(location.hash !== '#'+id) history.replaceState(null,'','#'+id+(location.search||''));
   setTimeout(()=>{ for(const k in charts) if(charts[k]) charts[k].resize(); },50);
   // AI 诊断页：每次进入自动重跑

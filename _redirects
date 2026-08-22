@@ -1,3 +1,5 @@
-# Netlify / Cloudflare Pages SPA fallback
-# 所有未知路径都返回 index.html，让前端 hash 路由处理
+# Netlify / Cloudflare Pages
+/empower /empower/index.html 200
+/empower/ /empower/index.html 200
+/empower/* /empower/:splat 200
 /*    /index.html   200
