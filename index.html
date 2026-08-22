@@ -689,7 +689,7 @@
     <span class="navlink" data-go="cases" role="button" tabindex="0" aria-label="案例库 — 5 园区实测数据">案例库</span>
     <span class="navlink" data-go="survey" role="button" tabindex="0" aria-label="调查问卷 — 论文附录 A 至 J">📋 调查问卷</span>
     <span class="navlink" data-go="insight" role="button" tabindex="0" aria-label="实时治理洞察 — AI 自动诊断">🤖 AI 诊断</span>
-    <span class="navlink" data-go="empower" role="button" tabindex="0" aria-label="企业赋能 — 中小企业 AI 管理系统">企业赋能</span>
+    <span class="navlink" data-go="empower" role="button" tabindex="0" aria-label="中小企业 AI 管理系统">企业赋能</span>
     <span class="navlink" data-go="workshop" role="button" tabindex="0" aria-label="工作坊指南 — 4 小时 7 角色">工作坊指南</span>
     <span class="navlink" data-go="service" role="button" tabindex="0" aria-label="五位一体产品架构 — 园区数字化诊疗体系">🏥 服务体系</span>
     <span class="navlink" data-go="about" role="button" tabindex="0" aria-label="关于 Park-ROADS">关于</span>
@@ -1474,53 +1474,82 @@
   </div>
 </section>
 
-<!-- ========== 企业赋能 (中小企业 AI 管理系统) ========== -->
+<!-- ========== EMPOWER (中小企业 AI 管理系统) ========== -->
 <section id="empower" class="section">
   <div class="container">
-    <h1 class="page-title">💼 企业赋能 <span class="badge gold">中小企业 AI 管理系统</span></h1>
-    <p class="page-sub">继涛博士为中小企业提供的 AI 管理系统：输入公司名称与计划书，生成 10 大工作台 × 4 维分析，导出 Sequoia 10 页融资 BP。公网版基于已知事实填栏，缺数不编。</p>
+    <h1 class="page-title">🏢 中小企业 AI 管理系统 <span class="badge gold">天龙八步 · 继涛博士</span></h1>
+    <p class="page-sub">基于行动教育天龙四列表，40 字段企业现状 + 10 大工作台 + Sequoia 10 页计划书导出。所有数据存储在浏览器本地，无需后端。</p>
 
-    <!-- 输入区 -->
+    <!-- 公司档案管理 -->
     <div class="panel" style="margin-bottom:14px">
-      <h2>📝 企业信息录入</h2>
-      <div class="hint">输入公司名称（必填），可选粘贴商业计划书或上传文本文件。数据保存在浏览器本地。</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px">
-        <div>
-          <label style="display:block;color:var(--muted);font-size:11px;margin-bottom:4px">公司名称 *</label>
-          <input type="text" id="emp_company" placeholder="例如：OpenFlow 科技" style="width:100%;background:var(--card2);border:1px solid var(--line);color:var(--txt);padding:8px 10px;border-radius:5px;font-size:13px" />
+      <h2>① 公司档案</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px">
+        <input type="text" id="emp_new_company" placeholder="输入公司名称创建新档案" style="flex:1;min-width:200px;background:var(--card2);border:1px solid var(--line);color:var(--txt);padding:6px 10px;border-radius:5px;font-size:13px" />
+        <button class="btn primary" id="emp_create_company">创建档案</button>
+        <span style="color:var(--muted);font-size:11px">|</span>
+        <select id="emp_company_list" style="background:var(--card2);border:1px solid var(--line);color:var(--txt);padding:6px 10px;border-radius:5px;font-size:13px">
+          <option value="">选择已有档案...</option>
+        </select>
+        <button class="btn sm danger" id="emp_delete_company">删除当前档案</button>
+        <span id="emp_current_company" style="color:var(--accent);font-weight:700;font-size:13px"></span>
+        <span style="color:var(--muted);font-size:11px" id="emp_field_count">0/40 字段已填</span>
+      </div>
+      <details style="margin-top:10px">
+        <summary style="cursor:pointer;color:var(--accent);font-size:12px;margin-bottom:8px">📄 导入商业计划书（可选）</summary>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+          <textarea id="emp_bp_paste" placeholder="粘贴 BP 文本内容，系统将自动提取关键信息填入空字段..." style="width:100%;min-height:100px;background:var(--card2);border:1px solid var(--line);color:var(--txt);padding:8px;border-radius:5px;font-size:12px;font-family:monospace"></textarea>
+          <input type="file" id="emp_bp_file" accept=".txt,.md,.csv" style="font-size:12px" />
+          <button class="btn sm" id="emp_bp_extract">🔍 智能提取</button>
+          <span style="color:var(--muted);font-size:11px">仅填充空字段，不会覆盖已有内容</span>
         </div>
-        <div>
-          <label style="display:block;color:var(--muted);font-size:11px;margin-bottom:4px">商业计划书文件（可选）</label>
-          <input type="file" id="emp_file" accept=".txt,.md,.csv" style="width:100%;background:var(--card2);border:1px solid var(--line);color:var(--txt);padding:6px 10px;border-radius:5px;font-size:13px" />
-        </div>
-      </div>
-      <div style="margin-top:10px">
-        <label style="display:block;color:var(--muted);font-size:11px;margin-bottom:4px">或粘贴计划书文本（可选）</label>
-        <textarea id="emp_bp_text" placeholder="粘贴商业计划书内容..." style="width:100%;height:100px;background:var(--card2);border:1px solid var(--line);color:var(--txt);padding:8px 10px;border-radius:5px;font-size:12px;resize:vertical"></textarea>
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn primary" id="emp_analyze" aria-label="分析企业现状">🔍 分析企业现状</button>
-        <button class="btn" id="emp_clear" aria-label="清空所有数据">🗑 清空数据</button>
-        <span id="emp_status" style="color:var(--muted);font-size:12px;margin-left:auto;align-self:center"></span>
-      </div>
+      </details>
     </div>
 
-    <!-- 10 工作台 -->
+    <!-- 企业现状 40 字段 -->
     <div class="panel" style="margin-bottom:14px">
-      <h2>📊 企业现状：10 大工作台分析</h2>
-      <div class="hint">每个工作台 4 列：工具、方法、行动实践、我的应用。「我的应用」栏可编辑并自动保存。</div>
-      <div id="emp_workbenches" style="margin-top:10px">
-        <!-- 工作台将在这里动态生成 -->
+      <h2>② 企业现状（40 字段 · 10 模块）</h2>
+      <p class="hint">每个模块 4 个字段，可自由编辑。数据自动保存到 localStorage。</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px" id="emp_module_tabs">
+        <button class="btn sm active" data-module="01">01 战略设计</button>
+        <button class="btn sm" data-module="02">02 价值创造</button>
+        <button class="btn sm" data-module="03">03 产品战略</button>
+        <button class="btn sm" data-module="04">04 组织发展</button>
+        <button class="btn sm" data-module="05">05 预算管理</button>
+        <button class="btn sm" data-module="06">06 营销管理</button>
+        <button class="btn sm" data-module="07">07 用户经营</button>
+        <button class="btn sm" data-module="08">08 绩效管理</button>
+        <button class="btn sm" data-module="09">09 财务管理</button>
+        <button class="btn sm" data-module="10">10 资本管理</button>
       </div>
+      <div id="emp_fields_container"></div>
     </div>
 
-    <!-- 导出区 -->
+    <!-- 10 大工作台 -->
+    <div class="panel" style="margin-bottom:14px">
+      <h2>③ 天龙工作台（10 模块 × 4 列表格）</h2>
+      <p class="hint">工具 / 方法 / 行动实践（官方教学）/ 我的应用（可编辑）</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px" id="emp_workbench_tabs">
+        <button class="btn sm active" data-wb="01">01 战略设计</button>
+        <button class="btn sm" data-wb="02">02 价值创造</button>
+        <button class="btn sm" data-wb="03">03 产品战略</button>
+        <button class="btn sm" data-wb="04">04 组织发展</button>
+        <button class="btn sm" data-wb="05">05 预算管理</button>
+        <button class="btn sm" data-wb="06">06 营销管理</button>
+        <button class="btn sm" data-wb="07">07 用户经营</button>
+        <button class="btn sm" data-wb="08">08 绩效管理</button>
+        <button class="btn sm" data-wb="09">09 财务管理</button>
+        <button class="btn sm" data-wb="10">10 资本管理</button>
+      </div>
+      <div id="emp_workbench_container"></div>
+    </div>
+
+    <!-- Sequoia 10 页导出 -->
     <div class="panel">
-      <h2>📄 导出 Sequoia 10 页融资 BP</h2>
-      <div class="hint">基于工作台数据导出标准 10 页融资路演文档：宗旨、痛点、方案、时机、市场、竞争、产品与商业模式、团队、财务、愿景。</div>
-      <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
-        <button class="btn primary" id="emp_export" aria-label="导出融资 BP">📥 导出融资 BP</button>
-        <span style="color:var(--muted);font-size:11px">将生成可下载的文档，缺失数据显示为「待取数」</span>
+      <h2>④ Sequoia 10 页计划书导出</h2>
+      <p class="hint">从当前公司的 40 字段 + 我的应用 自动生成 Sequoia 10 页标准格式 .pptx 文件。</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <button class="btn primary" id="emp_export_pptx">📊 导出 PPTX</button>
+        <span style="color:var(--muted);font-size:11px">页面：宗旨、痛点、方案、时机、市场、竞争、产品与商业模式、团队、财务、愿景</span>
       </div>
     </div>
   </div>
@@ -3861,280 +3890,6 @@ document.getElementById('applyToSandbox').addEventListener('click', () => {
 renderSurveyList();
 
 /* =========================================================================
-   企业赋能 (中小企业 AI 管理系统)
-   ========================================================================= */
-const WORKBENCHES = [
-  { id: 'wb01', name: '01 战略设计', fields: ['定标', '对标', '标准', '超标'] },
-  { id: 'wb02', name: '02 价值创造', fields: ['工具', '方法', '行动实践', '我的应用'] },
-  { id: 'wb03', name: '03 产品战略', fields: ['工具', '方法', '行动实践', '我的应用'] },
-  { id: 'wb04', name: '04 组织发展', fields: ['工具', '方法', '行动实践', '我的应用'] },
-  { id: 'wb05', name: '05 预算管理', fields: ['工具', '方法', '行动实践', '我的应用'] },
-  { id: 'wb06', name: '06 营销管理', fields: ['工具', '方法', '行动实践', '我的应用'] },
-  { id: 'wb07', name: '07 用户经营', fields: ['工具', '方法', '行动实践', '我的应用'] },
-  { id: 'wb08', name: '08 绩效管理', fields: ['工具', '方法', '行动实践', '我的应用'] },
-  { id: 'wb09', name: '09 财务管理', fields: ['工具', '方法', '行动实践', '我的应用'] },
-  { id: 'wb10', name: '10 资本管理', fields: ['工具', '方法', '行动实践', '我的应用'] }
-];
-
-// 教学常量占位（不编造具体案例）
-const WORKBENCH_TEMPLATES = {
-  wb01: { tool: '战略定位画布', method: '竞品对标分析', action: '季度战略评审会', app: '' },
-  wb02: { tool: '价值主张画布', method: '客户访谈法', action: '价值假设验证', app: '' },
-  wb03: { tool: '产品路线图', method: '用户故事地图', action: '产品迭代计划', app: '' },
-  wb04: { tool: '组织能力雷达', method: '岗位胜任力模型', action: '人才盘点会议', app: '' },
-  wb05: { tool: '三年滚动预算', method: '零基预算法', action: '月度经营分析会', app: '' },
-  wb06: { tool: '营销漏斗模型', method: 'AARRR 增长模型', action: '营销活动复盘', app: '' },
-  wb07: { tool: '用户旅程地图', method: 'NPS 净推荐值', action: '用户运营看板', app: '' },
-  wb08: { tool: 'OKR 目标管理', method: '平衡计分卡', action: '季度绩效面谈', app: '' },
-  wb09: { tool: '三大财务报表', method: '现金流预测', action: '财务健康检查', app: '' },
-  wb10: { tool: '融资时间表', method: '估值模型', action: '投资人路演', app: '' }
-};
-
-const SEQUOIA_PAGES = [
-  { id: 'purpose', title: '1. 宗旨', prompt: '用一句话说明公司的使命' },
-  { id: 'problem', title: '2. 痛点', prompt: '你要解决的痛点是什么？为什么现状会失败？' },
-  { id: 'solution', title: '3. 方案', prompt: '你的解决方案是什么？' },
-  { id: 'timing', title: '4. 时机', prompt: '为什么是现在？' },
-  { id: 'market', title: '5. 市场', prompt: '市场规模（TAM/SAM/SOM）' },
-  { id: 'competition', title: '6. 竞争', prompt: '主要竞品有哪些？' },
-  { id: 'business', title: '7. 产品与商业模式', prompt: '产品形态和收费模式' },
-  { id: 'team', title: '8. 团队', prompt: '核心团队成员背景' },
-  { id: 'finance', title: '9. 财务', prompt: '收入、成本、融资情况' },
-  { id: 'vision', title: '10. 愿景', prompt: '3-5年后的目标状态' }
-];
-
-let currentCompany = '';
-let empData = {};
-
-function getEmpStorageKey() {
-  return 'emp_data_' + currentCompany.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '_');
-}
-
-function saveEmpData() {
-  if (!currentCompany) return;
-  localStorage.setItem(getEmpStorageKey(), JSON.stringify(empData));
-}
-
-function loadEmpData() {
-  if (!currentCompany) return;
-  const stored = localStorage.getItem(getEmpStorageKey());
-  if (stored) {
-    try {
-      empData = JSON.parse(stored);
-    } catch (e) {
-      empData = {};
-    }
-  } else {
-    empData = {};
-  }
-}
-
-function renderWorkbenches() {
-  const container = document.getElementById('emp_workbenches');
-  if (!currentCompany) {
-    container.innerHTML = '<p style="color:var(--muted);text-align:center;padding:40px 0">请先输入公司名称并点击「分析企业现状」</p>';
-    return;
-  }
-
-  let html = '';
-  WORKBENCHES.forEach(wb => {
-    const tmpl = WORKBENCH_TEMPLATES[wb.id];
-    const data = empData[wb.id] || { tool: tmpl.tool, method: tmpl.method, action: tmpl.action, app: '' };
-    
-    html += `
-      <div class="emp-workbench" style="background:var(--card2);border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:12px">
-        <h3 style="margin:0 0 10px 0;color:var(--accent);font-size:14px">${wb.name}</h3>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
-          <div>
-            <div style="color:var(--muted);font-size:10px;margin-bottom:4px">工具</div>
-            <div style="background:var(--card);border:1px solid var(--line);padding:6px 8px;border-radius:4px;font-size:12px;min-height:60px">${data.tool || '待取数'}</div>
-          </div>
-          <div>
-            <div style="color:var(--muted);font-size:10px;margin-bottom:4px">方法</div>
-            <div style="background:var(--card);border:1px solid var(--line);padding:6px 8px;border-radius:4px;font-size:12px;min-height:60px">${data.method || '待取数'}</div>
-          </div>
-          <div>
-            <div style="color:var(--muted);font-size:10px;margin-bottom:4px">行动实践</div>
-            <div style="background:var(--card);border:1px solid var(--line);padding:6px 8px;border-radius:4px;font-size:12px;min-height:60px">${data.action || '待取数'}</div>
-          </div>
-          <div>
-            <div style="color:var(--muted);font-size:10px;margin-bottom:4px">我的应用 <span style="color:var(--accent2)">(可编辑)</span></div>
-            <textarea class="emp-app-field" data-wb="${wb.id}" style="width:100%;height:60px;background:var(--bg);border:1px solid var(--accent);color:var(--txt);padding:6px 8px;border-radius:4px;font-size:12px;resize:vertical">${data.app || ''}</textarea>
-          </div>
-        </div>
-      </div>
-    `;
-  });
-  
-  container.innerHTML = html;
-  
-  // 绑定「我的应用」自动保存
-  document.querySelectorAll('.emp-app-field').forEach(field => {
-    field.addEventListener('input', e => {
-      const wbId = e.target.dataset.wb;
-      if (!empData[wbId]) empData[wbId] = { ...WORKBENCH_TEMPLATES[wbId] };
-      empData[wbId].app = e.target.value;
-      saveEmpData();
-    });
-  });
-}
-
-function analyzeCompany() {
-  const company = document.getElementById('emp_company').value.trim();
-  if (!company) {
-    alert('请输入公司名称');
-    return;
-  }
-  
-  currentCompany = company;
-  loadEmpData();
-  
-  // 读取文件或文本
-  const bpText = document.getElementById('emp_bp_text').value.trim();
-  const fileInput = document.getElementById('emp_file');
-  
-  if (fileInput.files.length > 0) {
-    const file = fileInput.files[0];
-    const reader = new FileReader();
-    reader.onload = e => {
-      const text = e.target.result;
-      extractFromBP(text);
-    };
-    reader.readAsText(file);
-  } else if (bpText) {
-    extractFromBP(bpText);
-  } else {
-    // 无输入，使用模板
-    WORKBENCHES.forEach(wb => {
-      if (!empData[wb.id]) {
-        empData[wb.id] = { ...WORKBENCH_TEMPLATES[wb.id] };
-      }
-    });
-    renderWorkbenches();
-  }
-  
-  document.getElementById('emp_status').textContent = `已加载：${currentCompany}`;
-}
-
-function extractFromBP(text) {
-  // 简单的关键词提取（不调用 LLM）
-  // 只提取明显的句子，不编造数据
-  
-  WORKBENCHES.forEach(wb => {
-    if (!empData[wb.id]) {
-      empData[wb.id] = { ...WORKBENCH_TEMPLATES[wb.id] };
-    }
-  });
-  
-  // 尝试提取一些基础信息到「我的应用」
-  const lines = text.split(/[\n\r]+/).filter(l => l.trim().length > 10);
-  
-  // 如果有明确的战略/愿景相关句子，放到战略设计
-  const strategyKeywords = ['战略', '定位', '愿景', '使命'];
-  const strategyLine = lines.find(l => strategyKeywords.some(k => l.includes(k)));
-  if (strategyLine && !empData.wb01.app) {
-    empData.wb01.app = strategyLine.substring(0, 100);
-  }
-  
-  // 如果有产品相关句子，放到产品战略
-  const productKeywords = ['产品', '服务', '功能', '技术'];
-  const productLine = lines.find(l => productKeywords.some(k => l.includes(k)));
-  if (productLine && !empData.wb03.app) {
-    empData.wb03.app = productLine.substring(0, 100);
-  }
-  
-  saveEmpData();
-  renderWorkbenches();
-  showToast('✅ 已从计划书提取信息，其余字段请手动补充');
-}
-
-function clearEmpData() {
-  if (!confirm('确定清空所有企业数据？')) return;
-  
-  currentCompany = '';
-  empData = {};
-  document.getElementById('emp_company').value = '';
-  document.getElementById('emp_bp_text').value = '';
-  document.getElementById('emp_file').value = '';
-  document.getElementById('emp_status').textContent = '';
-  
-  if (currentCompany) {
-    localStorage.removeItem(getEmpStorageKey());
-  }
-  
-  renderWorkbenches();
-  showToast('✅ 已清空数据');
-}
-
-function exportSequoiaBP() {
-  if (!currentCompany) {
-    alert('请先分析企业现状');
-    return;
-  }
-  
-  let content = `# ${currentCompany} 融资路演 BP\n\n`;
-  content += `继涛博士中小企业 AI 管理系统生成\n`;
-  content += `生成时间：${new Date().toLocaleString('zh-CN')}\n\n`;
-  content += `---\n\n`;
-  
-  SEQUOIA_PAGES.forEach((page, idx) => {
-    content += `## ${page.title}\n\n`;
-    content += `**提示：** ${page.prompt}\n\n`;
-    
-    // 尝试从工作台数据填充
-    let extracted = '待取数';
-    
-    if (page.id === 'purpose' && empData.wb01 && empData.wb01.app) {
-      extracted = empData.wb01.app;
-    } else if (page.id === 'solution' && empData.wb03 && empData.wb03.app) {
-      extracted = empData.wb03.app;
-    } else if (page.id === 'business' && empData.wb03 && empData.wb03.app) {
-      extracted = empData.wb03.app;
-    } else if (page.id === 'finance' && empData.wb09 && empData.wb09.app) {
-      extracted = empData.wb09.app;
-    } else if (page.id === 'vision' && empData.wb01 && empData.wb01.app) {
-      extracted = empData.wb01.app;
-    }
-    
-    content += `${extracted}\n\n`;
-    content += `---\n\n`;
-  });
-  
-  content += `\n\n## 附：10 大工作台分析\n\n`;
-  WORKBENCHES.forEach(wb => {
-    const data = empData[wb.id] || {};
-    content += `### ${wb.name}\n\n`;
-    content += `- **工具：** ${data.tool || '待取数'}\n`;
-    content += `- **方法：** ${data.method || '待取数'}\n`;
-    content += `- **行动实践：** ${data.action || '待取数'}\n`;
-    content += `- **我的应用：** ${data.app || '待取数'}\n\n`;
-  });
-  
-  content += `\n---\n\n`;
-  content += `*本文档由继涛博士中小企业 AI 管理系统生成*\n`;
-  content += `*公网版基于计划书/已知事实填栏，缺数不编*\n`;
-  
-  // 下载为文本文件
-  const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `${currentCompany}_Sequoia_BP_${new Date().toISOString().split('T')[0]}.txt`;
-  a.click();
-  URL.revokeObjectURL(url);
-  
-  showToast('✅ BP 已导出');
-}
-
-// 绑定事件
-document.getElementById('emp_analyze').addEventListener('click', analyzeCompany);
-document.getElementById('emp_clear').addEventListener('click', clearEmpData);
-document.getElementById('emp_export').addEventListener('click', exportSequoiaBP);
-
-// 初始化
-renderWorkbenches();
-
-/* =========================================================================
    INIT
    ========================================================================= */
 buildSandbox();
@@ -4147,6 +3902,770 @@ go(document.getElementById(initial) ? initial : 'home');
 document.getElementById('btn_compare').classList.add('active');
 rerun();
 updateUndoRedo();
+
+/* =========================================================================
+   EMPOWER — 中小企业 AI 管理系统
+   ========================================================================= */
+
+// 40 字段定义（10 模块 × 4 字段）
+const EMP_FIELDS = {
+  '01': {
+    name: '战略设计',
+    fields: [
+      { key: 'business', label: '现有业务与营收结构' },
+      { key: 'rivals', label: '主要对手' },
+      { key: 'goal', label: '三年内想达成的目标' },
+      { key: 'keep', label: '最舍不得砍掉的业务' }
+    ]
+  },
+  '02': {
+    name: '价值创造',
+    fields: [
+      { key: 'pain', label: '客户最痛的三个点' },
+      { key: 'peer', label: '同行普遍怎么说自己' },
+      { key: 'uniq', label: '你能做到而对手做不到的' },
+      { key: 'pay', label: '客户愿意为什么多付钱' }
+    ]
+  },
+  '03': {
+    name: '产品战略',
+    fields: [
+      { key: 'count', label: '在产品型号数量' },
+      { key: 'lowgm', label: '毛利率最低的三个产品线' },
+      { key: 'orders', label: '订单结构' },
+      { key: 'star', label: '最有可能做到第一的产品' }
+    ]
+  },
+  '04': {
+    name: '组织发展',
+    fields: [
+      { key: 'org', label: '现有组织架构与人数' },
+      { key: 'gap', label: '关键岗位缺口' },
+      { key: 'pain', label: '部门最大痛点' },
+      { key: 'churn', label: '近一年关键人才流失' }
+    ]
+  },
+  '05': {
+    name: '预算管理',
+    fields: [
+      { key: 'target', label: '十年／五年营收利润目标' },
+      { key: 'curves', label: '第一、第二曲线业务' },
+      { key: 'who', label: '现在谁在编预算' },
+      { key: 'gap', label: '去年预算与实际偏差' }
+    ]
+  },
+  '06': {
+    name: '营销管理',
+    fields: [
+      { key: 'price', label: '当前价格体系与毛利' },
+      { key: 'cuts', label: '近一年降价情况' },
+      { key: 'chan', label: '获客链路' },
+      { key: 'auth', label: '谁有定价权' }
+    ]
+  },
+  '07': {
+    name: '用户经营',
+    fields: [
+      { key: 'dist', label: '客户数量与采购额分布' },
+      { key: 'top', label: '前五大客户' },
+      { key: 'who', label: '谁在对接大客户' },
+      { key: 'rep', label: '复购与转介绍情况' }
+    ]
+  },
+  '08': {
+    name: '绩效管理',
+    fields: [
+      { key: 'how', label: '现行考核方式' },
+      { key: 'pct', label: '绩效工资占比' },
+      { key: 'move', label: '近两年淘汰与晋升人数' },
+      { key: 'meet', label: '现有例会节奏' }
+    ]
+  },
+  '09': {
+    name: '财务管理',
+    fields: [
+      { key: 'pl', label: '年营收 / 净利润' },
+      { key: 'stock', label: '存货金额' },
+      { key: 'ar', label: '应收账款与平均账期' },
+      { key: 'cash', label: '账面现金' }
+    ]
+  },
+  '10': {
+    name: '资本管理',
+    fields: [
+      { key: 'perf', label: '营收、利润与增长率' },
+      { key: 'equity', label: '现有股权结构' },
+      { key: 'bind', label: '核心骨干绑定情况' },
+      { key: 'inv', label: '是否接触过投资人' }
+    ]
+  }
+};
+
+// 10 工作台官方教学内容（天龙四列表）
+const EMP_WORKBENCHES = {
+  '01': {
+    name: '战略设计',
+    rows: [
+      {
+        key: '定标',
+        tool: '1、定标',
+        method: '世界级 世界第一',
+        practice: '世界级实效商学院'
+      },
+      {
+        key: '对标',
+        tool: '2、对标',
+        method: '世界第一标杆',
+        practice: '1、美国哈佛商学院\n2、法国巴黎高等商学院'
+      },
+      {
+        key: '标准',
+        tool: '3、标准',
+        method: '研产供销服 缺什么补什么',
+        practice: '1. 硬件：阶梯教室、图书馆、学习环境和场景\n2. 软件：研发、产品、教学、老师、品牌、渠道、服务'
+      },
+      {
+        key: '超标',
+        tool: '4、超标',
+        method: '创新、刷新',
+        practice: '基于硬件和软件，重新定义标准，超越标准，指标量化。'
+      }
+    ]
+  },
+  '02': {
+    name: '价值创造',
+    rows: [
+      {
+        key: '用户痛点',
+        tool: '找差异（三眼看天下）',
+        method: '看用户（痛点）',
+        practice: '细分区域行业龙头、上市公司 / 一把手+经营管理团队 / 痛点：业绩不增长、不盈利、不持续'
+      },
+      {
+        key: '标杆区隔点',
+        tool: '找差异（三眼看天下）',
+        method: '看行业（定位）',
+        practice: '对手 VS 自己 / 学历 VS 能力 / 教授 VS 教练 / 复杂 VS 极简'
+      },
+      {
+        key: '一个字眼',
+        tool: '做差距',
+        method: '看自己（使命愿景）',
+        practice: '实效；使命：让企业持续成长；愿景：50 万家企业；战略：业绩增长 3 倍、利润增长 3 倍、估值增长 3 倍；研发（实效学术委员会）、老师（100+ 实战专家）、教学（只讲实效案例）、服务（360 回访）、管理（五力模型）'
+      },
+      {
+        key: '一致性',
+        tool: '做差距',
+        method: '看行业（定位）',
+        practice: '做价值创新战略，锁定高端'
+      }
+    ]
+  },
+  '03': {
+    name: '产品战略',
+    rows: [
+      {
+        key: '一米宽',
+        tool: '看天花板',
+        method: '做减法：聚焦',
+        practice: '校长 EMBA（企业家持续成长平台）'
+      },
+      {
+        key: '千米深',
+        tool: '看天花板',
+        method: '做加法：做深',
+        practice: '先市场后工厂（先有用户再有产品）'
+      },
+      {
+        key: '万米深',
+        tool: '看天花板',
+        method: '做乘法：做强',
+        practice: '品质第一（三年一迭代）'
+      },
+      {
+        key: '十万米深',
+        tool: '看天花板',
+        method: '做除法：简化',
+        practice: '品牌第一（校长 EMBA = 行动教育）'
+      }
+    ]
+  },
+  '04': {
+    name: '组织发展',
+    rows: [
+      {
+        key: '搭班子',
+        tool: '搭班子',
+        method: '定岗定编',
+        practice: '高管团队 5-7 人；一把手+总裁班+核心骨干'
+      },
+      {
+        key: '增人效',
+        tool: '增人效',
+        method: '提升组织效率',
+        practice: '人均产值 = 营收 / 总人数；行业标杆对标'
+      },
+      {
+        key: '建人梯',
+        tool: '建人梯',
+        method: '人才梯队建设',
+        practice: '721 法则：70% 内部培养、20% 外部引进、10% 空降'
+      },
+      {
+        key: '师徒制',
+        tool: '师徒制',
+        method: '传帮带',
+        practice: '高管带中层、中层带基层；每人至少带 1 个徒弟'
+      }
+    ]
+  },
+  '05': {
+    name: '预算管理',
+    rows: [
+      {
+        key: '算',
+        tool: '算清楚',
+        method: '三年目标倒推',
+        practice: '第 3 年目标 → 第 2 年 → 第 1 年 → 本季度 → 本月'
+      },
+      {
+        key: '路',
+        tool: '路径清晰',
+        method: '分解到部门、到人',
+        practice: '部门 KPI → 岗位 KPI → 月度目标'
+      },
+      {
+        key: '人',
+        tool: '责任到人',
+        method: '一对一签字',
+        practice: '预算责任书；一把手与各部门负责人签字'
+      },
+      {
+        key: '网',
+        tool: '复盘体系',
+        method: '月度、季度、年度复盘',
+        practice: '目标 vs 实际；偏差分析；改进措施'
+      },
+      {
+        key: '兵棋推演',
+        tool: '兵棋推演',
+        method: '情景模拟',
+        practice: '悲观、中性、乐观三种情景；提前准备预案'
+      }
+    ]
+  },
+  '06': {
+    name: '营销管理',
+    rows: [
+      {
+        key: '定价委员会',
+        tool: '定价委员会',
+        method: '定价权集中',
+        practice: '一把手+财务+销售总监；重大客户定价必须过会'
+      },
+      {
+        key: '定价方法',
+        tool: '定价方法',
+        method: '成本加成 / 竞争导向 / 价值定价',
+        practice: '高端产品用价值定价；标准产品用竞争导向'
+      },
+      {
+        key: '空军',
+        tool: '空军（品牌）',
+        method: '广告、公关、内容',
+        practice: '打认知；建立品牌势能'
+      },
+      {
+        key: '陆军',
+        tool: '陆军（地推）',
+        method: '销售团队',
+        practice: '打单；线下成交'
+      },
+      {
+        key: '海军',
+        tool: '海军（渠道）',
+        method: '分销、代理、平台',
+        practice: '铺货；规模化增长'
+      }
+    ]
+  },
+  '07': {
+    name: '用户经营',
+    rows: [
+      {
+        key: '客户分层',
+        tool: '客户分层',
+        method: 'S / A / B / C',
+        practice: 'S 级：战略大客户；A 级：重点客户；B 级：普通客户；C 级：小客户'
+      },
+      {
+        key: '对接层级',
+        tool: '对接层级',
+        method: '高层对高层',
+        practice: 'S 级客户：一把手亲自对接；A 级：副总对接；B/C 级：销售经理对接'
+      },
+      {
+        key: '六脉神剑',
+        tool: '六脉神剑',
+        method: '成交六步法',
+        practice: '1 建立信任 → 2 挖掘需求 → 3 方案呈现 → 4 异议处理 → 5 成交逼单 → 6 转介绍'
+      },
+      {
+        key: '独孤九剑',
+        tool: '独孤九剑',
+        method: '异议处理九式',
+        practice: '价格太贵 / 考虑考虑 / 没有预算 / 没有决策权 / 现在不需要 / 对手更便宜 / 效果存疑 / 合同条款 / 付款方式'
+      }
+    ]
+  },
+  '08': {
+    name: '绩效管理',
+    rows: [
+      {
+        key: '机制',
+        tool: '机制',
+        method: '底薪 + 提成 / 奖金',
+        practice: '销售：低底薪高提成；职能：固定工资+年终奖'
+      },
+      {
+        key: '电网',
+        tool: '电网',
+        method: '高压线',
+        practice: '红线：触碰即开除（贪腐、泄密、打架）'
+      },
+      {
+        key: '方法',
+        tool: '方法',
+        method: 'KPI / OKR / 积分制',
+        practice: '销售用 KPI；研发用 OKR；全员用积分制'
+      },
+      {
+        key: '检查',
+        tool: '检查',
+        method: '周报 / 月度会 / 季度会',
+        practice: '周报：进度同步；月度会：目标复盘；季度会：战略调整'
+      },
+      {
+        key: '奖罚',
+        tool: '奖罚',
+        method: '及时兑现',
+        practice: '当月目标当月奖；当月违规当月罚'
+      }
+    ]
+  },
+  '09': {
+    name: '财务管理',
+    rows: [
+      {
+        key: '利润第一',
+        tool: '利润第一',
+        method: '毛利 > 净利 > 营收',
+        practice: '不追求虚高营收；砍掉亏损业务'
+      },
+      {
+        key: '现金为王',
+        tool: '现金为王',
+        method: '现金流 > 利润',
+        practice: '账面现金 ≥ 6 个月开支；应收账款 < 90 天'
+      },
+      {
+        key: '七宗罪自检',
+        tool: '七宗罪',
+        method: '财务风险自查',
+        practice: '1 应收过高 / 2 存货积压 / 3 固定资产过重 / 4 负债率过高 / 5 毛利过低 / 6 费用失控 / 7 投资失误'
+      },
+      {
+        key: '对策',
+        tool: '对策',
+        method: '对症下药',
+        practice: '应收：催收+预收；存货：清库存；固定资产：租赁优先；负债：去杠杆；毛利：提价+降本；费用：预算制；投资：慎重决策'
+      }
+    ]
+  },
+  '10': {
+    name: '资本管理',
+    rows: [
+      {
+        key: '当前阶段',
+        tool: '融资阶段判断',
+        method: '天使 / A / B / C / Pre-IPO',
+        practice: '根据营收、利润、用户数判断'
+      },
+      {
+        key: '对内',
+        tool: '对内',
+        method: '股权激励',
+        practice: '期权池 10-15%；核心高管 + 骨干员工'
+      },
+      {
+        key: '对外',
+        tool: '对外',
+        method: '融资 / 并购',
+        practice: '融资：BP + 路演；并购：看标的'
+      },
+      {
+        key: '时间表',
+        tool: '时间表',
+        method: '3-5 年规划',
+        practice: '第 1-2 年：打磨产品；第 3-4 年：规模增长；第 5 年：IPO / 并购退出'
+      }
+    ]
+  }
+};
+
+// localStorage 持久化
+const EMP_STORAGE_KEY = 'of1_empower_v2';
+
+function empLoad() {
+  const s = localStorage.getItem(EMP_STORAGE_KEY);
+  if (!s) return { companies: {}, currentCompany: null };
+  try {
+    return JSON.parse(s);
+  } catch {
+    return { companies: {}, currentCompany: null };
+  }
+}
+
+function empSave(data) {
+  localStorage.setItem(EMP_STORAGE_KEY, JSON.stringify(data));
+}
+
+function empGetCurrentData() {
+  const store = empLoad();
+  if (!store.currentCompany || !store.companies[store.currentCompany]) return null;
+  return store.companies[store.currentCompany];
+}
+
+function empSetCurrentData(data) {
+  const store = empLoad();
+  if (!store.currentCompany) return;
+  store.companies[store.currentCompany] = data;
+  empSave(store);
+}
+
+// 公司档案管理
+function empRenderCompanyList() {
+  const store = empLoad();
+  const sel = document.getElementById('emp_company_list');
+  sel.innerHTML = '<option value="">选择已有档案...</option>';
+  Object.keys(store.companies).forEach(name => {
+    const opt = document.createElement('option');
+    opt.value = name;
+    opt.textContent = name;
+    opt.selected = name === store.currentCompany;
+    sel.appendChild(opt);
+  });
+  const currentSpan = document.getElementById('emp_current_company');
+  currentSpan.textContent = store.currentCompany ? `当前：${store.currentCompany}` : '（未选择档案）';
+  empUpdateFieldCount();
+}
+
+function empSwitchCompany(name) {
+  const store = empLoad();
+  store.currentCompany = name;
+  empSave(store);
+  empRenderCompanyList();
+  empRenderFields();
+  empRenderWorkbench();
+}
+
+function empCreateCompany() {
+  const input = document.getElementById('emp_new_company');
+  const name = input.value.trim();
+  if (!name) {
+    alert('请输入公司名称');
+    return;
+  }
+  const store = empLoad();
+  if (store.companies[name]) {
+    alert('该公司档案已存在');
+    return;
+  }
+  store.companies[name] = {
+    fields: {},
+    workbenches: {}
+  };
+  store.currentCompany = name;
+  empSave(store);
+  input.value = '';
+  empRenderCompanyList();
+  empRenderFields();
+  empRenderWorkbench();
+}
+
+function empDeleteCompany() {
+  const store = empLoad();
+  if (!store.currentCompany) {
+    alert('请先选择一个档案');
+    return;
+  }
+  if (!confirm(`确定删除档案「${store.currentCompany}」？此操作不可恢复。`)) return;
+  const name = store.currentCompany;
+  delete store.companies[name];
+  store.currentCompany = null;
+  empSave(store);
+  empRenderCompanyList();
+  empRenderFields();
+  empRenderWorkbench();
+}
+
+// 40 字段渲染
+function empRenderFields() {
+  const container = document.getElementById('emp_fields_container');
+  const data = empGetCurrentData();
+  const currentModule = container.dataset.module || '01';
+  
+  if (!data) {
+    container.innerHTML = '<p style="color:var(--muted);font-size:12px">请先创建或选择一个公司档案</p>';
+    return;
+  }
+  
+  const mod = EMP_FIELDS[currentModule];
+  let html = `<div style="color:var(--accent);font-weight:700;margin-bottom:10px;font-size:13px">${currentModule} ${mod.name}</div>`;
+  html += '<div style="display:grid;gap:10px">';
+  mod.fields.forEach(f => {
+    const key = `${currentModule}_${f.key}`;
+    const val = data.fields[key] || '';
+    html += `
+      <div>
+        <label style="display:block;color:var(--muted);font-size:11px;margin-bottom:4px">${f.label}</label>
+        <textarea class="emp-field" data-key="${key}" style="width:100%;min-height:70px;background:var(--card2);border:1px solid var(--line);color:var(--txt);padding:8px;border-radius:5px;font-size:12px;resize:vertical">${val}</textarea>
+      </div>`;
+  });
+  html += '</div>';
+  container.innerHTML = html;
+  container.dataset.module = currentModule;
+  
+  container.querySelectorAll('.emp-field').forEach(el => {
+    el.addEventListener('input', () => {
+      const d = empGetCurrentData();
+      if (!d) return;
+      d.fields[el.dataset.key] = el.value;
+      empSetCurrentData(d);
+      empUpdateFieldCount();
+    });
+  });
+}
+
+function empUpdateFieldCount() {
+  const data = empGetCurrentData();
+  const span = document.getElementById('emp_field_count');
+  if (!data) {
+    span.textContent = '0/40 字段已填';
+    return;
+  }
+  const filled = Object.values(data.fields || {}).filter(v => v.trim()).length;
+  span.textContent = `${filled}/40 字段已填`;
+}
+
+// 10 工作台渲染
+function empRenderWorkbench() {
+  const container = document.getElementById('emp_workbench_container');
+  const data = empGetCurrentData();
+  const currentWB = container.dataset.wb || '01';
+  
+  if (!data) {
+    container.innerHTML = '<p style="color:var(--muted);font-size:12px">请先创建或选择一个公司档案</p>';
+    return;
+  }
+  
+  const wb = EMP_WORKBENCHES[currentWB];
+  let html = `<div style="color:var(--accent);font-weight:700;margin-bottom:10px;font-size:13px">${currentWB} ${wb.name}</div>`;
+  html += '<table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr style="background:var(--card2)"><th style="border:1px solid var(--line);padding:8px;text-align:left;width:15%">工具</th><th style="border:1px solid var(--line);padding:8px;text-align:left;width:20%">方法</th><th style="border:1px solid var(--line);padding:8px;text-align:left;width:35%">行动实践（官方教学）</th><th style="border:1px solid var(--line);padding:8px;text-align:left;width:30%">我的应用（可编辑）</th></tr></thead><tbody>';
+  
+  wb.rows.forEach(row => {
+    const key = `${currentWB}_${row.key}`;
+    const val = (data.workbenches && data.workbenches[key]) || '';
+    html += `<tr>
+      <td style="border:1px solid var(--line);padding:8px;color:var(--accent);font-weight:700">${row.tool}</td>
+      <td style="border:1px solid var(--line);padding:8px;white-space:pre-wrap">${row.method}</td>
+      <td style="border:1px solid var(--line);padding:8px;white-space:pre-wrap;color:var(--muted)">${row.practice}</td>
+      <td style="border:1px solid var(--line);padding:8px"><textarea class="emp-wb-field" data-key="${key}" style="width:100%;min-height:60px;background:var(--bg);border:1px solid var(--line);color:var(--txt);padding:6px;border-radius:3px;font-size:11px;resize:vertical">${val}</textarea></td>
+    </tr>`;
+  });
+  
+  html += '</tbody></table>';
+  container.innerHTML = html;
+  container.dataset.wb = currentWB;
+  
+  container.querySelectorAll('.emp-wb-field').forEach(el => {
+    el.addEventListener('input', () => {
+      const d = empGetCurrentData();
+      if (!d) return;
+      if (!d.workbenches) d.workbenches = {};
+      d.workbenches[el.dataset.key] = el.value;
+      empSetCurrentData(d);
+    });
+  });
+}
+
+// BP 提取（简单关键词匹配）
+function empExtractBP() {
+  const data = empGetCurrentData();
+  if (!data) {
+    alert('请先选择一个公司档案');
+    return;
+  }
+  
+  const text = document.getElementById('emp_bp_paste').value;
+  if (!text.trim()) {
+    alert('请粘贴 BP 内容或上传文件');
+    return;
+  }
+  
+  const lines = text.split('\n');
+  let extracted = 0;
+  
+  // 简单关键词匹配（只填充空字段）
+  const keywords = {
+    '01_business': ['业务', '营收结构', '主营'],
+    '01_rivals': ['对手', '竞争', '竞品'],
+    '01_goal': ['目标', '规划', '愿景'],
+    '02_pain': ['痛点', '问题', '需求'],
+    '02_uniq': ['优势', '差异化', '独特'],
+    '03_count': ['产品', '型号', 'SKU'],
+    '09_pl': ['营收', '利润', '收入'],
+    '09_cash': ['现金', '资金', '账面']
+  };
+  
+  Object.keys(keywords).forEach(key => {
+    if (data.fields[key] && data.fields[key].trim()) return;
+    const kws = keywords[key];
+    for (const line of lines) {
+      if (kws.some(kw => line.includes(kw))) {
+        data.fields[key] = line.trim().slice(0, 200);
+        extracted++;
+        break;
+      }
+    }
+  });
+  
+  empSetCurrentData(data);
+  empRenderFields();
+  empUpdateFieldCount();
+  alert(`已提取 ${extracted} 个字段（仅填充空字段，不覆盖已有内容）`);
+}
+
+// Sequoia 10 页 PPT 导出
+function empExportPPTX() {
+  const data = empGetCurrentData();
+  const store = empLoad();
+  if (!data || !store.currentCompany) {
+    alert('请先选择一个公司档案');
+    return;
+  }
+  
+  // 动态加载 PptxGenJS
+  if (typeof PptxGenJS === 'undefined') {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js';
+    script.onload = () => empGeneratePPTX(store.currentCompany, data);
+    script.onerror = () => alert('无法加载 PptxGenJS CDN，请检查网络连接');
+    document.head.appendChild(script);
+  } else {
+    empGeneratePPTX(store.currentCompany, data);
+  }
+}
+
+function empGeneratePPTX(companyName, data) {
+  const pptx = new PptxGenJS();
+  pptx.author = '继涛博士';
+  pptx.company = companyName;
+  pptx.subject = '中小企业 AI 管理系统';
+  pptx.title = `${companyName} - Sequoia 10 页计划书`;
+  
+  const pages = [
+    { title: '宗旨', fields: ['01_business', '01_goal'] },
+    { title: '痛点', fields: ['02_pain', '02_peer'] },
+    { title: '方案', fields: ['02_uniq', '02_pay'] },
+    { title: '时机', fields: ['01_rivals', '06_chan'] },
+    { title: '市场', fields: ['07_dist', '07_top'] },
+    { title: '竞争', fields: ['01_rivals', '02_uniq'] },
+    { title: '产品与商业模式', fields: ['03_count', '03_star', '06_price'] },
+    { title: '团队', fields: ['04_org', '04_gap'] },
+    { title: '财务', fields: ['09_pl', '09_cash', '09_ar'] },
+    { title: '愿景', fields: ['05_target', '05_curves'] }
+  ];
+  
+  pages.forEach((p, idx) => {
+    const slide = pptx.addSlide();
+    slide.background = { color: '0A1019' };
+    slide.addText(p.title, {
+      x: 0.5, y: 0.5, w: 9, h: 0.7,
+      fontSize: 32, bold: true, color: '38BDF8', fontFace: 'Microsoft YaHei'
+    });
+    
+    let content = '';
+    p.fields.forEach(fk => {
+      const val = data.fields[fk] || '待取数';
+      const label = empGetFieldLabel(fk);
+      content += `${label}：\n${val}\n\n`;
+    });
+    
+    slide.addText(content.trim() || '待取数', {
+      x: 0.5, y: 1.5, w: 9, h: 5,
+      fontSize: 14, color: 'E2E8F0', fontFace: 'Microsoft YaHei', valign: 'top'
+    });
+    
+    slide.addText(`第 ${idx + 1} 页 / 共 10 页　　继涛博士　　${companyName}`, {
+      x: 0.5, y: 7, w: 9, h: 0.3,
+      fontSize: 10, color: '94A3B8', fontFace: 'Microsoft YaHei', align: 'center'
+    });
+  });
+  
+  pptx.writeFile({ fileName: `${companyName}_Sequoia_10页.pptx` });
+}
+
+function empGetFieldLabel(key) {
+  const [mod, fkey] = key.split('_');
+  const m = EMP_FIELDS[mod];
+  if (!m) return key;
+  const f = m.fields.find(x => x.key === fkey);
+  return f ? f.label : key;
+}
+
+// 事件绑定
+document.getElementById('emp_create_company')?.addEventListener('click', empCreateCompany);
+document.getElementById('emp_delete_company')?.addEventListener('click', empDeleteCompany);
+document.getElementById('emp_company_list')?.addEventListener('change', e => {
+  if (e.target.value) empSwitchCompany(e.target.value);
+});
+document.getElementById('emp_bp_extract')?.addEventListener('click', empExtractBP);
+document.getElementById('emp_bp_file')?.addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    document.getElementById('emp_bp_paste').value = ev.target.result;
+  };
+  reader.readAsText(file);
+});
+document.getElementById('emp_export_pptx')?.addEventListener('click', empExportPPTX);
+
+// 模块切换
+document.getElementById('emp_module_tabs')?.addEventListener('click', e => {
+  if (!e.target.dataset.module) return;
+  document.querySelectorAll('#emp_module_tabs .btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById('emp_fields_container').dataset.module = e.target.dataset.module;
+  empRenderFields();
+});
+
+document.getElementById('emp_workbench_tabs')?.addEventListener('click', e => {
+  if (!e.target.dataset.wb) return;
+  document.querySelectorAll('#emp_workbench_tabs .btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById('emp_workbench_container').dataset.wb = e.target.dataset.wb;
+  empRenderWorkbench();
+});
+
+// 初始化
+if (document.getElementById('empower')) {
+  empRenderCompanyList();
+  empRenderFields();
+  empRenderWorkbench();
+}
+
 </script>
 </body>
 </html>
