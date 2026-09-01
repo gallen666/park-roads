@@ -195,6 +195,47 @@
       line-height: 1.65;
     }
 
+    .operating-core {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .core-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--panel);
+    }
+
+    .core-card > span {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .core-card h2 { margin: 10px 0 9px; font-size: 19px; }
+    .core-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+
+    .core-chain {
+      margin-top: 16px;
+      color: #e5edf6;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .core-boundary {
+      display: block;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(159, 176, 199, .15);
+      color: #9de8cf;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
     a:focus-visible { outline: 3px solid rgba(56, 189, 248, .5); outline-offset: 3px; }
 
     @media (max-width: 820px) {
@@ -202,6 +243,7 @@
       .hero { grid-template-columns: 1fr; }
       .trust { margin-top: 8px; }
       .flow { margin-top: 42px; }
+      .operating-core { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 520px) {
@@ -263,6 +305,32 @@
       <p>
         <strong>市场研究</strong><span class="arrow">→</span><strong>竞争对手</strong><span class="arrow">→</span><strong>客户画像</strong><span class="arrow">→</span><strong>销售目标</strong><span class="arrow">→</span><strong>内容矩阵</strong><span class="arrow">→</span><strong>数字人</strong><span class="arrow">→</span><strong>短视频</strong><span class="arrow">→</span><strong>广告投放</strong><span class="arrow">→</span><strong>线索获取</strong><span class="arrow">→</span><strong>AI 客服</strong><span class="arrow">→</span><strong>CRM</strong><span class="arrow">→</span><strong>销售 Agent</strong><span class="arrow">→</span><strong>报价</strong><span class="arrow">→</span><strong>客户跟踪</strong><span class="arrow">→</span><strong>经营数据</strong><span class="arrow">→</span><strong>复盘</strong><span class="arrow">→</span><strong>下一轮策略</strong>
       </p>
+    </section>
+
+    <section class="operating-core" aria-label="OpenFlowOne 三个经营闭环">
+      <article class="core-card">
+        <span>EXECUTION &amp; RECEIPT</span>
+        <h2>执行与真实回执</h2>
+        <p>任务先审批，再交给外部平台或本地团队执行。系统保存外部任务 ID、实际费用、结果、核验状态和完整审计轨迹。</p>
+        <div class="core-chain">OpenFlowOne 发出任务 → 外部执行 → 返回任务 ID、费用与结果 → 核验 → 写入经营账本 → 复盘</div>
+        <small class="core-boundary">没有外部任务 ID 和可核验回执，不显示为已完成。</small>
+      </article>
+
+      <article class="core-card">
+        <span>COMMERCIAL LEDGER</span>
+        <h2>八级金额事实链</h2>
+        <p>目标、商机、报价、合同、订单、开票、确认收入和实收现金分别记账，保留币种、日期、权威凭证与冲销记录。</p>
+        <div class="core-chain">目标销售额 → 预计商机金额 → 报价金额 → 合同金额 → 订单金额 → 开票金额 → 确认收入 → 实收现金</div>
+        <small class="core-boundary">任何一级都不会被 AI 自动晋升为下一级，Won 也不等于收入。</small>
+      </article>
+
+      <article class="core-card">
+        <span>GLOBAL BPAAS NETWORK</span>
+        <h2>全球本地交付网络</h2>
+        <p>每个国家市场单独建立运营中心、行业顾问、AI 实施、内容广告和当地渠道伙伴，并核对本地化国家包。</p>
+        <div class="core-chain">OpenFlowOne 平台 + 国家运营中心 + 行业顾问 + AI 实施工程师 + 内容广告团队 + 当地渠道伙伴</div>
+        <small class="core-boundary">未分配或未核验的人员、伙伴和国家能力，始终明确显示为未就绪。</small>
+      </article>
     </section>
   </main>
 </body>
