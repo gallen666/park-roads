@@ -236,6 +236,50 @@
       line-height: 1.6;
     }
 
+    .goflowone-entry {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      margin-top: 22px;
+      padding: 28px;
+      border: 1px solid rgba(56, 189, 248, .42);
+      border-radius: 20px;
+      background:
+        linear-gradient(135deg, rgba(56, 189, 248, .12), rgba(52, 211, 153, .06)),
+        var(--panel);
+    }
+
+    .goflowone-entry .eyebrow { margin-bottom: 10px; }
+    .goflowone-entry h2 { margin: 0; font-size: clamp(24px, 3vw, 34px); }
+    .goflowone-entry > div > p:not(.eyebrow) { margin: 12px 0 0; color: var(--muted); line-height: 1.7; }
+
+    .goflowone-capabilities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .goflowone-capabilities li {
+      padding: 7px 10px;
+      border: 1px solid rgba(159, 176, 199, .22);
+      border-radius: 999px;
+      color: #e5edf6;
+      background: rgba(8, 17, 31, .45);
+      font-size: 12px;
+    }
+
+    .goflowone-boundary {
+      display: block;
+      margin-top: 15px;
+      color: #9de8cf;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
     a:focus-visible { outline: 3px solid rgba(56, 189, 248, .5); outline-offset: 3px; }
 
     @media (max-width: 820px) {
@@ -244,6 +288,7 @@
       .trust { margin-top: 8px; }
       .flow { margin-top: 42px; }
       .operating-core { grid-template-columns: 1fr; }
+      .goflowone-entry { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 520px) {
@@ -253,6 +298,7 @@
       .actions { display: grid; }
       .button { width: 100%; }
       .flow, .trust { padding: 20px; }
+      .goflowone-entry { padding: 20px; }
     }
   </style>
 </head>
@@ -331,6 +377,23 @@
         <div class="core-chain">OpenFlowOne 平台 + 国家运营中心 + 行业顾问 + AI 实施工程师 + 内容广告团队 + 当地渠道伙伴</div>
         <small class="core-boundary">未分配或未核验的人员、伙伴和国家能力，始终明确显示为未就绪。</small>
       </article>
+    </section>
+
+    <section class="goflowone-entry" aria-labelledby="goflowone-title">
+      <div>
+        <p class="eyebrow">GoFlowOne Growth Engine</p>
+        <h2 id="goflowone-title">GoFlowOne 企业增长引擎</h2>
+        <p>在 Growth OS 内，把客户事实、自动化设计、企业能力诊断、可移植配置与真实成本核验连接为一套独立增长控制面。</p>
+        <ul class="goflowone-capabilities" aria-label="GoFlowOne 核心能力">
+          <li>客户统一时间线</li>
+          <li>W01–W12 工作流设计</li>
+          <li>L0–L4 能级诊断</li>
+          <li>配置快照</li>
+          <li>十倍律成本预览</li>
+        </ul>
+        <small class="goflowone-boundary">设计、诊断与成本预览，不代表外部平台已连接、工作流已执行或费用已收取。</small>
+      </div>
+      <a class="button primary" href="https://sme-ai-operations.yiledai.chatgpt.site/growth-os?section=goflowone">进入 GoFlowOne 安全工作区 →</a>
     </section>
   </main>
 </body>
