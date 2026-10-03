@@ -6,39 +6,36 @@
 <meta name="theme-color" content="#0B1526">
 <meta name="color-scheme" content="dark">
 <meta name="robots" content="noindex,nofollow">
-<title>中小企业 AI 管理系统</title>
-<meta name="description" content="基于十部经营框架的私有 AI 经营系统：诊断企业错点、生成可核验承诺、追踪兑现并支持顾问协同。">
+<title>OpenFlowOne 安全升级</title>
+<meta name="description" content="OpenFlowOne 已停用旧公开经营接口。授权用户请进入受保护的企业工作区。">
 <link rel="icon" href="favicon.svg">
 <style>
   html,body{background:#0B1526;color:#fff;margin:0;min-height:100%;font-family:system-ui,-apple-system,"PingFang SC",sans-serif}
-  #boot-error{display:none;padding:24px;white-space:pre-wrap;color:#ffb4b4}
+  *{box-sizing:border-box}
+  body{display:grid;place-items:center;padding:24px}
+  main{width:min(720px,100%);padding:clamp(28px,6vw,56px);border:1px solid #263754;border-radius:24px;background:linear-gradient(145deg,#111f35,#0b1526);box-shadow:0 24px 80px #0008}
+  .eyebrow{margin:0 0 14px;color:#45d6c4;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+  h1{margin:0;font-size:clamp(30px,6vw,52px);line-height:1.08}
+  p{margin:20px 0 0;color:#bdc9db;font-size:17px;line-height:1.75}
+  .notice{margin-top:26px;padding:18px;border:1px solid #31506e;border-radius:14px;background:#0d1a2d;color:#e8eef8}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  a{display:inline-flex;min-height:46px;align-items:center;justify-content:center;padding:0 18px;border-radius:12px;color:#07131d;background:#45d6c4;font-weight:800;text-decoration:none}
+  a.secondary{color:#e8eef8;background:transparent;border:1px solid #526984}
+  small{display:block;margin-top:24px;color:#8292aa;line-height:1.6}
 </style>
 <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-<noscript>本工作台需要启用 JavaScript 才能加载经营看板。</noscript>
-<pre id="boot-error"></pre>
-<div id="root" data-cloud-app="true">
-  <div class="cloud-app-loading" role="status"><span class="spin" aria-hidden="true"></span>正在加载经营看板…</div>
-</div>
-<script id="app-bootstrap" type="application/json">
-{"user":{"id":"local-owner","name":"戴 继涛"},"signInUrl":"./","signOutUrl":"./"}
-</script>
-<script>
-window.addEventListener("error", function (ev) {
-  var el = document.getElementById("boot-error");
-  if (!el) return;
-  el.style.display = "block";
-  el.textContent = (ev.message || "脚本错误") + "\n" + (ev.filename || "") + ":" + (ev.lineno || "");
-});
-window.addEventListener("unhandledrejection", function (ev) {
-  var el = document.getElementById("boot-error");
-  if (!el) return;
-  el.style.display = "block";
-  el.textContent = String(ev.reason && ev.reason.message ? ev.reason.message : ev.reason || "未处理的 Promise 错误");
-});
-</script>
-<script>window.SME_API_BASE="https://api.openflowone.hk";</script>
-<script src="js/app.js?v=jt20260824-apihk"></script>
+<main aria-labelledby="page-title">
+  <p class="eyebrow">Security update · 安全升级</p>
+  <h1 id="page-title">旧公开经营接口已停用</h1>
+  <p>为保护企业经营数据和成员信息，OpenFlowOne 已关闭原先无需授权的公开工作台接口。企业数据不会再通过这个页面读取或写入。</p>
+  <div class="notice" role="status">授权用户请使用受保护的企业工作区登录。原公开产品介绍仍可正常访问。</div>
+  <div class="actions">
+    <a href="https://sme-ai-operations.yiledai.chatgpt.site/growth-os">进入安全工作区</a>
+    <a class="secondary" href="/growth-os/">查看 Growth OS</a>
+  </div>
+  <small>如需恢复业务访问，应先完成真实身份验证、最小权限、租户隔离和审计验收；不会恢复固定 Owner 身份模式。</small>
+</main>
 </body>
 </html>
