@@ -1,0 +1,12 @@
+name: Book alignment checks
+on: [push, pull_request]
+jobs:
+  calculations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test tests/book-core.test.cjs
+      - run: node --check book-workbench.js
