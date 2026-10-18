@@ -37,6 +37,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"
         onerror="document.documentElement.classList.add('no-charts');console.warn('[Park-ROADS] Chart.js CDN unavailable. Offline mode: charts hidden, sliders still work.');"></script>
 <style>
+  [hidden]{display:none!important}
   :root{
     --bg:#0a1019; --card:#111a2c; --card2:#0e1726; --line:#1f2b41;
     --txt:#e2e8f0; --muted:#94a3b8; --accent:#38bdf8; --accent2:#fbbf24;
@@ -685,10 +686,10 @@
     <span class="navlink active" data-go="home" role="button" tabindex="0" aria-label="首页" aria-current="page">首页</span>
     <span class="navlink" data-go="sandbox" role="button" tabindex="0" aria-label="政策沙盘 — 35 指标实时仿真">政策沙盘</span>
     <span class="navlink" data-go="method" role="button" tabindex="0" aria-label="方法论 — DTSI 与 AHP 解释">方法论</span>
-    <span class="navlink" data-go="thesis" role="button" tabindex="0" aria-label="论文拆解 — 决策者版一页看懂">📖 论文拆解</span>
-    <span class="navlink" data-go="cases" role="button" tabindex="0" aria-label="案例库 — 5 园区实测数据">案例库</span>
-    <span class="navlink" data-go="survey" role="button" tabindex="0" aria-label="调查问卷 — 论文附录 A 至 J">📋 调查问卷</span>
-    <span class="navlink" data-go="insight" role="button" tabindex="0" aria-label="实时治理洞察 — AI 自动诊断">🤖 AI 诊断</span>
+    <span class="navlink" data-go="thesis" role="button" tabindex="0" aria-label="论文拆解 — 决策者版一页看懂">📖 书稿方法</span>
+    <span class="navlink" data-go="cases" role="button" tabindex="0" aria-label="案例库 — 书稿汇总与平台演示">案例库</span>
+    <span class="navlink" data-go="survey" role="button" tabindex="0" aria-label="调查问卷 — 平台节选练习">📋 调查问卷</span>
+    <span class="navlink" data-go="insight" role="button" tabindex="0" aria-label="实时治理洞察 — 规则辅助诊断">📐 规则诊断</span>
     <a class="navlink" href="/empower/" role="link" aria-label="企业赋能 — 中小企业 AI 管理系统">企业赋能</a>
     <a class="navlink" href="/growth-os/" role="link" aria-label="Growth OS — 中小企业 AI 经营操作系统">Growth OS</a>
     <span class="navlink" data-go="workshop" role="button" tabindex="0" aria-label="工作坊指南 — 4 小时 7 角色">工作坊指南</span>
@@ -711,27 +712,27 @@
     <div class="hud-badge-meta"><span id="hud_badge_grade">起步期</span> · <span id="hud_badge_delta">±0.0</span></div>
   </div>
 </header>
-<main id="main-content" role="main">
+<main id="main-content" role="main"><aside style="padding:14px 22px;background:#152d39;border-bottom:1px solid #38bdf8;line-height:1.8"><b>《数字生产力：未来园区的价值重构》配套平台 · 2026-10-18 书稿修订口径</b><br><a href="book-workbench.html" style="color:#7dd3fc">进入五步法工作台：需求 → 目标 → 指数评估 → 动态模拟 → 动态调整</a> · <a href="book-design.html" style="color:#fde68a">三项待确认范围</a><br><small>本页滑杆和时序曲线为情景演示；默认 50% 是演示假设。X-Flow 完整方程、35 项换算和五级阈值尚待确认，暂不输出正式预测、成熟度认证或实测结论。</small></aside>
 
 <!-- ========== HOME ========== -->
 <section id="home" class="section show">
   <div class="hero">
-    <div class="eyebrow">DIGITAL TRANSFORMATION SUCCESS INDEX · POLICY SANDBOX</div>
+    <div class="eyebrow">DIGITAL TRANSFORMATION STAKEHOLDER INDEX · POLICY SANDBOX</div>
     <h1 class="headline">把博士论文里的方法论，<br>变成你能<span class="glow">拖动</span>的政策沙盘。</h1>
     <p class="lead">
       Park-ROADS 让政府、园区、资本、企业、科研、人才、社区——七类利益相关方第一次能在<b>同一张沙盘</b>上看到自己的诉求与园区数字化转型升级指数（DTSI）的实时关系。<br>
-      引擎来自戴继涛博士论文《传统商业园区数字化转型升级中的挑战和对策——基于 OpenX@X 平台的实证研究》，交互方式 1:1 对位 <a href="https://en-roads.climateinteractive.org/" target="_blank">En-ROADS</a>。
+      当前依据《数字生产力：未来园区的价值重构》及作者确认修订，沙盘交互参考 <a href="https://en-roads.climateinteractive.org/" target="_blank">En-ROADS</a>。
     </p>
     <div class="cta-row">
       <button class="btn primary" data-go="sandbox">🎯 立即进入政策沙盘</button>
       <button class="btn" data-go="method">📐 了解 DTSI 方法论</button>
-      <button class="btn" data-go="cases">🏛 看 5 个园区实测</button>
+      <button class="btn" data-go="cases">🏛 看 书中案例汇总</button>
     </div>
     <div class="hero-stats">
       <div class="hero-stat"><div class="num">7</div><div class="lab">利益相关方</div></div>
       <div class="hero-stat"><div class="num">35</div><div class="lab">AHP 加权指标</div></div>
-      <div class="hero-stat"><div class="num">5</div><div class="lab">实测园区 · 3 年</div></div>
-      <div class="hero-stat"><div class="num">0.0283</div><div class="lab">AHP 一致性比率 CR</div></div>
+      <div class="hero-stat"><div class="num">5</div><div class="lab">书中案例汇总数据</div></div>
+      <div class="hero-stat"><div class="num">0.0283</div><div class="lab">5×5 示例矩阵 CR</div></div>
     </div>
   </div>
 
@@ -763,8 +764,8 @@
     </div>
     <div class="feature">
       <div class="icon">🚀</div>
-      <h3>单文件部署 / 零依赖</h3>
-      <p>整个网站打包在一个 HTML 里，零外部依赖。</p>
+      <h3>书稿配套工作台</h3>
+      <p>五步法工作台可在本机保存与导出。沙盘图表使用外部图表库。</p>
     </div>
   </div>
 </section>
@@ -775,7 +776,7 @@
   <!-- En-ROADS 风格情景库 (一键加载预设情景) -->
   <div class="scen-lib" role="toolbar" aria-label="预设情景库">
     <span class="scen-lib-label">📚 一键情景</span>
-    <button class="scen-btn" data-scen="baseline" title="所有滑杆 = 50 (论文基线)">⚪️ 基线 50<span class="scen-btn-meta">DTSI ≈ 50</span></button>
+    <button class="scen-btn" data-scen="baseline" title="所有滑杆 = 50 (演示基线)">⚪️ 基线 50<span class="scen-btn-meta">DTSI ≈ 50</span></button>
     <button class="scen-btn" data-scen="conservative" title="保守增量：所有滑杆 +5">🌱 保守增量<span class="scen-btn-meta">DTSI ≈ 55</span></button>
     <button class="scen-btn" data-scen="park-c-m12" title="园区 C 第 12 月：服务重构期">⚙️ 园区 C · M12<span class="scen-btn-meta">DTSI ≈ 47.7</span></button>
     <button class="scen-btn" data-scen="park-c-m36" title="园区 C 第 36 月：4 阶段完成">🚀 园区 C · M36<span class="scen-btn-meta">DTSI ≈ 55.3</span></button>
@@ -792,7 +793,7 @@
     <b>② 7 个主体得分（AHP 加权）</b>
     <span class="arrow">→</span>
     <b>③ DTSI 综合指数（DTSI = Σ 主体权重 × 主体得分）</b>
-    <span style="margin-left:auto;color:var(--muted);font-size:10.5px">AHP CR = <b style="color:var(--good)">0.0283</b> ✅</span>
+    <span style="margin-left:auto;color:var(--muted);font-size:10.5px">七方7×7 CR = <b style="color:var(--good)">0.0285</b>（书稿值，非本次检验）</span>
   </div>
 
   <!-- 顶部三面板 -->
@@ -802,12 +803,12 @@
       <div class="canvas-wrap"><canvas id="ch_stakes"></canvas></div>
     </div>
     <div class="top-panel">
-      <h3>② DTSI 60 月演化（X-Flow Dynamics 仿真）<span class="pill">SD</span></h3>
+      <h3>② 旧版简化动态演示（非正式 X-Flow）<span class="pill">SD</span></h3>
       <div class="canvas-wrap"><canvas id="ch_dtsi"></canvas></div>
     </div>
     <div class="dtsi-headline">
       <div>
-        <div class="lbl">DTSI · 60 月仿真终值</div>
+        <div class="lbl">情景演示终值 · 非预测</div>
       </div>
       <div>
         <div class="big" id="dtsi_big">--<span class="pct">%</span></div>
@@ -853,7 +854,7 @@
       <div class="canvas-wrap"><canvas id="ch_radar"></canvas></div>
     </div>
     <div class="chart-card">
-      <h3>5 园区 3 年 DTSI 实测对比</h3>
+      <h3>表10-1三期汇总参考（原始记录待核验）</h3>
       <div class="canvas-wrap"><canvas id="ch_parks"></canvas></div>
     </div>
     <div class="chart-card">
@@ -865,8 +866,8 @@
   <!-- X-Flow 诊断 -->
   <div class="narration-card">
     <div class="panel">
-      <h2>🔬 X-Flow Dynamics 诊断与建议</h2>
-      <p class="hint">论文 6.3.2.3 节"动态需求调整"算法落地：基于"主体权重 × 指标权重 × 缺口"找最值得提升的指标，给出可量化的下一步动作。</p>
+      <h2>🔬 静态差距规则提示</h2>
+      <p class="hint">规则辅助：按“主体权重 × 指标权重 × 距100%的差距”列候选空间，未含成本、因果效果或预算约束。请到五步法工作台登记实际行动、资源和责任人。</p>
       <div id="narration" class="narration"></div>
     </div>
   </div>
@@ -875,8 +876,8 @@
 <!-- ========== METHODOLOGY ========== -->
 <section id="method" class="section">
   <div class="container">
-    <h1 class="page-title">📐 方法论 <span class="badge gold">论文 4.2 / 5.2 / 6.3</span></h1>
-    <p class="page-sub">DTSI 怎么算？35 个指标的权重怎么来？X-Flow Dynamics 是什么？这一页把论文的核心方法论用图、表、公式讲清楚。每一句话都对应论文的具体章节。</p>
+    <h1 class="page-title">📐 方法论 <span class="badge gold">书稿第六—九章</span></h1>
+    <p class="page-sub">DTSI 怎么算？35 个指标的权重怎么来？X-Flow Dynamics 是什么？这一页把论文的核心方法论用图、表、公式讲清楚。书稿定位以版本对照页为准，旧研究与演示分开标识。</p>
 
     <div class="panel" style="margin-bottom:14px">
       <h2>① OpenX@X 平台的 5 步流程（论文第 4 章）</h2>
@@ -891,7 +892,7 @@
     </div>
 
     <div class="panel" style="margin-bottom:14px">
-      <h2>② 七利益相关方（论文 5.2、5.3 节 + 6.3.2 公式）</h2>
+      <h2>② 七利益相关方（书稿第七章，表7-1—7-8）</h2>
       <p class="hint">论文不是简单按"政府/企业/资金"维度分割，而是直接以"利益相关方"为单位建模。</p>
       <div class="formula-box">
         DTSI = <b>0.257</b>·政府 + <b>0.187</b>·资产 + <b>0.143</b>·运营 + <b>0.120</b>·企业 + <b>0.110</b>·科研 + <b>0.093</b>·员工 + <b>0.090</b>·居民
@@ -908,8 +909,8 @@
     </div>
 
     <div class="panel" style="margin-bottom:14px">
-      <h2>③ 35 个二级指标 + AHP 权重（论文表 6.1 – 6.7）</h2>
-      <p class="hint">每方下面 5 个指标，AHP 专家打分（300 人样本：政府 60 / 企业 100 / 学术 60 / 技术 40 / 其他 40）。所有数字都是论文原文。</p>
+      <h2>③ 35 个三级指标 + AHP 权重（书稿表7-1—7-7）</h2>
+      <p class="hint">每方下面 5 个指标，作者确认的清洗口径：回收 300 份，剔除缺失 9 份，再剔除 CR 超限 5 份，有效 286 份。权重采用本轮书稿确认值；尚未复核原始问卷。</p>
       <div id="weight_tables"></div>
     </div>
 
@@ -920,429 +921,21 @@
         <tr><th>参数</th><th>数值</th><th>含义</th></tr>
         <tr><td>λ<sub>max</sub></td><td class="num">5.127</td><td>判断矩阵的最大特征值</td></tr>
         <tr><td>CI（一致性指标）</td><td class="num">0.03175</td><td>(λ<sub>max</sub> - n) / (n - 1)</td></tr>
-        <tr><td>CR（一致性比率）</td><td class="num acc">0.0283</td><td>含 RI 校正；论文标准要求 &lt; 0.10</td></tr>
-        <tr><td>结论</td><td colspan="2" class="acc">CR = 0.0283 远低于 0.10 阈值，专家判断矩阵逻辑一致性优良，权重计算可信</td></tr>
+        <tr><td>CR（一致性比率）</td><td class="num acc">0.0283</td><td>n=5，RI=1.12；一致性参考 &lt;0.10</td></tr>
+        <tr><td>结论</td><td colspan="2" class="acc">5×5 示例 CR=0.0283；七方 7×7 群体矩阵 CR=0.0285。CR 衡量判断矩阵一致性，不代表统计显著性或因果有效性。</td></tr>
       </table>
     </div>
 
     <div class="panel">
-      <h2>⑤ X-Flow Dynamics 内核（论文 5.4 + 6.3.2.3）</h2>
-      <p class="hint">X-Flow Dynamics 是论文中提出的"动态模拟模型"，本质是面向 7 主体的系统动力学：每个主体有自己的存量、流量、收敛速率，主体之间通过反馈环耦合。Park-ROADS 用 JS 差分方程做了简化版本。</p>
-      <table class="tbl">
-        <tr><th>组件</th><th>作用</th><th>论文出处</th></tr>
-        <tr><td>主体收敛速率（lag）</td><td>政府/运营快；科研/资产慢；最长 3 年时滞</td><td>5.4 节系统动力学建模</td></tr>
-        <tr><td>R1 数字化—招商正反馈</td><td>指数升 → 政府背书 → 招商 → 数据回流 → 指数升</td><td>政府视角因果图（图 5.6）</td></tr>
-        <tr><td>R2 人才—产业正反馈</td><td>员工技能升 → 企业落地 → 工资升 → 人才升</td><td>5.2.6 + 5.2.4</td></tr>
-        <tr><td>B1 招商—满意度负反馈</td><td>过度招商 → 配套不足 → 满意度降 → 招商回落</td><td>4.2.5 节"动态调整"</td></tr>
-        <tr><td>B3 治理—满意度负反馈</td><td>合规过严 → 成本升 → 满意度降</td><td>5.1.2 节"挑战与应对策略"</td></tr>
-      </table>
-    </div>
+<h2>⑤ 动态模型状态</h2><p>书稿第八章提出 X-Flow Dynamics。本站旧版曲线是7个聚合量向滑杆目标收敛的60个月演示，含政府/运营/企业的少数耦合项，未完成书稿全模型、拥挤负反馈、合规成本或居民→政府反馈。收敛系数及耦合参数未校准。M0记录旧演示的固定50%初值，不能当作园区实测。</p><p>正式模型应由实测初值开始；方程、参数、数据映射和验证报告待作者确认。<a href="book-design.html">查看待确认范围</a></p>    </div>
   </div>
 </section>
 
 <!-- ========== THESIS DECODE (论文拆解 · 决策者版) ========== -->
-<section id="thesis" class="section">
-  <div class="container">
-    <h1 class="page-title">📖 论文拆解 <span class="badge gold">决策者版 · 一页看懂</span></h1>
-    <p class="page-sub">把戴继涛博士 242 页 DBA 论文压缩成决策者能 5 分钟看完的核心逻辑链。<b>不解释数学</b>（数学在"方法论"标签），只回答："这论文要解决什么？凭什么相信它？我应该怎么用？"</p>
-
-    <!-- BLUF: Bottom Line Up Front -->
-    <div class="bluf-card panel">
-      <div class="bluf-icon" aria-hidden="true">⚡</div>
-      <div class="bluf-content">
-        <div class="bluf-label">一句话核心结论 (Bottom Line Up Front)</div>
-        <h2 class="bluf-thesis">传统园区数字化转型不是 IT 项目，而是 <span class="hl-yellow">7 主体治理协同问题</span>。"OpenX@X 平台 + DTSI 指数 + X-Flow 系统动力学"三件套组合，可让一个 40 分老旧园区在 36 个月内升到 55+ 分。</h2>
-        <div class="bluf-evidence">
-          <span class="ev-pill">📊 5 园区 × 3 年实证</span>
-          <span class="ev-pill">🎯 AHP CR=0.0283（远低于 0.10 阈值）</span>
-          <span class="ev-pill">👥 300 人专家样本</span>
-          <span class="ev-pill">🏛 完整四阶段主案例</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 论文章节地图 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>🗺 论文章节地图（242 页 · 7 章 · 10 套问卷）</h2>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">这是戴博士论文的"目录骨架"。每章解决一个具体问题；从绪论到附录是一条<b>问题驱动型</b>的研究流。看完这张表，相当于知道了 242 页在哪里讲什么。</p>
-      <div class="chap-grid">
-        <div class="chap-card"><div class="chap-num">第 1 章</div><div class="chap-title">绪论</div><div class="chap-detail">研究背景、问题、目的、意义、技术路线。<b>核心命题：</b>"中国 1.5 万家园区中，62% 是传统老旧园区，存在碎片化数字化困境。"</div><div class="chap-meta">~25 页 · 提出 3 个研究问题</div></div>
-        <div class="chap-card"><div class="chap-num">第 2 章</div><div class="chap-title">文献综述</div><div class="chap-detail">系统梳理 3 大理论支柱：<b>利益相关者理论</b>(Freeman 1984)、<b>价值共创理论</b>(Vargo &amp; Lusch 2008)、<b>数字化转型理论</b>(Westerman 2014, Vial 2019)。识别现有研究的 4 个缺口。</div><div class="chap-meta">~38 页 · 引用 110+ 篇文献</div></div>
-        <div class="chap-card"><div class="chap-num">第 3 章</div><div class="chap-title">研究设计</div><div class="chap-detail">混合方法策略：<b>定量 (AHP + 问卷调查)</b> + <b>定性 (深度访谈 + 案例研究)</b>。三角验证逻辑、研究伦理、信效度策略。</div><div class="chap-meta">~28 页 · 5 个研究假设 H1–H5</div></div>
-        <div class="chap-card"><div class="chap-num">第 4 章</div><div class="chap-title">OpenX@X 平台框架</div><div class="chap-detail">提出"<b>5 步法</b>": ①诊断 ②接入 ③重构 ④协同 ⑤演化。每步含 IT/治理/服务三层任务清单与转换条件。技术架构、数据中台、API 网关。</div><div class="chap-meta">~30 页 · 含 12 张系统架构图</div></div>
-        <div class="chap-card"><div class="chap-num">第 5 章</div><div class="chap-title">DTSI 指数构建</div><div class="chap-detail">7 主体 × 5 指标 = 35 KPI。<b>AHP 层次分析法</b>对 300 名专家做问卷得权重，<b>CR=0.0283</b> 远低于 0.10 阈值。给出 DTSI 标量公式与归一化方法。</div><div class="chap-meta">~42 页 · 7 张权重表 (6.1-6.7)</div></div>
-        <div class="chap-card"><div class="chap-num">第 6 章</div><div class="chap-title">实证研究</div><div class="chap-detail">5 个真实园区 × 3 年追踪数据 (Y1/Y2/Y3)。<b>园区 C 作为 OpenX@X 主案例</b>: M0 → M6 → M12 → M24 → M36 完整 4 阶段叙事。X-Flow 系统动力学模拟。</div><div class="chap-meta">~50 页 · 表 6.8 + 图 6.3.2.1</div></div>
-        <div class="chap-card"><div class="chap-num">第 7 章</div><div class="chap-title">讨论与结论</div><div class="chap-detail">归纳 5 大发现 + 4 项理论贡献 + 6 项实践建议。<b>诚实声明 6 个研究限制</b> (样本量、宏观控制、跨文化外延等)。后续研究方向。</div><div class="chap-meta">~22 页 · 含决策矩阵</div></div>
-        <div class="chap-card"><div class="chap-num">附录 A-J</div><div class="chap-title">10 套调查问卷</div><div class="chap-detail">附录 A: AHP 21 对成对比较 (3+3+3+3+3+3+3) ；附录 B-H: 7 主体各自 35 题 KPI 评分；附录 I-J: 转型成熟度 + 系统接入度。<b>已 100% 嵌入本网站"📋 调查问卷"标签</b>。</div><div class="chap-meta">~15 页 · 共 233 题</div></div>
-      </div>
-    </div>
-
-    <!-- 理论基础三大支柱 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>🏛 理论基础三大支柱（论文第 2 章核心）</h2>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">论文不是空想，而是站在三个成熟理论的肩膀上做组合创新。每个理论的"出处 + 核心命题 + 在本论文中的应用"如下。</p>
-      <div class="pillar-grid">
-        <div class="pillar-card pillar-1">
-          <div class="pillar-head"><span class="pillar-icon">①</span><span class="pillar-name">利益相关者理论</span></div>
-          <div class="pillar-cite">Freeman, R. E. (1984). <i>Strategic Management: A Stakeholder Approach</i>. Pitman.</div>
-          <div class="pillar-claim"><b>核心命题：</b>组织的可持续不能只看股东价值，要看所有"会影响 OR 被影响"的利益相关者群体。</div>
-          <div class="pillar-use"><b>论文如何用：</b>把"传统园区"这个组织拆成 7 类利益相关者 (政府/资产/运营/企业/科研/员工/居民)，然后把"数字化转型成功"重新定义为"7 主体协同度"，而非单一的 IT 投入。</div>
-          <div class="pillar-why"><b>为什么选这个理论：</b>园区天然是多主体协同的复杂组织，传统的"客户—供应商"二元论框架根本装不下园区的实际运作。</div>
-        </div>
-        <div class="pillar-card pillar-2">
-          <div class="pillar-head"><span class="pillar-icon">②</span><span class="pillar-name">价值共创理论 (S-D Logic)</span></div>
-          <div class="pillar-cite">Vargo, S. L., &amp; Lusch, R. F. (2008). Service-dominant logic: Continuing the evolution. <i>Journal of the Academy of Marketing Science, 36</i>(1), 1-10.</div>
-          <div class="pillar-claim"><b>核心命题：</b>价值不是企业生产、客户消费 (G-D logic)，而是各方资源整合、共同创造 (S-D logic)。"操作性资源"&gt;"占有性资源"。</div>
-          <div class="pillar-use"><b>论文如何用：</b>把 OpenX@X 平台定位为"价值共创基础设施"——它不直接生产服务，而是把 7 主体的资源 (政府政策、企业数据、科研知识、员工技能) 在平台上整合，让每个主体的"剩余价值"流向其他主体。</div>
-          <div class="pillar-why"><b>为什么选这个理论：</b>解释了"为什么 7 主体协同 &gt; 单主体卓越"——因为价值不是被占有的，是被流动激活的。</div>
-        </div>
-        <div class="pillar-card pillar-3">
-          <div class="pillar-head"><span class="pillar-icon">③</span><span class="pillar-name">数字化转型理论</span></div>
-          <div class="pillar-cite">Westerman, G., Bonnet, D., &amp; McAfee, A. (2014). <i>Leading Digital</i>. HBR Press.<br>Vial, G. (2019). Understanding digital transformation. <i>Journal of Strategic Information Systems, 28</i>(2), 118-144.</div>
-          <div class="pillar-claim"><b>核心命题：</b>数字化转型 ≠ IT 升级。是"<b>技术 × 业务流程 × 组织结构 × 客户体验</b>"四象限同步重塑。Vial (2019) 给出 SR&amp;O 框架 (Strategic Response &amp; Outcome)。</div>
-          <div class="pillar-use"><b>论文如何用：</b>把"园区数字化"具象为四象限：①技术 (OpenX@X 平台) ②业务流程 (5 步法) ③组织结构 (7 主体协同) ④客户体验 (满意度闭环)。这就是 DTSI 35 个指标的设计逻辑底座。</div>
-          <div class="pillar-why"><b>为什么选这个理论：</b>避免把数字化"窄化"为 IT 项目——这是中国大多数园区数字化失败的根源。</div>
-        </div>
-      </div>
-      <div class="pillar-synthesis">
-        <h4>三大理论的合体逻辑</h4>
-        <p>利益相关者理论给出了"<b>谁 (Who)</b>"的切法 (7 主体)，价值共创理论给出了"<b>怎么做 (How)</b>"的逻辑 (资源流动而非占有)，数字化转型理论给出了"<b>评价什么 (What)</b>"的维度 (技术×业务×组织×体验)。三者结合 → DTSI 是"<b>7 主体在四象限上的协同度量化</b>"。</p>
-      </div>
-    </div>
-
-    <!-- 研究问题与假设 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>🔬 研究问题 + 5 个核心假设（论文第 3 章）</h2>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">学术研究不是"我感觉"，要先把假设写清楚，然后用数据去证伪或支持。这是论文真正学术严谨的部分——决策者参考时也要看清楚假设条件。</p>
-      <div class="rq-block">
-        <div class="rq-label">3 个研究问题 (Research Questions)</div>
-        <div class="rq-item"><span class="rq-tag">RQ1</span><div class="rq-text"><b>What</b>：传统商业园区数字化转型的核心矛盾是什么？是 IT 投入不足，还是治理协同不足？</div></div>
-        <div class="rq-item"><span class="rq-tag">RQ2</span><div class="rq-text"><b>How</b>：如何用一个可量化、可对比、可时序追踪的指数来评价"园区数字化转型成功度"？</div></div>
-        <div class="rq-item"><span class="rq-tag">RQ3</span><div class="rq-text"><b>So What</b>：基于这个指数，能否给出一个具有可操作性的转型路径方法论 (即 OpenX@X)？该方法论在真实园区里是否能复现 +15 分级别的提升？</div></div>
-      </div>
-      <div class="rq-block" style="margin-top:14px">
-        <div class="rq-label">5 个研究假设 (Hypotheses)</div>
-        <div class="hyp-list">
-          <div class="hyp-item severity-low"><span class="hyp-tag">H1 ✓</span><div class="hyp-text"><b>多主体协同度对 DTSI 有显著正向影响</b>（β &gt; 0.3, p &lt; 0.01）。<br><span class="hyp-result">→ 实证支持：5 园区数据中协同度系数 0.41**</span></div></div>
-          <div class="hyp-item severity-low"><span class="hyp-tag">H2 ✓</span><div class="hyp-text"><b>政府主体权重应高于其他主体</b>（基于政策稳定性对中国园区的特殊重要性）。<br><span class="hyp-result">→ AHP 结果支持：政府 25.7% &gt; 资产 18.7% &gt; ... &gt; 居民 9.0%</span></div></div>
-          <div class="hyp-item severity-low"><span class="hyp-tag">H3 ✓</span><div class="hyp-text"><b>OpenX@X 5 步法介入后，DTSI 在 36 个月内年均增速 ≥ 4 分</b>（基于价值共创理论的反馈加速效应）。<br><span class="hyp-result">→ 园区 C 实测年均 +5.07，全样本均值 +4.47</span></div></div>
-          <div class="hyp-item severity-low"><span class="hyp-tag">H4 ✓</span><div class="hyp-text"><b>主体得分极差 ≥ 25 分时，DTSI 整体增速放缓</b>（即"木桶效应假设"）。<br><span class="hyp-result">→ 5 园区追踪数据显著支持，详见论文 6.4 节</span></div></div>
-          <div class="hyp-item severity-mid"><span class="hyp-tag">H5 ?</span><div class="hyp-text"><b>居民主体得分对政府主体执行力有"地基"型影响</b>（居民 &lt; 40 → 政府执行力下降）。<br><span class="hyp-result">→ 部分支持：园区 C/D 数据支持，但样本量太小 (n=5)，需后续大样本验证</span></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 论证逻辑链路 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>🔗 论文的因果论证链（5 步可视化）</h2>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">论文不是先有方法再找数据，而是从"为什么传统园区会卡住"出发，一步步推到"该怎么破局"。读懂这条链，等于读懂全文。</p>
-      <div class="logic-chain">
-        <div class="logic-step"><div class="logic-num">1</div><div class="logic-body"><div class="logic-title">问题定位</div><div class="logic-text">中国超 1.5 万家园区里，<b>62%</b>属于传统老旧园区。它们有数据但不通、有系统但不联、有政策但落不下去 — 不是"没数字化"，是"碎片化数字化"。</div><div class="logic-quote">论文 1.2 节</div></div></div>
-        <div class="logic-arrow" aria-hidden="true">▼</div>
-        <div class="logic-step"><div class="logic-num">2</div><div class="logic-body"><div class="logic-title">理论框架（What）</div><div class="logic-text">作者借鉴<b>利益相关者理论</b>（Freeman, 1984）+ <b>价值共创理论</b>（Vargo & Lusch, 2008），把园区数字化解构为 7 主体（政府/资产/运营/企业/科研/员工/居民）协同问题。<b>选 7 个，不是拍脑袋 — 这是利益相关者理论的标准切法</b>。</div><div class="logic-quote">论文 2.1–2.3 节</div></div></div>
-        <div class="logic-arrow" aria-hidden="true">▼</div>
-        <div class="logic-step"><div class="logic-num">3</div><div class="logic-body"><div class="logic-title">测量工具（How to Measure）</div><div class="logic-text">每个主体设 5 个 KPI 指标，共 35 个。用 <b>AHP 层次分析法</b>对 300 名专家做问卷，算出每个指标和每个主体的权重。CR=0.0283 远低于 0.10 阈值，说明专家共识高，权重不是凭空捏造。<b>把"治理是否有效"变成可量化的 0-100 分 (DTSI)</b>。</div><div class="logic-quote">论文 5 章 + 附录 A-J（10 套调查问卷已嵌入网站）</div></div></div>
-        <div class="logic-arrow" aria-hidden="true">▼</div>
-        <div class="logic-step"><div class="logic-num">4</div><div class="logic-body"><div class="logic-title">介入工具（How to Change）</div><div class="logic-text"><b>OpenX@X 平台 5 步法</b>: ①诊断 ②接入 ③重构 ④协同 ⑤演化。<br>+ <b>X-Flow Dynamics 系统动力学</b>: 模拟政策 / 投入 / 服务 / 满意度的反馈回路 — 解决"我做了 X，要等多久才看到 Y"的传统盲点。</div><div class="logic-quote">论文 4 章 + 6 章</div></div></div>
-        <div class="logic-arrow" aria-hidden="true">▼</div>
-        <div class="logic-step"><div class="logic-num">5</div><div class="logic-body"><div class="logic-title">实证证明（Did It Work）</div><div class="logic-text">5 个真实园区跟踪 3 年。其中<b>园区 C（中部老旧）作为 OpenX@X 主案例</b>: M0=40.1 → M6=43.5 → M12=47.7 → M24=50.3 → <b>M36=55.3</b> (+15.2 分)。其他 4 园区作为对照组，演化路径都和理论预期吻合。</div><div class="logic-quote">论文 6.3 节 + 表 6.8</div></div></div>
-      </div>
-    </div>
-
-    <!-- DTSI 数学构建详解 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>📐 DTSI 数学构建详解（论文第 5 章核心公式）</h2>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">DTSI 不是模糊的"综合分"，是有严格数学定义的标量。下面把它从"哲学到代码"分 4 层拆开 — 决策者要用它做政绩考核，必须看清这 4 层。</p>
-
-      <div class="math-layer">
-        <div class="math-layer-num">L1</div>
-        <div class="math-layer-body">
-          <div class="math-layer-title">原始指标层 — 35 个 KPI 数值</div>
-          <div class="math-formula">x<sub>i,j</sub> ∈ [0, 100],   i ∈ {1..7 主体},  j ∈ {1..5 指标}</div>
-          <div class="math-layer-desc">每个指标都归一化到 0-100 分。原始数据来源：① 客观数据（带宽、覆盖率等可直接测量）② 主观数据（满意度、知觉等通过附录 B-H 的问卷采集）。</div>
-        </div>
-      </div>
-
-      <div class="math-layer">
-        <div class="math-layer-num">L2</div>
-        <div class="math-layer-body">
-          <div class="math-layer-title">主体内聚合 — 加权求和到主体得分 S<sub>i</sub></div>
-          <div class="math-formula">S<sub>i</sub> = Σ<sub>j=1</sub><sup>5</sup> w<sub>i,j</sub> · x<sub>i,j</sub>,   且 Σw<sub>i,j</sub> = 1</div>
-          <div class="math-layer-desc">主体内 5 个指标的权重 w<sub>i,j</sub> 通过 AHP 求得。<b>例：</b>政府主体内权重 = (0.444, 0.249, 0.151, 0.101, 0.054)，对应"环境/基础设施/人才/生态/创新"5 个指标。最重要的指标 (w=0.444) 是"数字经济发展环境指数"。</div>
-          <div class="math-table">
-            <table>
-              <thead><tr><th>主体</th><th>指标 1</th><th>指标 2</th><th>指标 3</th><th>指标 4</th><th>指标 5</th></tr></thead>
-              <tbody>
-                <tr><td>政府</td><td><b>0.444</b></td><td>0.249</td><td>0.151</td><td>0.101</td><td>0.054</td></tr>
-                <tr><td>资产</td><td><b>0.561</b></td><td>0.122</td><td>0.117</td><td>0.108</td><td>0.092</td></tr>
-                <tr><td>运营</td><td><b>0.420</b></td><td>0.267</td><td>0.160</td><td>0.090</td><td>0.063</td></tr>
-                <tr><td>企业</td><td><b>0.377</b></td><td>0.221</td><td>0.153</td><td>0.150</td><td>0.099</td></tr>
-                <tr><td>科研</td><td><b>0.484</b></td><td>0.221</td><td>0.156</td><td>0.094</td><td>0.045</td></tr>
-                <tr><td>员工</td><td><b>0.521</b></td><td>0.238</td><td>0.114</td><td>0.079</td><td>0.048</td></tr>
-                <tr><td>居民</td><td><b>0.503</b></td><td>0.254</td><td>0.145</td><td>0.060</td><td>0.038</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="math-note">注意：每个主体的"头号指标"权重都接近 0.4-0.6——说明<b>每个主体内有 1 个绝对核心指标 + 4 个辅助指标</b>。这是论文重要的结构性发现。</div>
-        </div>
-      </div>
-
-      <div class="math-layer">
-        <div class="math-layer-num">L3</div>
-        <div class="math-layer-body">
-          <div class="math-layer-title">跨主体聚合 — 加权求和到 DTSI</div>
-          <div class="math-formula math-formula-big">DTSI = Σ<sub>i=1</sub><sup>7</sup> W<sub>i</sub> · S<sub>i</sub></div>
-          <div class="math-layer-desc">7 主体之间的权重 W<sub>i</sub> 也由 AHP 求得（21 对成对比较 = C(7,2)）。CR=0.0283 远低于 Saaty (1980) 的 0.10 阈值，说明 300 名专家共识高。</div>
-          <div class="math-formula math-formula-explicit">DTSI = 0.257·S<sub>政府</sub> + 0.187·S<sub>资产</sub> + 0.143·S<sub>运营</sub> + 0.120·S<sub>企业</sub> + 0.110·S<sub>科研</sub> + 0.093·S<sub>员工</sub> + 0.090·S<sub>居民</sub></div>
-          <div class="math-note">这是论文的"<b>身份方程</b>"——所有结论都从这个公式衍生。决策者最该背下来的就是这一行。</div>
-        </div>
-      </div>
-
-      <div class="math-layer">
-        <div class="math-layer-num">L4</div>
-        <div class="math-layer-body">
-          <div class="math-layer-title">边际系数 — 政策杠杆识别</div>
-          <div class="math-formula">∂DTSI/∂x<sub>i,j</sub> = W<sub>i</sub> · w<sub>i,j</sub></div>
-          <div class="math-layer-desc">某个指标 x<sub>i,j</sub> 每提升 1 分，对 DTSI 的边际贡献 = 该主体权重 × 该指标在主体内权重。<b>这是 OpenX@X 平台的政策模拟数学基础</b>——本网站"🎯 政策沙盘"和"🤖 AI 诊断"标签里的"高杠杆改进点"算法就来自这个公式。</div>
-          <div class="math-formula math-formula-example">例：政府·环境指数：∂DTSI/∂x = 0.257 × 0.444 = <b style="color:#fbbf24">0.114</b><br>例：员工·技能：∂DTSI/∂x = 0.093 × 0.521 = <b style="color:#34d399">0.0485</b></div>
-          <div class="math-note">同样投 1 分，"政府·环境"是"员工·技能"的 2.4 倍效益——这就是论文 6.4 节"政策杠杆识别"的核心计算。</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AHP 方法 5 步详解 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>🧮 AHP 层次分析法 — 论文怎么得出权重的？(5 步详解)</h2>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">AHP (Analytic Hierarchy Process) 是 Saaty (1980) 提出的多准则决策方法，是国际公认的权重确定方法之一。论文严格按 AHP 标准 5 步流程操作 — 这是"权重不是凭感觉"的关键证据。</p>
-      <div class="ahp-steps">
-        <div class="ahp-step">
-          <div class="ahp-step-head"><span class="ahp-num">1</span><span class="ahp-name">建立层次结构</span></div>
-          <div class="ahp-detail">把"DTSI"目标拆成 3 层：<br><b>顶层 (Goal):</b> DTSI<br><b>中层 (Criteria):</b> 7 主体<br><b>底层 (Sub-criteria):</b> 35 个 KPI<br>这一步靠文献综述 + 专家访谈完成，对应论文 5.1 节。</div>
-        </div>
-        <div class="ahp-step">
-          <div class="ahp-step-head"><span class="ahp-num">2</span><span class="ahp-name">构造成对比较矩阵</span></div>
-          <div class="ahp-detail">给每个层级做成对比较。例如 7 主体之间有 C(7,2)=21 对比较；每个主体内 5 指标之间有 C(5,2)=10 对比较。<br><b>判断尺度 (Saaty 1-9 标度)：</b><br>1 = 同样重要 / 3 = 略重要 / 5 = 明显重要 / 7 = 强烈重要 / 9 = 极端重要 (2,4,6,8 为中间值)<br>这就是网站<b>📋 调查问卷 → AHP 21 对成对比较</b>那部分的数学背景。</div>
-        </div>
-        <div class="ahp-step">
-          <div class="ahp-step-head"><span class="ahp-num">3</span><span class="ahp-name">计算权重 (特征向量法)</span></div>
-          <div class="ahp-detail">对成对比较矩阵 A 求最大特征值 λ<sub>max</sub> 对应的特征向量，归一化后即得权重。论文用 300 名专家平均后的矩阵。<br><b>公式：</b> A·w = λ<sub>max</sub>·w<br>实操中可用几何平均法近似。</div>
-        </div>
-        <div class="ahp-step">
-          <div class="ahp-step-head"><span class="ahp-num">4</span><span class="ahp-name">一致性检验 (CR)</span></div>
-          <div class="ahp-detail"><b>这是 AHP 最关键的一步。</b>计算 CI = (λ<sub>max</sub> - n) / (n-1)，再 CR = CI / RI (RI 是随机一致性指标)。<br><b>红线：</b>CR &lt; 0.10 才算专家判断逻辑自洽。<br><b>论文实测：</b>CR = <b style="color:#34d399">0.0283</b> — 比红线低 3.5 倍。说明 300 名专家在"哪个指标更重要"问题上具有显著共识，权重是可信的。</div>
-        </div>
-        <div class="ahp-step">
-          <div class="ahp-step-head"><span class="ahp-num">5</span><span class="ahp-name">综合排序</span></div>
-          <div class="ahp-detail">把每层权重相乘得到全局权重。例：<br>"政府·环境指数"全局权重 = 0.257 (主体) × 0.444 (主体内) = <b>0.114</b><br>这就是该指标对 DTSI 的最终贡献度，也就是 L4 层的边际系数。35 个全局权重相加 = 1 (验证完整性)。</div>
-        </div>
-      </div>
-      <div class="ahp-validation">
-        <h4>为什么 AHP 是公允的方法？</h4>
-        <p>① <b>透明：</b>每个权重的来源都可回溯到具体的成对比较。② <b>可质疑：</b>CR 检验可证伪——如果专家自相矛盾，会被检测出来。③ <b>国际公认：</b>AHP 自 1980 年以来在管理学、决策科学、运筹学领域被引用 50,000+ 次，是权重确定的"金标准"之一。④ <b>可复制：</b>给定相同的 300 名专家与相同的判断尺度，重做一次结果会高度接近。</p>
-      </div>
-    </div>
-
-    <!-- X-Flow Dynamics 系统动力学 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>🔄 X-Flow Dynamics — 系统动力学反馈回路（论文第 6 章）</h2>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">DTSI 静态地告诉你"现在治理水平是多少"，但决策者真正关心的是"<b>我做了 X，什么时候能看到 Y</b>"。X-Flow Dynamics 用 Forrester (1961) 的系统动力学方法，把 7 主体之间的<b>反馈、滞后、加速</b>建模出来。</p>
-      <div class="xflow-grid">
-        <div class="xflow-card">
-          <div class="xflow-icon">📥</div>
-          <div class="xflow-name">存量 (Stocks)</div>
-          <div class="xflow-desc">7 主体的得分 S<sub>i</sub>(t) 是"存量变量"——会因外部投入逐渐累积，也会因冷漠/失效逐渐衰减。<b>类比：</b>水池里的水位。</div>
-        </div>
-        <div class="xflow-card">
-          <div class="xflow-icon">🔄</div>
-          <div class="xflow-name">流量 (Flows)</div>
-          <div class="xflow-desc">政策投入、平台升级、培训预算等都是"流入量"；政策疲劳、人才流失、注意力分散是"流出量"。<b>论文给出 14 个关键流量变量。</b></div>
-        </div>
-        <div class="xflow-card">
-          <div class="xflow-icon">⏱</div>
-          <div class="xflow-name">滞后 (Delays)</div>
-          <div class="xflow-desc">几乎所有流量都有滞后。<b>例：</b>政府投入 → 园区运营效率提升，滞后约 6 个月；运营满意度提升 → 资产价值增值，滞后约 12 个月。<b>这是大多数政策"看似无效"的原因。</b></div>
-        </div>
-        <div class="xflow-card">
-          <div class="xflow-icon">🔁</div>
-          <div class="xflow-name">反馈回路 (Feedback Loops)</div>
-          <div class="xflow-desc">论文识别 5 个关键回路：① 政府→运营→满意度→政府支持 (B+) ② 资产增值→招商力→运营收入 (B+) ③ 居民信任→政府合法性 (R-)。回路决定"飞轮"是否启动。</div>
-        </div>
-      </div>
-      <div class="xflow-key-finding">
-        <h4>X-Flow 模拟得出的关键时序结论</h4>
-        <ul>
-          <li><b>第 0-6 月：</b>"投入 - 反馈"为负 — 看不到效果，体感最差。决策者最容易在这里放弃。</li>
-          <li><b>第 6-12 月：</b>"反馈"开始回流——服务系统数据闭环、第一批员工技能提升完成。<b>第一个拐点。</b></li>
-          <li><b>第 12-24 月：</b>系统进入"自加速"——满意度→招商→收入→投入能力的正向回路启动。<b>飞轮转速：每年 +5 分。</b></li>
-          <li><b>第 24-36 月：</b>边际收益递减——已优化的指标继续涨变难。需要切换到新维度 (生态协同 → 策略演化)。</li>
-        </ul>
-        <p style="margin-top:8px"><b>决策者结论：</b>看不到 12 个月的效果就放弃 = 在拐点前自杀。这个时序规律，是论文给中国园区治理者最重要的认知更新。</p>
-      </div>
-    </div>
-
-    <!-- 5 大决策者必答问题 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>🎯 决策者最关心的 5 个问题</h2>
-      <div class="qa-list">
-        <details class="qa-item" open>
-          <summary><span class="qa-q-num">Q1</span><span class="qa-q-text">这论文跟智慧园区/智慧城市指数有啥不一样？</span></summary>
-          <div class="qa-a">大多数智慧园区指数是"<b>设施清单</b>"（有几个摄像头、是不是 5G）。本论文的 DTSI 是"<b>主体协同度</b>"——同样一笔投入，落到 7 主体的哪一个、是不是相互衔接，DTSI 差距可能 10+ 分。<b>对决策者意义：</b>不再是"我又装了多少传感器"，而是"我的政策有没有真正改变各方关系"。</div>
-        </details>
-        <details class="qa-item">
-          <summary><span class="qa-q-num">Q2</span><span class="qa-q-text">CR=0.0283 是什么？为什么我要在意？</span></summary>
-          <div class="qa-a"><b>CR (Consistency Ratio)</b> 是 AHP 方法里检验"专家打分是不是自相矛盾"的指标。Saaty (1980) 设的红线是 0.10。CR=0.0283 = 比红线低 3.5 倍，说明 300 名专家在"哪个指标更重要"上高度共识，<b>权重不是任意的</b>。决策者可以放心用这套权重做资源配置依据。</div>
-        </details>
-        <details class="qa-item">
-          <summary><span class="qa-q-num">Q3</span><span class="qa-q-text">36 个月 +15 分，听起来很漂亮，能不能复现？</span></summary>
-          <div class="qa-a">论文给出 4 个对照园区：A 创新驱动 (45.2→62.1)，B 先发园区 (50.3→65.4)，D/E 均衡发展 (~46→~60)。<b>5 园区 3 年平均涨幅 13.4 分，区间 [10–15]</b>。如果一个园区能严格执行 OpenX@X 5 步法 + 高层治理决心，预期年均 +4 到 +5 分。<b>注意：</b>这是 36 个月，不是 36 天 — 园区 C 第 1 年只涨 7.6 分，是 4 阶段累积效应。</div>
-        </details>
-        <details class="qa-item">
-          <summary><span class="qa-q-num">Q4</span><span class="qa-q-text">如果我现在 DTSI 是 50，最快补哪里？</span></summary>
-          <div class="qa-a">论文 6.4 节有明确答案：<b>不是补最弱的，而是补"投入产出比最高的"</b>。计算 = AHP 权重 × 该指标剩余空间。本网站"🤖 AI 诊断"标签里把这个算法做成了可视化的 Top 5 清单——直接告诉你"花同样的钱推哪个滑杆，DTSI 涨得最多"。</div>
-        </details>
-        <details class="qa-item">
-          <summary><span class="qa-q-num">Q5</span><span class="qa-q-text">这套方法适合什么样的园区？不适合什么？</span></summary>
-          <div class="qa-a"><b>适合：</b>有数据基础、有顶层介入意愿、多主体并存的传统园区（25–55 分区间最受益）。<br><b>不适合：</b>① 全新园区（没有 7 主体的历史协同基线）② 单一主体（如纯产业园只有政府+企业）③ DTSI 已 70+ 的明星园区（边际收益递减，改用 v2.0 路线）。<br><b>论文的诚实声明：</b>方法在中国大陆 5 园区验证过，海外样本未覆盖；样本量 5 不算大，是"概念验证 + 单案例深描"。</div>
-        </details>
-      </div>
-    </div>
-
-    <!-- 6 角色视角 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>👔 6 个决策者角色 — 每个角色看到不同的金矿</h2>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">同一篇论文，不同角色应该提取不同结论。下面是按角色定制的"我应该带走什么"。</p>
-      <div class="role-perspectives" id="role_persp">--</div>
-    </div>
-
-    <!-- 5 个最重要的发现 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>🔬 论文最重要的 5 个发现（不读全文也别错过）</h2>
-      <div class="findings-grid">
-        <div class="finding-card"><div class="finding-tag">F1</div><div class="finding-title">最大权重在"政府主体"（25.7%）</div><div class="finding-desc">7 主体里政府权重最高，意味着<b>顶层意志和政策稳定性</b>是任何园区数字化的真正瓶颈，不是技术。一个会改主意的政府，再先进的 IT 投入也白搭。</div></div>
-        <div class="finding-card"><div class="finding-tag">F2</div><div class="finding-title">园区 C 第 12 个月才出现"质变拐点"</div><div class="finding-desc">M0–M12 只涨 7.6 分（缓慢曲线），M12–M24 加速，M24–M36 进入"飞轮"状态（+5.0/年）。<b>启示：</b>领导班子如果第一年看不到大动静就放弃，等于在拐点前自杀。</div></div>
-        <div class="finding-card"><div class="finding-tag">F3</div><div class="finding-title">主体得分差距 > 25 分时，飞轮停转</div><div class="finding-desc">论文 6.4 节最隐蔽但最重要的发现：单主体跃升≠整体跃升。强主体的产出找不到弱主体来"接住"（数据接不上、KPI 不互通）— <b>木桶效应是真实的</b>。</div></div>
-        <div class="finding-card"><div class="finding-tag">F4</div><div class="finding-title">"科研主体"权重只有 11%，但其指标 r_xfer (转化率) 一个就占 48.4%</div><div class="finding-desc">说明：<b>科研主体本身不是发动机，但科研成果转化率是个例外</b>。园区可以缩减科研投入广度，但必须保证产学研落地通道畅通——这一项是"4 两拨千斤"。</div></div>
-        <div class="finding-card"><div class="finding-tag">F5</div><div class="finding-title">居民主体只有 9%，但是治理合法性的"信任根基"</div><div class="finding-desc">数值上居民权重最低，但论文 6.5 讨论部分指出：<b>居民主体得分 < 40 时，会反向拖累政府主体的政策执行力</b>。这是个"地基"型变量——平时不显眼，崩了所有楼塌。</div></div>
-      </div>
-    </div>
-
-    <!-- 决策行动表 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>📋 决策行动表 — 短/中/长期具体动作</h2>
-      <div class="action-table">
-        <div class="action-row action-row-head"><div>时间窗</div><div>关键动作</div><div>主负责主体</div><div>DTSI 预期增量</div></div>
-        <div class="action-row"><div><b>3 个月</b><br><span style="color:var(--muted);font-size:11px">立刻可启动</span></div><div>① 任命数字化转型办公室 ② 接入论文附录 A-J 10 套问卷 → 算出当前 DTSI ③ 把"政府"+"资产"两个主体的 KPI 数字化采集打通</div><div>地方政府 + 资产持有方</div><div>+3 ~ +5</div></div>
-        <div class="action-row"><div><b>12 个月</b><br><span style="color:var(--muted);font-size:11px">服务重构期</span></div><div>① OpenX@X 平台数据中台上线 ② SERVQUAL 五维满意度闭环 ③ 入驻企业数字能力评级 ④ 产学研合作启动至少 3 个项目</div><div>园区运营方 + 入驻企业</div><div>+5 ~ +8</div></div>
-        <div class="action-row"><div><b>24 个月</b><br><span style="color:var(--muted);font-size:11px">生态协同期</span></div><div>① 碳排+能耗+智慧停车多场景接入 ② 科研成果转化看板 ③ 员工技能提升路径量化 ④ 周边居民数字便民门户</div><div>科研院所 + 员工 + 居民</div><div>+3 ~ +5</div></div>
-        <div class="action-row"><div><b>36 个月</b><br><span style="color:var(--muted);font-size:11px">策略演化期</span></div><div>① DTSI 仪表盘接入决策层日常 ② X-Flow Dynamics 系统动力学闭环 ③ 政策沙盘+自适应反馈调节 ④ 全主体协同度 ≥ 0.7</div><div>所有 7 主体</div><div>+3 ~ +5</div></div>
-      </div>
-      <p style="font-size:11.5px;color:var(--muted);margin-top:10px">* 增量基于论文 5 园区 3 年实证均值。受治理决心、资源充沛度、外部宏观影响波动 ±30%。</p>
-    </div>
-
-    <!-- 学术严谨性自检 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>🎓 学术严谨性 4 重自检（信度·效度·稳健性·伦理）</h2>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">优秀的博士论文不仅要"做出结果"，还要诚实地证明"结果可信"。下面是戴博士论文按学术规范完成的 4 类严谨性自检——决策者要用这套方法做政绩考核，必须先看清楚这 4 项的"通过条件"。</p>
-      <div class="rigor-grid">
-        <div class="rigor-card">
-          <div class="rigor-head">📏 信度 (Reliability)</div>
-          <div class="rigor-q">问题：同样的方法换个人重做，结果会一致吗？</div>
-          <div class="rigor-method"><b>方法：</b>① Cronbach's α 系数 (内部一致性)；② 折半信度 (Split-half reliability)；③ 重测信度 (Test-retest)。</div>
-          <div class="rigor-result"><b>论文结果：</b>各主体问卷的 Cronbach's α 在 0.78–0.91 之间 (>0.70 为可接受，>0.80 为良好)。AHP 通过 CR=0.0283 验证一致性。</div>
-          <div class="rigor-judge">✅ 通过</div>
-        </div>
-        <div class="rigor-card">
-          <div class="rigor-head">🎯 内部效度 (Internal Validity)</div>
-          <div class="rigor-q">问题：测的是不是我想测的那个东西？</div>
-          <div class="rigor-method"><b>方法：</b>① 内容效度 (专家评议)；② 收敛效度 (CFA)；③ 区分效度 (CFA)；④ 三角验证 (定量+定性多源数据)。</div>
-          <div class="rigor-result"><b>论文结果：</b>① 35 个 KPI 全部通过 6 位领域专家内容评议；② 因子载荷均 &gt; 0.6；③ HTMT 比率 &lt; 0.85；④ 定量 (问卷) + 定性 (深度访谈 32 人) + 案例 (5 园区) 三源数据互相验证。</div>
-          <div class="rigor-judge">✅ 通过</div>
-        </div>
-        <div class="rigor-card">
-          <div class="rigor-head">🌐 外部效度 (External Validity)</div>
-          <div class="rigor-q">问题：结论能不能推广到论文之外的园区？</div>
-          <div class="rigor-method"><b>方法：</b>① 样本代表性分析；② 跨样本一致性；③ 边界条件标注。</div>
-          <div class="rigor-result"><b>论文结果：</b>5 园区分布于东中西部 + 创新驱动/先发/老旧/均衡 4 类型，覆盖中国主流园区类型。<b>诚实标注：</b>样本量偏小 (n=5)，跨文化外延需进一步验证。</div>
-          <div class="rigor-judge">⚠ 部分通过 (中国语境内适用)</div>
-        </div>
-        <div class="rigor-card">
-          <div class="rigor-head">🔒 稳健性 (Robustness)</div>
-          <div class="rigor-q">问题：换个参数 / 数据扰动，结论还成立吗？</div>
-          <div class="rigor-method"><b>方法：</b>① AHP 权重 ±10% 敏感性分析；② X-Flow 滞后系数 ±20% 敏感性分析；③ 删除单个园区的 Leave-One-Out 测试。</div>
-          <div class="rigor-result"><b>论文结果：</b>① 主要结论对 AHP 权重 ±10% 鲁棒——DTSI 排序不变；② X-Flow 反馈系数 ±20% 内 4 阶段时序结论不变；③ 5 园区任去其一，"DTSI 36 月年均 +4 分"结论仍成立。</div>
-          <div class="rigor-judge">✅ 通过</div>
-        </div>
-        <div class="rigor-card">
-          <div class="rigor-head">🤝 研究伦理 (Ethics)</div>
-          <div class="rigor-q">问题：研究过程是否合规、知情、不伤害？</div>
-          <div class="rigor-method"><b>方法：</b>① 知情同意书；② 数据匿名化；③ IRB / 学术伦理委员会审批。</div>
-          <div class="rigor-result"><b>论文结果：</b>5 园区均签署知情同意；个人级数据 (员工/居民) 均匿名化；通过 DBA 项目伦理审查。</div>
-          <div class="rigor-judge">✅ 通过</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 论文限制 + 反对意见 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>⚖️ 论文的限制 + 可能的学术反对意见</h2>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">没有完美的论文。决策者用之前要看清楚边界，避免错配。</p>
-      <div class="critique-grid">
-        <div class="critique-card"><div class="critique-tag">L1</div><div class="critique-title">样本量 5 偏小</div><div class="critique-desc">5 园区不足以做严格统计推断，更接近"概念验证 + 单案例深描"。<b>缓解：</b>300 人 AHP 专家样本支持权重稳定性；后续可扩展。</div></div>
-        <div class="critique-card"><div class="critique-tag">L2</div><div class="critique-title">未控制宏观经济变量</div><div class="critique-desc">5 园区都在 2022-2025 中国宏观背景下。如果遇到大幅经济波动 / 政策转向，DTSI 演化路径可能不可复制。</div></div>
-        <div class="critique-card"><div class="critique-tag">L3</div><div class="critique-title">"7 主体"切法非唯一</div><div class="critique-desc">利益相关者理论里也有 5 主体、9 主体的切法。本论文的 7 主体在中国园区语境下合理，但放到欧美产业园需要重新校准 AHP 权重。</div></div>
-        <div class="critique-card"><div class="critique-tag">L4</div><div class="critique-title">DTSI 是综合分数，可能掩盖结构性问题</div><div class="critique-desc">两个 DTSI 都是 55 的园区可能结构完全不同。<b>缓解：</b>必须配合 7 主体雷达图看 — 本网站"AI 诊断"已经把这点做进了可视化。</div></div>
-        <div class="critique-card"><div class="critique-tag">L5</div><div class="critique-title">X-Flow Dynamics 反馈系数靠经验设定</div><div class="critique-desc">系统动力学的滞后系数（如"投入→满意度 = 6 个月"）来自访谈和文献，不是因果推断。<b>缓解：</b>论文给出敏感性分析，主要结论对系数 ±20% 稳健。</div></div>
-        <div class="critique-card"><div class="critique-tag">L6</div><div class="critique-title">未对比"不做数字化"的反事实</div><div class="critique-desc">没有真正的"零数字化对照组"。但论文用"数字化前 vs 数字化后"的园区 C 第 0 月数据做了部分对照。</div></div>
-      </div>
-    </div>
-
-    <!-- 学术贡献 vs 实践贡献 -->
-    <div class="panel" style="margin-bottom:14px">
-      <h2>🎁 论文的双重贡献：学术 + 实践</h2>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">DBA 论文 (Doctor of Business Administration) 的特色就是<b>学术 + 实践双重严谨</b>——既要在理论上有创新，也要在实践中可落地。戴博士论文在两个维度都有明确的贡献清单。</p>
-      <div class="contrib-grid">
-        <div class="contrib-col contrib-academic">
-          <div class="contrib-head"><span class="contrib-icon">🎓</span><span class="contrib-name">学术理论贡献</span></div>
-          <ol class="contrib-list">
-            <li><b>理论组合创新：</b>首次将利益相关者理论 + 价值共创理论 + 数字化转型理论三者组合，形成"7 主体 × 35 指标"评价框架。填补"传统园区数字化"在管理学领域的研究空白。</li>
-            <li><b>方法学贡献：</b>把 AHP (定量) + 系统动力学 (动态) + 案例研究 (定性) 三种方法做三角验证，提供了多主体复杂治理场景的方法学模板，可被后续研究复用。</li>
-            <li><b>实证发现：</b>识别出"主体协同度 &gt; 单主体卓越"的飞轮失衡机制 (失衡度 ≥ 25 → 增速放缓)；以及"政策投入 → 效果显化"的 12 个月滞后规律。这两个发现是新的。</li>
-            <li><b>构念创新：</b>定义 DTSI (Digital Transformation Success Index)，并提出 X-Flow Dynamics 命名的反馈回路框架。后续学者可以引用、批判或扩展这两个构念。</li>
-          </ol>
-        </div>
-        <div class="contrib-col contrib-practice">
-          <div class="contrib-head"><span class="contrib-icon">🏭</span><span class="contrib-name">管理实践贡献</span></div>
-          <ol class="contrib-list">
-            <li><b>可落地的诊断工具：</b>10 套调查问卷 + DTSI 标量公式让任何园区运营方可以在 30 天内得到一份基线诊断 (本网站<b>📋 调查问卷</b>标签已经把这个工具产品化)。</li>
-            <li><b>政策杠杆识别公式：</b>∂DTSI/∂x = W·w 让政府决策者首次能"按性价比排序"政策投入选项，避免均匀撒胡椒面。</li>
-            <li><b>OpenX@X 5 步法：</b>给传统园区一条清晰的 36 个月转型路径——每阶段做什么、不该做什么、看哪个 KPI。降低了从"知道要数字化"到"知道怎么数字化"的认知门槛。</li>
-            <li><b>资产估值新维度：</b>给机构投资者和资产持有方提供"DTSI 作为资产质量因子"的新估值方法。一个 DTSI 60 的园区在并购市场上应该比 DTSI 45 的园区溢价 10-15%。</li>
-          </ol>
-        </div>
-      </div>
-      <div class="contrib-bridge">
-        <h4>戴博士论文的"DBA 特色"</h4>
-        <p>区别于传统 PhD 论文 (重理论)，DBA 论文要求"理论 + 实践"双重通过。戴博士的论文不仅在学位委员会通过——其方法论 + 工具组合也已被太能控股、荥阳数字经济产业园等真实主体应用。<b>本网站 (Park-ROADS) 就是论文工具产品化的成果之一</b>——把 242 页的方法论变成 5 分钟可上手的交互工具，让决策者直接用，而不是先读完论文再用。</p>
-      </div>
-    </div>
-
-    <!-- 一键操作 -->
-    <div class="panel">
-      <h2>⚡ 接下来你可以做什么</h2>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-        <button class="btn primary" data-go="sandbox" aria-label="去政策沙盘亲自试 35 滑杆">🎯 去沙盘试 35 滑杆</button>
-        <button class="btn" data-go="insight" aria-label="跑一次 AI 诊断">🤖 跑 AI 诊断</button>
-        <button class="btn" data-go="cases" aria-label="看 5 园区实测数据">🏛 看 5 园区实测</button>
-        <button class="btn" data-go="survey" aria-label="填论文附录调查问卷">📋 填 10 套问卷</button>
-        <button class="btn" data-go="method" aria-label="看完整方法论与数学">📐 看完整数学</button>
-        📄 下载论文 PDF（岭大学位库）
-      </div>
-    </div>
-  </div>
-</section>
+<section id="thesis" class="section"><div class="container"><h1 class="page-title">书稿方法与平台实现</h1><div class="panel"><h2>以七方共治组织决策</h2><p>数字化转型不只看物业或企业收益。地方政府、资产持有方、园区运营方、入驻企业、科研院所、员工与居民均有独立的一级指数与权重。DTSI 为 Digital Transformation Stakeholder Index；35项三级指标先换算为0—100%，再逐层加权。权重版本固定，单次个人偏好不覆盖标准权重。</p><p>书中五步法依次为识别需求、确立目标、指数评估、动态模拟、动态调整。平台服务链和商业交付阶段是另一种组织方式，不能替代五步法。</p><a class="btn primary" href="book-workbench.html">进入可记录、可比较、可复评的五步法工作台</a></div><div class="panel"><h2>书稿与平台版本对照</h2><p>当前依据：10 月 12 日书稿，13 章、附录 A—E，PDF 共 276 页，采用作者 10 月 18 日已确认修订。历史博士论文的页码与附录 A—J 不作为本版定位。公开平台的需求问卷为节选演示，不声称逐字完整复刻书稿。</p><div class="chap-grid"><div class="chap-card"><b>1—3</b><h3>数字生产力、国家战略与园区之变</h3><p>正文 p5—55</p></div><div class="chap-card"><b>4—6</b><h3>理论基础、七方共治、从需求到目标</h3><p>正文 p62—112</p></div><div class="chap-card"><b>7</b><h3>DTSI 指数、AHP 与权重</h3><p>正文 p120—145；表7-1—7-8</p></div><div class="chap-card"><b>8</b><h3>系统动力学与 X-Flow 模型</h3><p>正文 p148—161</p></div><div class="chap-card"><b>9</b><h3>平台化转型五步法</h3><p>正文 p166—178</p></div><div class="chap-card"><b>10</b><h3>案例应用及验证边界</h3><p>正文 p183—190</p></div><div class="chap-card"><b>11—13</b><h3>价值重构、伦理与数字文明</h3><p>正文 p194—248</p></div><div class="chap-card"><b>附录 A—E</b><h3>指标表、问卷与案例/模型/术语材料</h3><p>正文 p258—263；附录A跨p258—259</p></div></div><p><a href="book-workbench.html">按书中五步法进入工作台</a></p></div><div class="panel"><h2>科学验证与证据状态</h2><p>以下结果尚未附可复核报告，统一标为待核验。AHP 的低 CR 只表明判断矩阵内部一致性，不能证明专家共识、量表效度、推广有效性或因果效果。</p><table class="tbl"><tr><th>验证内容</th><th>所需证据</th><th>状态</th></tr><tr><td>问卷信度</td><td>题项、样本口径、α/重测计算及脱敏数据</td><td>待核验</td></tr><tr><td>构念效度</td><td>CFA、因子载荷、HTMT 及区分效度报告；不等同于因果内部效度</td><td>待核验</td></tr><tr><td>稳健性与外部验证</td><td>权重/参数扰动、留出园区、误差和不确定性报告</td><td>待核验</td></tr><tr><td>伦理及独立性</td><td>知情同意、审批文件、利益披露与独立评估安排</td><td>待核验</td></tr></table></div><div class="panel"><h2>当前边界</h2><p>已完成作者确认权重与计算修正、证据台账和人工行动/复评流程。X-Flow完整方程和参数、35项原始观测换算、五级评价阈值待作者另行确认；现有沙盘仅为演示。</p><a href="book-design.html">查看三项待确认范围</a></div></div></section>
 
 <!-- ========== CASES ========== -->
-<section id="cases" class="section">
+<section id="cases" class="section"><div class="panel"><h2>案例数据与时间口径</h2><p>三期汇总沿用书稿表10-1（正文p190），数值未改；逐项测量、日历年份和基准日期待补。旧版园区C阶段叙事中的M0/M12/M24/M36与Y1/Y2/Y3映射未核验，55.3为平台阶段演示，不能当作第三期50.3的替代实测。曲线与行动增量不证明因果效果，不用于当前园区正式排名。</p></div>
   <div class="container">
     <h1 class="page-title">🏛 案例库 <span class="badge gold">论文表 6.8 + 6.3.2.1</span></h1>
     <p class="page-sub">5 个真实园区 3 年 DTSI 完整数据。园区 C 是 OpenX@X 平台介入的主案例，下面有完整的"系统接入 → 服务重构 → 生态协同 → 策略演化"四阶段叙事。</p>
@@ -1386,7 +979,7 @@
         </div>
       </div>
       <div style="margin-top:12px;color:var(--muted);font-size:12.5px;line-height:1.8">
-        <b style="color:var(--accent)">案例启示：</b>园区 C 验证了平台化机制在低基础园区中的适应性和可复制性。在资源有限、服务滞后的情境中，平台所提供的分阶段路径与动态调节机制，有效支撑了治理能力、企业参与度与绿色绩效的协同提升。
+        <b style="color:var(--accent)">案例启示：</b>园区 C 的平台阶段叙事为方法演示，完整时间口径和原始证据待核验。在资源有限、服务滞后的情境中，平台所提供的分阶段路径与动态调节机制，有效支撑了治理能力、企业参与度与绿色绩效的协同提升。
       </div>
     </div>
   </div>
@@ -1395,8 +988,8 @@
 <!-- ========== SURVEYS ========== -->
 <section id="survey" class="section">
   <div class="container">
-    <h1 class="page-title">📋 调查问卷 <span class="badge gold">论文附录 A–J</span></h1>
-    <p class="page-sub">戴继涛博士论文附录 A–J 共 10 套调查问卷，是 DTSI 模型的实证根基（300 位专家样本，CR=0.0283）。本页把全部 10 套都做成可在线填答的交互问卷，填完会立刻给出你的分数、雷达图、与 5 园区横向对比；其中"指标评分"问卷的结果可一键回灌到沙盘 DTSI。</p>
+    <h1 class="page-title">📋 调查问卷 <span class="badge gold">平台问卷节选</span></h1>
+    <p class="page-sub">七方需求节选、35项情景输入与AHP练习。需求记录不转换为绩效；情景值仅用于演示。问卷工具编号不对应本版书稿附录。正式应用请进入五步法工作台，逐项登记证据。</p>
 
     <div class="panel" style="margin-bottom:18px">
       <h2>📚 10 套问卷一览</h2>
@@ -1430,7 +1023,7 @@
 <!-- ========== AI INSIGHT (实时治理洞察) ========== -->
 <section id="insight" class="section">
   <div class="container">
-    <h1 class="page-title">🤖 实时治理洞察 <span class="badge gold">AI 自动诊断</span></h1>
+    <h1 class="page-title">🤖 实时治理洞察 <span class="badge gold">规则辅助诊断</span></h1>
     <p class="page-sub">基于您当前 35 个滑杆的实时数据，AI 自动跑出 5 类核心洞察 + 改进路径建议。每次回到沙盘调整滑杆后，回到此页诊断会自动刷新。</p>
 
     <!-- 顶部：DTSI 体检总评 -->
@@ -1444,14 +1037,14 @@
         </div>
         <div class="ih-radar-wrap">
           <div class="canvas-wrap" style="height:240px"><canvas id="ih_radar"></canvas></div>
-          <div class="ih-radar-legend">蓝实线 = 您当前 7 主体得分 ｜ 灰虚线 = 论文 5 园区均值 (~58.4%) ｜ 越接近外圈越好</div>
+          <div class="ih-radar-legend">蓝实线 = 您当前 7 主体得分 ｜ 灰虚线 = 演示参照50%（非分主体均值） ｜ 越接近外圈越好</div>
         </div>
       </div>
     </div>
 
     <!-- 中部：5 张 AI 洞察卡片 -->
     <div class="panel" style="margin-bottom:14px">
-      <h2>🔍 AI 自动诊断（5 项核心洞察）</h2>
+      <h2>🔍 规则辅助诊断（5 项核心洞察）</h2>
       <div class="insight-cards" id="ih_cards">--</div>
     </div>
 
@@ -1558,7 +1151,7 @@
 </section>
 
 <!-- ========== SERVICE SYSTEM (五位一体产品架构) ========== -->
-<section id="service" class="section">
+<section id="service" class="section"><div class="panel"><h2>以下为商业服务规划</h2><p>下列收入、规模、案例、资质、合作与交付目标属于历史商业设计，尚未提供逐项验证依据，不代表当前实际营收、客户、认可或已完成服务。书稿五步法与实际工作记录以<a href="book-workbench.html">五步法工作台</a>为准。</p></div>
   <div class="container">
     <h1 class="page-title">🏥 五位一体产品架构 <span class="badge gold">园区数字化诊疗体系</span></h1>
     <p class="page-sub">把医院"挂号 · 体检 · 诊断 · 治疗 · 复诊"五步法移植到园区数字化转型咨询——让客户「秒懂、敢付、愿意续费」。<br><span style="color:#fbbf24;font-size:12px">✨ v2.0 战略转向版 · 基于全球园区运营服务模式深度复盘 · 5 年营收路径 ¥9.3 亿 · 估值 ¥32 亿</span></p>
@@ -1588,7 +1181,7 @@
           <div class="fsn-num">3</div>
           <div class="fsn-icon">🔬</div>
           <div class="fsn-name">诊断系统</div>
-          <div class="fsn-desc">AI 自动诊断 + 专家会诊 + 多角色 360 度</div>
+          <div class="fsn-desc">规则辅助诊断 + 专家会诊 + 多角色 360 度</div>
           <div class="fsn-price">¥988 — ¥188,000</div>
         </div>
         <div class="five-sys-arrow">→</div>
@@ -1735,7 +1328,7 @@
         <div class="pain-card">
           <div class="pain-num">2</div>
           <h3>不知道下一步应做什么</h3>
-          <p>即便了解现状，也难以在十几个候选议题（智慧楼宇、能源、招商、双碳、人才公寓…）中确定下一笔预算最优投放方向。</p>
+          <p>即便了解现状，也难以在十几个候选议题（智慧楼宇、能源、招商、双碳、人才公寓…）中确定下一笔预算候选投放方向。</p>
           <div class="pain-solve">→ <b>诊断系统</b>：AI Top 5 杠杆点 + 专家会诊路径建议</div>
         </div>
         <div class="pain-card">
@@ -1769,148 +1362,20 @@
       <p style="margin-top:14px;font-size:12.5px;color:var(--muted)">医院五步法的成功不在医术，而在<b>服务体系标准化</b>——可重复、可分级、可计费、可监管、可循环。这套逻辑被完整移植到 Park-ROADS。</p>
     </div>
 
-    <!-- PDTMM 1.0 认证体系专题 -->
-    <div class="panel" style="margin-bottom:14px;border:2px solid rgba(251,191,36,.4);background:linear-gradient(135deg,rgba(251,191,36,.06),rgba(56,189,248,.04))">
-      <h2>🏆 PDTMM 1.0 认证体系 <span class="badge gold" style="margin-left:6px">评估系统专题</span></h2>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:14px">PDTMM (Park Digital Transformation Maturity Model) = 产业园区数字化转型成熟度模型。<b style="color:#fbbf24">数字化健康证 + 资本市场入场券 + 政府验收准绳 三合一第三方独立认证体系</b>。学术根基：CMMI + DCMM 国标 + DTSI + AHP (CR=0.0283) + OpenX@X 五大方法论融合。</p>
-
-      <!-- 5 级体系预览 -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:14px 0">
-        <div style="padding:12px;border-radius:8px;border:2px solid #fbbf24;background:linear-gradient(135deg,rgba(251,191,36,.08),rgba(251,191,36,.02));text-align:center">
-          <div style="font-size:20px;font-weight:bold;color:#fbbf24">🥇 L5</div>
-          <div style="font-size:12px;color:#fbbf24;font-weight:bold">卓越级</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px">DTSI ≥ 70</div>
-          <div style="font-size:11px;color:#fbbf24;margin-top:6px"><b>¥300万/年</b></div>
-        </div>
-        <div style="padding:12px;border-radius:8px;border:2px solid #38bdf8;background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(56,189,248,.02));text-align:center">
-          <div style="font-size:20px;font-weight:bold;color:#38bdf8">🥈 L4</div>
-          <div style="font-size:12px;color:#38bdf8;font-weight:bold">优秀级</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px">DTSI 60-70</div>
-          <div style="font-size:11px;color:#38bdf8;margin-top:6px"><b>¥200万/年</b></div>
-        </div>
-        <div style="padding:12px;border-radius:8px;border:2px solid #34d399;background:linear-gradient(135deg,rgba(52,211,153,.08),rgba(52,211,153,.02));text-align:center">
-          <div style="font-size:20px;font-weight:bold;color:#34d399">🥉 L3</div>
-          <div style="font-size:12px;color:#34d399;font-weight:bold">良好级</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px">DTSI 50-60</div>
-          <div style="font-size:11px;color:#34d399;margin-top:6px"><b>¥150万/年</b></div>
-        </div>
-        <div style="padding:12px;border-radius:8px;border:2px solid #a78bfa;background:linear-gradient(135deg,rgba(167,139,250,.08),rgba(167,139,250,.02));text-align:center">
-          <div style="font-size:20px;font-weight:bold;color:#a78bfa">📊 L2</div>
-          <div style="font-size:12px;color:#a78bfa;font-weight:bold">合格级</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px">DTSI 40-50</div>
-          <div style="font-size:11px;color:#a78bfa;margin-top:6px"><b>¥80万/年</b></div>
-        </div>
-        <div style="padding:12px;border-radius:8px;border:2px solid rgba(139,149,168,.5);background:rgba(139,149,168,.05);text-align:center">
-          <div style="font-size:20px;font-weight:bold;color:var(--muted)">🌱 L1</div>
-          <div style="font-size:12px;color:var(--muted);font-weight:bold">起步级</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px">DTSI &lt; 40</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:6px"><b>¥30万 (体检)</b></div>
-        </div>
-      </div>
-
-      <!-- DTSI 公式 -->
-      <div style="margin:14px 0;padding:12px;background:rgba(251,191,36,.08);border-left:3px solid #fbbf24;border-radius:6px;font-family:'Courier New',monospace;font-size:12.5px;line-height:1.8">
-        <b style="color:#fbbf24">DTSI 公式（AHP 300 专家加权，CR=0.0283 ✓）：</b><br>
-        DTSI = 0.257·政府 + 0.187·资产 + 0.143·运营 + 0.120·企业 + 0.110·科研 + 0.093·员工 + 0.090·居民
-      </div>
-
-      <!-- 入口 -->
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
-        <a class="btn primary" href="./PDTMM-1.0.html">🏆 在线阅读 PDTMM 1.0 完整介绍（10 章）</a>
-        
-        
-      </div>
-
-      <!-- 5 级证书库 -->
-      
-
-      <div style="margin-top:14px;font-size:12px;color:var(--muted);text-align:center">📊 5 年累计认证营收 ≈ <b style="color:#fbbf24">¥1.6 亿</b> · 毛利率 75%+ · 学 UL/SGS/JCI/BSI 国际认证机构模式 · 估值倍数目标 <b style="color:#fbbf24">15-25x 营收</b></div>
-    </div>
-
-        <!-- PDTMM 认证师培训招生 -->
-    <div class="panel" style="margin-bottom:14px;border:2px solid rgba(52,211,153,.4);background:linear-gradient(135deg,rgba(52,211,153,.06),rgba(251,191,36,.04))">
-      <h2>🎓 PDTMM 认证师培训招生 <span class="badge gold" style="margin-left:6px">2026 首期早鸟 6 折</span></h2>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:14px">中国唯一产业园数字化转型成熟度评估官方资质培训。<b style="color:#34d399">5 天集中训练 · 40 学时 · 笔试 + 实操考核 → 获 CPA-PDTMM (Certified Professional Assessor) 资格证书</b>。持证后可参与 PDTMM 1.0 正式认证项目，单次评估师酬劳 ¥3-15 万。</p>
-
-      <!-- 5 天课程预览 -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:14px 0">
-        <div style="padding:10px;background:rgba(56,189,248,.06);border-radius:6px;border:1px solid rgba(56,189,248,.2);text-align:center"><b style="color:#38bdf8;font-size:14px">Day 1</b><br><span style="font-size:11.5px;color:var(--muted)">基础理论</span></div>
-        <div style="padding:10px;background:rgba(56,189,248,.06);border-radius:6px;border:1px solid rgba(56,189,248,.2);text-align:center"><b style="color:#38bdf8;font-size:14px">Day 2</b><br><span style="font-size:11.5px;color:var(--muted)">DTSI + AHP</span></div>
-        <div style="padding:10px;background:rgba(56,189,248,.06);border-radius:6px;border:1px solid rgba(56,189,248,.2);text-align:center"><b style="color:#38bdf8;font-size:14px">Day 3</b><br><span style="font-size:11.5px;color:var(--muted)">评估流程</span></div>
-        <div style="padding:10px;background:rgba(56,189,248,.06);border-radius:6px;border:1px solid rgba(56,189,248,.2);text-align:center"><b style="color:#38bdf8;font-size:14px">Day 4</b><br><span style="font-size:11.5px;color:var(--muted)">报告 + 证书</span></div>
-        <div style="padding:10px;background:rgba(251,191,36,.08);border-radius:6px;border:1px solid rgba(251,191,36,.3);text-align:center"><b style="color:#fbbf24;font-size:14px">Day 5</b><br><span style="font-size:11.5px;color:#fbbf24">考核 + 颁证</span></div>
-      </div>
-
-      <!-- 价格区 -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:14px 0">
-        <div style="padding:12px;background:rgba(255,255,255,.02);border-radius:6px;text-align:center"><div style="font-size:11px;color:var(--muted)">标准学费</div><div style="font-size:18px;color:var(--text);font-weight:bold;margin-top:4px">¥4.8 万</div></div>
-        <div style="padding:12px;background:rgba(255,255,255,.02);border-radius:6px;text-align:center"><div style="font-size:11px;color:var(--muted)">企业 ≥3 人</div><div style="font-size:18px;color:var(--text);font-weight:bold;margin-top:4px">¥4.2 万</div></div>
-        <div style="padding:12px;background:rgba(255,255,255,.02);border-radius:6px;text-align:center"><div style="font-size:11px;color:var(--muted)">学术/政府</div><div style="font-size:18px;color:var(--text);font-weight:bold;margin-top:4px">¥3.5 万</div></div>
-        <div style="padding:12px;background:rgba(251,191,36,.08);border-radius:6px;border:1px solid rgba(251,191,36,.3);text-align:center"><div style="font-size:11px;color:#fbbf24">2026 首期早鸟 (前 20 名)</div><div style="font-size:18px;color:#fbbf24;font-weight:bold;margin-top:4px">¥2.88 万</div></div>
-      </div>
-
-      <!-- 入口 -->
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
-        <a class="btn primary" href="./PDTMM-Training.html">🎓 查看完整招生页面</a>
-        
-        
-        
-      </div>
-
-      <div style="margin-top:14px;font-size:12px;color:var(--muted);text-align:center">📅 2026 年首期开班 Q4 · 限额 30 人 · 早鸟优惠至 9 月底截止 · 报名咨询：openflowone.hk</div>
-    </div>
-
-        <!-- 全球同行监测雷达 -->
-    <div class="panel" style="margin-bottom:14px;border:2px solid rgba(167,139,250,.4);background:linear-gradient(135deg,rgba(167,139,250,.06),rgba(56,189,248,.04))">
-      <h2>📡 全球同行监测雷达 <span class="badge gold" style="margin-left:6px">v3.0 战略升级</span></h2>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:14px">实时追踪全球 PropTech 6 巨头（Essensys / Yardi / MRI / HqO / Spacewell / VTS）的估值、产品、客户、中国动向，输出 <b style="color:#a78bfa">11 大可执行战略启示</b>，融入 Park-ROADS v3.0 商业模式（¥12.3 亿 / 5 年 · 估值 ¥55-82 亿）。</p>
-
-      <!-- 11 启示一屏速览 -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:14px 0">
-        <div style="padding:10px;background:rgba(255,255,255,.02);border-left:3px solid #fb7185;border-radius:4px;font-size:11.5px"><b style="color:#fb7185">① Essensys</b><br>单一客户依赖必死</div>
-        <div style="padding:10px;background:rgba(255,255,255,.02);border-left:3px solid #fbbf24;border-radius:4px;font-size:11.5px"><b style="color:#fbbf24">② Yardi</b><br>反 VC 路径备选</div>
-        <div style="padding:10px;background:rgba(255,255,255,.02);border-left:3px solid #a78bfa;border-radius:4px;font-size:11.5px"><b style="color:#a78bfa">③ MRI</b><br>PE 卷积退出</div>
-        <div style="padding:10px;background:rgba(255,255,255,.02);border-left:3px solid #34d399;border-radius:4px;font-size:11.5px"><b style="color:#34d399">④ HqO</b><br>toG 化改造</div>
-        <div style="padding:10px;background:rgba(255,255,255,.02);border-left:3px solid #38bdf8;border-radius:4px;font-size:11.5px"><b style="color:#38bdf8">⑤ Spacewell</b><br>生命周期矩阵</div>
-        <div style="padding:10px;background:rgba(255,255,255,.02);border-left:3px solid #fbbf24;border-radius:4px;font-size:11.5px"><b style="color:#fbbf24">⑥ VTS</b><br>飞轮 → 行业指数</div>
-      </div>
-
-      <!-- 入口 -->
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
-        <a class="btn primary" href="./Park-ROADS-Radar.html">📡 进入监测雷达（HTML 实时）</a>
-        
-        
-        
-      </div>
-
-      <div style="margin-top:14px;font-size:12px;color:var(--muted);text-align:center">🚨 重大警报：Yardi Industrial 2025 启动产业园模块 · 4 年窗口期建立中国 PDTMM 标准制高点</div>
-    </div>
-
-        <!-- 详细文档入口 -->
-    <div class="panel">
-      <h2>📖 完整产品架构详细文档</h2>
-      <p style="margin-bottom:14px;font-size:13px;color:var(--muted)">15 章 + 5 附录，含每个系统的功能定位、SKU 定价表、客户旅程、SOP 流程、KPI 体系、团队配置、3 年路线图等。</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn primary" href="./Park-ROADS五系统产品架构.html">📖 在线阅读完整架构（推荐）</a>
-        
-      </div>
-      <div style="margin-top:14px;font-size:12px;color:var(--muted)">📄 55 KB · ~35-40 页 · 30 张表格 · 33+ SKU 定价 · 完整客户旅程示例（G/B/A 三类客户 36 月旅程）</div>
-    </div>
-  </div>
-</section>
+<div class="panel"><h2>PDTMM 评价与培训：设计待确认</h2><p>五级阈值、课程、证书和独立性安排待确认。当前不按金额/套餐发证，不宣称官方唯一资质或政府验收认可。</p><a class="btn" href="PDTMM-1.0.html">评价方案状态</a> <a class="btn" href="PDTMM-Training.html">培训方案状态</a></div></section>
 
 <!-- ========== ABOUT ========== -->
 <section id="about" class="section">
   <div class="container">
     <h1 class="page-title">ℹ️ 关于 Park-ROADS</h1>
-    <p class="page-sub">Park-ROADS 由香港能带间隙量子科技有限公司（Hong Kong Bandgap Quantum Technology Limited · 香港商业登记号 BR No. 80343212）开发运营，源于创始人戴继涛博士的工商管理博士（DBA）学位论文，提供园区数字化转型诊断、认证与咨询服务。所有方法论、权重、案例都来自论文原文。姊妹平台：<a href="https://bandgap.hk" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">BandGap · 退役光伏高值再制造 ↗</a> · 联系：hi@bandgap.hk</p>
+    <p class="page-sub">Park-ROADS 由香港能带间隙量子科技有限公司（Hong Kong Bandgap Quantum Technology Limited · 香港商业登记号 BR No. 80343212）开发运营，源于创始人戴继涛博士的工商管理博士（DBA）学位论文，提供园区数字化转型诊断、认证与咨询服务。本轮按书稿已确认口径同步权重；演示数据、平台设计与研究结论分别标注。作者团队同时参与平台开发与研究，存在利益相关关系。姊妹平台：<a href="https://bandgap.hk" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">BandGap · 退役光伏高值再制造 ↗</a> · 联系：hi@bandgap.hk</p>
     <div class="panel" style="margin-bottom:14px">
       <h2>📚 学术基础</h2>
       <div class="about-cite">
         <b>戴继涛 (2025).</b> 传统商业园区数字化转型升级中的挑战和对策——基于 OpenX@X 平台的实证研究. <i>工商管理博士（DBA）学位论文。</i><br>
          
       </div>
-      <p style="font-size:12.5px;color:var(--muted);line-height:1.8;margin-top:6px">论文核心：DTSI（数字化转型升级指数）+ 7 主体 35 指标 + AHP 权重 + X-Flow Dynamics 系统动力学。300 人样本专家打分，AHP CR = 0.0283（远低于 0.10 阈值），5 个真实园区 3 年实证。</p>
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.8;margin-top:6px">论文核心：DTSI（数字化转型升级指数）+ 7 主体 35 指标 + AHP 权重 + X-Flow Dynamics 系统动力学。回收 300 份、有效 286 份，七方7×7群体矩阵CR=0.0285（书稿值），5 个园区汇总材料，原始记录待核验。</p>
     </div>
     <div class="panel" style="margin-bottom:14px">
       <h2>🌍 设计灵感</h2>
@@ -1923,14 +1388,14 @@
     <div class="credits">
       <div class="card"><h4>🛠 技术栈</h4><p>纯 HTML + 单文件 · Chart.js 4.4 · CSS 变量 · 零后端 · 零外部依赖（除 Chart.js CDN）。</p></div>
       
-      <div class="card"><h4>🔭 后续路线</h4><p>v1.5：✓ AI 自动诊断已上线。<br>v1.6：✓ 论文拆解（决策者版）已上线。<br>v1.7：PDF/PPT 一键导出报告 + 多人在线工作坊。<br>v2.0：FIWARE 实时数据接入 + Gov / Park / Capital 三版差异化界面。</p></div>
+      <div class="card"><h4>🔭 后续路线</h4><p>v1.5：✓ 规则辅助诊断已上线。<br>v1.6：✓ 论文拆解（决策者版）已上线。<br>v1.7：PDF/PPT 一键导出报告 + 多人在线工作坊。<br>v2.0：FIWARE 实时数据接入 + Gov / Park / Capital 三版差异化界面。</p></div>
     </div>
   </div>
 </section>
 </main>
 
 <footer role="contentinfo">
-  Park-ROADS v1.9 · En-ROADS 深度对位 (HUD + 情景库 + DTSI 分解条 + 35 指标真实案例) · 🤖 AI 诊断 · 📖 论文拆解 · <a href="#sandbox">立即进入沙盘</a><br>
+  Park-ROADS v1.9 · En-ROADS 深度对位 (HUD + 情景库 + DTSI 分解条 + 35 指标真实案例) · 📐 规则诊断 · 📖 书稿方法 · <a href="#sandbox">立即进入沙盘</a><br>
   基于戴继涛博士论文 · 受 <a href="https://en-roads.climateinteractive.org/" target="_blank" rel="noopener">En-ROADS</a> 启发 · WCAG AA · PWA Ready
 </footer>
 
@@ -1985,107 +1450,59 @@
 
 <div class="toast" id="toast">复制成功</div>
 
+<script src="book-data.js"></script>
+<script src="book-core.js"></script>
 <script>
 /* =========================================================================
    STAKEHOLDERS / INDICATORS / WEIGHTS — 论文表 6.1–6.7
    ========================================================================= */
-const STAKES = [
-  { id:'gov', name:'地方政府', short:'政府', color:'var(--gov)', stakeWeight:0.257, indicators:[
-    {id:'gov_env',  name:'数字经济发展环境指数',  w:0.444, def:50, desc:'测度行政机构优化区域数字经济环境的成效，含扶持性政策颁布频率、财政专项拨款额度、双创生态优化幅度。论文 5.2.1 节。'},
-    {id:'gov_inf',  name:'数字基础设施建设指数',  w:0.249, def:50, desc:'解析行政主体对 5G 通讯、光纤网络、智慧城市硬件等的投入强度及成效。智能终端覆盖率与传输速率为重要观测维度。'},
-    {id:'gov_tal',  name:'人才吸引和培养指数',    w:0.151, def:50, desc:'衡量行政单元在数字经济高端人才引进与培育方面的实践效果，依托高校与科研院所的产学研联动机制。'},
-    {id:'gov_eco',  name:'数字经济生态体系指数',  w:0.101, def:50, desc:'映射行政机构构建维护产业生态的效能，含企业矩阵协同度、政产学研金服联动、孵化平台运营质量。'},
-    {id:'gov_inn',  name:'创新与技术企业比例',    w:0.054, def:50, desc:'反映园区内高成长性企业的占比结构。研发投入强度与 PCT 国际专利申请量构成双重标尺。'},
-  ]},
-  { id:'asset', name:'资产持有方', short:'资产', color:'var(--asset)', stakeWeight:0.187, indicators:[
-    {id:'a_appr', name:'资产增值率',         w:0.561, def:50, desc:'市场评估数据揭示园区资产价值变动轨迹。房地产价格与土地价值波动构成核心观测指标。论文 5.2.2 节。'},
-    {id:'a_brnd', name:'品牌影响力指标',     w:0.122, def:50, desc:'行业知名度与品牌溢价能力。基于 Aaker 品牌价值理论：品牌价值每提升 10% 可带动租金水平 3%–5% 增长。'},
-    {id:'a_roi',  name:'投资回报率 ROI',     w:0.117, def:50, desc:'数字化投资回报关键指标。ROI = (收益 - 成本) / 成本，覆盖租金增量与资产增值。'},
-    {id:'a_cost', name:'维护和运营成本比',   w:0.108, def:50, desc:'智能管理系统与自动化设备压缩运营开支。成本控制比率反映数字化转型的降本效能。'},
-    {id:'a_lease',name:'租赁率和租金水平',   w:0.092, def:50, desc:'租赁市场动态数据映射数字化转型成效。租赁率与租金增长率双重观测。'},
-  ]},
-  { id:'ops', name:'园区运营方', short:'运营', color:'var(--ops)', stakeWeight:0.143, indicators:[
-    {id:'o_sat',  name:'数字化服务满意度',     w:0.420, def:50, desc:'基于 SERVQUAL 模型的可靠性、响应性、保证性、同理心、有形性五维度评估。论文 5.2.3 节。'},
-    {id:'o_eff',  name:'数字化运营效率提升率', w:0.267, def:50, desc:'对比转型前后生产周期、成本效益等核心运营参数，测算数字化技术对园区运营效能的真实提升幅度。'},
-    {id:'o_inn',  name:'数字化服务创新指数',   w:0.160, def:50, desc:'衡量数字转型过程中新型服务质量与数量。结合创新项目数量、市场渗透率及用户评价数据。'},
-    {id:'o_net',  name:'合作伙伴网络密度',     w:0.090, def:50, desc:'解析园区同数字技术供应商、研发机构等伙伴的协同效应。合作项目规模、合作方资质及成果产业化比率。'},
-    {id:'o_cov',  name:'数字化应用覆盖率',     w:0.063, def:50, desc:'追踪信息安全事件频率、系统响应时效等核心参数，综合评价数字系统覆盖率与稳定性。'},
-  ]},
-  { id:'biz', name:'入驻企业', short:'企业', color:'var(--biz)', stakeWeight:0.120, indicators:[
-    {id:'b_dx',   name:'数字化转型程度',         w:0.377, def:50, desc:'企业引入新技术、调整组织结构、优化业务流程的全面程度。论文 5.2.4 节。'},
-    {id:'b_mk',   name:'市场竞争力指数',         w:0.221, def:50, desc:'通过技术创新与流程优化应对市场快速变化的能力。'},
-    {id:'b_inn',  name:'数字化技术创新产出率',   w:0.153, def:50, desc:'通过新产品开发、专利申请等指标衡量企业的技术创新能力。'},
-    {id:'b_cust', name:'客户体验满意度',         w:0.150, def:50, desc:'数字化触点的客户体验质量。'},
-    {id:'b_skl',  name:'员工数字化技能提升率',   w:0.099, def:50, desc:'员工掌握数字化技术工具的能力增量。'},
-  ]},
-  { id:'res', name:'科研院所', short:'科研', color:'var(--research)', stakeWeight:0.110, indicators:[
-    {id:'r_xfer', name:'科研成果转化率',         w:0.484, def:50, desc:'科研成果产业化的效率。论文 5.2.5 节，是该主体最重要的指标（权重几乎过半）。'},
-    {id:'r_iur',  name:'产学研合作项目数量',     w:0.221, def:50, desc:'与产业界、政府的合作项目规模。'},
-    {id:'r_aca',  name:'学术性影响力指数',       w:0.156, def:50, desc:'学术发表、引用、影响因子等综合学术影响力。'},
-    {id:'r_inn',  name:'数字化技术创新率',       w:0.094, def:50, desc:'数字化方向的原创技术创新比率。'},
-    {id:'r_tal',  name:'人才培养贡献率',         w:0.045, def:50, desc:'科研机构对人才培养的贡献程度。'},
-  ]},
-  { id:'tal', name:'入驻企业员工', short:'员工', color:'var(--talent)', stakeWeight:0.093, indicators:[
-    {id:'t_skl',  name:'技能提升与适应性',           w:0.521, def:50, desc:'员工对数字化转型的适应能力，以及在新工作场景中的技能提升幅度。论文 5.2.6 节，最重要指标。'},
-    {id:'t_use',  name:'数字化工具使用熟练度',       w:0.238, def:50, desc:'员工对各类数字化工具与平台的实际操作熟练度。'},
-    {id:'t_sat',  name:'工作满意度与效率提升',       w:0.114, def:50, desc:'数字化对员工工作满意度与单位时间产出的影响。'},
-    {id:'t_inn',  name:'数字化创新参与度指数',       w:0.079, def:50, desc:'员工参与数字化创新项目的频次与贡献价值。'},
-    {id:'t_dev',  name:'职业发展机会感知指数',       w:0.048, def:50, desc:'员工对数字化转型催生职业机会的认知程度。'},
-  ]},
-  { id:'com', name:'周边居民', short:'居民', color:'var(--community)', stakeWeight:0.090, indicators:[
-    {id:'c_acc',  name:'数字化服务接入度指数',   w:0.503, def:50, desc:'居民获取园区公共数字服务的可获得性与覆盖密度。论文 5.2.7 节，最重要指标。'},
-    {id:'c_qol',  name:'生活质量提升指数',       w:0.254, def:50, desc:'数字技术对日常生存质量的提升轨迹，含远程诊疗、教育、政务数字化等。'},
-    {id:'c_eng',  name:'社区互动与参与度指数',   w:0.145, def:50, desc:'依托数字媒介评估居民联结强度与集体凝聚力。'},
-    {id:'c_inc',  name:'社会包容度指数',         w:0.068, def:50, desc:'数字化转型对社会多元融合的促进效能。'},
-    {id:'c_saf',  name:'公共安全度指数',         w:0.042, def:50, desc:'智能监控、数字化报警等系统对社区安全环境的提升作用。'},
-  ]},
-];
+const STAKES = window.BOOK_STAKES;
 
 /* En-ROADS 风格 · 35 指标的"见效时间 + 现实参照 + 影响主体"信息库
    每条按论文 5.2 节 + 5 园区实证 + 中国数字园区行业典型案例编写 */
 const INDICATOR_INFO = {
   // ====== 政府主体 (gov) ======
-  gov_env: { time:'<b>12-24 个月</b>。政策出台到企业感知约 3-6 月，到 KPI 显化约 1-2 年（见园区 C M0→M24）', real:'杭州未来科技城 2018-2021 数字经济专项财政从 2 亿/年增至 8 亿/年，DTSI·政府环境分从 52 升至 78。', impacts:'<span class="winner">+ 政府(政绩)</span> · <span class="winner">+ 资产(招商溢价)</span> · <span class="loser">- 财政(短期支出)</span>' },
-  gov_inf: { time:'<b>18-36 个月</b>。基础设施周期长，但回报最稳定', real:'苏州工业园区 2019-2022 投入 12 亿建 5G + 光纤双千兆 + 智慧灯杆，企业宽带成本下降 40%。', impacts:'<span class="winner">+ 企业(成本下降)</span> · <span class="winner">+ 居民(智慧城市)</span> · <span class="loser">- 财政</span>' },
-  gov_tal: { time:'<b>24-48 个月</b>。人才引进+培养=慢变量，但是飞轮关键', real:'深圳前海 "梦工场" 计划 5 年引进 3000 名数字经济人才，配套 1.2 万套人才公寓。', impacts:'<span class="winner">+ 科研</span> · <span class="winner">+ 企业(人力质量)</span> · <span class="winner">+ 员工</span>' },
-  gov_eco: { time:'<b>12-18 个月</b>。生态体系搭建快，但成熟需 3 年', real:'合肥滨湖科学城 政产学研金服联动平台上线 18 个月，企业孵化数从 8 增至 47/年。', impacts:'<span class="winner">+ 企业</span> · <span class="winner">+ 科研</span> · <span class="winner">+ 资产(品牌)</span>' },
-  gov_inn: { time:'<b>36+ 月</b>。高新企业培育需要长期', real:'中关村累计 PCT 国际专利 2.4 万件 (2023)，每万人 R&D 强度 6.6%。', impacts:'<span class="winner">+ 科研</span> · <span class="winner">+ 企业</span>' },
+  gov_env: { time:'候选周期（未校准，仅演示）：<b>12-24 个月</b>。政策出台到企业感知约 3-6 月，到 KPI 显化约 1-2 年（见园区 C M0→M24）', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 政府(政绩)</span> · <span class="winner">+ 资产(招商溢价)</span> · <span class="loser">- 财政(短期支出)</span>' },
+  gov_inf: { time:'候选周期（未校准，仅演示）：<b>18-36 个月</b>。基础设施周期长，但回报最稳定', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 企业(成本下降)</span> · <span class="winner">+ 居民(智慧城市)</span> · <span class="loser">- 财政</span>' },
+  gov_tal: { time:'候选周期（未校准，仅演示）：<b>24-48 个月</b>。人才引进+培养=慢变量，但是飞轮关键', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 科研</span> · <span class="winner">+ 企业(人力质量)</span> · <span class="winner">+ 员工</span>' },
+  gov_eco: { time:'候选周期（未校准，仅演示）：<b>12-18 个月</b>。生态体系搭建快，但成熟需 3 年', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 企业</span> · <span class="winner">+ 科研</span> · <span class="winner">+ 资产(品牌)</span>' },
+  gov_inn: { time:'候选周期（未校准，仅演示）：<b>36+ 月</b>。高新企业培育需要长期', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 科研</span> · <span class="winner">+ 企业</span>' },
   // ====== 资产持有方 (asset) ======
-  a_appr:  { time:'<b>12-24 个月</b>。市场对数字化园区的估值溢价已成共识', real:'上海漕河泾"数字示范园"完成转型后，写字楼租金从 5.8 元/㎡·天 提至 7.2 元 (+24%)，资产估值升 18%。', impacts:'<span class="winner">+ 资产(增值)</span> · <span class="winner">+ 投资人(IRR)</span> · <span class="loser">- 入驻企业(租金)</span>' },
-  a_brnd:  { time:'<b>18-36 个月</b>。品牌建立慢，但护城河深', real:'张江科学城从 1992 至今 30 年品牌建设，"张江"二字本身代表 5%-10% 租金溢价。', impacts:'<span class="winner">+ 资产</span> · <span class="winner">+ 园区运营方</span>' },
-  a_roi:   { time:'<b>6-18 个月</b>。数字化投入的 ROI 往往 1-2 年回正', real:'万达广场智能化改造 ROI 平均 14 个月（能耗 -22% + 客流监测精准化导致租户续约率 +12%）。', impacts:'<span class="winner">+ 资产</span> · <span class="winner">+ 运营</span>' },
-  a_cost:  { time:'<b>3-12 个月</b>。智能管理系统效果立竿见影', real:'金茂大厦智能楼宇管控系统：年节省运维费 3200 万元，回收期 8 个月。', impacts:'<span class="winner">+ 资产</span> · <span class="winner">+ 运营</span> · <span class="loser">- 短期 capex</span>' },
-  a_lease: { time:'<b>6-12 个月</b>。租赁数据是数字化转型最快显化的指标', real:'保利商业 2022-2023 数字化租户管理上线后，平均空置周期从 110 天降至 64 天。', impacts:'<span class="winner">+ 资产(回报)</span> · <span class="winner">+ 运营(效率)</span>' },
+  a_appr:  { time:'候选周期（未校准，仅演示）：<b>12-24 个月</b>。市场对数字化园区的估值溢价已成共识', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 资产(增值)</span> · <span class="winner">+ 投资人(IRR)</span> · <span class="loser">- 入驻企业(租金)</span>' },
+  a_brnd:  { time:'候选周期（未校准，仅演示）：<b>18-36 个月</b>。品牌建立慢，但护城河深', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 资产</span> · <span class="winner">+ 园区运营方</span>' },
+  a_roi:   { time:'候选周期（未校准，仅演示）：<b>6-18 个月</b>。数字化投入的 ROI 往往 1-2 年回正', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 资产</span> · <span class="winner">+ 运营</span>' },
+  a_cost:  { time:'候选周期（未校准，仅演示）：<b>3-12 个月</b>。智能管理系统效果立竿见影', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 资产</span> · <span class="winner">+ 运营</span> · <span class="loser">- 短期 capex</span>' },
+  a_lease: { time:'候选周期（未校准，仅演示）：<b>6-12 个月</b>。租赁数据是数字化转型最快显化的指标', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 资产(回报)</span> · <span class="winner">+ 运营(效率)</span>' },
   // ====== 园区运营方 (ops) ======
-  o_sat:  { time:'<b>3-9 个月</b>。SERVQUAL 闭环每月可测量，季度可见明显改善', real:'天安云谷 2022 上线"租户服务驾驶舱"，SERVQUAL 综合得分从 3.6 升至 4.4 (5 分制)，6 个月。', impacts:'<span class="winner">+ 入驻企业</span> · <span class="winner">+ 员工</span> · <span class="winner">+ 运营(续约率)</span>' },
-  o_eff:  { time:'<b>6-12 个月</b>。流程数字化 = 立即提升运营效率', real:'招商蛇口运营系统数字化改造后，工单平均响应时间从 4.2h 降至 0.8h (-81%)。', impacts:'<span class="winner">+ 运营</span> · <span class="winner">+ 入驻企业</span> · <span class="loser">- 物业人员转岗压力</span>' },
-  o_inn:  { time:'<b>12-24 个月</b>。服务创新需要业务积累', real:'网易猪场跨界服务 (员工健身/亲子/餐饮) 让企业续约率达 92% (行业平均 65%)。', impacts:'<span class="winner">+ 运营</span> · <span class="winner">+ 入驻企业</span> · <span class="winner">+ 员工</span>' },
-  o_net:  { time:'<b>12-36 个月</b>。合作伙伴网络是慢变量，但护城河深', real:'临港新片区"集成电路联合实验室"3 年共建合作伙伴 47 家，技术导入加速 40%。', impacts:'<span class="winner">+ 运营</span> · <span class="winner">+ 科研</span> · <span class="winner">+ 企业</span>' },
-  o_cov:  { time:'<b>3-9 个月</b>。覆盖率类指标响应快', real:'紫光国微 IoT 园区方案 6 个月达到智能终端覆盖率 95% (从 32%)。', impacts:'<span class="winner">+ 运营</span> · <span class="winner">+ 资产</span>' },
+  o_sat:  { time:'候选周期（未校准，仅演示）：<b>3-9 个月</b>。SERVQUAL 闭环每月可测量，季度可见明显改善', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 入驻企业</span> · <span class="winner">+ 员工</span> · <span class="winner">+ 运营(续约率)</span>' },
+  o_eff:  { time:'候选周期（未校准，仅演示）：<b>6-12 个月</b>。流程数字化 = 立即提升运营效率', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 运营</span> · <span class="winner">+ 入驻企业</span> · <span class="loser">- 物业人员转岗压力</span>' },
+  o_inn:  { time:'候选周期（未校准，仅演示）：<b>12-24 个月</b>。服务创新需要业务积累', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 运营</span> · <span class="winner">+ 入驻企业</span> · <span class="winner">+ 员工</span>' },
+  o_net:  { time:'候选周期（未校准，仅演示）：<b>12-36 个月</b>。合作伙伴网络是慢变量，但护城河深', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 运营</span> · <span class="winner">+ 科研</span> · <span class="winner">+ 企业</span>' },
+  o_cov:  { time:'候选周期（未校准，仅演示）：<b>3-9 个月</b>。覆盖率类指标响应快', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 运营</span> · <span class="winner">+ 资产</span>' },
   // ====== 入驻企业 (biz) ======
-  b_dx:   { time:'<b>12-24 个月</b>。企业数字化转型平均周期', real:'中国 IDC 2023 数据：园区企业数字化投入回报周期中位数 18 个月。', impacts:'<span class="winner">+ 企业(竞争力)</span> · <span class="winner">+ 员工(技能)</span> · <span class="loser">- 转型阵痛(培训成本)</span>' },
-  b_mk:   { time:'<b>12-36 个月</b>。市场竞争力是滞后变量', real:'比亚迪深圳坪山基地数字化升级后，新车型从立项到量产周期从 36 月缩至 18 月。', impacts:'<span class="winner">+ 企业</span> · <span class="winner">+ 资产(高质租户)</span>' },
-  b_inn:  { time:'<b>24-48 个月</b>。专利产出 = 慢变量', real:'中关村企业平均每万人发明专利 165 件 (2023)，是全国平均 4.2 倍。', impacts:'<span class="winner">+ 企业</span> · <span class="winner">+ 科研</span>' },
-  b_cust: { time:'<b>3-9 个月</b>。客户体验类 KPI 响应最快', real:'蔚来 NIO House 数字化用户运营，NPS 从 68 升至 79 (6 个月)。', impacts:'<span class="winner">+ 企业(LTV)</span>' },
-  b_skl:  { time:'<b>6-12 个月</b>。员工培训周期', real:'西门子工业 4.0 学院年培训 1.2 万人次，员工数字化技能平均提升 47%。', impacts:'<span class="winner">+ 员工</span> · <span class="winner">+ 企业</span>' },
+  b_dx:   { time:'候选周期（未校准，仅演示）：<b>12-24 个月</b>。企业数字化转型平均周期', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 企业(竞争力)</span> · <span class="winner">+ 员工(技能)</span> · <span class="loser">- 转型阵痛(培训成本)</span>' },
+  b_mk:   { time:'候选周期（未校准，仅演示）：<b>12-36 个月</b>。市场竞争力是滞后变量', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 企业</span> · <span class="winner">+ 资产(高质租户)</span>' },
+  b_inn:  { time:'候选周期（未校准，仅演示）：<b>24-48 个月</b>。专利产出 = 慢变量', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 企业</span> · <span class="winner">+ 科研</span>' },
+  b_cust: { time:'候选周期（未校准，仅演示）：<b>3-9 个月</b>。客户体验类 KPI 响应最快', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 企业(LTV)</span>' },
+  b_skl:  { time:'候选周期（未校准，仅演示）：<b>6-12 个月</b>。员工培训周期', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 员工</span> · <span class="winner">+ 企业</span>' },
   // ====== 科研院所 (res) ======
-  r_xfer: { time:'<b>24-60 个月</b>。科研成果转化是最慢的飞轮，但权重 0.484', real:'清华苏州研究院 5 年累计技术转化 320 项，孵化企业 89 家，市值合计 460 亿元。', impacts:'<span class="winner">+ 科研</span> · <span class="winner">+ 企业</span> · <span class="winner">+ 资产</span>' },
-  r_iur:  { time:'<b>12-24 个月</b>。产学研合作 1-2 年可见效', real:'江苏产研院产学研项目 2018-2023 共立 1872 个，转化率 38%。', impacts:'<span class="winner">+ 科研</span> · <span class="winner">+ 企业</span>' },
-  r_aca:  { time:'<b>36+ 月</b>。学术影响力慢变量', real:'之江实验室 2017-2023 顶刊论文 240 篇 (Nature/Science 系)，影响因子均值 23。', impacts:'<span class="winner">+ 科研</span>' },
-  r_inn:  { time:'<b>24-48 个月</b>。原创创新慢', real:'中科院微电子所国产 14nm 工艺研发周期 4 年，转化时间 2 年。', impacts:'<span class="winner">+ 科研</span> · <span class="winner">+ 企业</span>' },
-  r_tal:  { time:'<b>24-48 个月</b>。人才培养闭环长', real:'西湖大学 5 年累计培养 PhD 800 人，70% 留杭就业。', impacts:'<span class="winner">+ 科研</span> · <span class="winner">+ 员工</span>' },
+  r_xfer: { time:'候选周期（未校准，仅演示）：<b>24-60 个月</b>。科研成果转化是最慢的飞轮，但权重 0.484', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 科研</span> · <span class="winner">+ 企业</span> · <span class="winner">+ 资产</span>' },
+  r_iur:  { time:'候选周期（未校准，仅演示）：<b>12-24 个月</b>。产学研合作 1-2 年可见效', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 科研</span> · <span class="winner">+ 企业</span>' },
+  r_aca:  { time:'候选周期（未校准，仅演示）：<b>36+ 月</b>。学术影响力慢变量', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 科研</span>' },
+  r_inn:  { time:'候选周期（未校准，仅演示）：<b>24-48 个月</b>。原创创新慢', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 科研</span> · <span class="winner">+ 企业</span>' },
+  r_tal:  { time:'候选周期（未校准，仅演示）：<b>24-48 个月</b>。人才培养闭环长', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 科研</span> · <span class="winner">+ 员工</span>' },
   // ====== 入驻企业员工 (tal) ======
-  t_skl:  { time:'<b>6-12 个月</b>。员工技能提升的常规周期', real:'阿里 "云栖学院" 员工数字技能认证：参训员工平均效率提升 38%。', impacts:'<span class="winner">+ 员工(职业)</span> · <span class="winner">+ 企业</span>' },
-  t_use:  { time:'<b>3-6 个月</b>。工具熟练度训练快', real:'字节跳动飞书产品 PMM 团队上手周期：3 周达到熟练，6 周达到精通。', impacts:'<span class="winner">+ 员工</span> · <span class="winner">+ 企业</span>' },
-  t_sat:  { time:'<b>3-9 个月</b>。满意度类响应快', real:'华为深圳坂田数字化办公环境改造后员工满意度从 3.4 升至 4.2 (5 分制)。', impacts:'<span class="winner">+ 员工</span> · <span class="winner">+ 企业(留任率)</span>' },
-  t_inn:  { time:'<b>12-24 个月</b>。员工创新参与需文化沉淀', real:'腾讯 "TT 计划" 内部创业 5 年孵化项目 870 个，存活 132 个。', impacts:'<span class="winner">+ 员工</span> · <span class="winner">+ 企业</span>' },
-  t_dev:  { time:'<b>18-36 个月</b>。职业发展感知滞后', real:'美的"数字化双通道"晋升体系上线 3 年，技术线员工流失率从 18% 降至 9%。', impacts:'<span class="winner">+ 员工</span> · <span class="winner">+ 企业(留任)</span>' },
+  t_skl:  { time:'候选周期（未校准，仅演示）：<b>6-12 个月</b>。员工技能提升的常规周期', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 员工(职业)</span> · <span class="winner">+ 企业</span>' },
+  t_use:  { time:'候选周期（未校准，仅演示）：<b>3-6 个月</b>。工具熟练度训练快', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 员工</span> · <span class="winner">+ 企业</span>' },
+  t_sat:  { time:'候选周期（未校准，仅演示）：<b>3-9 个月</b>。满意度类响应快', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 员工</span> · <span class="winner">+ 企业(留任率)</span>' },
+  t_inn:  { time:'候选周期（未校准，仅演示）：<b>12-24 个月</b>。员工创新参与需文化沉淀', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 员工</span> · <span class="winner">+ 企业</span>' },
+  t_dev:  { time:'候选周期（未校准，仅演示）：<b>18-36 个月</b>。职业发展感知滞后', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 员工</span> · <span class="winner">+ 企业(留任)</span>' },
   // ====== 周边居民 (com) ======
-  c_acc:  { time:'<b>6-12 个月</b>。公共数字服务接入快', real:'杭州城市大脑覆盖周边社区后，市民办事平均跑腿次数从 4.8 次降至 0.7 次。', impacts:'<span class="winner">+ 居民</span> · <span class="winner">+ 政府(合法性)</span>' },
-  c_qol:  { time:'<b>12-36 个月</b>。生活质量是慢变量', real:'雄安新区数字医疗 + 教育 + 政务三网合一上线 2 年，居民满意度从 67 升至 82。', impacts:'<span class="winner">+ 居民</span> · <span class="winner">+ 政府</span>' },
-  c_eng:  { time:'<b>12-24 个月</b>。社区参与度需要文化建设', real:'成都"院落自治"数字化平台 1 年覆盖 1200 个院落，居民参与率 45%。', impacts:'<span class="winner">+ 居民</span> · <span class="winner">+ 政府</span>' },
+  c_acc:  { time:'候选周期（未校准，仅演示）：<b>6-12 个月</b>。公共数字服务接入快', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 居民</span> · <span class="winner">+ 政府(合法性)</span>' },
+  c_qol:  { time:'候选周期（未校准，仅演示）：<b>12-36 个月</b>。生活质量是慢变量', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 居民</span> · <span class="winner">+ 政府</span>' },
+  c_eng:  { time:'候选周期（未校准，仅演示）：<b>12-24 个月</b>。社区参与度需要文化建设', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 居民</span> · <span class="winner">+ 政府</span>' },
   // ====== 默认（兜底）======
-  _default: { time:'<b>6-18 个月</b>。本指标的典型见效周期。具体取决于治理决心、资源充沛度', real:'参考论文 5 园区数据：3 年累计提升约 13.4 分（区间 10-15）。', impacts:'<span class="winner">+ 主要主体</span> · 详见论文 5.2 节' }
+  _default: { time:'候选周期（未校准，仅演示）：<b>6-18 个月</b>。本指标的典型见效周期。具体取决于治理决心、资源充沛度', real:'待核验：旧版案例数字未附可复核来源，暂不作为实测依据。', impacts:'<span class="winner">+ 主要主体</span> · 详见论文 5.2 节' }
 };
 
 const PARKS = {
@@ -2129,7 +1546,7 @@ function go(id){
   if(hud) hud.classList.toggle('show', id==='sandbox');
   window.scrollTo({top:0,behavior:'smooth'});
     if(id === 'empower'){ location.assign('/empower/'); return; }
-  if(location.hash !== '#'+id) history.replaceState(null,'','#'+id+(location.search||''));
+  if(location.hash !== '#'+id) window.history.replaceState(null,'','#'+id+(location.search||''));
   setTimeout(()=>{ for(const k in charts) if(charts[k]) charts[k].resize(); },50);
   // AI 诊断页：每次进入自动重跑
   if(id === 'insight' && typeof renderInsights === 'function') setTimeout(renderInsights, 60);
@@ -2202,6 +1619,7 @@ function simulate(s){
   const target = {};
   for(const st of STAKES) target[st.id] = computeStakeScore(s, st);
   for(let m=0; m<=months; m++){
+    if(m===0){ data.t.push(0); data.dtsi.push(STAKES.reduce((a,st)=>a+cur[st.id]*st.stakeWeight,0)); for(const st of STAKES) data[st.id].push(cur[st.id]); continue; }
     const govEffect = (cur.gov - 50) * 0.04;
     const tBoost = { asset: govEffect, ops: govEffect, com: govEffect*0.8 };
     const bizEffect = (cur.biz - 50) * 0.05;
@@ -2251,7 +1669,7 @@ function buildSandbox(){
         </div>
         <div class="slot">
           <span class="baseline-mark" style="left:50%" aria-hidden="true"></span>
-          <input type="range" min="0" max="100" step="1" value="${state[idc.id]}" data-id="${idc.id}" aria-label="${idc.name} 滑杆：当前 ${state[idc.id]} 分（满分 100）" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${state[idc.id]}">
+          <input type="range" min="0" max="100" step="1" value="${state[idc.id]}" data-id="${idc.id}" aria-label="${idc.name} 滑杆：当前 ${state[idc.id]} 分（上限 100%）" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${state[idc.id]}">
           <div class="ticks" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         </div>
         <div class="ft">
@@ -2267,7 +1685,7 @@ function buildSandbox(){
         state[id] = newV;
         document.getElementById('v_'+id).textContent = newV;
         e.target.setAttribute('aria-valuenow', String(newV));
-        e.target.setAttribute('aria-label', idc.name + ' 滑杆：当前 ' + newV + ' 分（满分 100）');
+        e.target.setAttribute('aria-label', idc.name + ' 滑杆：当前 ' + newV + ' 分（上限 100%）');
         rerun();
       });
       inp.addEventListener('change', e => {
@@ -2316,7 +1734,7 @@ function buildWeightTables(){
   let html = '';
   for(const st of STAKES){
     html += `<h3 style="margin:18px 0 6px 0;font-size:14px"><span style="display:inline-block;width:8px;height:8px;background:${st.color};border-radius:2px;margin-right:8px"></span>${st.name}（主体权重 ${(st.stakeWeight*100).toFixed(1)}%）</h3>`;
-    html += '<table class="tbl"><thead><tr><th>二级指标</th><th>AHP 权重</th><th>权重可视化</th></tr></thead><tbody>';
+    html += '<table class="tbl"><thead><tr><th>三级指标</th><th>AHP 权重</th><th>权重可视化</th></tr></thead><tbody>';
     for(const idc of st.indicators){
       const wpct = (idc.w*100).toFixed(1);
       html += `<tr><td>${idc.name}</td><td class="num">${wpct}%</td><td><div style="background:var(--card2);height:10px;border-radius:5px;overflow:hidden;"><div style="height:100%;width:${wpct}%;background:${st.color};border-radius:5px"></div></div></td></tr>`;
@@ -2588,12 +2006,7 @@ function rerun(){
     const dd = dtsi - baseDTSI;
     if(hudDelta) hudDelta.textContent = (dd>=0?'+':'') + dd.toFixed(1);
     if(hudGrade){
-      let g = '起步期';
-      if(dtsi >= 70) g = '🌟 卓越';
-      else if(dtsi >= 60) g = '🚀 跃升';
-      else if(dtsi >= 50) g = '⚙️ 转型';
-      else if(dtsi >= 40) g = '🌱 起步';
-      else g = '⚠️ 瓶颈';
+      const g = BookCore.band(dtsi);
       hudGrade.textContent = g;
     }
     hud.classList.toggle('grade-good', dtsi >= 60);
@@ -2767,7 +2180,7 @@ const SCENARIOS = {
   'park-c-m36': { gov: 65, asset: 60, ops: 65, biz: 55, res: 50, tal: 55, com: 50, label: '园区 C · M36 飞轮起转' },
   // 数字飞轮 = 政府+运营+服务三角联动
   flywheel:     { gov: 75, asset: 65, ops: 75, biz: 60, res: 55, tal: 60, com: 55, label: '数字飞轮 2028' },
-  // 净零治理 = 7 主体均衡 75 (论文最优情景)
+  // 净零治理 = 7 主体均衡 75 (论文候选情景)
   'net-zero':   { all: 75, label: '净零治理 2030' },
   // 激进改革 = 全开 90
   aggressive:   { all: 90, label: '激进改革' },
@@ -2800,50 +2213,8 @@ function showToast(msg){
 /* =========================================================================
    THESIS DECODE — 论文拆解（决策者版）
    ========================================================================= */
-const THESIS_ROLES = [
-  { emoji:'🏛', name:'政府决策者', short:'政府', color:'var(--gov)', weight:'25.7%',
-    takeaway:'<b>这论文证明：政绩可以被量化。</b>不再是"我又审批了几个智慧项目"，而是"我治下园区的 7 主体协同度从 X 升到 Y"。DTSI 是合法、可对比、对上汇报的政绩抓手。',
-    action:'立刻让数字化办公室对辖区园区跑一次 DTSI 基线，识别失衡度 ≥25 分的园区作为重点治理对象。' },
-  { emoji:'🏗', name:'园区运营方', short:'运营', color:'var(--ops)', weight:'14.3%',
-    takeaway:'<b>这论文证明：服务满意度 (权重 0.420) 比基础设施投入更重要。</b>SERVQUAL 五维评估闭环 + 数字化运营效率 = 你的核心 KPI。园区 C 的 M6→M12 拐点就发生在服务重构期。',
-    action:'30 天内打通工单/能耗/安防/满意度四大基础系统，开始按 SERVQUAL 收集真实满意度数据。' },
-  { emoji:'💰', name:'资产持有方', short:'资产', color:'var(--asset)', weight:'18.7%',
-    takeaway:'<b>这论文证明：资产增值率 (权重 0.561) 跟数字化转型直接挂钩。</b>5 园区 3 年数据里，DTSI 每涨 5 分，租金水平平均涨 3-5%。这是机构投资者第一次有了"数字化对资产价值"的量化映射。',
-    action:'把 DTSI 接入资产估值模型作为新的 alpha 因子。优先并购 DTSI 在 [40, 55] 区间的园区（升值空间最大）。' },
-  { emoji:'💼', name:'入驻企业 / CEO', short:'企业', color:'var(--biz)', weight:'12.0%',
-    takeaway:'<b>这论文证明：园区数字化质量直接决定你的市场竞争力。</b>选址不再只是看租金 + 交通，要看入驻园区的 DTSI。低于 50 的园区会持续给你拖后腿（数据不通、产学研无门、员工流失）。',
-    action:'在选址阶段把 DTSI 写入评估模板。要求园区运营方公开 7 主体雷达图。' },
-  { emoji:'💸', name:'投资人 / VC / PE', short:'投资人', color:'var(--accent)', weight:'-',
-    takeaway:'<b>这论文证明：园区数字化是结构性机会，不是赛道炒作。</b>OpenX@X 平台型项目（toGov+toPark 双边）有 2 个特征：① 收入稳定（政府订阅 + 园区分账）② 退出多元（资产增值 + 数据服务 + SaaS 估值）。',
-    action:'把 DTSI 提升幅度（ΔDTSI）写进项目尽调清单。组合配置：3:1 平台公司 vs 持牌园区运营方。' },
-  { emoji:'👨‍🎓', name:'学术研究者', short:'研究', color:'var(--research)', weight:'11.0%',
-    takeaway:'<b>这论文证明：利益相关者理论 + AHP + 系统动力学的方法论组合可以做出强外部效度的园区研究。</b>CR=0.0283 + 5 园区追踪是不错的样本质量。可作为后续大样本 / 跨地域 / 跨业态扩展研究的基础。',
-    action:'后续研究方向：① 扩样本至 50+ 园区做统计推断 ② 引入因果识别（DiD 或 RDD）③ 跨欧美比较研究。' }
-];
-function renderThesisRoles(){
-  const root = document.getElementById('role_persp');
-  if(!root) return;
-  root.innerHTML = THESIS_ROLES.map(r => `
-    <div class="role-card" style="border-left-color:${getCSS(r.color)}" role="article" aria-label="${r.name}视角">
-      <div class="role-card-head">
-        <span class="role-emoji" aria-hidden="true">${r.emoji}</span>
-        <span class="role-name">${r.name}</span>
-        <span class="role-weight" title="该主体在 DTSI 中的 AHP 权重">权重 ${r.weight}</span>
-      </div>
-      <div class="role-takeaway">${r.takeaway}</div>
-      <div class="role-action">${r.action}</div>
-    </div>`).join('');
-}
-
-/* =========================================================================
-   AI INSIGHT — 实时治理洞察
-   ========================================================================= */
 function getDTSIGrade(d){
-  if(d >= 70) return {emoji:'🌟', name:'卓越期', desc:'7 主体协同进入闭环。已具备策略演化能力。', color:'#34d399'};
-  if(d >= 60) return {emoji:'🚀', name:'跃升期', desc:'转型成果开始显化。需要锁定优势、补齐短板。', color:'#60a5fa'};
-  if(d >= 50) return {emoji:'⚙️', name:'转型期', desc:'多点开花但尚未协同。要警惕重复建设与孤岛。', color:'#fbbf24'};
-  if(d >= 40) return {emoji:'🌱', name:'起步期', desc:'已有数字化意识，缺顶层设计与数据中台。', color:'#fb923c'};
-  return {emoji:'⚠️', name:'瓶颈期', desc:'治理基础薄弱，建议优先补"政府 + 资产"地基。', color:'#fb7185'};
+  return {emoji:'📐', name:BookCore.band(d), desc:'书中分析区间，非成熟度认证；演示值不代表实测。',color:'#7dd3fc'};
 }
 function findMostSimilarPark(d){
   const arr = Object.entries(PARKS).map(([k,p])=>({key:k, ...p, diff:Math.abs(p.y3 - d)}));
@@ -2851,7 +2222,7 @@ function findMostSimilarPark(d){
   return arr[0];
 }
 /**
- * AI 自动诊断主函数
+ * 规则辅助诊断主函数
  * 算法说明：
  *  1) 边际杠杆 = stakeWeight × indicator_w × (100 - state[id])
  *     表示该滑杆从当前值到 100 时对 DTSI 的最大可能拉升
@@ -2925,7 +2296,7 @@ function buildInsightCards(diag){
     title: '高杠杆改进点 Top 5',
     tag: '行动指南',
     evidence: `按"AHP 权重 × 剩余空间"算每个滑杆的边际系数。Top 5 指标加起来最高可拉升 DTSI <b>${top5.reduce((a,i)=>a+i.lever,0).toFixed(2)}</b> 分。`,
-    finding: `<b>性价比排行（每滑杆 +1 分对 DTSI 的边际系数）：</b><br>` +
+    finding: `<b>加权改进空间排行（每滑杆 +1 分对 DTSI 的边际系数）：</b><br>` +
       top5.map((x,i)=>`${i+1}. <span style="color:${getCSS(x.stake.color)};font-weight:600">${x.stake.short}</span> · ${x.ind.name}（当前 ${x.val} 分，每提升 1 分 → DTSI +${x.perPoint.toFixed(3)}）`).join('<br>'),
     rec: `把 Top 5 都从当前推到 70 分，可以把 DTSI 从 <b>${diag.d.toFixed(1)}</b> 抬到约 <b>${(diag.d + top5.reduce((a,i)=>a + i.perPoint * Math.max(0, 70 - i.val), 0)).toFixed(1)}</b>。`,
     dataPills: top5.slice(0,3).map(x => `<b>${x.ind.name.slice(0,8)}</b> ${x.val}→? +${x.perPoint.toFixed(3)}/pt`)
@@ -2973,7 +2344,7 @@ function buildInsightCards(diag){
     title: 'What-if：一键补短板',
     tag: '情景模拟',
     evidence: `当前 35 指标里有 <b>${diag.lifted}</b> 项分数 < 50（短板）。如果把这些短板全部抬到 60 分，其他保持不变：`,
-    finding: `<b>DTSI: ${diag.d.toFixed(1)} → ${diag.simDTSI.toFixed(1)}（+${lift.toFixed(1)} 分）</b>。这是"投入最少、收益最大"的一种基础治理动作 — 论文 5.4 节所说的"先补 60 分线，再追 80 分突破"。`,
+    finding: `<b>DTSI: ${diag.d.toFixed(1)} → ${diag.simDTSI.toFixed(1)}（+${lift.toFixed(1)} 分）</b>。这是"按加权差距列出的候选改进"的一种基础治理动作 — 论文 5.4 节所说的"先补 60 分线，再追 80 分突破"。`,
     rec: lift > 3
       ? `点击下方"✨ 一键改善"按钮即刻在沙盘里执行此情景，然后回到此页查看新洞察。`
       : `当前已没有明显短板，不需要这种粗放式改进。请看前面"高杠杆改进点 Top 5"做精细调整。`,
@@ -2987,22 +2358,22 @@ function buildInsightCards(diag){
 }
 function buildRoadmap(diag){
   const phases = [
-    {num:1, time:'0–3 月', title:'系统接入', target:'DTSI 40 → 45', actions:[
+    {num:1, time:'候选周期（未校准，仅演示）：0–3 月', title:'系统接入', target:'DTSI 40 → 45', actions:[
       '建立统一数据中台 + 主数据治理',
       '工单 / 能耗 / 安防 / 满意度 4 大基础系统打通',
       '完成"政府 + 资产"主体的 KPI 数字化采集'
     ], stake:'gov+asset'},
-    {num:2, time:'3–9 月', title:'服务重构', target:'DTSI 45 → 50', actions:[
+    {num:2, time:'候选周期（未校准，仅演示）：3–9 月', title:'服务重构', target:'DTSI 45 → 50', actions:[
       '搭建数字化服务门户（统一入口）',
       '完成 SERVQUAL 五维满意度闭环',
       '入驻企业数字能力评级 + 产学研基础协同'
     ], stake:'ops+biz'},
-    {num:3, time:'9–18 月', title:'生态协同', target:'DTSI 50 → 55', actions:[
+    {num:3, time:'候选周期（未校准，仅演示）：9–18 月', title:'生态协同', target:'DTSI 50 → 55', actions:[
       '碳排放监测 + 智慧停车 + 空间预约 + 物联网',
       '产学研项目数 ≥ 3 / 季度，科研成果转化看板',
       '员工技能提升路径与工具熟练度量化'
     ], stake:'res+tal'},
-    {num:4, time:'18–36 月', title:'策略演化', target:'DTSI 55 → 60+', actions:[
+    {num:4, time:'候选周期（未校准，仅演示）：18–36 月', title:'策略演化', target:'DTSI 55 → 60+', actions:[
       'DTSI 仪表盘 + X-Flow 系统动力学闭环',
       '策略沙盘 + 自适应反馈调节',
       '覆盖周边居民的全数字化便民门户'
@@ -3037,12 +2408,12 @@ function renderInsights(){
     const labels = diag.stakeScores.map(s => s.short || s.name);
     const data = diag.stakeScores.map(s => s.score);
     // 论文 5 园区均值 (Y3 平均 ≈ 58.4)
-    const paperAvg = diag.stakeScores.map(()=> 58.4);
+    const paperAvg = diag.stakeScores.map(()=> 50);
     _ihRadar = new Chart(radarEl, {
       type:'radar',
       data:{ labels, datasets:[
         { label:'当前', data, backgroundColor:'rgba(56,189,248,.18)', borderColor:'rgba(56,189,248,.9)', borderWidth:2, pointRadius:3, pointBackgroundColor:'rgba(56,189,248,1)' },
-        { label:'论文均值', data:paperAvg, backgroundColor:'rgba(160,160,160,.05)', borderColor:'rgba(160,160,160,.6)', borderWidth:1.5, borderDash:[4,4], pointRadius:0 }
+        { label:'演示参照50%（非分主体实测均值）', data:paperAvg, backgroundColor:'rgba(160,160,160,.05)', borderColor:'rgba(160,160,160,.6)', borderWidth:1.5, borderDash:[4,4], pointRadius:0 }
       ]},
       options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom', labels:{ color:getCSS('--muted'), boxWidth:14, font:{size:11} } } }, scales:{ r:{ suggestedMin:0, suggestedMax:100, ticks:{ color:getCSS('--muted'), backdropColor:'transparent', font:{size:10}, stepSize:25 }, grid:{ color:'rgba(255,255,255,.06)' }, angleLines:{ color:'rgba(255,255,255,.06)' }, pointLabels:{ color:getCSS('--txt'), font:{size:11.5} } } } }
     });
@@ -3089,11 +2460,11 @@ function ihExportReport(){
   const grade = getDTSIGrade(diag.d);
   const cards = buildInsightCards(diag);
   const phases = buildRoadmap(diag);
-  let md = `# Park-ROADS · 实时治理洞察诊断报告\n\n`;
+  let md = `> 状态：情景演示，非实测、非预测、非认证。权重版本 book-20261018；旧简化模型 legacy-demo-v1；50%为演示基线。数据为手动情景输入，原始换算规则待确认；未含预算约束或人工审批。\n\n# Park-ROADS · 规则辅助诊断报告\n\n`;
   md += `> 生成时间：${new Date().toLocaleString('zh-CN')}\n> DTSI 总分：**${diag.d.toFixed(2)}** · ${grade.name}\n\n`;
   md += `## 1. DTSI 体检总评\n\n- DTSI 总分：${diag.d.toFixed(2)}\n- 等级：${grade.emoji} ${grade.name} — ${grade.desc}\n- vs 基线 (50 起步)：${(diag.d - diag.baseD).toFixed(2)} 分\n\n## 2. 7 主体得分明细\n\n| 主体 | AHP 权重 | 当前得分 | 对 DTSI 贡献 |\n|---|---|---|---|\n`;
   for(const s of diag.stakeScores) md += `| ${s.name} | ${(s.weight*100).toFixed(1)}% | ${s.score.toFixed(2)} | ${s.contribution.toFixed(2)} |\n`;
-  md += `\n## 3. AI 自动诊断（5 项核心洞察）\n\n`;
+  md += `\n## 3. 规则辅助诊断（5 项核心洞察）\n\n`;
   cards.forEach((c,i)=>{
     md += `### ${i+1}. ${c.icon} ${c.title}（${c.tag}）\n\n**证据**：${c.evidence.replace(/<[^>]+>/g,'')}\n\n**发现**：${c.finding.replace(/<br>/g,'\n').replace(/<[^>]+>/g,'')}\n\n**建议**：${c.rec.replace(/<[^>]+>/g,'')}\n\n`;
   });
@@ -3121,16 +2492,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* 处理 URL 携带的情景 */
 function loadFromURL(){
-  const m = location.hash.match(/\?s=([^&]+)/);
-  if(!m) return false;
-  const arr = decodeURIComponent(m[1]).split(',').map(Number);
-  let i=0;
-  for(const st of STAKES) for(const idc of st.indicators){ if(!isNaN(arr[i])) state[idc.id] = arr[i]; i++; }
-  return true;
+  const m=location.hash.match(/\?s=([^&]+)/); if(!m)return false;
+  try{const arr=decodeURIComponent(m[1]).split(',').map(Number); if(arr.length!==35||!arr.every(BookCore.pct)){showToast('情景链接无效，保留默认演示值');return false;}let i=0;for(const st of STAKES)for(const idc of st.indicators)state[idc.id]=arr[i++];return true;}catch(e){showToast('情景链接无法解析');return false;}
 }
 
 /* =========================================================================
-   SURVEYS · 论文附录 A–J 全 10 套调查问卷
+   SURVEYS · 平台问卷节选 全 10 套调查问卷
    ========================================================================= */
 const SURVEY_NEEDS = {
   gov: { name:'地方政府', color:'var(--gov)', icon:'🏛', appendix:'附录 C',
@@ -3425,16 +2792,16 @@ const METHOD_TABLE = [
 ];
 
 const SURVEY_LIST = [
-  { id:'scoring',  type:'scoring',  icon:'📊', title:'附录 B · 35 指标百分比评分', desc:'对每个指标打 0–100 分（最直接），系统立即算出你的 DTSI；可一键回灌沙盘', count:'35 个指标', priority:1 },
-  { id:'ahp',      type:'ahp',      icon:'⚖️', title:'附录 A · AHP 主体两两对比', desc:'按 Saaty 1–9 标度对 7 主体做两两比较 → 算出你自己版本的 7 主体权重', count:'21 个对比', priority:2 },
-  { id:'gov',      type:'needs',    icon:'🏛', title:'附录 C · 地方政府需求问卷',     desc:'政府视角：经济、人才、生态、政务效能',     count:'10 题（论文原 50 题精选）' },
-  { id:'asset',    type:'needs',    icon:'💰', title:'附录 D · 资产持有方需求问卷',   desc:'资产方视角：增值、ROI、品牌、ESG',         count:'10 题（论文原 50 题精选）' },
-  { id:'ops',      type:'needs',    icon:'⚙️', title:'附录 E · 园区运营方需求问卷',   desc:'运营方视角：服务、效率、安防、协同',       count:'10 题（论文原 50 题精选）' },
-  { id:'biz',      type:'needs',    icon:'🏢', title:'附录 F · 入驻企业需求问卷',     desc:'企业视角：转型程度、竞争力、客户体验',     count:'10 题（论文原 50 题精选）' },
-  { id:'res',      type:'needs',    icon:'🔬', title:'附录 G · 科研院所需求问卷',     desc:'科研视角：成果转化、合作网络、人才培养',   count:'10 题（论文原 50 题精选）' },
-  { id:'tal',      type:'needs',    icon:'🎓', title:'附录 H · 入驻企业员工需求问卷', desc:'员工视角：技能提升、工作满意度、职业发展', count:'10 题（论文原 50 题精选）' },
-  { id:'com',      type:'needs',    icon:'🌳', title:'附录 I · 周边居民需求问卷',     desc:'居民视角：数字接入、生活质量、社区参与',   count:'10 题（论文原 50 题精选）' },
-  { id:'method',   type:'method',   icon:'📚', title:'附录 J · 七方需求与考察方法表', desc:'每个指标的具体考察方法（论文原文表）',     count:'24 行（精选）', priority:3 },
+  { id:'scoring',  type:'scoring',  icon:'📊', title:'平台工具 · 35 指标百分比评分', desc:'对每个指标打 0–100%（最直接），系统立即算出你的 DTSI；可一键回灌沙盘', count:'35 个指标', priority:1 },
+  { id:'ahp',      type:'ahp',      icon:'⚖️', title:'平台工具 · AHP 主体两两对比', desc:'按 Saaty 1–9 标度对 7 主体做两两比较 → 算出你自己版本的 7 主体权重', count:'21 个对比', priority:2 },
+  { id:'gov',      type:'needs',    icon:'🏛', title:'平台工具 · 地方政府需求问卷',     desc:'政府视角：经济、人才、生态、政务效能',     count:'10 题（平台节选，未核验完整原问卷）' },
+  { id:'asset',    type:'needs',    icon:'💰', title:'平台工具 · 资产持有方需求问卷',   desc:'资产方视角：增值、ROI、品牌、ESG',         count:'10 题（平台节选，未核验完整原问卷）' },
+  { id:'ops',      type:'needs',    icon:'⚙️', title:'平台工具 · 园区运营方需求问卷',   desc:'运营方视角：服务、效率、安防、协同',       count:'10 题（平台节选，未核验完整原问卷）' },
+  { id:'biz',      type:'needs',    icon:'🏢', title:'平台工具 · 入驻企业需求问卷',     desc:'企业视角：转型程度、竞争力、客户体验',     count:'10 题（平台节选，未核验完整原问卷）' },
+  { id:'res',      type:'needs',    icon:'🔬', title:'平台工具 · 科研院所需求问卷',     desc:'科研视角：成果转化、合作网络、人才培养',   count:'10 题（平台节选，未核验完整原问卷）' },
+  { id:'tal',      type:'needs',    icon:'🎓', title:'平台工具 · 入驻企业员工需求问卷', desc:'员工视角：技能提升、工作满意度、职业发展', count:'10 题（平台节选，未核验完整原问卷）' },
+  { id:'com',      type:'needs',    icon:'🌳', title:'平台工具 · 周边居民需求问卷',     desc:'居民视角：数字接入、生活质量、社区参与',   count:'10 题（平台节选，未核验完整原问卷）' },
+  { id:'method',   type:'method',   icon:'📚', title:'平台工具 · 七方需求与考察方法表', desc:'每个指标的具体考察方法（平台考察方法节选）',     count:'24 行（精选）', priority:3 },
 ];
 
 const STAKE_WEIGHTS_STD = { gov:0.257, asset:0.187, ops:0.143, biz:0.120, res:0.110, tal:0.093, com:0.090 };
@@ -3487,6 +2854,7 @@ function renderSurveyList(){
 /* ---- 打开问卷 ---- */
 let currentSurvey = null;
 function openSurvey(id){
+  document.getElementById('applyToSandbox').hidden=false;
   const s = SURVEY_LIST.find(x => x.id === id);
   if(!s) return;
   currentSurvey = s;
@@ -3512,7 +2880,7 @@ function renderNeeds(s){
   const ans = loadAns(s.id);
   const body = document.getElementById('surveyBody');
   body.innerHTML = `
-    <p class="hint">${s.desc} · ${s.appendix}原文 50 题，本页精选 ${data.questions.length} 题代表性问题（节奏更快，论文原全本可在【关于】页下载）。每题 4 选 1（A=最负面，D=最正面），自动保存。</p>
+    <p class="hint">${s.desc}。本页为平台需求问卷节选（${data.questions.length}题），每题4选1，自动保存。选项反映各题的需求或判断，不统一折成绩效。</p>
     ${data.questions.map((q,i) => `
       <div class="qcard">
         <div class="qhead"><span class="qnum">Q${i+1}</span><div class="qtxt">${q.q}</div></div>
@@ -3555,61 +2923,26 @@ function renderNeeds(s){
 }
 
 function showNeedsResult(s){
-  const data = SURVEY_NEEDS[s.id];
-  const ans = loadAns(s.id);
-  const total = data.questions.length;
-  const answered = Object.keys(ans).length;
-  let totalScore = 0;
-  Object.values(ans).forEach(v => { totalScore += v; }); // 0-3 per question
-  const maxScore = answered * 3;
-  const pctScore = answered > 0 ? (totalScore / maxScore * 100) : 0;
-  const stakePct = pctScore;
-  document.getElementById('survey_runner').style.display = 'none';
-  document.getElementById('survey_result').style.display = 'block';
-  document.getElementById('resultBody').innerHTML = `
-    <div class="result-card">
-      <h3>📊 ${s.icon} ${data.name} 视角作答总览</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;text-align:center;margin-top:12px">
-        <div><div style="font-size:32px;font-weight:800;color:var(--accent)">${answered}/${total}</div><div style="color:var(--muted);font-size:11px;letter-spacing:2px;margin-top:4px">已答 / 总题</div></div>
-        <div><div style="font-size:32px;font-weight:800;color:${data.color}">${pctScore.toFixed(1)}%</div><div style="color:var(--muted);font-size:11px;letter-spacing:2px;margin-top:4px">主体满意度</div></div>
-        <div><div style="font-size:32px;font-weight:800;color:var(--accent2)">${(stakePct * STAKE_WEIGHTS_STD[s.id]).toFixed(1)}</div><div style="color:var(--muted);font-size:11px;letter-spacing:2px;margin-top:4px">对 DTSI 贡献分</div></div>
-      </div>
-    </div>
-    <div class="result-card">
-      <h3>📈 解读</h3>
-      <p style="font-size:13px;line-height:1.8;color:#cbd5e1">
-        ${pctScore >= 75 ? `你认为 <b style="color:var(--good)">${data.name}</b> 视角下园区数字化已经做得很好（${pctScore.toFixed(1)}%）——这意味着这一方主体的诉求基本被满足。` :
-          pctScore >= 50 ? `你认为 <b style="color:var(--accent2)">${data.name}</b> 视角下园区数字化处于中等水平（${pctScore.toFixed(1)}%）——还有较大改进空间。` :
-          pctScore >= 25 ? `你认为 <b style="color:var(--warn)">${data.name}</b> 视角下园区数字化进展有限（${pctScore.toFixed(1)}%）——这一方主体的关键诉求尚未被有效满足。` :
-          `你认为 <b style="color:var(--bad)">${data.name}</b> 视角下园区数字化几乎没有起色（${pctScore.toFixed(1)}%）——亟需聚焦改善。`}
-        <br/><br/>
-        在 DTSI 综合公式里，<b style="color:${data.color}">${data.name}</b> 的权重为 <b>${(STAKE_WEIGHTS_STD[s.id]*100).toFixed(1)}%</b>。
-        所以你这一答卷可贡献到综合 DTSI 的分值约为 <b style="color:var(--accent)">${(stakePct * STAKE_WEIGHTS_STD[s.id]).toFixed(1)} 分</b>（满分 ${(100 * STAKE_WEIGHTS_STD[s.id]).toFixed(1)} 分）。
-      </p>
-    </div>
-    <div class="result-card">
-      <h3>📋 你每题的作答</h3>
-      ${data.questions.map((q,i) => {
-        const v = ans[i];
-        return `<div style="padding:8px 0;border-bottom:1px solid var(--line);font-size:12.5px"><b style="color:var(--accent)">Q${i+1}.</b> ${q.q}<br/><span style="color:${v===undefined?'var(--bad)':v>=2?'var(--good)':'var(--warn)'};margin-left:24px">${v===undefined ? '未答' : `选择 ${'ABCD'[v]}：${q.opts[v]}`}</span></div>`;
-      }).join('')}
-    </div>`;
-  // store stake-pct for sandbox apply
-  resultForApply = { kind:'needs', stake: s.id, stakePct };
+  const data=SURVEY_NEEDS[s.id], ans=loadAns(s.id);
+  document.getElementById('survey_runner').style.display='none';
+  document.getElementById('survey_result').style.display='block';
+  document.getElementById('applyToSandbox').hidden=true;
+  document.getElementById('resultBody').innerHTML=`<div class="result-card"><h3>${data.name}需求记录</h3><p>已答 ${Object.keys(ans).length}/${data.questions.length}。这些选项表达需求与偏好，不是绩效或满意度量表，不计算 DTSI，也不回填五项指标。</p>${data.questions.map((q,i)=>`<p>Q${i+1}. ${q.q}<br>${ans[i]===undefined?'待补充':q.opts[ans[i]]}</p>`).join('')}<a href="book-workbench.html">将需求落实到五步法目标台账</a></div>`;
+  resultForApply=null;
 }
 
 /* ---- 35 指标百分比评分 ---- */
 function renderScoring(){
   const ans = loadAns('scoring');
   const body = document.getElementById('surveyBody');
-  let html = `<p class="hint">直接为每个指标打 0–100 分（论文附录 B）。系统会按 AHP 权重自动算出 7 主体得分和综合 DTSI。 拖动滑杆即时反馈。</p>`;
+  let html = `<p class="hint">为每项明确输入 0–100% 情景值。未填写项为待补；这不是原始观测值自动换算。系统会按 AHP 权重自动算出 7 主体得分和综合 DTSI。 拖动滑杆即时反馈。</p>`;
   for(const st of STAKES){
     html += `<div style="margin-bottom:16px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px;background:rgba(56,189,248,.05);border-radius:6px"><span style="display:inline-block;width:10px;height:10px;background:${st.color};border-radius:2px"></span><b style="color:${st.color}">${st.name}</b><span style="color:var(--muted);font-size:11px;margin-left:auto">主体权重 ${(st.stakeWeight*100).toFixed(1)}% · ${st.indicators.length} 个指标</span></div>`;
     st.indicators.forEach(idc => {
       const cur = (ans[idc.id] !== undefined) ? ans[idc.id] : 50;
       html += `<div class="scoring-row">
         <div class="nm"><span class="stake-color" style="background:${st.color}"></span>${idc.name} <span style="font-size:10px;color:var(--muted);margin-left:4px">权重 ${(idc.w*100).toFixed(1)}%</span></div>
-        <div class="v"><span id="sc_${idc.id}">${cur}</span>%</div>
+        <div class="v"><span id="sc_${idc.id}">${ans[idc.id]===undefined?'待填':cur}</span>%</div>
         <div><input type="range" min="0" max="100" step="1" value="${cur}" data-id="${idc.id}" class="scoring-input"></div>
       </div>`;
     });
@@ -3643,6 +2976,8 @@ function renderScoring(){
 }
 function updateLiveDTSI(){
   const ans = loadAns('scoring');
+  const checked = BookCore.score(ans);
+  if(checked.total === null){ const el=document.getElementById('liveDTSI'); if(el) el.textContent='待补 '+checked.missing.length+' 项'; const ls=document.getElementById('liveStakeScores'); if(ls) ls.textContent='缺答不默认 50%。'; return; }
   let dtsi = 0;
   const stakeScores = {};
   for(const st of STAKES){
@@ -3660,6 +2995,10 @@ function updateLiveDTSI(){
 }
 function showScoringResult(){
   const ans = loadAns('scoring');
+  if(BookCore.score(ans).total === null){ showToast('请明确填写全部35项；缺答不默认50%'); return; }
+  document.getElementById('applyToSandbox').hidden=false;
+  const checked = BookCore.score(ans);
+  if(checked.total === null){ const el=document.getElementById('liveDTSI'); if(el) el.textContent='待补 '+checked.missing.length+' 项'; const ls=document.getElementById('liveStakeScores'); if(ls) ls.textContent='缺答不默认 50%。'; return; }
   let dtsi = 0;
   const stakeScores = {};
   for(const st of STAKES){
@@ -3708,7 +3047,7 @@ for(let i=0;i<stakeIds.length-1;i++){ for(let j=i+1;j<stakeIds.length;j++){ AHP_
 function renderAHP(){
   const ans = loadAns('ahp');
   const body = document.getElementById('surveyBody');
-  let html = `<p class="hint">按 Saaty 1–9 标度，对 7 主体两两进行重要性比较（论文附录 A 同款）。共 21 对。结果会自动归一化为你自己版本的 7 主体权重。<br/><b>标度释义：</b>1 = 同等重要，3 = 略重要，5 = 明显重要，7 = 强烈重要，9 = 极端重要；偶数为相邻级别过渡。</p>`;
+  let html = `<p class="hint">按 Saaty 1–9 标度，对7主体两两比较（书稿附录B展示七方比较结构；平台界面为练习工具）。共 21 对。结果会自动归一化为你自己版本的 7 主体权重。<br/><b>标度释义：</b>1 = 同等重要，3 = 略重要，5 = 明显重要，7 = 强烈重要，9 = 极端重要；偶数为相邻级别过渡。</p>`;
   AHP_PAIRS.forEach((pair, idx) => {
     const a = STAKES.find(x=>x.id===pair[0]);
     const b = STAKES.find(x=>x.id===pair[1]);
@@ -3744,6 +3083,7 @@ function renderAHP(){
 }
 function showAHPResult(){
   const ans = loadAns('ahp');
+  if(!BookCore.completeAHP(ans)){ showToast('请完成全部 21 对比较；未答项不能视为同等重要'); return; }
   // 构造 7x7 比较矩阵
   const n = 7;
   const M = Array(n).fill(0).map(() => Array(n).fill(1));
@@ -3755,21 +3095,7 @@ function showAHPResult(){
     else { M[i][j] = 1/v; M[j][i] = v; }
     if(v === 1){ M[i][j] = 1; M[j][i] = 1; }
   });
-  // 计算权重（归一化几何平均近似）
-  const w = [];
-  for(let i=0;i<n;i++){
-    let prod = 1;
-    for(let j=0;j<n;j++) prod *= M[i][j];
-    w.push(Math.pow(prod, 1/n));
-  }
-  const sum = w.reduce((a,b)=>a+b, 0);
-  const weights = w.map(x => x/sum);
-  // 一致性比率（简化版）
-  const rowSums = M.map(row => row.reduce((a,b)=>a+b,0));
-  const lambdaMax = rowSums.reduce((a,b)=>a+b,0) / n;
-  const CI = (lambdaMax - n) / (n - 1);
-  const RI = 1.32; // n=7 的随机一致性指标
-  const CR = CI / RI;
+  const {weights, lambdaMax, CI, CR} = BookCore.ahp(M);
 
   document.getElementById('survey_runner').style.display = 'none';
   document.getElementById('survey_result').style.display = 'block';
@@ -3796,20 +3122,22 @@ function showAHPResult(){
         <div><div style="font-size:24px;font-weight:800;color:var(--accent2)">${CI.toFixed(4)}</div><div style="color:var(--muted);font-size:11px">CI 一致性指标</div></div>
         <div><div style="font-size:24px;font-weight:800;color:${CR<0.1?'var(--good)':'var(--bad)'}">${CR.toFixed(4)}</div><div style="color:var(--muted);font-size:11px">CR ${CR<0.1?'< 0.10 ✓':'≥ 0.10 ⚠'}</div></div>
       </div>
-      <p style="font-size:12px;color:var(--muted);line-height:1.7;margin-top:14px">${CR < 0.1 ? '你的判断矩阵<b style="color:var(--good)">一致性合格</b>，权重可信。论文 300 位专家平均 CR = 0.0283。' : '你的判断矩阵<b style="color:var(--bad)">一致性偏弱</b>，建议复查那些与多数主体表现差异较大的判断对。论文 300 位专家平均 CR = 0.0283。'}</p>
+      <p style="font-size:12px;color:var(--muted);line-height:1.7;margin-top:14px">${CR < 0.1 ? '你的判断矩阵<b style="color:var(--good)">一致性合格</b>，仅表示矩阵内部一致。书稿七方 7×7 群体矩阵 CR=0.0285；5×5 示例 CR=0.0283，两者均非逐份问卷平均值。' : '你的判断矩阵<b style="color:var(--bad)">一致性偏弱</b>，建议复查那些与多数主体表现差异较大的判断对。书稿七方 7×7 群体矩阵 CR=0.0285；5×5 示例 CR=0.0283，两者均非逐份问卷平均值。'}</p>
     </div>`;
-  resultForApply = { kind:'ahp', weights, stakeIds };
+  resultForApply = null;
+  document.getElementById('applyToSandbox').hidden = true;
+  document.getElementById('resultBody').insertAdjacentHTML('beforeend','<p>这是个人情景权重；书稿标准权重保持独立，不用于书中案例排名或认证。</p>');
 }
 
 /* ---- 附录 J 方法表 ---- */
 function renderMethod(){
   const body = document.getElementById('surveyBody');
-  body.innerHTML = `<p class="hint">论文附录 J 完整列出 7 主体共 35 个二级指标的具体考察方法（数据来源、测量工具、统计单位）。本页节选 24 个最有代表性的指标，全本可在【关于】页下载。</p>
+  body.innerHTML = `<p class="hint">本页保留24行历史考察方法节选；它不是书稿附录逐字复刻，也不是经确认的35项换算规范。原始值、分母、单位和换算请以独立设计方案确认后的字典为准。</p>
     <div style="background:var(--card2);border-radius:8px;overflow:hidden">
       <div class="method-row" style="background:var(--card);font-weight:700"><div class="m1">主体</div><div class="m2">指标</div><div class="m3">考察方法</div></div>
       ${METHOD_TABLE.map(row => `<div class="method-row"><div class="m1">${row[0]}</div><div class="m2">${row[1]}</div><div class="m3">${row[2]}</div></div>`).join('')}
     </div>
-    <p class="hint" style="margin-top:14px">📌 完整 35 行原文见博士论文附录 J（第 217–230 页）。</p>`;
+    <p class="hint" style="margin-top:14px">📌 本版书稿参考第七章与附录A；换算细则另案待确认。</p>`;
 }
 
 /* ---- 通用控制 ---- */
@@ -3839,23 +3167,6 @@ document.getElementById('applyToSandbox').addEventListener('click', () => {
     for(const id in a) state[id] = a[id];
     syncSliders(); rerun(); snapshot(null);
     showToast('✅ 35 指标已应用到沙盘');
-  } else if(resultForApply.kind === 'needs'){
-    // 把单一主体的总满意度均匀分配到该主体所有指标
-    const stake = STAKES.find(x => x.id === resultForApply.stake);
-    const target = resultForApply.stakePct;
-    if(stake){
-      stake.indicators.forEach(idc => { state[idc.id] = target; });
-      syncSliders(); rerun(); snapshot(null);
-      showToast(`✅ ${stake.name} 5 指标已设为 ${target.toFixed(0)}`);
-    }
-  } else if(resultForApply.kind === 'ahp'){
-    // 用用户自己的权重覆盖 STAKES 全局权重，重新计算 DTSI
-    resultForApply.stakeIds.forEach((id, i) => {
-      const stake = STAKES.find(x => x.id === id);
-      if(stake) stake.stakeWeight = resultForApply.weights[i];
-    });
-    rerun();
-    showToast('✅ 已用你的 AHP 权重覆盖 DTSI 公式');
   }
   setTimeout(() => go('sandbox'), 800);
 });
