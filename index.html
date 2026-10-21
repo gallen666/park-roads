@@ -671,6 +671,7 @@
     .hero h1.headline{font-size:32px}
   }
 </style>
+<link rel="stylesheet" href="book-method.css">
 </head>
 <body>
 
@@ -686,7 +687,7 @@
     <span class="navlink active" data-go="home" role="button" tabindex="0" aria-label="首页" aria-current="page">首页</span>
     <span class="navlink" data-go="sandbox" role="button" tabindex="0" aria-label="政策沙盘 — 35 指标实时仿真">政策沙盘</span>
     <span class="navlink" data-go="method" role="button" tabindex="0" aria-label="方法论 — DTSI 与 AHP 解释">方法论</span>
-    <span class="navlink" data-go="thesis" role="button" tabindex="0" aria-label="论文拆解 — 决策者版一页看懂">📖 书稿方法</span>
+    <span class="navlink" data-go="thesis" role="button" tabindex="0" aria-label="书稿方法 — 七方价值与五步决策循环">📖 书稿方法</span>
     <span class="navlink" data-go="cases" role="button" tabindex="0" aria-label="案例库 — 书稿汇总与平台演示">案例库</span>
     <span class="navlink" data-go="survey" role="button" tabindex="0" aria-label="调查问卷 — 平台节选练习">📋 调查问卷</span>
     <span class="navlink" data-go="insight" role="button" tabindex="0" aria-label="实时治理洞察 — 规则辅助诊断">📐 规则诊断</span>
@@ -932,7 +933,53 @@
 </section>
 
 <!-- ========== THESIS DECODE (论文拆解 · 决策者版) ========== -->
-<section id="thesis" class="section"><div class="container"><h1 class="page-title">书稿方法与平台实现</h1><div class="panel"><h2>以七方共治组织决策</h2><p>数字化转型不只看物业或企业收益。地方政府、资产持有方、园区运营方、入驻企业、科研院所、员工与居民均有独立的一级指数与权重。DTSI 为 Digital Transformation Stakeholder Index；35项三级指标先换算为0—100%，再逐层加权。权重版本固定，单次个人偏好不覆盖标准权重。</p><p>书中五步法依次为识别需求、确立目标、指数评估、动态模拟、动态调整。平台服务链和商业交付阶段是另一种组织方式，不能替代五步法。</p><a class="btn primary" href="book-workbench.html">进入可记录、可比较、可复评的五步法工作台</a></div><div class="panel"><h2>书稿与平台版本对照</h2><p>当前依据：10 月 12 日书稿，13 章、附录 A—E，PDF 共 276 页，采用作者 10 月 18 日已确认修订。历史博士论文的页码与附录 A—J 不作为本版定位。公开平台的需求问卷为节选演示，不声称逐字完整复刻书稿。</p><div class="chap-grid"><div class="chap-card"><b>1—3</b><h3>数字生产力、国家战略与园区之变</h3><p>正文 p5—55</p></div><div class="chap-card"><b>4—6</b><h3>理论基础、七方共治、从需求到目标</h3><p>正文 p62—112</p></div><div class="chap-card"><b>7</b><h3>DTSI 指数、AHP 与权重</h3><p>正文 p120—145；表7-1—7-8</p></div><div class="chap-card"><b>8</b><h3>系统动力学与 X-Flow 模型</h3><p>正文 p148—161</p></div><div class="chap-card"><b>9</b><h3>平台化转型五步法</h3><p>正文 p166—178</p></div><div class="chap-card"><b>10</b><h3>案例应用及验证边界</h3><p>正文 p183—190</p></div><div class="chap-card"><b>11—13</b><h3>价值重构、伦理与数字文明</h3><p>正文 p194—248</p></div><div class="chap-card"><b>附录 A—E</b><h3>指标表、问卷与案例/模型/术语材料</h3><p>正文 p258—263；附录A跨p258—259</p></div></div><p><a href="book-workbench.html">按书中五步法进入工作台</a></p></div><div class="panel"><h2>科学验证与证据状态</h2><p>以下结果尚未附可复核报告，统一标为待核验。AHP 的低 CR 只表明判断矩阵内部一致性，不能证明专家共识、量表效度、推广有效性或因果效果。</p><table class="tbl"><tr><th>验证内容</th><th>所需证据</th><th>状态</th></tr><tr><td>问卷信度</td><td>题项、样本口径、α/重测计算及脱敏数据</td><td>待核验</td></tr><tr><td>构念效度</td><td>CFA、因子载荷、HTMT 及区分效度报告；不等同于因果内部效度</td><td>待核验</td></tr><tr><td>稳健性与外部验证</td><td>权重/参数扰动、留出园区、误差和不确定性报告</td><td>待核验</td></tr><tr><td>伦理及独立性</td><td>知情同意、审批文件、利益披露与独立评估安排</td><td>待核验</td></tr></table></div><div class="panel"><h2>当前边界</h2><p>已完成作者确认权重与计算修正、证据台账和人工行动/复评流程。X-Flow完整方程和参数、35项原始观测换算、五级评价阈值待作者另行确认；现有沙盘仅为演示。</p></div></div></section>
+<section id="thesis" class="section bm">
+  <div class="container bm-wrap">
+    <header class="bm-hero">
+      <div><div class="bm-eyebrow">THE BOOK IN PRACTICE <span>书稿方法 · 交互设计预览</span></div>
+        <h1>让园区的每一次转型，<br><em>成为七方共同的进步。</em></h1>
+        <p class="bm-lead">从“建了什么”走向“为谁创造了什么价值”。把七方需求放在同一张图上，用共同的尺度比较选择，在行动与复评中持续调整。</p>
+        <div class="bm-hero-actions"><a class="btn primary" href="#bm-parties">从七方需求开始 <span>↗</span></a><a class="btn" href="#bm-decisions">做一次方案比较 ↓</a></div>
+        <div class="bm-foundations"><span>空间载体<small>设施与服务可达</small></span><span>产业容器<small>能力与资源协同</small></span><span>治理单元<small>规则与利益协调</small></span></div>
+      </div>
+      <div class="bm-orbit" aria-label="七方共治连接数字生产力与园区价值">
+        <div class="bm-orbit-ring ring-one"></div><div class="bm-orbit-ring ring-two"></div>
+        <div class="bm-core"><small>数字生产力</small><strong>共同定义<br>园区的成功</strong><span>DTSI · 七方价值坐标</span></div>
+        <span class="bm-node n1">地方政府</span><span class="bm-node n2">资产持有方</span><span class="bm-node n3">园区运营方</span><span class="bm-node n4">入驻企业</span><span class="bm-node n5">科研院所</span><span class="bm-node n6">企业员工</span><span class="bm-node n7">周边居民</span>
+        <div class="bm-orbit-caption">需求 → 目标 → 评估 → 模拟 → 调整 ↺</div>
+      </div>
+    </header>
+
+    <section class="bm-block" id="bm-parties" aria-labelledby="bm-parties-title">
+      <div class="bm-heading"><div><div class="bm-kicker">01 / WHO DEFINES SUCCESS</div><h2 id="bm-parties-title">先看见人，再看见指标</h2></div><p>七方各有独立位置。点击一个主体，沿着需求走向目标与证据。</p></div>
+      <div class="bm-parties-layout"><div class="bm-party-list" role="tablist" aria-label="七方主体" id="bm-party-list"></div><div class="bm-party-detail" id="bm-party-detail" role="tabpanel" tabindex="0"></div></div>
+      <div class="bm-footnote">一级权重用于汇总指数，不等同于预算分配或投票权。同一类主体内部仍需听取不同群体的意见。</div>
+    </section>
+
+    <section class="bm-block" id="bm-cycle" aria-labelledby="bm-cycle-title">
+      <div class="bm-heading"><div><div class="bm-kicker">02 / A CONTINUOUS DECISION LOOP</div><h2 id="bm-cycle-title">五步之间，要真正接得上</h2></div><p>不是完成五张表，而是让上一步的发现成为下一步的依据。</p></div>
+      <div class="bm-cycle-tabs" role="tablist" aria-label="书稿五步法" id="bm-cycle-tabs"></div>
+      <div class="bm-cycle-detail" id="bm-cycle-detail" role="tabpanel" tabindex="0"></div>
+      <div class="bm-loop-return">↶ <strong>回到需求：</strong>复评发现新的受益差异、使用障碍或环境变化，重新组织七方讨论。</div>
+    </section>
+
+    <section class="bm-block" id="bm-decisions" aria-labelledby="bm-decisions-title">
+      <div class="bm-heading"><div><div class="bm-kicker">03 / LOOK BEYOND THE TOTAL</div><h2 id="bm-decisions-title">总指数相近，谁的处境变了？</h2></div><p>亲手切换三个教学情景，体会共同尺度与七方分布为什么必须一起看。</p></div>
+      <div class="bm-scenario-controls" role="group" aria-label="选择教学情景"><button type="button" data-bm-scenario="baseline" aria-pressed="true">A · 共同基线</button><button type="button" data-bm-scenario="tradeoff" aria-pressed="false">B · 收益与损失并存</button><button type="button" data-bm-scenario="shared" aria-pressed="false">C · 两方同步改善</button></div>
+      <div class="bm-comparison"><div class="bm-total-card"><span class="bm-chip">教学情景 · 非真实园区数据</span><small>DTSI 总指数</small><div class="bm-total" id="bm-total"></div><p id="bm-scenario-description"></p><div class="bm-question" id="bm-scenario-question"></div></div><div class="bm-bars-card"><div class="bm-bars-heading"><strong>七方一级指数</strong><span>细线为共同基线 50%</span></div><div id="bm-bars"></div></div></div>
+      <details class="bm-details"><summary>查看输入假设与计算口径</summary><div id="bm-assumptions"></div><p>采用作者已确认的七方与三级指标权重，直接输入已归一化的指标值，逐层加权。这里演示的是静态算术关系，不代表实际政策效果；不进行原始数据换算、五级评级或动态预测。页面显示四位小数，保留细小差异。</p></details>
+    </section>
+
+    <section class="bm-block bm-practice" aria-labelledby="bm-practice-title">
+      <div class="bm-heading"><div><div class="bm-kicker">04 / FROM UNDERSTANDING TO ACTION</div><h2 id="bm-practice-title">把方法带回你的园区</h2></div><p>共用一套方法，进入不同的讨论与行动场景。</p></div>
+      <div class="bm-practice-grid"><a href="#survey"><span>01</span><h3>听取需求 ↗</h3><p>从主体的使用体验与期待开始，区分需求、感知与实际成效。</p><small>进入现有需求问卷</small></a><a href="#sandbox"><span>02</span><h3>展开方案讨论 ↗</h3><p>查看七方与35项指标，在明确假设下讨论方案影响和取舍。</p><small>进入现有决策沙盘</small></a><a href="book-workbench.html"><span>03</span><h3>记录行动与复评 ↗</h3><p>记录证据、责任、资源与复评结果，让一次判断能够被追溯。</p><small>进入现有五步法工作台</small></a></div>
+      <div class="bm-delivery"><strong>方法贯穿交付，而非替代交付。</strong><p>五步法组织决策；平台服务链组织诊断、资源匹配与服务交付；项目阶段组织进度与责任。三者衔接，分别回答“怎么判断”“怎么获得服务”“谁在何时完成”。</p></div>
+    </section>
+
+    <section class="bm-reading" aria-labelledby="bm-reading-title"><div><div class="bm-kicker">READ WITH THE BOOK</div><h2 id="bm-reading-title">从方法，回到思想的来处</h2><p>《数字生产力：未来园区的价值重构》<br>依据10月12日书稿及作者已确认修订；以下为正文页码。</p></div><div class="bm-reading-links"><details><summary>为什么要重新定义园区？ <span>第1—3章 · p5—55</span></summary><p>从数字生产力与国家战略出发，理解园区作为空间载体、产业容器与治理单元的转变。</p></details><details><summary>为什么是七方共同参与？ <span>第4—6章 · p62—112</span></summary><p>联系理论基础、利益相关者与需求识别，把不同主体的期待转成可以讨论的目标。</p></details><details><summary>如何评估、推演与调整？ <span>第7—10章 · p120—190</span></summary><p>DTSI 提供共同尺度，系统动力学讨论反馈与时滞，五步法把评估带入行动循环；案例需结合其数据、时间与适用范围阅读。</p></details><details><summary>转型最终创造什么价值？ <span>第11—13章 · p194—248</span></summary><p>价值实现与伦理约束共同进入决策。员工、居民与公共利益应在园区成功的定义中拥有独立位置。</p></details></div></section>
+    <div class="bm-footer"><span>设计预览 · 交互教学与现有工具导航</span><a href="book-design.html">模型与评价说明 ↗</a></div>
+  </div>
+</section>
 
 <!-- ========== CASES ========== -->
 <section id="cases" class="section"><div class="panel"><h2>案例数据与时间口径</h2><p>三期汇总沿用书稿表10-1（正文p190），数值未改，也未按本轮权重修订重算；逐项测量、日历年份和基准日期待补。旧版园区C阶段叙事中的M0/M12/M24/M36与Y1/Y2/Y3映射未核验，55.3为平台阶段演示，不能当作第三期50.3的替代实测。曲线与行动增量不证明因果效果，不用于当前园区正式排名。</p></div>
@@ -3333,5 +3380,6 @@ document.getElementById('btn_compare').classList.add('active');
 rerun();
 updateUndoRedo();
 </script>
+<script src="book-method.js"></script>
 </body>
 </html>
