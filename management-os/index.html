@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07111f">
+  <title>OpenFlowOne 十大经营系统 · 中小企业 AI 经营设计</title>
+  <meta name="description" content="输入企业名称，核验公开资料，建立可追溯事实库，并形成战略、价值、产品、组织、预算、营销、用户、绩效、财务与资本十大经营底稿。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="OpenFlowOne">
+  <meta property="og:title" content="OpenFlowOne 十大经营系统">
+  <meta property="og:description" content="从企业公开事实出发，形成可审核、可补充、可执行的十大经营底稿。">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --panel: #0d1b2e;
+      --line: #233a55;
+      --text: #f6f9fc;
+      --muted: #9eb0c6;
+      --cyan: #48d7c6;
+      --blue: #49b9ff;
+      --gold: #f4c66a;
+      --safe: #8fe3c2;
+      --shadow: 0 28px 80px rgba(0, 0, 0, .28);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(73, 185, 255, .13), transparent 31rem),
+        radial-gradient(circle at 94% 18%, rgba(72, 215, 198, .1), transparent 28rem),
+        var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Microsoft YaHei", "PingFang SC", "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .skip { position: absolute; left: -9999px; top: 8px; z-index: 50; padding: 10px 14px; border-radius: 8px; background: var(--cyan); color: #03131a; font-weight: 800; }
+    .skip:focus { left: 8px; }
+    .shell { width: min(1180px, calc(100% - 36px)); margin: 0 auto; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 78px; border-bottom: 1px solid rgba(158, 176, 198, .14); }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 850; text-decoration: none; }
+    .brand-mark { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid rgba(72, 215, 198, .6); border-radius: 11px; color: var(--cyan); background: rgba(72, 215, 198, .08); }
+    .brand small { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; letter-spacing: .12em; }
+    .top-links { display: flex; gap: 18px; color: var(--muted); font-size: 13px; }
+    .top-links a { text-decoration: none; }
+    .top-links a:hover, .top-links a:focus-visible { color: var(--cyan); }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr); gap: 48px; align-items: center; padding: 82px 0 64px; }
+    .eyebrow { margin: 0 0 16px; color: var(--cyan); font-size: 12px; font-weight: 850; letter-spacing: .18em; text-transform: uppercase; }
+    h1 { margin: 0; max-width: 760px; font-size: clamp(42px, 6vw, 72px); line-height: 1.06; letter-spacing: -.055em; }
+    h1 span { color: var(--cyan); }
+    .lead { max-width: 760px; margin: 24px 0 0; color: #c8d5e4; font-size: clamp(17px, 2vw, 20px); line-height: 1.78; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 0 20px; border: 1px solid var(--line); border-radius: 10px; font-weight: 800; text-decoration: none; }
+    .button.primary { border-color: var(--cyan); color: #03131a; background: var(--cyan); }
+    .button.primary:hover, .button.primary:focus-visible { background: #83eadf; }
+    .button.secondary:hover, .button.secondary:focus-visible { border-color: var(--blue); color: var(--blue); }
+    .access-note { margin: 14px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .process-card { padding: 26px; border: 1px solid var(--line); border-radius: 22px; background: linear-gradient(145deg, rgba(16, 36, 59, .92), rgba(9, 24, 41, .94)); box-shadow: var(--shadow); }
+    .process-card h2 { margin: 0 0 18px; font-size: 17px; }
+    .steps { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+    .steps li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: center; min-height: 48px; color: #dce7f2; }
+    .steps li:not(:last-child)::after { content: ""; grid-column: 1; width: 1px; height: 14px; margin: 0 auto; background: var(--line); }
+    .step-no { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; color: var(--cyan); background: rgba(72, 215, 198, .09); font-size: 11px; font-weight: 850; }
+    .process-card small { display: block; margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(158, 176, 198, .15); color: var(--safe); line-height: 1.65; }
+    .section { padding: 66px 0; border-top: 1px solid rgba(158, 176, 198, .12); }
+    .section-head { display: grid; grid-template-columns: minmax(0, .7fr) minmax(280px, .3fr); gap: 32px; align-items: end; margin-bottom: 30px; }
+    .section-kicker { margin: 0 0 10px; color: var(--blue); font-size: 11px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+    h2.section-title { margin: 0; font-size: clamp(30px, 4vw, 46px); letter-spacing: -.035em; }
+    .section-intro { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+    .module-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .module-card { display: grid; grid-template-columns: 72px 1fr; gap: 18px; min-height: 178px; padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: rgba(13, 27, 46, .82); transition: transform .18s ease, border-color .18s ease; }
+    .module-card:hover { transform: translateY(-2px); border-color: rgba(72, 215, 198, .48); }
+    .module-no { color: var(--cyan); font-size: 30px; font-weight: 900; letter-spacing: -.04em; }
+    .module-label { margin: 1px 0 5px; color: var(--gold); font-size: 11px; font-weight: 850; letter-spacing: .1em; }
+    .module-card h3 { margin: 0; font-size: 21px; }
+    .module-card p { margin: 13px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .outcome-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .outcome-card { padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); }
+    .outcome-card b { display: block; margin-bottom: 9px; font-size: 15px; }
+    .outcome-card p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.72; }
+    .outcome-icon { display: grid; width: 34px; height: 34px; margin-bottom: 16px; place-items: center; border-radius: 10px; color: var(--blue); background: rgba(73, 185, 255, .09); font-weight: 900; }
+    .safety { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 34px; padding: 32px; border: 1px solid rgba(72, 215, 198, .38); border-radius: 22px; background: linear-gradient(135deg, rgba(72, 215, 198, .08), rgba(73, 185, 255, .04)); }
+    .safety h2 { margin: 0; font-size: 30px; }
+    .safety > div > p { color: var(--muted); line-height: 1.75; }
+    .safety-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .safety-list li { position: relative; padding: 14px 16px 14px 44px; border: 1px solid rgba(158, 176, 198, .16); border-radius: 12px; background: rgba(7, 17, 31, .46); color: #dce7f2; font-size: 13px; line-height: 1.55; }
+    .safety-list li::before { content: "✓"; position: absolute; left: 16px; color: var(--safe); font-weight: 900; }
+    .final-cta { padding: 76px 0 86px; text-align: center; }
+    .final-cta h2 { margin: 0 auto; max-width: 780px; font-size: clamp(34px, 5vw, 54px); letter-spacing: -.045em; }
+    .final-cta p { max-width: 720px; margin: 18px auto 0; color: var(--muted); line-height: 1.75; }
+    .final-cta .actions { justify-content: center; }
+    footer { padding: 24px 0 34px; border-top: 1px solid rgba(158, 176, 198, .12); color: var(--muted); font-size: 12px; line-height: 1.65; }
+    a:focus-visible { outline: 3px solid rgba(72, 215, 198, .45); outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .module-card { transition: none; } }
+    @media (max-width: 860px) {
+      .hero, .section-head, .safety { grid-template-columns: 1fr; }
+      .module-grid { grid-template-columns: 1fr; }
+      .outcome-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero { padding-top: 56px; }
+    }
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 24px, 1180px); }
+      .topbar { align-items: flex-start; padding: 16px 0; }
+      .top-links { display: grid; gap: 7px; text-align: right; }
+      .hero { padding: 46px 0; }
+      .actions { display: grid; }
+      .button { width: 100%; }
+      .process-card, .safety { padding: 22px; }
+      .module-card { grid-template-columns: 48px 1fr; padding: 20px; }
+      .module-no { font-size: 24px; }
+      .outcome-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <header class="shell topbar">
+    <a class="brand" href="/" aria-label="返回 OpenFlowOne 首页"><span class="brand-mark">O</span><span>OpenFlowOne<small>十大经营系统</small></span></a>
+    <nav class="top-links" aria-label="页面导航"><a href="#modules">十大模块</a><a href="#safety">安全边界</a><a href="/growth-os/">Growth OS</a><a href="/">返回 Park-ROADS</a></nav>
+  </header>
+  <main id="main">
+    <section class="shell hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">AI Management Design System</p>
+        <h1 id="hero-title">输入一家企业，<br>建立可审核的<br><span>十大经营底稿</span></h1>
+        <p class="lead">系统从公开资料出发，建立带来源的企业事实库，并围绕战略、价值、产品、组织、预算、营销、用户、绩效、财务与资本形成十份待审核经营草案。</p>
+        <div class="actions"><a class="button primary" href="https://sme-ai-operations.yiledai.chatgpt.site/">进入私有十大工作台 →</a><a class="button secondary" href="#modules">查看十大模块</a></div>
+        <p class="access-note">私有工作区 · 登录后仅显示你有权访问的企业数据</p>
+      </div>
+      <aside class="process-card" aria-labelledby="process-title">
+        <h2 id="process-title">从公司名称到正式经营系统</h2>
+        <ol class="steps">
+          <li><span class="step-no">01</span><span>输入完整企业名称</span></li>
+          <li><span class="step-no">02</span><span>确认唯一经营主体</span></li>
+          <li><span class="step-no">03</span><span>分主题采集公开资料</span></li>
+          <li><span class="step-no">04</span><span>建立可追溯事实库</span></li>
+          <li><span class="step-no">05</span><span>形成十大模块底稿</span></li>
+          <li><span class="step-no">06</span><span>企业主统一审核</span></li>
+          <li><span class="step-no">07</span><span>确认后进入正式系统</span></li>
+        </ol>
+        <small>同名、证据不足或资料冲突时，系统会保留缺口，不把推测写成企业事实。</small>
+      </aside>
+    </section>
+    <section class="section" id="modules" aria-labelledby="modules-title"><div class="shell">
+      <div class="section-head"><div><p class="section-kicker">Ten Operating Workbenches</p><h2 class="section-title" id="modules-title">十个模块，一条利润经营主线</h2></div><p class="section-intro">每个模块只追一个关键经营问题。公开事实、AI 判断、内部待补和行动建议分层呈现，避免用一份漂亮报告代替真实经营。</p></div>
+      <div class="module-grid">
+        <article class="module-card"><div class="module-no">01</div><div><p class="module-label">战略设计</p><h3>战略主战场</h3><p>未来三年只押注哪个主战场，同时明确不做什么？</p></div></article>
+        <article class="module-card"><div class="module-no">02</div><div><p class="module-label">价值创造</p><h3>不可替代价值</h3><p>目标客户为什么必须选择并持续选择我们？</p></div></article>
+        <article class="module-card"><div class="module-no">03</div><div><p class="module-label">产品战略</p><h3>核心利润产品</h3><p>哪个产品最值得成为核心利润产品，哪些型号正在消耗利润？</p></div></article>
+        <article class="module-card"><div class="module-no">04</div><div><p class="module-label">组织发展</p><h3>利润责任组织</h3><p>谁对利润结果负责，关键岗位是否有清晰画像并选对人？</p></div></article>
+        <article class="module-card"><div class="module-no">05</div><div><p class="module-label">预算管理</p><h3>利润预算配置</h3><p>年度利润目标需要哪些人、资金、产能和市场资源，哪些资源不应投入？</p></div></article>
+        <article class="module-card"><div class="module-no">06</div><div><p class="module-label">营销战略</p><h3>市场成交系统</h3><p>认知、渠道、线上三条获客链中哪条断了，哪条带来高利润订单？</p></div></article>
+        <article class="module-card"><div class="module-no">07</div><div><p class="module-label">用户经营</p><h3>客户复购增长</h3><p>客户是否持续复购并主动转介绍，为什么？</p></div></article>
+        <article class="module-card"><div class="module-no">08</div><div><p class="module-label">绩效管理</p><h3>施工执行闭环</h3><p>利润目标是否拆成每个人每天可执行、可检查的动作？</p></div></article>
+        <article class="module-card"><div class="module-no">09</div><div><p class="module-label">财务管理</p><h3>利润现金回报</h3><p>收入增长最终留下了多少利润、现金和股东回报？</p></div></article>
+        <article class="module-card"><div class="module-no">10</div><div><p class="module-label">资本管理</p><h3>资本杠杆治理</h3><p>资本动作能否提高经营回报，代价、约束和退出条件是什么？</p></div></article>
+      </div>
+    </div></section>
+    <section class="section" aria-labelledby="outputs-title"><div class="shell">
+      <div class="section-head"><div><p class="section-kicker">Reviewable Outputs</p><h2 class="section-title" id="outputs-title">每个模块形成四层结果</h2></div><p class="section-intro">方法建议不会提高事实覆盖率；没有证据的内容明确标记为待补。</p></div>
+      <div class="outcome-grid">
+        <article class="outcome-card"><span class="outcome-icon">01</span><b>来源支持的待审事实</b><p>保留公开来源和证据状态，等待企业主确认。</p></article>
+        <article class="outcome-card"><span class="outcome-icon">02</span><b>AI 待验证判断</b><p>作为经营讨论草案，不自动升级为正式结论。</p></article>
+        <article class="outcome-card"><span class="outcome-icon">03</span><b>企业内部待补</b><p>把公开资料无法回答的问题明确交给负责人补充。</p></article>
+        <article class="outcome-card"><span class="outcome-icon">04</span><b>下一步行动建议</b><p>给出可审核的试点和承诺建议；确认后才写入正式系统，是否执行仍由企业决定。</p></article>
+      </div>
+    </div></section>
+    <section class="section" id="safety" aria-labelledby="safety-title"><div class="shell safety">
+      <div><p class="section-kicker">Private By Design</p><h2 id="safety-title">公开的是方法，私有的是企业经营</h2><p>官网只解释系统如何工作，不展示任何企业名称、财务数据、成员、批注或承诺记录。真实工作台继续使用独立身份验证和企业权限边界。</p></div>
+      <ul class="safety-list"><li>公开资料只作为候选证据，并保留来源。</li><li>AI 结果先保存为草案，不覆盖正式经营结果。</li><li>只有企业主确认后，内容才进入正式系统。</li><li>企业数据按企业与成员角色隔离，公开官网不读取业务数据。</li></ul>
+    </div></section>
+    <section class="shell final-cta" aria-labelledby="cta-title">
+      <p class="eyebrow">Start With One Company</p><h2 id="cta-title">从一家公司开始，建立可追溯的经营底稿</h2><p>系统提供证据整理与经营设计支持，不替代企业管理层、财务、法律或投资决策。</p>
+      <div class="actions"><a class="button primary" href="https://sme-ai-operations.yiledai.chatgpt.site/">安全登录并进入十大工作台 →</a><a class="button secondary" href="/growth-os/">了解 Growth OS</a></div>
+    </section>
+  </main>
+  <footer><div class="shell">© OpenFlowOne · 十大经营系统公开说明页 · 企业经营数据仅保存在受保护工作区</div></footer>
+</body>
+</html>
