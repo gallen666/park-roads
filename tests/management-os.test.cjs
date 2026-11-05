@@ -34,3 +34,25 @@ test('旧安全页和 Growth OS 不再把十大工作台指向错误子路径', 
   assert.ok(retired.includes('href="/management-os/">查看十大经营系统'));
   assert.ok(growth.includes('href="/management-os/">查看十大经营系统'));
 });
+
+test('公开产品页使用官网蓝色品牌体系并保留首页语义色', () => {
+  const home = read('index.html').toLowerCase();
+  const management = read('management-os/index.html').toLowerCase();
+  const retired = read('empower/index.html').toLowerCase();
+  const growth = read('growth-os/index.html').toLowerCase();
+
+  assert.ok(management.includes('--accent: #38bdf8'));
+  assert.ok(retired.includes('color:#38bdf8'));
+  assert.ok(retired.includes('background:#38bdf8'));
+  assert.ok(growth.includes('--blue: #38bdf8'));
+
+  const retiredBrandColors = ['#48d7c6', '#49b9ff', '#8fe3c2', '#83eadf', '#45d6c4', '#9de8cf', 'rgba(72, 215, 198', 'rgba(52, 211, 153'];
+  for (const color of retiredBrandColors) {
+    assert.ok(!management.includes(color), `十大经营系统仍含旧品牌色：${color}`);
+    assert.ok(!retired.includes(color), `安全页仍含旧品牌色：${color}`);
+    assert.ok(!growth.includes(color), `Growth OS 仍含旧品牌色：${color}`);
+  }
+
+  assert.ok(home.includes('--good:#22c55e'));
+  assert.ok(home.includes('--asset:#34d399'));
+});
