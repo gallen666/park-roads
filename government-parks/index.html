@@ -46,7 +46,6 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
       -webkit-font-smoothing: antialiased;
     }
-    body.modal-open { overflow: hidden; }
     a { color: inherit; }
     button, a { -webkit-tap-highlight-color: transparent; }
     button { font: inherit; }
@@ -494,29 +493,6 @@
     footer b { color: #d6e1ed; }
 
     .mobile-cta { display: none; }
-    .modal {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: none;
-      place-items: center;
-      padding: 22px;
-      background: rgba(2, 8, 15, .78);
-      backdrop-filter: blur(12px);
-    }
-    .modal.open { display: grid; }
-    .modal-card {
-      width: min(540px, 100%);
-      padding: 28px;
-      border: 1px solid var(--line-strong);
-      border-radius: 20px;
-      background: var(--panel-2);
-      box-shadow: var(--shadow);
-    }
-    .modal-card h2 { margin: 0; font-size: 25px; }
-    .modal-card p { color: var(--muted); line-height: 1.75; }
-    .modal-card .actions { justify-content: flex-end; }
-
     @media (max-width: 1020px) {
       nav a:not(.nav-button) { display: none; }
       .hero { grid-template-columns: 1fr; }
@@ -615,7 +591,7 @@
         <a href="#pilot">90天试点</a>
         <a href="#demo">虚构演示</a>
         <a href="#readiness">安全与采购</a>
-        <a class="nav-button proposal-action" href="#decision">预约方案评审</a>
+        <a class="nav-button" href="/contact/?intent=review&amp;source=government-parks">预约方案评审</a>
       </nav>
     </div>
   </header>
@@ -886,31 +862,22 @@
       <h2 id="decision-title">先验证一家企业的完整闭环，再决定是否扩大到一个园区</h2>
       <p>建议从可点击的虚构演示、完整样例交付物和安全采购材料开始。只有当过程可执行、结果可复核、数据边界可接受时，才进入付费试点和规模化讨论。</p>
       <div class="actions">
-        <button class="button primary proposal-action" type="button">预约政府与园区方案评审</button>
+        <a class="button primary" href="/contact/?intent=review&amp;source=government-parks">预约政府与园区方案评审</a>
         <a class="button" href="#demo">查看虚构企业完整样例</a>
-        <button class="button proposal-action" type="button">索取采购与安全材料</button>
+        <a class="button" href="/contact/?intent=materials&amp;source=government-parks">索取采购与安全材料</a>
       </div>
-      <div class="final-note">本建议版仅用于方案讨论，不构成采购要约、成效承诺、法律意见、财务意见或投资建议。预约和材料申请入口将在联系人、隐私告知和处理规则确认后再接通。</div>
+      <div class="final-note">本建议版仅用于方案讨论，不构成采购要约、成效承诺、法律意见、财务意见或投资建议。联系页会在浏览器中生成带唯一编号的邮件；本网站不直接上传或保存填写内容，发送前由申请人自行确认。</div>
     </section>
   </main>
 
   <footer>
     <div class="shell">
       <div><b>OpenFlowOne · 城市中小企业经营改善建议版</b><br>版本 0.1 · 2026-11-05 · 新增独立模块 · OpenFlowOne 原有内容保持不变</div>
-      <div>运营主体公开信息来自 OpenFlowOne 官网；更新时应重新核验：<br>香港能带间隙量子科技有限公司 · BR No. 80343212 · founder@bandgap.hk</div>
+      <div>运营主体公开信息来自 OpenFlowOne 官网；更新时应重新核验：<br>香港能带间隙量子科技有限公司 · BR No. 80343212 · founder@bandgap.hk · <a href="/privacy/">联系入口隐私说明</a></div>
     </div>
   </footer>
 
-  <a class="mobile-cta proposal-action" href="#decision">预约方案评审</a>
-
-  <div class="modal" id="proposal-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
-    <div class="modal-card">
-      <p class="kicker">NO DATA COLLECTION</p>
-      <h2 id="modal-title">本模块暂不采集联系信息</h2>
-      <p id="modal-description">预约评审、材料申请和私有工作台入口尚未接通。正式启用前需确认联系人、表单字段、隐私告知和处理规则。</p>
-      <div class="actions"><button class="button primary small" id="close-modal" type="button">知道了</button></div>
-    </div>
-  </div>
+  <a class="mobile-cta" href="/contact/?intent=review&amp;source=government-parks-mobile">预约方案评审</a>
 
   <script>
     const tabGroups = [
@@ -939,25 +906,6 @@
       });
     }
 
-    const modal = document.getElementById('proposal-modal');
-    const closeModal = document.getElementById('close-modal');
-    let previousFocus = null;
-    function openProposalModal(event) {
-      event.preventDefault();
-      previousFocus = document.activeElement;
-      modal.classList.add('open');
-      document.body.classList.add('modal-open');
-      closeModal.focus();
-    }
-    function closeProposalModal() {
-      modal.classList.remove('open');
-      document.body.classList.remove('modal-open');
-      previousFocus?.focus();
-    }
-    document.querySelectorAll('.proposal-action').forEach(item => item.addEventListener('click', openProposalModal));
-    closeModal.addEventListener('click', closeProposalModal);
-    modal.addEventListener('click', event => { if (event.target === modal) closeProposalModal(); });
-    document.addEventListener('keydown', event => { if (event.key === 'Escape' && modal.classList.contains('open')) closeProposalModal(); });
   </script>
 </body>
 </html>

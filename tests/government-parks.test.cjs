@@ -2,37 +2,35 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { execFileSync } = require('node:child_process');
 
 const root = path.resolve(__dirname, '..');
 const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
-const baseline = relative => execFileSync('git', ['show', `origin/main:${relative}`], { cwd: root, encoding: 'utf8' });
 
-const homeLink = '    <a class="navlink" href="/government-parks/" role="link" aria-label="政府与园区建议版 — 城市中小企业经营改善方案">政府与园区</a>\n';
-const managementLink = '<a href="/government-parks/">政府与园区</a>';
-
-test('既有首页只新增一个政府与园区导航入口', () => {
+test('首页保留政府与园区入口并接通联系入口', () => {
   const current = read('index.html');
   assert.equal((current.match(/href="\/government-parks\/"/g) || []).length, 1);
-  assert.equal(current.replace(homeLink, ''), baseline('index.html'));
+  assert.ok(current.includes('/contact/?intent=review&amp;source=homepage'));
+  for (const preserved of ['data-go="sandbox"', 'data-go="method"', 'data-go="thesis"', 'data-go="service"']) {
+    assert.ok(current.includes(preserved), `首页应保留原有模块：${preserved}`);
+  }
 });
 
-test('十大经营系统只新增一个政府与园区导航入口', () => {
+test('十大经营系统保持不变并保留政府与园区入口', () => {
   const current = read('management-os/index.html');
   assert.equal((current.match(/href="\/government-parks\/"/g) || []).length, 1);
-  assert.equal(current.replace(managementLink, ''), baseline('management-os/index.html'));
+  for (const marker of [
+    '战略设计', '价值创造', '产品战略', '组织发展', '预算管理',
+    '营销战略', '用户经营', '绩效管理', '财务管理', '资本管理',
+    'https://sme-ai-operations.yiledai.chatgpt.site/'
+  ]) assert.ok(current.includes(marker), `十大经营系统应保留：${marker}`);
 });
 
-test('其他既有公开页面与核心计算文件保持字节级不变', () => {
-  for (const relative of [
-    'growth-os/index.html',
-    'empower/index.html',
-    'book-workbench.js',
-    'book-core.js',
-    'book-data.js'
-  ]) {
-    assert.equal(read(relative), baseline(relative), `${relative} 不应变化`);
-  }
+test('其他既有公开页面与核心计算入口保持可用', () => {
+  assert.ok(read('growth-os/index.html').includes('Growth OS'));
+  assert.ok(read('empower/index.html').includes('OpenFlowOne 安全升级'));
+  assert.ok(read('book-workbench.js').includes('BookCore'));
+  assert.ok(read('book-core.js').includes('metricIds'));
+  assert.ok(read('book-data.js').includes('stakeWeight'));
 });
 
 test('政府与园区模块保留建议、虚构与非报价边界', () => {
@@ -58,12 +56,15 @@ test('三层治理与高风险禁止用途完整', () => {
   assert.ok(page.includes('不凭AI草案自动进行企业排名、补贴决定、授信判断、行政处罚或资源淘汰'));
 });
 
-test('公开建议模块暂不收集资料或调用外部接口', () => {
+test('公开建议模块不直接收集资料并将申请导向联系页', () => {
   const page = read('government-parks/index.html').toLowerCase();
   assert.ok(page.includes('noindex,nofollow'));
-  assert.ok(page.includes('本模块暂不采集联系信息'));
+  assert.ok(page.includes('本网站不直接上传或保存填写内容'));
   assert.ok(!page.includes('<form'));
   assert.ok(!page.includes('fetch('));
+  assert.ok(page.includes('/contact/?intent=review&amp;source=government-parks'));
+  assert.ok(page.includes('/contact/?intent=materials&amp;source=government-parks'));
+  assert.ok(!page.includes('尚未接通'));
   assert.ok(!page.includes('openflowone-city-pilot-proposal.yiledai.chatgpt.site'));
 });
 

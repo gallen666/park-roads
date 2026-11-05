@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07111f">
+  <title>联系与预约 · OpenFlowOne</title>
+  <meta name="description" content="预约 OpenFlowOne 政府与园区方案评审、企业经营诊断，或索取采购与安全材料。">
+  <meta name="author" content="OpenFlowOne · Hong Kong Bandgap Quantum Technology Limited">
+  <link rel="canonical" href="https://openflowone.hk/contact/">
+  <style>
+    :root{--bg:#07111f;--panel:#0d1b2d;--panel2:#10243b;--line:#23405f;--text:#e9f3ff;--muted:#a8bfd6;--blue:#38bdf8;--blue2:#60a5fa;--white:#fff;--warn:#fbbf24;--good:#7dd3fc}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at 75% 0,rgba(56,189,248,.13),transparent 34%),linear-gradient(180deg,#07111f,#091728 65%,#07111f);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;line-height:1.65}
+    a{color:var(--good)}
+    .skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:12px;z-index:99;background:#fff;color:#07111f;padding:8px 12px;border-radius:6px}
+    .shell{width:min(1100px,calc(100% - 34px));margin:0 auto}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(7,17,31,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(56,189,248,.2)}
+    .topbar .shell{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:11px;color:var(--white);text-decoration:none;font-weight:750}.mark{width:37px;height:37px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,#0ea5e9,#2563eb);box-shadow:0 10px 26px rgba(14,165,233,.25)}
+    nav{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end}nav a{font-size:13px;color:#cfe6fb;text-decoration:none}nav a:hover{text-decoration:underline}
+    .hero{padding:70px 0 28px}.eyebrow{margin:0 0 12px;color:var(--blue);font-size:12px;letter-spacing:.16em;font-weight:800}.hero h1{font-size:clamp(34px,6vw,64px);line-height:1.06;margin:0;max-width:900px;letter-spacing:-.035em}.hero p{max-width:760px;color:var(--muted);font-size:17px}
+    .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0 44px}.trust div{padding:16px;border:1px solid var(--line);border-radius:13px;background:rgba(13,27,45,.72);font-size:13px;color:var(--muted)}.trust b{display:block;color:var(--text);margin-bottom:4px}
+    .layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(270px,.65fr);gap:22px;align-items:start;padding-bottom:70px}
+    .card{background:rgba(13,27,45,.92);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,4vw,34px);box-shadow:0 22px 60px rgba(0,0,0,.2)}.card h2{margin:0 0 6px;font-size:25px}.sub{margin:0 0 26px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.full{grid-column:1/-1}
+    label,legend{display:block;font-size:13px;font-weight:700;color:#d9ecff;margin-bottom:7px}label small{font-weight:400;color:var(--muted)}
+    input,select,textarea{width:100%;border:1px solid #315173;border-radius:10px;background:#081727;color:var(--text);font:inherit;padding:11px 12px;outline:none}textarea{min-height:112px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(56,189,248,.13)}
+    fieldset{border:1px solid var(--line);border-radius:12px;padding:16px;margin:0}.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.check{display:flex;gap:9px;align-items:flex-start;font-size:13px;font-weight:500;margin:0;color:#d6e8f8}.check input{width:auto;margin-top:4px}
+    .consent{display:flex;gap:10px;align-items:flex-start;margin:18px 0;color:var(--muted);font-size:13px}.consent input{width:auto;margin-top:5px}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 19px;border-radius:10px;border:1px solid #2d5d86;background:#0e2238;color:#e9f5ff;text-decoration:none;font-weight:750;cursor:pointer}.button.primary{border-color:#38bdf8;background:linear-gradient(135deg,#0284c7,#2563eb);color:#fff;box-shadow:0 12px 28px rgba(37,99,235,.24)}.button:focus-visible{outline:3px solid rgba(125,211,252,.5);outline-offset:2px}.button-row{display:flex;gap:10px;flex-wrap:wrap}
+    .side{display:grid;gap:16px;position:sticky;top:94px}.side .card{padding:22px}.side h3{margin:0 0 10px}.side p,.side li{color:var(--muted);font-size:13px}.side ul{padding-left:18px;margin-bottom:0}.email{display:block;margin-top:12px;padding:12px;border:1px solid #315173;border-radius:9px;background:#081727;word-break:break-all}
+    .result{display:none;margin-top:22px;padding:18px;border:1px solid #1d6b91;border-radius:12px;background:rgba(14,116,144,.12)}.result.open{display:block}.result h3{margin:0 0 7px}.result textarea{min-height:220px;margin:12px 0}.reference{color:var(--warn);font-weight:800}
+    .notice{font-size:12px;color:var(--muted);margin-top:12px}.required{color:#7dd3fc}
+    footer{border-top:1px solid var(--line);padding:26px 0 38px;color:var(--muted);font-size:12px}footer .shell{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    [hidden]{display:none!important}
+    @media(max-width:760px){.topbar .shell{padding:12px 0;align-items:flex-start}.brand{white-space:nowrap}nav{gap:10px}.trust,.layout,.grid{grid-template-columns:1fr}.full{grid-column:auto}.check-grid{grid-template-columns:1fr}.side{position:static}.hero{padding-top:45px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#request-form">跳到申请表单</a>
+  <header class="topbar">
+    <div class="shell">
+      <a class="brand" href="/"><span class="mark">O</span><span>OpenFlowOne</span></a>
+      <nav aria-label="主导航"><a href="/management-os/">十大经营系统</a><a href="/government-parks/">政府与园区</a><a href="/">返回主站</a></nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">CONTACT · REVIEW · PROCUREMENT MATERIALS</p>
+      <h1>让下一步有编号、<br>有范围、有边界。</h1>
+      <p>预约方案评审、企业诊断，或索取采购与安全材料。填写内容只在你的浏览器中生成邮件；网站不会上传或保存这些信息。</p>
+    </section>
+
+    <section class="trust" aria-label="联系流程特点">
+      <div><b>唯一申请编号</b>邮件主题包含编号和来源，便于双方后续核对。</div>
+      <div><b>不在网站保存</b>不提交到网站服务器，不写入 Cookie 或本地存储。</div>
+      <div><b>发送前由你确认</b>页面只打开邮件应用，最终内容由你确认后发送。</div>
+    </section>
+
+    <section class="layout">
+      <form class="card" id="request-form" novalidate>
+        <h2>提交联系申请</h2>
+        <p class="sub"><span class="required">*</span> 为必填项。请勿填写财务明细、客户名单、密码或其他商业机密。</p>
+        <div class="grid">
+          <div class="full">
+            <label for="intent">申请类型 <span class="required">*</span></label>
+            <select id="intent" name="intent" required>
+              <option value="review">预约政府与园区方案评审</option>
+              <option value="materials">索取采购与安全材料</option>
+              <option value="enterprise">预约企业经营诊断</option>
+            </select>
+          </div>
+          <div><label for="name">联系人姓名 <span class="required">*</span></label><input id="name" name="name" autocomplete="name" required></div>
+          <div><label for="role">职务/角色 <span class="required">*</span></label><input id="role" name="role" autocomplete="organization-title" placeholder="例如：园区总经理、企业创始人" required></div>
+          <div><label for="organization">机构/企业名称 <span class="required">*</span></label><input id="organization" name="organization" autocomplete="organization" required></div>
+          <div><label for="region">国家/城市</label><input id="region" name="region" autocomplete="address-level2"></div>
+          <div><label for="email">联系邮箱 <span class="required">*</span></label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <div><label for="phone">电话/微信 <small>选填</small></label><input id="phone" name="phone" autocomplete="tel"></div>
+          <div><label for="company-count">预计参与企业数量 <small>选填</small></label><input id="company-count" name="company-count" inputmode="numeric" placeholder="例如：1、20、50"></div>
+          <div><label for="stage">当前阶段</label><select id="stage" name="stage"><option>初步了解</option><option>内部立项</option><option>供应商尽调</option><option>预算与采购论证</option><option>希望尽快启动试点</option></select></div>
+          <div class="full"><label for="objective">希望解决的问题 <span class="required">*</span></label><textarea id="objective" name="objective" placeholder="请简要说明当前问题、目标及希望的交付结果。" required></textarea></div>
+
+          <fieldset class="full" id="review-fields">
+            <legend>评审或诊断安排</legend>
+            <div class="grid">
+              <div><label for="preferred-time">希望沟通的时间</label><input id="preferred-time" name="preferred-time" placeholder="请给出2–3个时间选择"></div>
+              <div><label for="timezone">时区</label><input id="timezone" name="timezone" value="Asia/Hong_Kong (UTC+8)"></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="full" id="materials-fields" hidden>
+            <legend>希望索取的材料</legend>
+            <div class="check-grid">
+              <label class="check"><input type="checkbox" name="materials" value="90天试点范围与SOW框架">90天试点范围与SOW框架</label>
+              <label class="check"><input type="checkbox" name="materials" value="样例底稿与验收清单">样例底稿与验收清单</label>
+              <label class="check"><input type="checkbox" name="materials" value="预算构成与付款里程碑">预算构成与付款里程碑</label>
+              <label class="check"><input type="checkbox" name="materials" value="隐私、数据流与数据退出说明">隐私、数据流与数据退出说明</label>
+              <label class="check"><input type="checkbox" name="materials" value="安全能力与采购核查清单">安全能力与采购核查清单</label>
+              <label class="check"><input type="checkbox" name="materials" value="SLA与DPA草案状态">SLA与DPA草案状态</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <label class="consent"><input id="consent" type="checkbox" required><span>我已阅读<a href="/privacy/" target="_blank" rel="noopener">联系入口隐私说明</a>，理解点击后将打开本机邮件应用，网站本身不会保存本次输入；邮件只有在我确认发送后才会离开设备。</span></label>
+        <div class="button-row"><button class="button primary" type="submit">生成邮件并打开邮件应用</button><button class="button" id="reset-form" type="reset">清空</button></div>
+        <p class="notice" id="form-status" role="status" aria-live="polite"></p>
+
+        <section class="result" id="result" aria-labelledby="result-title">
+          <h3 id="result-title">申请内容已经生成</h3>
+          <p>申请编号：<span class="reference" id="reference"></span>。如果邮件应用没有自动打开，请复制以下内容并发送至 <a href="mailto:founder@bandgap.hk">founder@bandgap.hk</a>。</p>
+          <textarea id="mail-preview" readonly aria-label="已生成的申请邮件内容"></textarea>
+          <div class="button-row"><button class="button" type="button" id="copy-request">复制申请内容</button><a class="button" id="open-mail" href="mailto:founder@bandgap.hk">再次打开邮件应用</a></div>
+          <p class="notice" id="copy-status" role="status" aria-live="polite"></p>
+        </section>
+      </form>
+
+      <aside class="side">
+        <div class="card">
+          <h3>我们会先确认什么</h3>
+          <ul><li>问题是否适合用当前方法解决</li><li>需要哪些内部数据和负责人</li><li>哪些是AI草案，哪些需要专业复核</li><li>试点范围、验收标准与数据边界</li></ul>
+        </div>
+        <div class="card">
+          <h3>直接联系</h3>
+          <p>如果浏览器无法打开邮件应用，可以直接发送邮件。请在主题中注明“OpenFlowOne 方案评审”或“采购材料”。</p>
+          <a class="email" href="mailto:founder@bandgap.hk">founder@bandgap.hk</a>
+          <p>运营主体：香港能带间隙量子科技有限公司<br>BR No. 80343212</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer><div class="shell"><span>OpenFlowOne · 联系与预约</span><span><a href="/privacy/">隐私说明</a> · <a href="/government-parks/">政府与园区</a> · <a href="/">主站</a></span></div></footer>
+
+  <script>
+    (() => {
+      const recipient = 'founder@bandgap.hk';
+      const form = document.getElementById('request-form');
+      const intent = document.getElementById('intent');
+      const reviewFields = document.getElementById('review-fields');
+      const materialsFields = document.getElementById('materials-fields');
+      const result = document.getElementById('result');
+      const preview = document.getElementById('mail-preview');
+      const reference = document.getElementById('reference');
+      const openMail = document.getElementById('open-mail');
+      const formStatus = document.getElementById('form-status');
+      const copyStatus = document.getElementById('copy-status');
+      const params = new URLSearchParams(location.search);
+      const allowedIntents = new Set(['review','materials','enterprise']);
+      const requestedIntent = params.get('intent');
+      const source = (params.get('source') || 'direct').replace(/[^a-z0-9_-]/gi,'').slice(0,40) || 'direct';
+      const labels = {review:'政府与园区方案评审',materials:'采购与安全材料',enterprise:'企业经营诊断'};
+
+      if (allowedIntents.has(requestedIntent)) intent.value = requestedIntent;
+      function syncIntent(){
+        const needsMaterials = intent.value === 'materials';
+        materialsFields.hidden = !needsMaterials;
+        reviewFields.hidden = needsMaterials;
+      }
+      intent.addEventListener('change', syncIntent);
+      syncIntent();
+
+      function requestId(type){
+        const date = new Date().toISOString().slice(0,10).replaceAll('-','');
+        const bytes = new Uint8Array(3);
+        crypto.getRandomValues(bytes);
+        const code = [...bytes].map(value => value.toString(16).padStart(2,'0')).join('').toUpperCase();
+        return `OF1-${type.toUpperCase()}-${date}-${code}`;
+      }
+
+      function value(id){ return document.getElementById(id).value.trim() || '未填写'; }
+      function buildRequest(id){
+        const selectedMaterials = [...form.querySelectorAll('input[name="materials"]:checked')].map(item => item.value);
+        return [
+          `OpenFlowOne 联系申请`,
+          `申请编号：${id}`,
+          `申请类型：${labels[intent.value]}`,
+          `来源页面：${source}`,
+          '',
+          `联系人：${value('name')}`,
+          `职务/角色：${value('role')}`,
+          `机构/企业：${value('organization')}`,
+          `国家/城市：${value('region')}`,
+          `联系邮箱：${value('email')}`,
+          `电话/微信：${value('phone')}`,
+          `预计参与企业数量：${value('company-count')}`,
+          `当前阶段：${value('stage')}`,
+          '',
+          `希望解决的问题：`,
+          value('objective'),
+          '',
+          `希望沟通时间：${intent.value === 'materials' ? '不适用' : value('preferred-time')}`,
+          `时区：${intent.value === 'materials' ? '不适用' : value('timezone')}`,
+          `希望索取的材料：${selectedMaterials.length ? selectedMaterials.join('；') : '未选择'}`,
+          '',
+          `隐私确认：已确认由本人在邮件客户端审核并发送。`,
+          `生成时间：${new Date().toLocaleString('zh-CN',{timeZone:'Asia/Hong_Kong'})}（香港时间）`
+        ].join('\n');
+      }
+
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        formStatus.textContent = '';
+        if (!form.reportValidity()) {
+          formStatus.textContent = '请先完成所有必填项并确认隐私说明。';
+          return;
+        }
+        const id = requestId(intent.value);
+        const body = buildRequest(id);
+        const subject = `[${id}] OpenFlowOne｜${labels[intent.value]}｜${value('organization')}`;
+        const mailto = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        reference.textContent = id;
+        preview.value = `${subject}\n\n${body}`;
+        openMail.href = mailto;
+        result.classList.add('open');
+        formStatus.textContent = '已生成申请编号，正在打开邮件应用。请在邮件应用中确认发送。';
+        window.location.href = mailto;
+      });
+
+      document.getElementById('copy-request').addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(preview.value);
+          copyStatus.textContent = '申请内容已复制。';
+        } catch (_) {
+          preview.focus();
+          preview.select();
+          copyStatus.textContent = '浏览器未允许自动复制，内容已选中，请手动复制。';
+        }
+      });
+
+      document.getElementById('reset-form').addEventListener('click', () => {
+        result.classList.remove('open');
+        formStatus.textContent = '';
+        copyStatus.textContent = '';
+        setTimeout(syncIntent,0);
+      });
+    })();
+  </script>
+</body>
+</html>
