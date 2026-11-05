@@ -7,12 +7,13 @@ const root = path.resolve(__dirname, '..');
 const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
 const privateRoot = 'https://sme-ai-operations.yiledai.chatgpt.site/';
 
-test('公开官网提供独立十大经营系统入口', () => {
+test('首页只保留十大经营系统导航，不显示宣传区块', () => {
   const home = read('index.html');
   assert.ok(home.includes('href="/management-os/"'));
   assert.ok(home.includes('>十大经营系统</a>'));
-  assert.ok(home.includes('输入企业名称，形成可审核的十大经营底稿'));
-  assert.ok(home.includes(privateRoot));
+  assert.ok(!home.includes('class="business-entry"'));
+  assert.ok(!home.includes('OPENFLOWONE · AI MANAGEMENT DESIGN SYSTEM'));
+  assert.ok(!home.includes('输入企业名称，形成可审核的十大经营底稿'));
 });
 
 test('独立页面完整展示十个模块与私有边界', () => {
