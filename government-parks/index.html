@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OpenFlowOne 城市中小企业经营改善建议版：连接企业经营诊断、项目服务交付与政府脱敏成效评价。">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="/government-parks/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://openflowone.hk/government-parks/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OpenFlowOne 政府与园区建议版">
+  <meta property="og:description" content="城市中小企业经营改善的三层治理、90天建议试点与采购准备框架。">
+  <meta property="og:url" content="https://openflowone.hk/government-parks/">
+  <title>OpenFlowOne 政府与园区建议版 · 城市中小企业经营改善</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --bg-deep: #050c16;
+      --panel: #0b1728;
+      --panel-2: #122238;
+      --panel-3: #0d1d31;
+      --line: #233a55;
+      --line-strong: #345477;
+      --text: #f6f9fc;
+      --muted: #9eb0c6;
+      --muted-2: #71839b;
+      --blue: #38bdf8;
+      --blue-2: #7dd3fc;
+      --blue-soft: rgba(56, 189, 248, .09);
+      --gold: #f4c66a;
+      --gold-soft: rgba(244, 198, 106, .09);
+      --shadow: 0 30px 80px rgba(0, 0, 0, .28);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(56, 189, 248, .14), transparent 30rem),
+        radial-gradient(circle at 92% 24%, rgba(96, 165, 250, .07), transparent 32rem),
+        var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.modal-open { overflow: hidden; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: 8px;
+      z-index: 100;
+      padding: 11px 15px;
+      border-radius: 9px;
+      color: #03131a;
+      background: var(--blue);
+      font-weight: 850;
+    }
+    .skip:focus { left: 8px; }
+    :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    .proposal-bar {
+      border-bottom: 1px solid rgba(244, 198, 106, .22);
+      color: #dbcfae;
+      background: rgba(244, 198, 106, .055);
+      font-size: 11px;
+      line-height: 1.55;
+      letter-spacing: .02em;
+    }
+    .proposal-bar .shell {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 9px 0;
+    }
+    .proposal-bar b { color: var(--gold); }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(158, 176, 198, .13);
+      background: rgba(7, 17, 31, .88);
+      backdrop-filter: blur(18px);
+    }
+    .topbar .shell {
+      display: flex;
+      min-height: 74px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 26px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      font-weight: 900;
+    }
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid rgba(56, 189, 248, .55);
+      border-radius: 11px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      font-size: 13px;
+    }
+    .brand small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 650;
+      letter-spacing: .08em;
+    }
+    nav { display: flex; align-items: center; gap: 21px; }
+    nav a { color: var(--muted); font-size: 12px; text-decoration: none; }
+    nav a:hover { color: var(--blue-2); }
+    .nav-button {
+      display: inline-flex;
+      min-height: 39px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 15px;
+      border: 1px solid rgba(56, 189, 248, .42);
+      border-radius: 9px;
+      color: var(--blue-2);
+      background: var(--blue-soft);
+      font-weight: 800;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(390px, .97fr);
+      gap: 54px;
+      align-items: center;
+      padding: 88px 0 76px;
+    }
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(42px, 5.2vw, 62px);
+      line-height: 1.07;
+      letter-spacing: -.055em;
+    }
+    h1 .hero-line { color: inherit; white-space: nowrap; }
+    h1 .accent-word { display: inline-block; color: var(--blue); white-space: nowrap; }
+    .hero-lead {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: #c9d6e5;
+      font-size: clamp(17px, 1.8vw, 20px);
+      line-height: 1.78;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      color: var(--text);
+      background: transparent;
+      font-weight: 850;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .16s ease, border-color .16s ease, background .16s ease;
+    }
+    .button:hover { transform: translateY(-1px); border-color: var(--blue); }
+    .button.primary { border-color: var(--blue); color: #04131d; background: var(--blue); }
+    .button.primary:hover { background: var(--blue-2); }
+    .button.small { min-height: 42px; padding: 0 16px; font-size: 13px; }
+    .hero-note { margin: 14px 0 0; color: var(--muted); font-size: 11.5px; line-height: 1.65; }
+
+    .governance-preview {
+      position: relative;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(150deg, rgba(18, 34, 56, .98), rgba(9, 24, 41, .96));
+      box-shadow: var(--shadow);
+    }
+    .governance-preview::before {
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(56, 189, 248, .08);
+      border-radius: 17px;
+      content: "";
+      pointer-events: none;
+    }
+    .governance-preview h2 { position: relative; margin: 0 0 18px; font-size: 17px; }
+    .preview-flow { position: relative; display: grid; gap: 10px; }
+    .preview-node {
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 15px;
+      border: 1px solid rgba(158, 176, 198, .16);
+      border-radius: 13px;
+      background: rgba(7, 17, 31, .48);
+    }
+    .preview-node .num {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 11px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      font-size: 11px;
+      font-weight: 900;
+    }
+    .preview-node b { display: block; margin-bottom: 3px; font-size: 14px; }
+    .preview-node p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .preview-node .scope { color: var(--blue-2); font-size: 10px; white-space: nowrap; }
+    .preview-arrow { height: 12px; margin-left: 33px; border-left: 1px dashed rgba(56, 189, 248, .45); }
+    .privacy-boundary {
+      position: relative;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(158, 176, 198, .14);
+      color: var(--blue-2);
+      font-size: 11px;
+      line-height: 1.65;
+    }
+
+    .pilot-strip {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(4, 1fr);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(11, 23, 40, .82);
+    }
+    .pilot-strip > div { min-height: 96px; padding: 20px; border-left: 1px solid var(--line); }
+    .pilot-strip > div:first-child { border-left: 0; }
+    .pilot-strip .label { color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .12em; }
+    .pilot-strip strong { display: block; margin-top: 7px; font-size: 24px; letter-spacing: -.02em; }
+    .pilot-strip p { margin: 7px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .pilot-strip .proposal-cell { background: var(--gold-soft); }
+    .pilot-strip .proposal-cell strong { color: var(--gold); font-size: 16px; }
+
+    .section { padding: 82px 0; border-top: 1px solid rgba(158, 176, 198, .12); }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .72fr) minmax(280px, .28fr);
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+    .kicker { margin: 0 0 11px; color: var(--blue); font-size: 10px; font-weight: 900; letter-spacing: .17em; text-transform: uppercase; }
+    .section h2 { margin: 0; font-size: clamp(31px, 4vw, 47px); line-height: 1.16; letter-spacing: -.04em; }
+    .section-intro { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.78; }
+
+    .problem-grid, .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .value-grid { grid-template-columns: repeat(4, 1fr); }
+    .card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: rgba(11, 23, 40, .82);
+    }
+    .card-no { color: var(--blue); font-size: 12px; font-weight: 900; }
+    .card h3 { margin: 17px 0 9px; font-size: 19px; }
+    .card p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.72; }
+    .value-grid .card h3 { font-size: 16px; }
+
+    .city-loop {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--panel);
+    }
+    .loop-step { position: relative; min-height: 220px; padding: 25px 22px; border-left: 1px solid var(--line); }
+    .loop-step:first-child { border-left: 0; }
+    .loop-step:not(:last-child)::after {
+      position: absolute;
+      top: 34px;
+      right: -9px;
+      z-index: 2;
+      display: grid;
+      width: 18px;
+      height: 18px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--blue);
+      background: var(--bg);
+      content: "›";
+      font-size: 15px;
+    }
+    .loop-step .num { color: var(--blue); font-size: 11px; font-weight: 900; }
+    .loop-step h3 { margin: 19px 0 10px; font-size: 16px; line-height: 1.45; }
+    .loop-step p { margin: 0; color: var(--muted); font-size: 11.5px; line-height: 1.7; }
+    .boundary-note {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--blue);
+      border-radius: 0 10px 10px 0;
+      color: #c6d6e8;
+      background: var(--blue-soft);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .layer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .layer {
+      position: relative;
+      min-height: 430px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 19px;
+      background: linear-gradient(155deg, rgba(18, 34, 56, .94), rgba(9, 24, 41, .94));
+    }
+    .layer-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .layer-index { color: var(--blue); font-size: 11px; font-weight: 900; letter-spacing: .12em; }
+    .layer-badge { padding: 5px 8px; border-radius: 999px; color: var(--blue-2); background: var(--blue-soft); font-size: 9px; font-weight: 800; }
+    .layer h3 { margin: 25px 0 7px; font-size: 23px; }
+    .layer > p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .layer ul { display: grid; gap: 12px; margin: 24px 0 0; padding: 0; list-style: none; }
+    .layer li { position: relative; padding-left: 18px; color: #d6e0eb; font-size: 12px; line-height: 1.6; }
+    .layer li::before { position: absolute; left: 0; color: var(--blue); content: "—"; }
+    .layer-rule {
+      position: absolute;
+      right: 26px;
+      bottom: 25px;
+      left: 26px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(158, 176, 198, .15);
+      color: var(--blue-2);
+      font-size: 10.5px;
+      line-height: 1.6;
+    }
+    .prohibited {
+      margin-top: 16px;
+      padding: 20px 22px;
+      border: 1px solid rgba(244, 198, 106, .3);
+      border-radius: 14px;
+      color: #dccda8;
+      background: var(--gold-soft);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 16px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .phase { position: relative; padding: 28px 20px 0 0; }
+    .phase::before {
+      position: absolute;
+      top: -6px;
+      left: 0;
+      width: 11px;
+      height: 11px;
+      border: 2px solid var(--bg);
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 1px var(--blue);
+      content: "";
+    }
+    .phase .days { color: var(--blue); font-size: 11px; font-weight: 900; }
+    .phase h3 { min-height: 48px; margin: 11px 0 9px; font-size: 15px; line-height: 1.45; }
+    .phase p { margin: 0; color: var(--muted); font-size: 11.5px; line-height: 1.65; }
+    .deliverables {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 34px;
+    }
+    .deliverable { padding: 16px; border: 1px solid var(--line); border-radius: 12px; color: #d7e2ee; background: rgba(11, 23, 40, .7); font-size: 12px; }
+    .deliverable b { color: var(--blue); }
+
+    .metric-switch {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 20px;
+    }
+    .metric-switch button, .demo-tabs button {
+      min-height: 40px;
+      padding: 0 15px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      color: var(--muted);
+      background: transparent;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .metric-switch button[aria-selected="true"], .demo-tabs button[aria-selected="true"] {
+      border-color: var(--blue);
+      color: var(--blue-2);
+      background: var(--blue-soft);
+    }
+    .metric-panel { display: none; }
+    .metric-panel.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .metric-item { padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+    .metric-item b { display: block; margin-bottom: 7px; font-size: 14px; }
+    .metric-item p { margin: 0; color: var(--muted); font-size: 11.5px; line-height: 1.65; }
+    .causality-note { margin-top: 18px; color: var(--gold); font-size: 11px; line-height: 1.65; }
+
+    .demo-shell {
+      display: grid;
+      grid-template-columns: .35fr .65fr;
+      gap: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 21px;
+      background: var(--panel);
+    }
+    .demo-aside { padding: 27px; border-right: 1px solid var(--line); background: rgba(18, 34, 56, .72); }
+    .demo-watermark { color: var(--gold); font-size: 10px; font-weight: 900; letter-spacing: .12em; }
+    .demo-aside h3 { margin: 18px 0 8px; font-size: 25px; }
+    .demo-aside p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .demo-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 19px; }
+    .demo-tags span { padding: 6px 8px; border: 1px solid rgba(244, 198, 106, .28); border-radius: 999px; color: #dccda8; background: var(--gold-soft); font-size: 9px; }
+    .demo-main { min-width: 0; padding: 27px; }
+    .demo-tabs { display: flex; gap: 7px; overflow-x: auto; padding-bottom: 5px; }
+    .demo-tabs button { flex: 0 0 auto; }
+    .demo-panel { display: none; margin-top: 20px; }
+    .demo-panel.active { display: block; }
+    .output-card { padding: 22px; border: 1px solid var(--line); border-radius: 15px; background: rgba(7, 17, 31, .52); }
+    .output-top { display: flex; justify-content: space-between; gap: 20px; }
+    .output-card h4 { margin: 0; font-size: 17px; }
+    .status { padding: 5px 8px; border-radius: 999px; color: var(--blue-2); background: var(--blue-soft); font-size: 9px; font-weight: 850; white-space: nowrap; }
+    .output-card p { margin: 14px 0 0; color: #cbd8e7; font-size: 12px; line-height: 1.75; }
+    .evidence-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-top: 18px; }
+    .evidence-meta div { padding: 12px; border-radius: 10px; background: rgba(18, 34, 56, .68); }
+    .evidence-meta small { display: block; color: var(--muted); font-size: 9px; }
+    .evidence-meta b { display: block; margin-top: 5px; color: var(--blue-2); font-size: 11px; }
+
+    .readiness-grid { display: grid; grid-template-columns: .42fr .58fr; gap: 16px; }
+    .readiness-card { padding: 25px; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); }
+    .readiness-card h3 { margin: 0 0 20px; font-size: 20px; }
+    .readiness-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+    .readiness-list li { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 13px 0; border-top: 1px solid rgba(158, 176, 198, .13); color: #d6e0eb; font-size: 11.5px; line-height: 1.55; }
+    .readiness-list li:first-child { border-top: 0; }
+    .state-label { align-self: start; padding: 4px 7px; border-radius: 999px; font-size: 8.5px; font-weight: 850; white-space: nowrap; }
+    .state-foundation { color: var(--blue-2); background: var(--blue-soft); }
+    .state-needed { color: var(--gold); background: var(--gold-soft); }
+    .readiness-disclaimer { margin: 18px 0 0; color: var(--muted); font-size: 10px; line-height: 1.65; }
+
+    .commercial {
+      display: grid;
+      grid-template-columns: .62fr .38fr;
+      gap: 28px;
+      padding: 34px;
+      border: 1px solid rgba(56, 189, 248, .35);
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, .075), rgba(96, 165, 250, .035));
+    }
+    .commercial h3 { margin: 0; font-size: clamp(26px, 3.2vw, 38px); }
+    .commercial > div > p { margin: 15px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.75; }
+    .price-card { padding: 22px; border: 1px solid var(--line); border-radius: 15px; background: rgba(7, 17, 31, .68); }
+    .price-card small { color: var(--muted); }
+    .price-card strong { display: block; margin: 9px 0; color: var(--blue-2); font-size: 27px; }
+    .price-card p { margin: 0; color: var(--gold); font-size: 9.5px; line-height: 1.6; }
+    .commercial-rules { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; }
+    .commercial-rules div { padding: 13px; border: 1px solid var(--line); border-radius: 10px; color: #d5e0ec; font-size: 11px; }
+
+    .final-cta { padding: 90px 0; text-align: center; }
+    .final-cta h2 { max-width: 830px; margin: 0 auto; font-size: clamp(36px, 5vw, 58px); letter-spacing: -.05em; }
+    .final-cta p { max-width: 760px; margin: 20px auto 0; color: var(--muted); line-height: 1.78; }
+    .final-cta .actions { justify-content: center; }
+    .final-note { max-width: 820px; margin: 20px auto 0; color: var(--muted-2); font-size: 10px; line-height: 1.7; }
+
+    footer { padding: 28px 0 88px; border-top: 1px solid rgba(158, 176, 198, .12); color: var(--muted); font-size: 10.5px; line-height: 1.7; }
+    footer .shell { display: grid; grid-template-columns: 1fr auto; gap: 26px; }
+    footer b { color: #d6e1ed; }
+
+    .mobile-cta { display: none; }
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      place-items: center;
+      padding: 22px;
+      background: rgba(2, 8, 15, .78);
+      backdrop-filter: blur(12px);
+    }
+    .modal.open { display: grid; }
+    .modal-card {
+      width: min(540px, 100%);
+      padding: 28px;
+      border: 1px solid var(--line-strong);
+      border-radius: 20px;
+      background: var(--panel-2);
+      box-shadow: var(--shadow);
+    }
+    .modal-card h2 { margin: 0; font-size: 25px; }
+    .modal-card p { color: var(--muted); line-height: 1.75; }
+    .modal-card .actions { justify-content: flex-end; }
+
+    @media (max-width: 1020px) {
+      nav a:not(.nav-button) { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .governance-preview { max-width: 720px; }
+      .pilot-strip { grid-template-columns: repeat(4, 1fr); }
+      .pilot-strip .proposal-cell { grid-column: 1 / -1; }
+      .pilot-strip > div:nth-child(2) { border-left: 0; }
+      .value-grid { grid-template-columns: repeat(2, 1fr); }
+      .city-loop { grid-template-columns: 1fr; }
+      .loop-step { min-height: 0; border-top: 1px solid var(--line); border-left: 0; }
+      .loop-step:first-child { border-top: 0; }
+      .loop-step:not(:last-child)::after { top: auto; right: auto; bottom: -9px; left: 31px; transform: rotate(90deg); }
+      .layer { min-height: 480px; }
+      .timeline { grid-template-columns: 1fr; margin-left: 6px; border-top: 0; border-left: 1px solid var(--line-strong); }
+      .phase { padding: 0 0 28px 28px; }
+      .phase::before { top: 4px; left: -6px; }
+      .phase h3 { min-height: 0; }
+      .demo-shell, .readiness-grid, .commercial { grid-template-columns: 1fr; }
+      .demo-aside { border-right: 0; border-bottom: 1px solid var(--line); }
+    }
+
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 24px, 1180px); }
+      .proposal-bar .shell { display: block; }
+      .proposal-bar span { display: block; margin-top: 3px; }
+      .topbar .shell { min-height: 66px; }
+      .brand-mark { width: 35px; height: 35px; }
+      .brand small { max-width: 160px; }
+      nav { gap: 0; }
+      .nav-button { min-height: 36px; padding: 0 11px; font-size: 10px; }
+      .hero { gap: 34px; padding: 60px 0 54px; }
+      h1 { font-size: clamp(40px, 12vw, 58px); }
+      .actions .button { width: 100%; }
+      .preview-node { grid-template-columns: 40px 1fr; }
+      .preview-node .scope { grid-column: 2; }
+      .pilot-strip { grid-template-columns: repeat(2, 1fr); }
+      .pilot-strip > div:nth-child(4) { border-left: 0; border-top: 1px solid var(--line); }
+      .pilot-strip > div:nth-child(3), .pilot-strip > div:nth-child(5) { border-top: 1px solid var(--line); }
+      .section { padding: 64px 0; }
+      .section-head { grid-template-columns: 1fr; gap: 18px; }
+      .problem-grid, .value-grid, .layer-grid, .metric-panel.active, .deliverables { grid-template-columns: 1fr; }
+      .layer { min-height: 0; padding-bottom: 132px; }
+      .demo-main, .demo-aside { padding: 21px; }
+      .evidence-meta { grid-template-columns: 1fr; }
+      .commercial { padding: 23px; }
+      .commercial-rules { grid-template-columns: 1fr; }
+      footer { padding-bottom: 110px; }
+      footer .shell { grid-template-columns: 1fr; }
+      .mobile-cta {
+        position: fixed;
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+        z-index: 45;
+        display: flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--blue);
+        border-radius: 11px;
+        color: #04131d;
+        background: var(--blue);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, .42);
+        font-weight: 900;
+        text-decoration: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+
+  <div class="proposal-bar">
+    <div class="shell">
+      <div><b>建议版本 · 非正式采购文件</b></div>
+      <span>所有试点数字、预算与演示内容均为方案建议，不代表既有客户、合同或成效。</span>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="shell">
+      <a class="brand" href="/" aria-label="返回 OpenFlowOne 首页">
+        <span class="brand-mark">O</span>
+        <span>OpenFlowOne<small>城市中小企业经营提升系统 · 建议版</small></span>
+      </a>
+      <nav aria-label="页面导航">
+        <a href="/">返回 OpenFlowOne</a>
+        <a href="/management-os/">十大经营系统</a>
+        <a href="#value">城市价值</a>
+        <a href="#layers">三层架构</a>
+        <a href="#pilot">90天试点</a>
+        <a href="#demo">虚构演示</a>
+        <a href="#readiness">安全与采购</a>
+        <a class="nav-button proposal-action" href="#decision">预约方案评审</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="shell hero" id="top" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">CITY SME IMPROVEMENT SYSTEM · PROPOSAL</p>
+        <h1 id="hero-title"><span class="hero-line">让企业改善有证据，</span><br><span class="hero-line">让产业服务预算</span><span class="accent-word">可复盘</span></h1>
+        <p class="hero-lead">面向城市经贸部门、产业园区与中小企业服务机构，连接企业经营诊断、服务资源配置、行动执行与脱敏成效评价。企业保留经营数据控制权，政府只查看经授权的项目进度与聚合结果。</p>
+        <div class="actions">
+          <a class="button primary" href="#pilot">查看90天试点方案</a>
+          <a class="button" href="#demo">查看虚构企业演示</a>
+        </div>
+        <p class="hero-note">建议试点配置：1个园区 · 20家企业 · 90天 · 3个优先模块</p>
+      </div>
+
+      <aside class="governance-preview" aria-labelledby="governance-preview-title">
+        <h2 id="governance-preview-title">三层治理，不把企业机密变成政府数据</h2>
+        <div class="preview-flow">
+          <div class="preview-node">
+            <span class="num">01</span>
+            <div><b>企业私有经营工作区</b><p>事实、判断、待补与行动由企业审核</p></div>
+            <span class="scope">企业控制</span>
+          </div>
+          <div class="preview-arrow" aria-hidden="true"></div>
+          <div class="preview-node">
+            <span class="num">02</span>
+            <div><b>项目运营与服务交付</b><p>管理基线、里程碑、服务任务与证据</p></div>
+            <span class="scope">授权范围</span>
+          </div>
+          <div class="preview-arrow" aria-hidden="true"></div>
+          <div class="preview-node">
+            <span class="num">03</span>
+            <div><b>政府公共成效视图</b><p>只查看经过授权、匿名汇总的项目指标</p></div>
+            <span class="scope">脱敏聚合</span>
+          </div>
+        </div>
+        <div class="privacy-boundary">企业原始财务、客户、战略和资本资料不自动进入政府端；AI草案不用于自动排名、补贴、授信或行政决定。</div>
+      </aside>
+    </section>
+
+    <div class="shell pilot-strip" aria-label="建议试点配置">
+      <div class="proposal-cell"><span class="label">PROPOSAL STATUS</span><strong>受控试点建议</strong><p>先证明过程可执行，再讨论规模采购</p></div>
+      <div><span class="label">建议范围</span><strong>1个园区</strong><p>由经贸、园区或企业服务机构牵头</p></div>
+      <div><span class="label">建议企业数</span><strong>20家</strong><p>不是既有客户数量</p></div>
+      <div><span class="label">建议周期</span><strong>90天</strong><p>长期结果需6–12个月复评</p></div>
+      <div><span class="label">优先模块</span><strong>3个</strong><p>产品、营销、财务现金</p></div>
+    </div>
+
+    <section class="section" id="value" aria-labelledby="public-problem-title">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="kicker">THE PUBLIC PROBLEM</p><h2 id="public-problem-title">政府购买的不是AI报告，而是可验证的企业改善过程</h2></div>
+          <p class="section-intro">传统企业服务项目常见三个断点：诊断与执行分离、服务过程难以复盘、企业敏感数据与政府绩效评价边界不清。</p>
+        </div>
+        <div class="problem-grid">
+          <article class="card"><span class="card-no">01</span><h3>服务分散</h3><p>培训、咨询、融资和数字化服务分别交付，难以判断企业真正卡在哪里，也难以形成持续行动。</p></article>
+          <article class="card"><span class="card-no">02</span><h3>报告不等于结果</h3><p>项目容易以报告数量、活动场次和签到人数验收，却无法说明企业是否完成了关键经营改善。</p></article>
+          <article class="card"><span class="card-no">03</span><h3>数据边界不清</h3><p>企业担心财务、客户和战略数据被扩大使用；政府又缺少可信、可审计的聚合评价依据。</p></article>
+        </div>
+
+        <div class="section-head" style="margin-top:70px">
+          <div><p class="kicker">PUBLIC VALUE</p><h2>把单家企业改善，转化为城市可问责的服务体系</h2></div>
+          <p class="section-intro">公共价值来自更精准的服务、更完整的行动证据和更清晰的数据权限，而不是AI输出数量。</p>
+        </div>
+        <div class="value-grid">
+          <article class="card"><span class="card-no">A</span><h3>提高服务精准度</h3><p>先识别企业真实经营缺口，再匹配顾问、培训、市场、融资或数字化服务。</p></article>
+          <article class="card"><span class="card-no">B</span><h3>形成行动记录</h3><p>保留事实来源、人工确认、责任人、完成时间和行动状态，避免只交付一份报告。</p></article>
+          <article class="card"><span class="card-no">C</span><h3>发现共性瓶颈</h3><p>在企业授权和脱敏前提下，形成行业或园区共性问题视图。</p></article>
+          <article class="card"><span class="card-no">D</span><h3>建立绩效证据链</h3><p>把项目投入、服务动作、企业采用和后续结果分层记录，为复评与审计提供依据。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="loop" aria-labelledby="loop-title">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="kicker">CITY-TO-COMPANY LOOP</p><h2 id="loop-title">从城市发现问题，到企业完成改善，再回到公共成效评价</h2></div>
+          <p class="section-intro">Park-ROADS与十大经营系统不再是两个并列页面，而是一条有权限边界的城市—企业服务闭环。</p>
+        </div>
+        <div class="city-loop">
+          <article class="loop-step"><span class="num">01</span><h3>Park-ROADS发现问题</h3><p>识别园区、产业与服务体系中的候选短板；情景结果不自动作为正式政策结论。</p></article>
+          <article class="loop-step"><span class="num">02</span><h3>十大经营系统诊断企业</h3><p>围绕十个经营模块形成带来源、待审核的企业底稿。</p></article>
+          <article class="loop-step"><span class="num">03</span><h3>项目方配置服务</h3><p>根据企业确认的问题安排顾问、培训、市场、融资或数字化支持。</p></article>
+          <article class="loop-step"><span class="num">04</span><h3>企业执行并确认</h3><p>企业自行确认责任人、完成标准、时间和预算，建议不会自动成为承诺。</p></article>
+          <article class="loop-step"><span class="num">05</span><h3>城市查看脱敏成效</h3><p>政府查看覆盖、进度、共性问题和授权聚合结果，不读取企业原始机密。</p></article>
+        </div>
+        <div class="boundary-note"><b>边界：</b>Park-ROADS用于城市与园区层面的分析框架；十大经营系统服务单家企业。两者通过项目指标连接，不自动交换企业敏感数据。</div>
+      </div>
+    </section>
+
+    <section class="section" id="layers" aria-labelledby="layers-title">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="kicker">THREE-LAYER GOVERNANCE</p><h2 id="layers-title">企业、项目运营方和政府，各自只看到完成职责所需的信息</h2></div>
+          <p class="section-intro">把“谁能看到什么”写进产品结构，而不是只放在隐私声明里。</p>
+        </div>
+        <div class="layer-grid">
+          <article class="layer">
+            <div class="layer-top"><span class="layer-index">LAYER 01</span><span class="layer-badge">企业控制</span></div>
+            <h3>企业层</h3><p>私有经营工作区</p>
+            <ul><li>独立管理经营资料与十大模块</li><li>公开事实、AI判断、内部待补和行动建议分层</li><li>企业主确认后才进入正式经营系统</li><li>支持单模块或十大模块统一推进</li></ul>
+            <div class="layer-rule">财务、客户、战略和资本资料默认不向政府开放。</div>
+          </article>
+          <article class="layer">
+            <div class="layer-top"><span class="layer-index">LAYER 02</span><span class="layer-badge">合同授权</span></div>
+            <h3>项目运营层</h3><p>试点交付工作台</p>
+            <ul><li>管理参与、基线、服务任务与里程碑</li><li>检查材料、问题与服务是否完成</li><li>记录顾问、培训与企业行动的对应关系</li><li>处理异常、整改和停止条件</li></ul>
+            <div class="layer-rule">运营方只能访问合同和企业授权范围内的数据。</div>
+          </article>
+          <article class="layer">
+            <div class="layer-top"><span class="layer-index">LAYER 03</span><span class="layer-badge">脱敏聚合</span></div>
+            <h3>政府层</h3><p>公共成效视图</p>
+            <ul><li>企业覆盖、参与和项目进度</li><li>行业或园区共性瓶颈</li><li>服务资源投向与完成情况</li><li>过程指标及中长期跟踪结果</li></ul>
+            <div class="layer-rule">政府端不读取企业原始商业机密。</div>
+          </article>
+        </div>
+        <div class="prohibited"><b>禁止用途：</b>不凭AI草案自动进行企业排名、补贴决定、授信判断、行政处罚或资源淘汰。任何涉及公共资源和企业权利的决定必须有明确规则、人工审核与申诉机制。</div>
+      </div>
+    </section>
+
+    <section class="section" id="pilot" aria-labelledby="pilot-title">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="kicker">90-DAY CONTROLLED PILOT</p><h2 id="pilot-title">先用20家企业证明过程可执行，再讨论城市规模化</h2></div>
+          <p class="section-intro">90天验收过程质量；利润、现金流、就业和存活情况等长期结果在试点结束后6–12个月复评。</p>
+        </div>
+        <div class="timeline" aria-label="90天建议试点时间线">
+          <article class="phase"><span class="days">0–15天</span><h3>基线与治理</h3><p>确认授权、数据边界、企业基线、优先模块与退出机制。</p></article>
+          <article class="phase"><span class="days">16–45天</span><h3>事实与诊断</h3><p>建立可追溯事实库，形成三个模块待审核底稿并由企业逐项确认。</p></article>
+          <article class="phase"><span class="days">46–75天</span><h3>行动与服务</h3><p>把确认问题转为任务，匹配服务并记录责任、标准、时间与证据。</p></article>
+          <article class="phase"><span class="days">76–90天</span><h3>验收与复评计划</h3><p>形成企业独立结果、城市脱敏汇总、未完成事项和长期复评安排。</p></article>
+          <article class="phase"><span class="days">6–12个月</span><h3>独立结果复评</h3><p>跟踪经营、就业、融资准备与持续采用，不把短期变化当作因果结论。</p></article>
+        </div>
+        <div class="deliverables" aria-label="建议交付物">
+          <div class="deliverable"><b>20</b> 份企业基线记录</div>
+          <div class="deliverable"><b>60</b> 份优先模块底稿</div>
+          <div class="deliverable">企业行动台账</div>
+          <div class="deliverable">项目服务交付台账</div>
+          <div class="deliverable">城市脱敏聚合报告</div>
+          <div class="deliverable">安全与数据退出记录</div>
+        </div>
+        <p class="hero-note">以上交付物数量是建议范围，不代表已经完成的真实项目或保证达到的结果。</p>
+      </div>
+    </section>
+
+    <section class="section" id="measurement" aria-labelledby="measurement-title">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="kicker">MEASUREMENT BEFORE CLAIMS</p><h2 id="measurement-title">90天评价过程质量，6–12个月再评价经营结果</h2></div>
+          <p class="section-intro">先定义基线、时间和证据，再谈改善。指标变化不自动等于项目因果效果。</p>
+        </div>
+        <div class="metric-switch" role="tablist" aria-label="成效指标分类">
+          <button id="metric-tab-process" role="tab" aria-selected="true" aria-controls="metric-process" data-metric="process">90天过程指标</button>
+          <button id="metric-tab-business" role="tab" aria-selected="false" aria-controls="metric-business" data-metric="business">6–12个月经营指标</button>
+          <button id="metric-tab-public" role="tab" aria-selected="false" aria-controls="metric-public" data-metric="public">项目公共指标</button>
+        </div>
+        <div class="metric-panel active" id="metric-process" role="tabpanel" aria-labelledby="metric-tab-process">
+          <article class="metric-item"><b>有效参与</b><p>企业是否完成授权、基线、审核和关键会议，而不只统计报名。</p></article>
+          <article class="metric-item"><b>证据覆盖</b><p>候选事实有多少来源支持、多少仍待补、多少已由企业确认。</p></article>
+          <article class="metric-item"><b>行动完整</b><p>责任、标准、时间和资源是否明确，服务与需求是否真正匹配。</p></article>
+        </div>
+        <div class="metric-panel" id="metric-business" role="tabpanel" aria-labelledby="metric-tab-business">
+          <article class="metric-item"><b>产品与毛利</b><p>产品组合、贡献毛利与低效型号是否发生可解释变化。</p></article>
+          <article class="metric-item"><b>市场与回款</b><p>获客、转化、复购、回款和应收周转是否改善。</p></article>
+          <article class="metric-item"><b>持续采用</b><p>企业是否继续使用方法和工具，而不是试点结束即停止。</p></article>
+        </div>
+        <div class="metric-panel" id="metric-public" role="tabpanel" aria-labelledby="metric-tab-public">
+          <article class="metric-item"><b>服务有效完成</b><p>哪些服务真正完成并被企业采用，哪些需要整改或停止。</p></article>
+          <article class="metric-item"><b>资源配置变化</b><p>共性问题是否改变培训、咨询、融资和数字化资源投向。</p></article>
+          <article class="metric-item"><b>规模化证据</b><p>单家成本、满意度、数据质量和中长期结果是否支持扩大试点。</p></article>
+        </div>
+        <p class="causality-note">重要：正式评价需要明确基线、对照口径、时间边界和独立复核；本建议版不承诺因果成效。</p>
+      </div>
+    </section>
+
+    <section class="section" id="demo" aria-labelledby="demo-title">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="kicker">SYNTHETIC DEMONSTRATION</p><h2 id="demo-title">先看一家公司如何从证据走到行动</h2></div>
+          <p class="section-intro">这个固定只读样例不调用真实API、不包含真实企业资料，也不会因任务状态变化而展示失败首页。</p>
+        </div>
+        <div class="demo-shell">
+          <aside class="demo-aside">
+            <span class="demo-watermark">完全虚构演示</span>
+            <h3>星河精密制造</h3>
+            <p>以下内容全部为合成数据，只用于展示四层输出和人工确认边界，不构成经营建议。</p>
+            <div class="demo-tags"><span>合成数据</span><span>不对应真实企业</span><span>只读样例</span></div>
+          </aside>
+          <div class="demo-main">
+            <div class="demo-tabs" role="tablist" aria-label="虚构企业四层输出">
+              <button id="demo-tab-evidence" role="tab" aria-selected="true" aria-controls="demo-evidence" data-demo="evidence">01 待审事实</button>
+              <button id="demo-tab-judgment" role="tab" aria-selected="false" aria-controls="demo-judgment" data-demo="judgment">02 AI判断</button>
+              <button id="demo-tab-gap" role="tab" aria-selected="false" aria-controls="demo-gap" data-demo="gap">03 内部待补</button>
+              <button id="demo-tab-action" role="tab" aria-selected="false" aria-controls="demo-action" data-demo="action">04 行动建议</button>
+            </div>
+            <div class="demo-panel active" id="demo-evidence" role="tabpanel" aria-labelledby="demo-tab-evidence">
+              <article class="output-card"><div class="output-top"><h4>来源支持的待审事实</h4><span class="status">待企业确认</span></div><p>合成资料 SYN-01《2026产品结构表》显示：A系列贡献样例收入54%，但缺少按型号计算的贡献毛利和售后成本，因此不能直接认定为核心利润产品。</p><div class="evidence-meta"><div><small>来源</small><b>SYN-01 · 合成演示</b></div><div><small>主体匹配</small><b>虚构企业 · 已匹配</b></div><div><small>证据状态</small><b>部分支持</b></div></div></article>
+            </div>
+            <div class="demo-panel" id="demo-judgment" role="tabpanel" aria-labelledby="demo-tab-judgment">
+              <article class="output-card"><div class="output-top"><h4>AI待验证判断</h4><span class="status">不能直接采纳</span></div><p>A系列可能具备成为优先验证产品的条件，但收入贡献并不等于利润贡献。需要补充型号级毛利、返修、折扣、回款和产能占用后再作判断。</p><div class="evidence-meta"><div><small>依据</small><b>1条合成候选事实</b></div><div><small>置信边界</small><b>证据不足</b></div><div><small>写入正式系统</small><b>否</b></div></div></article>
+            </div>
+            <div class="demo-panel" id="demo-gap" role="tabpanel" aria-labelledby="demo-tab-gap">
+              <article class="output-card"><div class="output-top"><h4>企业内部待补</h4><span class="status">负责人补充</span></div><p>需要补充：各型号贡献毛利、退换货与返修成本、平均折扣、回款周期、产能占用，以及哪些型号正消耗现金和关键资源。</p><div class="evidence-meta"><div><small>问题数量</small><b>6项</b></div><div><small>建议负责人</small><b>由企业确认</b></div><div><small>截止时间</small><b>尚未承诺</b></div></div></article>
+            </div>
+            <div class="demo-panel" id="demo-action" role="tabpanel" aria-labelledby="demo-tab-action">
+              <article class="output-card"><div class="output-top"><h4>下一步行动建议</h4><span class="status">建议 · 非承诺</span></div><p>建议先选择A系列两个型号进行30天利润与现金验证，建立收入、贡献毛利、回款和产能占用的统一口径；责任人、预算和时间须经企业主确认后生效。</p><div class="evidence-meta"><div><small>试点范围</small><b>2个合成型号</b></div><div><small>完成标准</small><b>口径完整可复核</b></div><div><small>企业承诺</small><b>尚未形成</b></div></div></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="readiness" aria-labelledby="readiness-title">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="kicker">PROCUREMENT READINESS</p><h2 id="readiness-title">方法边界已经建立，采购材料必须逐项补齐</h2></div>
+          <p class="section-intro">状态标签必须反映真实成熟度；不使用一排绿色勾号制造“已经全部完成”的印象。</p>
+        </div>
+        <div class="readiness-grid">
+          <article class="readiness-card">
+            <h3>已有方法基础</h3>
+            <ul class="readiness-list">
+              <li><span>事实与AI判断分层</span><span class="state-label state-foundation">方法已体现</span></li>
+              <li><span>资料不足时保留缺口</span><span class="state-label state-foundation">方法已体现</span></li>
+              <li><span>企业主人工确认</span><span class="state-label state-foundation">方法已体现</span></li>
+              <li><span>公开说明与私有工作区分离</span><span class="state-label state-foundation">当前可观察</span></li>
+              <li><span>建议项不自动成为承诺</span><span class="state-label state-foundation">方法已体现</span></li>
+            </ul>
+          </article>
+          <article class="readiness-card">
+            <h3>采购前建议补齐</h3>
+            <ul class="readiness-list">
+              <li><span>隐私政策、服务条款、DPA与数据权利</span><span class="state-label state-needed">建议补齐</span></li>
+              <li><span>数据流、存储区域、保留、删除和分包商</span><span class="state-label state-needed">建议补齐</span></li>
+              <li><span>SSO、MFA、权限矩阵与审计日志</span><span class="state-label state-needed">待验证</span></li>
+              <li><span>加密、备份、RTO/RPO与事件响应</span><span class="state-label state-needed">待验证</span></li>
+              <li><span>第三方安全测试、SLA与无锁定退出</span><span class="state-label state-needed">建议补齐</span></li>
+              <li><span>模型版本、来源准确率、偏差与人工复核</span><span class="state-label state-needed">建议补齐</span></li>
+            </ul>
+            <p class="readiness-disclaimer">以上是建议采购清单，不表示OpenFlowOne当前已经取得相关认证或完成全部材料。进入正式采购前应按证据逐项更新状态。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="commercial" aria-labelledby="commercial-title">
+      <div class="shell">
+        <div class="commercial">
+          <div>
+            <p class="kicker">PILOT COMMERCIAL MODEL</p>
+            <h3 id="commercial-title">固定范围、分阶段付款，达不到标准就停止</h3>
+            <p>建议先做20家企业、90天、3个优先模块。政府只看脱敏聚合结果；不自动续费，未达到验收闸门不进入规模采购。</p>
+            <div class="commercial-rules"><div>启动与基线确认｜阶段付款</div><div>底稿与服务交付｜阶段付款</div><div>最终验收｜保留不少于10%尾款</div><div>未达到闸门｜整改或停止</div></div>
+          </div>
+          <aside class="price-card" aria-label="建议预算区间">
+            <small>建议采购结构 · 非正式报价</small>
+            <strong>人民币30万–60万元</strong>
+            <p>仅为方案设计参考，不代表现有价格、政府采购市场估值或成效承诺。实际范围、人工投入、安全要求和价格须经双方确认。</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell final-cta" id="decision" aria-labelledby="decision-title">
+      <p class="kicker">VERIFY BEFORE SCALE</p>
+      <h2 id="decision-title">先验证一家企业的完整闭环，再决定是否扩大到一个园区</h2>
+      <p>建议从可点击的虚构演示、完整样例交付物和安全采购材料开始。只有当过程可执行、结果可复核、数据边界可接受时，才进入付费试点和规模化讨论。</p>
+      <div class="actions">
+        <button class="button primary proposal-action" type="button">预约政府与园区方案评审</button>
+        <a class="button" href="#demo">查看虚构企业完整样例</a>
+        <button class="button proposal-action" type="button">索取采购与安全材料</button>
+      </div>
+      <div class="final-note">本建议版仅用于方案讨论，不构成采购要约、成效承诺、法律意见、财务意见或投资建议。预约和材料申请入口将在联系人、隐私告知和处理规则确认后再接通。</div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <div><b>OpenFlowOne · 城市中小企业经营改善建议版</b><br>版本 0.1 · 2026-11-05 · 新增独立模块 · OpenFlowOne 原有内容保持不变</div>
+      <div>运营主体公开信息来自 OpenFlowOne 官网；更新时应重新核验：<br>香港能带间隙量子科技有限公司 · BR No. 80343212 · founder@bandgap.hk</div>
+    </div>
+  </footer>
+
+  <a class="mobile-cta proposal-action" href="#decision">预约方案评审</a>
+
+  <div class="modal" id="proposal-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
+    <div class="modal-card">
+      <p class="kicker">NO DATA COLLECTION</p>
+      <h2 id="modal-title">本模块暂不采集联系信息</h2>
+      <p id="modal-description">预约评审、材料申请和私有工作台入口尚未接通。正式启用前需确认联系人、表单字段、隐私告知和处理规则。</p>
+      <div class="actions"><button class="button primary small" id="close-modal" type="button">知道了</button></div>
+    </div>
+  </div>
+
+  <script>
+    const tabGroups = [
+      { button: '[data-metric]', panel: '.metric-panel', prefix: 'metric-' },
+      { button: '[data-demo]', panel: '.demo-panel', prefix: 'demo-' }
+    ];
+
+    for (const group of tabGroups) {
+      const buttons = [...document.querySelectorAll(group.button)];
+      const panels = [...document.querySelectorAll(group.panel)];
+      buttons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+          const value = button.dataset.metric || button.dataset.demo;
+          buttons.forEach(item => item.setAttribute('aria-selected', 'false'));
+          panels.forEach(panel => panel.classList.remove('active'));
+          button.setAttribute('aria-selected', 'true');
+          document.getElementById(group.prefix + value)?.classList.add('active');
+        });
+        button.addEventListener('keydown', event => {
+          if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+          event.preventDefault();
+          const next = event.key === 'ArrowRight' ? (index + 1) % buttons.length : (index - 1 + buttons.length) % buttons.length;
+          buttons[next].focus();
+          buttons[next].click();
+        });
+      });
+    }
+
+    const modal = document.getElementById('proposal-modal');
+    const closeModal = document.getElementById('close-modal');
+    let previousFocus = null;
+    function openProposalModal(event) {
+      event.preventDefault();
+      previousFocus = document.activeElement;
+      modal.classList.add('open');
+      document.body.classList.add('modal-open');
+      closeModal.focus();
+    }
+    function closeProposalModal() {
+      modal.classList.remove('open');
+      document.body.classList.remove('modal-open');
+      previousFocus?.focus();
+    }
+    document.querySelectorAll('.proposal-action').forEach(item => item.addEventListener('click', openProposalModal));
+    closeModal.addEventListener('click', closeProposalModal);
+    modal.addEventListener('click', event => { if (event.target === modal) closeProposalModal(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && modal.classList.contains('open')) closeProposalModal(); });
+  </script>
+</body>
+</html>
+
+
